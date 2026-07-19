@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Supplementary, Complementary & Vertical Angles — Sim</title>
+<style>
+  :root{--void:#0d1322;--ink:#161d31;--bone:#e8ecf3;--mist:#9aabd0;--accent:#8b5cf6;--gold:#f5c842;--border:#2a3142;--good:#7ee081}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--void);color:var(--bone);font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;min-height:100%}
+  header{padding:2vh 4vw;border-bottom:1px solid var(--border);background:var(--ink)}
+  .eyebrow{font-family:"DM Mono",ui-monospace,monospace;letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--accent)}
+  h1{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(20px,3vw,30px);margin-top:.3rem}
+  main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.6vh;padding:3vh 4vw}
+  .stage{width:100%;max-width:720px;aspect-ratio:16/11;background:var(--ink);border:1px solid var(--border);border-radius:16px;touch-action:none}
+  svg{width:100%;height:100%;display:block}
+  .controls{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
+  button{font-family:"DM Mono",ui-monospace,monospace;font-size:14px;background:var(--ink);color:var(--bone);border:1px solid var(--border);border-radius:999px;padding:.6rem 1.2rem;cursor:pointer}
+  button.on{border-color:var(--accent);color:var(--accent)}
+  .readout{font-family:"DM Mono",ui-monospace,monospace;font-size:clamp(14px,2.1vw,19px);color:var(--mist);text-align:center;min-height:2.4em;line-height:1.6}
+  .readout b{color:var(--gold)}
+  .readout .pair-good{color:var(--good);font-weight:bold}
+  .readout .note{color:var(--bone)}
+  .hint{color:var(--mist);font-size:14px;max-width:60ch;text-align:center}
+</style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Geometry · Lesson 6 · sim</div>
+    <h1>Rotate the line. Watch all four angles at once.</h1>
+  </header>
+  <main>
+    <div class="controls" id="actions">
+      <button id="snap90">Snap to 90°</button>
+      <button id="randomize">Randomize</button>
+    </div>
+    <div class="stage"><svg viewBox="0 0 640 400" id="svg"></svg></div>
+    <div class="readout" id="readout"></div>
+    <p class="hint">Drag the gold handle to rotate the violet line through the vertex V. The gray line stays fixed. Watch &ang;1–&ang;4: the two gold-arc angles (&ang;1, &ang;3) always match, and so do the two green-arc angles (&ang;2, &ang;4) — those are the <b>vertical</b> pairs. Any two angles that sit side by side always add to 180&deg; — that's a <b>linear pair</b>.</p>
+  </main>
+<script>
+(() => {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  const readout = document.getElementById('readout');
+
+  const V = { x: 320, y: 200 };  // shared vertex
+  const R = 165;                 // ray reach from vertex to each line's end
+
+  function make(tag, attrs){ const n=document.createElementNS(NS,tag); for(const k in attrs) n.setAttribute(k,attrs[k]); svg.appendChild(n); return n; }
+  const rad = d => d * Math.PI / 180;
+  // point at math-angle deg (0 = pointing right along +x, measured counter-clockwise); y-up convention
+  const at = (deg, r) => ({ x: V.x + r*Math.cos(rad(deg)), y: V.y - r*Math.sin(rad(deg)) });
+
+  function arrowVec(x, y, ux, uy, color){
+    const tipX = x + ux*13, tipY = y + uy*13;
+    const px = -uy*7, py = ux*7;
+    return make('path', { d:`M${x+px} ${y+py} L${tipX} ${tipY} L${x-px} ${y-py} Z`, fill:color });
+  }
+
+  function arcPath(from, to, r){
+    const steps = Math.max(2, Math.round(Math.abs(to - from) / 3));
+    const pts = [];
+    for (let i = 0; i <= steps; i++){ const d = from + (to - from) * i / steps; const p = at(d, r); pts.push(`${i === 0 ? 'M' : 'L'}${p.x.toFixed(2)} ${p.y.toFixed(2)}`); }
+    return pts.join(' ');
+  }
+
+  // ---- fixed line (gray), horizontal through V: 0° <-> 180° ----
+  const fixedEndA = at(0, R), fixedEndB = at(180, R);
+  make('line', { x1:fixedEndA.x, y1:fixedEndA.y, x2:fixedEndB.x, y2:fixedEndB.y, stroke:'#5c6685', 'stroke-width':4 });
+  arrowVec(fixedEndA.x, fixedEndA.y, 1, 0, '#5c6685');
+  arrowVec(fixedEndB.x, fixedEndB.y, -1, 0, '#5c6685');
+
+  // ---- rotating line (violet), through V at theta <-> theta+180 ----
+  const rotLine = make('line', { stroke:'#8b5cf6', 'stroke-width':4 });
+  const rotArrowA = make('path', { fill:'#8b5cf6' });
+  const rotArrowB = make('path', { fill:'#8b5cf6' });
+
+  // ---- vertex ----
+  make('circle', { cx:V.x, cy:V.y, r:7, fill:'#e8ecf3' });
+  const vLbl = make('text', { x:V.x, y:V.y+26, 'text-anchor':'middle', 'font-size':18, fill:'#e8ecf3', 'font-family':'DM Mono, monospace' }); vLbl.textContent = 'V';
+
+  // ---- four angle arcs: gold for the {1,3} vertical pair, green for the {2,4} vertical pair ----
+  const arc1 = make('path', { fill:'none', stroke:'#f5c842', 'stroke-width':3 });
+  const arc2 = make('path', { fill:'none', stroke:'#7ee081', 'stroke-width':3 });
+  const arc3 = make('path', { fill:'none', stroke:'#f5c842', 'stroke-width':3 });
+  const arc4 = make('path', { fill:'none', stroke:'#7ee081', 'stroke-width':3 });
+
+  function makeLabel(color){ return make('text', { 'text-anchor':'middle', 'font-size':16, fill:color, 'font-family':'DM Mono, monospace' }); }
+  const lab1 = makeLabel('#f5c842'), lab2 = makeLabel('#7ee081'), lab3 = makeLabel('#f5c842'), lab4 = makeLabel('#7ee081');
+
+  // ---- draggable handle on the rotating line's "theta" end ----
+  const handle = make('circle', { r:12, fill:'#f5c842' });
+  const hit = make('circle', { r:26, fill:'transparent', cursor:'grab' });
+
+  let theta = 62; // current rotating-line angle, 0–180 (a line at theta is the same as at theta+180)
+
+  function draw(){
+    const B1 = at(theta, R), B2 = at(theta + 180, R);
+    rotLine.setAttribute('x1', B2.x); rotLine.setAttribute('y1', B2.y);
+    rotLine.setAttribute('x2', B1.x); rotLine.setAttribute('y2', B1.y);
+    const dir1 = { x: Math.cos(rad(theta)), y: -Math.sin(rad(theta)) };
+    rotArrowA.setAttribute('d', (() => { const x=B1.x,y=B1.y,ux=dir1.x,uy=dir1.y; const tipX=x+ux*13,tipY=y+uy*13,px=-uy*7,py=ux*7; return `M${x+px} ${y+py} L${tipX} ${tipY} L${x-px} ${y-py} Z`; })());
+    rotArrowB.setAttribute('d', (() => { const x=B2.x,y=B2.y,ux=-dir1.x,uy=-dir1.y; const tipX=x+ux*13,tipY=y+uy*13,px=-uy*7,py=ux*7; return `M${x+px} ${y+py} L${tipX} ${tipY} L${x-px} ${y-py} Z`; })());
+    handle.setAttribute('cx', B1.x); handle.setAttribute('cy', B1.y);
+    hit.setAttribute('cx', B1.x); hit.setAttribute('cy', B1.y);
+
+    // wedges, going counter-clockwise from 0°: [0,theta]=∠1, [theta,180]=∠2, [180,180+theta]=∠3, [180+theta,360]=∠4
+    const m1 = theta, m2 = 180 - theta, m3 = theta, m4 = 180 - theta;
+    arc1.setAttribute('d', arcPath(0, theta, 42));
+    arc2.setAttribute('d', arcPath(theta, 180, 42));
+    arc3.setAttribute('d', arcPath(180, 180 + theta, 42));
+    arc4.setAttribute('d', arcPath(180 + theta, 360, 42));
+
+    const place = (lab, mid, text) => { const p = at(mid, 64); lab.setAttribute('x', p.x); lab.setAttribute('y', p.y); lab.textContent = text; };
+    place(lab1, theta / 2, `∠1 ${Math.round(m1)}°`);
+    place(lab2, (theta + 180) / 2, `∠2 ${Math.round(m2)}°`);
+    place(lab3, 180 + theta / 2, `∠3 ${Math.round(m3)}°`);
+    place(lab4, (180 + theta + 360) / 2, `∠4 ${Math.round(m4)}°`);
+
+    const d1 = Math.round(m1), d2 = 180 - d1; // d2 derived from d1 so the linear-pair sum always reads exactly 180°
+    let special = '';
+    if (d1 === 90) special = '<div class="note">All four angles are right angles — the lines are perpendicular!</div>';
+
+    readout.innerHTML =
+      `<div><span class="pair-good">m&ang;1 = ${d1}&deg;  =  m&ang;3 = ${d1}&deg;</span>  &middot;  vertical angles, always congruent</div>` +
+      `<div><span class="pair-good">m&ang;2 = ${d2}&deg;  =  m&ang;4 = ${d2}&deg;</span>  &middot;  vertical angles, always congruent</div>` +
+      `<div>m&ang;1 + m&ang;2 = <b>${d1 + d2}°</b> &middot; every side-by-side (linear) pair sums to 180&deg;</div>` +
+      special;
+  }
+
+  // ---- drag handling ----
+  let dragging = false;
+  function toLocal(e){
+    const r = svg.getBoundingClientRect();
+    const cx = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+    const cy = (e.touches ? e.touches[0].clientY : e.clientY) - r.top;
+    return { x: cx / r.width * 640, y: cy / r.height * 400 };
+  }
+  function angleFromPoint(p){
+    const d = Math.atan2(V.y - p.y, p.x - V.x) * 180 / Math.PI;
+    const norm = ((d % 360) + 360) % 360;
+    return Math.max(2, Math.min(178, norm));
+  }
+  function down(e){ dragging = true; move(e); e.preventDefault(); }
+  function move(e){ if (!dragging) return; theta = angleFromPoint(toLocal(e)); draw(); e.preventDefault(); }
+  function up(){ dragging = false; }
+
+  hit.addEventListener('pointerdown', down);
+  window.addEventListener('pointermove', move);
+  window.addEventListener('pointerup', up);
+  hit.addEventListener('touchstart', down, { passive:false });
+  window.addEventListener('touchmove', move, { passive:false });
+  window.addEventListener('touchend', up);
+
+  document.getElementById('snap90').addEventListener('click', () => { theta = 90; draw(); });
+  document.getElementById('randomize').addEventListener('click', () => { theta = Math.round((10 + Math.random() * 160)); draw(); });
+
+  draw();
+})();
+</script>
+</body>
+</html>

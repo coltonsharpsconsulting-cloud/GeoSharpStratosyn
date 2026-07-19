@@ -1,0 +1,44 @@
+{
+  "id": "LP-W06-S3", "course": "geometry", "week": 6, "session": 3,
+  "session_type": "prove", "lesson": "L05 — Parallel & Perpendicular Lines; Bisectors",
+  "unit": "u01", "duration_min": 60, "mode": "Prove",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 6 · Prove It — Parallel & Perpendicular Lines; Bisectors",
+  "essential_question": "Why does swinging two matched compass arcs always land exactly on a segment's midpoint — not just close to it?",
+  "objective": "Justify why the perpendicular-bisector and angle-bisector constructions land exactly on their targets, review the week's Math-U-See practice, and pass the mastery checkpoint on parallel/perpendicular lines, bisectors, and constructions.",
+  "standards": ["G-CO.D.12"],
+  "vocab": ["parallel", "perpendicular", "bisector", "perpendicular bisector", "midpoint", "equidistant"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Redraw From Memory","board":"warmup","content":{"prompt":"Without looking, sketch a pair of parallel lines and a pair of perpendicular lines, marking the right angle on the perpendicular pair. Then, from memory, define bisector, perpendicular bisector, and midpoint in one sentence each."}},
+    {"phase":"review","min":12,"title":"Review — Your Math-U-See Work","board":"review","content":{"heading":"Go over Lesson Practice 5A & 5B together","note":"Bring your completed MUS Lesson Practice 5A/5B. We check the tricky ones: the fill-in-the-blank definitions, and the two straightedge-and-compass items (finding a midpoint and its perpendicular bisector, and bisecting an angle). Fix any you missed and note WHY."}},
+    {"phase":"prove","min":16,"title":"Prove It — Reason Out Loud","board":"prove","content":{"heading":"Defend three claims","figure":"segment","bullets":["Claim 1: the two points where your equal-radius arcs cross are each exactly the same distance from A as they are from B. Argue it — what does swinging an arc of one fixed radius from a point actually guarantee about every point on that arc?","Claim 2: not every bisector of segment AB is a perpendicular bisector — only ONE specific line through the midpoint earns that name. Argue why, and say what makes that one line special among all the others through the same midpoint.","Claim 3: in the angle-bisector construction, the two small halves ∠XYW and ∠WYZ are always exactly equal. Argue it from the two congruent triangles the equal-radius arcs create."]}},
+    {"phase":"checkpoint","min":18,"title":"Mastery Checkpoint","board":"checkpoint","content":{"heading":"Show what you own","items":["c1","c2","c3","c4","c5","c6"]}},
+    {"phase":"close","min":8,"title":"Close & Set Mastery","board":"close","content":{"items":["x1"],"preview":"Next week, Lesson 6 — Supplementary, Complementary & Vertical Angles — where two intersecting lines start creating angle pairs with special relationships."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can tell parallel and perpendicular lines apart and define bisector, perpendicular bisector, and midpoint without help"},
+    {"id":"SC2","text":"I can justify why the compass construction lands exactly on the midpoint and crosses at a right angle"},
+    {"id":"SC3","text":"I can construct and verify a perpendicular bisector and an angle bisector with a compass and straightedge"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W06-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W06 Parallel, Perpendicular & Bisectors.md"},
+    "mus": {"practice":"MUS/L05 — Lesson Practice.pdf","review":"MUS/L05 — Systematic Review.pdf","test":"MUS/L05 — Lesson Test.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"checkpoint","kind":"check","title":"Mastery Checkpoint","items":["c1","c2","c3","c4","c5","c6"]},
+      {"phase":"close","kind":"exit","title":"Set Your Mastery","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"c1","type":"mc","sc":"SC1","points":1,"prompt":"Two lines in the same plane that never intersect are called…","options":["perpendicular lines","parallel lines","skew lines"],"answer":"parallel lines","explain":"Parallel lines lie in the same plane and stay the same distance apart forever — they never cross."},
+    {"ref":"c2","type":"dropdown","sc":"SC1","points":1,"prompt":"A line, ray, or segment that cuts an angle or a segment into two congruent parts is called a…","options":["vertex","bisector","midpoint"],"answer":"bisector","explain":"A bisector's whole job is cutting an angle or a segment into two congruent (equal) parts."},
+    {"ref":"c3","type":"mc","sc":"SC1","points":1,"prompt":"A bisector of a segment that also crosses it at a right angle is called a…","options":["midpoint","perpendicular bisector","straight angle"],"answer":"perpendicular bisector","explain":"Adding the 90°-crossing condition to an ordinary bisector is exactly what makes it a perpendicular bisector."},
+    {"ref":"c4","type":"short","sc":"SC2","points":2,"prompt":"In your own words, explain why the two points where your equal-radius arcs cross are both exactly the same distance from A as they are from B — and why that guarantees the line through them passes through segment AB's true midpoint.","answer":"Each crossing point sits on an arc of the same radius drawn from A and an arc of the same radius drawn from B, so it is exactly that radius-distance from both A and B — it is equidistant from A and B. Any point equidistant from both endpoints must lie on the line that splits AB symmetrically, which crosses AB at its exact midpoint and at a right angle.","explain":"Full credit names 'equidistant from A and B' (same radius from each) as the reason the connecting line must pass through the true midpoint, not an estimate."},
+    {"ref":"c5","type":"construct","sc":"SC3","points":2,"figure":"grid-blank","prompt":"On the grid, use your straightedge and compass to construct the perpendicular bisector of segment EF, and label its midpoint N.","answer":"Equal-radius arcs from E and from F crossing above and below the segment; a straight line through both crossings, labeled N where it meets EF.","explain":"Rubric: visible equal-radius arcs from both E and F (1 pt) + a correct connecting line meeting EF at its labeled midpoint N (1 pt)."},
+    {"ref":"c6","type":"construct","sc":"SC3","points":2,"prompt":"Draw ∠PQR at any opening you choose (vertex Q), then use your straightedge and compass to construct its bisector. Label a point S on the new ray so it reads ray QS.","answer":"One arc from Q crossing both rays; equal-radius arcs from those two crossing points meeting at a new point; ray QS drawn from the vertex through that point, splitting ∠PQR into two equal angles.","explain":"Rubric: visible arc from Q crossing both rays plus the two equal-radius interior arcs (1 pt) + ray QS correctly drawn through their crossing, bisecting the angle (1 pt)."},
+    {"ref":"x1","type":"short","sc":"SC1","points":1,"prompt":"Close: rate yourself on Lesson 5 (Emerging / Proficient / Mastered) and name the one idea you'd want to revisit."}
+  ]
+}

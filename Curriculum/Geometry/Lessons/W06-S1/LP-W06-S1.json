@@ -1,0 +1,47 @@
+{
+  "id": "LP-W06-S1", "course": "geometry", "week": 6, "session": 1,
+  "session_type": "concept", "lesson": "L05 — Parallel & Perpendicular Lines; Bisectors",
+  "unit": "u01", "duration_min": 60, "mode": "Concept",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 6 · Parallel, Perpendicular & the Perfect Half",
+  "essential_question": "Two straight lines share a plane forever — what are the only two ways they can relate, and what does it take to cut an angle or a segment exactly in half?",
+  "objective": "Distinguish parallel lines from perpendicular lines using ∥ and ⊥, define bisector, perpendicular bisector, and midpoint, and use a straightedge and compass to construct a perpendicular bisector and bisect an angle.",
+  "standards": ["G-CO.D.12"],
+  "vocab": ["parallel", "perpendicular", "bisector", "perpendicular bisector", "midpoint"],
+  "agenda": [
+    {"phase":"launch","min":6,"title":"Launch — Two Rulers, Two Relationships","board":"launch","content":{"prompt":"Lay two straightedges so they never touch, no matter how far you slide them — that's one relationship. Now cross them so the corner looks exactly like a picture frame's corner — that's the other. Geometry says these are the ONLY two special relationships two lines in one plane can have. What's different about the two crossings you just made?"}},
+    {"phase":"i_do","min":12,"title":"I do — Parallel, Perpendicular, Bisector & Midpoint","board":"i_do","content":{"heading":"Two lines, two relationships — and the tool that cuts things in half","figure":"segment","bullets":["Parallel lines (ℓ ∥ m) share one plane and never intersect — they stay the same distance apart forever.","Perpendicular lines (ℓ ⊥ m) intersect and form a right angle (90°) at the point where they cross.","A bisector is a line, ray, or segment that cuts an angle or a segment into two congruent (equal) parts.","A perpendicular bisector is a bisector of a segment that ALSO crosses it at a right angle — cutting it in half AND meeting it at 90°.","The midpoint is the one point that splits a segment into two congruent halves: if AB ≅ BD, then B is the midpoint of AD."]}},
+    {"phase":"explore","min":8,"title":"Explore — Drag the Endpoints","board":"explore","content":{"heading":"Move the endpoints; watch the bisector hold the middle","note":"On the sim, drag either endpoint P or Q. Watch the midpoint M and the perpendicular bisector update live. Confirm the readout PM = MQ stays true no matter how you stretch or tilt the segment.","figure":"segment"}},
+    {"phase":"check","min":5,"title":"Check for Understanding","board":"check","content":{"heading":"Name That Relationship","items":["n1","n2"]}},
+    {"phase":"you_do","min":12,"title":"You do — Bisect It","board":"you_do","content":{"heading":"Your turn on the worksheet","items":["p1","p2","p3","p4"]}},
+    {"phase":"exit","min":5,"title":"Exit Ticket","board":"exit","content":{"items":["x1"],"preview":"Build session: construct a perpendicular bisector and an angle bisector with a real compass and straightedge."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can tell parallel and perpendicular lines apart and use the ∥ and ⊥ symbols correctly"},
+    {"id":"SC2","text":"I can define bisector, perpendicular bisector, and midpoint, and find a midpoint from congruent segments"},
+    {"id":"SC3","text":"I can use a straightedge and compass to construct a segment's perpendicular bisector and bisect an angle"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W06-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W06 Parallel, Perpendicular & Bisectors.md"},
+    "mus": {"practice":"MUS/L05 — Lesson Practice.pdf","review":"MUS/L05 — Systematic Review.pdf","test":"MUS/L05 — Lesson Test.pdf"},
+    "interactive": {"slug":"bisector","note":"Curriculum/Geometry/Lessons/W06-S1/sims/bisector.html"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"check","kind":"check","title":"Name That Relationship","items":["n1","n2"]},
+      {"phase":"practice","kind":"practice","title":"Bisect It","items":["p1","p2","p3","p4"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"n1","type":"dropdown","sc":"SC1","points":1,"prompt":"Two lines in the same plane that never intersect are ___ lines.","options":["parallel","perpendicular","collinear"],"answer":"parallel","explain":"Parallel lines stay in the same plane and the same distance apart forever — they never cross."},
+    {"ref":"n2","type":"mc","sc":"SC1","points":1,"prompt":"What does the notation ℓ ⊥ m mean?","options":["ℓ and m never intersect","ℓ and m intersect and form a right angle","ℓ and m are the same line"],"answer":"ℓ and m intersect and form a right angle","explain":"The ⊥ symbol means 'is perpendicular to' — the two lines cross and form a 90° angle there."},
+    {"ref":"p1","type":"short","sc":"SC2","points":2,"prompt":"In your own words, define a bisector. What can it cut, and into what?","answer":"A bisector is a line, ray, or segment that cuts an angle or a segment into two congruent (equal) parts.","explain":"Full credit names 'two congruent/equal parts' and that a bisector can apply to either an angle or a segment."},
+    {"ref":"p2","type":"construct","sc":"SC3","points":2,"figure":"grid-blank","prompt":"Using only a straightedge and compass — no ruler measuring — construct the perpendicular bisector of segment CD on the grid, and label the point where it crosses CD as M.","answer":"Equal-radius arcs swung from C and from D (radius more than half of CD) crossing above and below the segment; a straight line through both arc-crossings; that line meets CD at its midpoint, labeled M.","explain":"Rubric: two equal-radius arcs from each endpoint crossing above and below the segment (1 pt) + the connecting line correctly meeting CD at its midpoint M (1 pt)."},
+    {"ref":"p3","type":"dropdown","sc":"SC2","points":1,"prompt":"Points A, B, D lie on a line in that order. If AB ≅ BD, then B is the ___ of AD.","options":["vertex","bisector","midpoint"],"answer":"midpoint","explain":"B splits AD into two congruent segments, AB and BD — that's exactly what makes B the midpoint."},
+    {"ref":"p4","type":"short","sc":"SC2","points":2,"prompt":"Infinitely many lines pass through a segment's midpoint, and every one of them bisects the segment. What one extra condition makes just ONE of those lines the perpendicular bisector?","answer":"It must also cross the segment at exactly a right angle (90°) — at any other angle it's just 'a bisector,' not 'the perpendicular bisector.'","explain":"Full credit names the 90° crossing as the one extra condition that upgrades an ordinary bisector of a segment to its perpendicular bisector."},
+    {"ref":"x1","type":"short","sc":"SC3","points":2,"prompt":"Exit: which is harder to spot in the real world — a true perpendicular (crossing at exactly 90°) or a true midpoint (splitting something exactly in half)? Give one real example of whichever you picked, and say how you'd check it without a ruler or protractor."}
+  ]
+}

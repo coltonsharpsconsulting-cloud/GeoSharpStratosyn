@@ -1,0 +1,44 @@
+{
+  "id": "LP-W05-S3", "course": "geometry", "week": 5, "session": 3,
+  "session_type": "prove", "lesson": "L04 — Types of Angles",
+  "unit": "u01", "duration_min": 60, "mode": "Prove",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 5 · Prove It — Types of Angles",
+  "essential_question": "Why do the five angle families never blur into their neighbors at the boundary?",
+  "objective": "Justify why 90° and 180° each stand alone as exact boundaries and why a reflex angle must exceed 180°, review the week's Math-U-See practice, and pass the mastery checkpoint on classifying and combining angle types.",
+  "standards": ["G-CO.A.1"],
+  "vocab": ["acute angle", "right angle", "obtuse angle", "straight angle", "reflex angle"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Sort From Memory","board":"warmup","content":{"prompt":"Without looking, list all five angle types in order from smallest to largest, and write the degree range or exact value for each. Then check against your concept note."}},
+    {"phase":"review","min":12,"title":"Review — Your Math-U-See Work","board":"review","content":{"heading":"Go over Lesson Practice 4A & 4B together","note":"Bring your completed MUS Lesson Practice 4A/4B. We check the tricky ones: a single set of rays actually names two angles (assume the smaller one unless told otherwise), classifying an angle straight from its drawing, and drawing angles like 190° and 340° that wrap into reflex. Fix any you missed and note WHY."}},
+    {"phase":"prove","min":16,"title":"Prove It — Reason Out Loud","board":"prove","content":{"heading":"Defend three claims","figure":"angle-pair","bullets":["Claim 1: 90° can never be called acute or obtuse, no matter how close a nearby angle gets. Argue it from the strict (open) inequalities that define acute and obtuse.","Claim 2: a reflex angle must always measure more than 180°. Argue it from what 'the other side' of a smaller angle has to add up to.","Claim 3: a right angle plus a right angle always equals a straight angle — never anything else. Argue it using plain degree addition, not a picture."]}},
+    {"phase":"checkpoint","min":18,"title":"Mastery Checkpoint","board":"checkpoint","content":{"heading":"Show what you own","items":["c1","c2","c3","c4","c5","c6"]}},
+    {"phase":"close","min":8,"title":"Close & Set Mastery","board":"close","content":{"items":["x1"],"preview":"Next week, Lesson 5: parallel & perpendicular lines and bisectors — where these angle types show up at every intersection."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can classify any angle as acute, right, obtuse, straight, or reflex from its degree measure without help"},
+    {"id":"SC2","text":"I can find the resulting type when two angle measures are added together"},
+    {"id":"SC3","text":"I can justify why 90° and 180° each stand alone as exact boundaries and why a reflex angle must exceed 180°"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W05-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W05 Types of Angles.md"},
+    "mus": {"practice":"MUS/L04 — Lesson Practice.pdf","review":"MUS/L04 — Systematic Review.pdf","test":"MUS/L04 — Lesson Test.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"checkpoint","kind":"check","title":"Mastery Checkpoint","items":["c1","c2","c3","c4","c5","c6"]},
+      {"phase":"close","kind":"exit","title":"Set Your Mastery","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"c1","type":"mc","sc":"SC1","points":1,"prompt":"An angle measuring 90° is classified as…","options":["acute","right","obtuse","straight"],"answer":"right","explain":"90° is the exact boundary between acute and obtuse, so it is its own type: right."},
+    {"ref":"c2","type":"dropdown","sc":"SC1","points":1,"prompt":"An angle measuring exactly 180° is a(n) ___ angle.","options":["right","straight","reflex"],"answer":"straight","explain":"180° is two opposite rays forming one unbroken line — exactly the definition of a straight angle."},
+    {"ref":"c3","type":"mc","sc":"SC1","points":1,"prompt":"Which degree range describes a reflex angle?","options":["0° to 90°","90° to 180°","greater than 180° and less than 360°","exactly 360°"],"answer":"greater than 180° and less than 360°","explain":"Reflex angles are strictly bigger than a straight angle (180°) and strictly less than one full turn (360°)."},
+    {"ref":"c4","type":"short","sc":"SC2","points":2,"prompt":"A right angle plus a right angle equals a(n) ___ angle. Show the degree addition that proves it.","answer":"Straight; 90° + 90° = 180°, and 180° is exactly the definition of a straight angle.","explain":"Full credit: shows 90 + 90 = 180 and names straight as the resulting type."},
+    {"ref":"c5","type":"construct","sc":"SC1","points":2,"figure":"grid-blank","prompt":"On the grid, draw and label a reflex angle. Mark the vertex, both rays, and write its approximate degree measure.","answer":"Two rays from a labeled vertex with the angle opening more than halfway around (greater than 180° and less than 360°), and a written measure in that range.","explain":"Rubric: a vertex with two labeled rays sweeping past a straight line (1 pt) + a written degree measure honestly between 180° and 360° (1 pt)."},
+    {"ref":"c6","type":"short","sc":"SC3","points":2,"prompt":"In your own words, explain why 90° can never be called 'acute,' even though angles like 89° are very close to it.","answer":"Acute is defined as strictly less than 90° — an open range that never includes 90° itself, no matter how close a neighboring measure gets. 90° sits exactly on the boundary, so it belongs to its own category, right, not to acute.","explain":"Full credit: names the strict/open inequality that defines acute and states that a boundary value is excluded from it by definition, not by closeness."},
+    {"ref":"x1","type":"short","sc":"SC1","points":1,"prompt":"Close: rate yourself on Lesson 4 (Emerging / Proficient / Mastered) and name the one idea you'd want to revisit."}
+  ]
+}

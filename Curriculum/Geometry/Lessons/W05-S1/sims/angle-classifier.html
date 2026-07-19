@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Types of Angles — Sim</title>
+<style>
+  :root{--void:#0d1322;--ink:#161d31;--bone:#e8ecf3;--mist:#9aabd0;--accent:#8b5cf6;--gold:#f5c842;--border:#2a3142;--good:#7ee081;--acute:#7ee081;--right:#f5c842;--obtuse:#ff9f5a;--straight:#c7cfe4;--reflex:#f472b6}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--void);color:var(--bone);font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;min-height:100%}
+  header{padding:2vh 4vw;border-bottom:1px solid var(--border);background:var(--ink)}
+  .eyebrow{font-family:"DM Mono",ui-monospace,monospace;letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--accent)}
+  h1{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(20px,3vw,30px);margin-top:.3rem}
+  main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.4vh;padding:3vh 4vw}
+  .stage{width:100%;max-width:680px;aspect-ratio:1/1;background:var(--ink);border:1px solid var(--border);border-radius:16px;touch-action:none}
+  svg{width:100%;height:100%;display:block}
+  .controls{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
+  button{font-family:"DM Mono",ui-monospace,monospace;font-size:14px;background:var(--ink);color:var(--bone);border:1px solid var(--border);border-radius:999px;padding:.6rem 1.2rem;cursor:pointer}
+  button.on{border-color:var(--accent);color:var(--accent)}
+  .readout{font-family:"DM Mono",ui-monospace,monospace;font-size:clamp(16px,2.4vw,22px);color:var(--mist);text-align:center;min-height:1.6em}
+  .readout b{font-size:1.15em}
+  .readout .match{color:var(--good);font-weight:bold}
+  .hint{color:var(--mist);font-size:14px;max-width:60ch;text-align:center}
+  .legend{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;font-family:"DM Mono",ui-monospace,monospace;font-size:12px;color:var(--mist)}
+  .legend span{display:inline-flex;align-items:center;gap:.4rem}
+  .legend i{width:10px;height:10px;border-radius:50%;display:inline-block}
+</style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Geometry · Lesson 4 · sim</div>
+    <h1>Drag the ray. Watch it change type.</h1>
+  </header>
+  <main>
+    <div class="controls" id="modes">
+      <button data-mode="explore" class="on">Explore</button>
+      <button data-mode="match">Match the Type</button>
+    </div>
+    <div class="stage"><svg viewBox="0 0 640 460" id="svg"></svg></div>
+    <div class="readout" id="readout"></div>
+    <div class="controls" id="actions" hidden>
+      <button id="newTarget">New Target</button>
+    </div>
+    <p class="hint" id="hint"></p>
+    <div class="legend">
+      <span><i style="background:var(--acute)"></i>acute · 0°–90°</span>
+      <span><i style="background:var(--right)"></i>right · 90°</span>
+      <span><i style="background:var(--obtuse)"></i>obtuse · 90°–180°</span>
+      <span><i style="background:var(--straight)"></i>straight · 180°</span>
+      <span><i style="background:var(--reflex)"></i>reflex · 180°–360°</span>
+    </div>
+  </main>
+<script>
+(() => {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  const readout = document.getElementById('readout');
+  const hint = document.getElementById('hint');
+  const actions = document.getElementById('actions');
+
+  const V = { x: 320, y: 250 };   // vertex
+  const R = 150;                  // ray length
+  const RIM = R + 30;             // dial rim radius
+
+  function make(tag, attrs){ const n=document.createElementNS(NS,tag); for(const k in attrs) n.setAttribute(k,attrs[k]); svg.appendChild(n); return n; }
+  const rad = d => d * Math.PI / 180;
+  // point at math-angle deg (0 = pointing right along +x, 90 = straight up); y-up convention
+  const at = (deg, r) => ({ x: V.x + r*Math.cos(rad(deg)), y: V.y - r*Math.sin(rad(deg)) });
+
+  const TYPES = [
+    { key:'acute',    label:'ACUTE',    color:'#7ee081', test: d => d > 0.25 && d < 89.5 },
+    { key:'right',    label:'RIGHT',    color:'#f5c842', test: d => d >= 89.5 && d <= 90.5 },
+    { key:'obtuse',   label:'OBTUSE',   color:'#ff9f5a', test: d => d > 90.5 && d < 179.5 },
+    { key:'straight', label:'STRAIGHT', color:'#c7cfe4', test: d => d >= 179.5 && d <= 180.5 },
+    { key:'reflex',   label:'REFLEX',   color:'#f472b6', test: d => d > 180.5 && d < 359.75 },
+  ];
+  function classify(deg){ for (const t of TYPES) if (t.test(deg)) return t; return TYPES[0]; }
+
+  // ---- static full-circle dial: rim + ticks + dual labels every 30° ----
+  const rimPts = [];
+  for (let d = 0; d <= 360; d += 3) rimPts.push(at(d, RIM));
+  make('polygon', { points: rimPts.map(p => `${p.x},${p.y}`).join(' '), fill:'none', stroke:'#2a3142', 'stroke-width':2 });
+
+  for (let d = 0; d < 360; d += 10) {
+    const major = d % 30 === 0;
+    const landmark = d === 90 || d === 180;
+    const p1 = at(d, RIM), p2 = at(d, major ? RIM - 16 : RIM - 8);
+    make('line', { x1:p1.x, y1:p1.y, x2:p2.x, y2:p2.y, stroke: landmark ? '#f5c842' : (major ? '#9aabd0' : '#3a4258'), 'stroke-width': landmark ? 3 : (major ? 2 : 1) });
+    if (major) {
+      const lp = at(d, RIM + 20);
+      const t1 = make('text', { x:lp.x, y:lp.y - 3, 'text-anchor':'middle', 'font-size':13, fill: landmark ? '#f5c842' : '#c7cfe4', 'font-family':'DM Mono, monospace' });
+      t1.textContent = `${d}°`;
+      if (landmark) {
+        const lp2 = at(d, RIM + 36);
+        const t2 = make('text', { x:lp2.x, y:lp2.y, 'text-anchor':'middle', 'font-size':10, fill:'#f5c842', 'font-family':'DM Mono, monospace' });
+        t2.textContent = d === 90 ? 'right' : 'straight';
+      }
+    }
+  }
+
+  // ---- small angle arc (updates live, color-coded by type) ----
+  const arc = make('path', { fill:'none', stroke:'#7ee081', 'stroke-width':4 });
+
+  // ---- fixed baseline ray VA (0°) ----
+  const A = at(0, R);
+  make('line', { x1:V.x, y1:V.y, x2:A.x, y2:A.y, stroke:'#8b5cf6', 'stroke-width':5, 'stroke-linecap':'round' });
+  make('circle', { cx:A.x, cy:A.y, r:7, fill:'#8b5cf6' });
+  const lblA = make('text', { x:A.x + 18, y:A.y + 5, 'font-size':20, fill:'#e8ecf3', 'font-family':'DM Mono, monospace' }); lblA.textContent = 'A';
+
+  // ---- vertex ----
+  make('circle', { cx:V.x, cy:V.y, r:8, fill:'#8b5cf6' });
+  const lblV = make('text', { x:V.x, y:V.y + 30, 'text-anchor':'middle', 'font-size':20, fill:'#e8ecf3', 'font-family':'DM Mono, monospace' }); lblV.textContent = 'V';
+
+  // ---- draggable ray VB ----
+  const rayB = make('line', { stroke:'#8b5cf6', 'stroke-width':5, 'stroke-linecap':'round' });
+  const lblB = make('text', { 'font-size':20, fill:'#e8ecf3', 'font-family':'DM Mono, monospace', 'text-anchor':'middle' }); lblB.textContent = 'B';
+  const handle = make('circle', { r:12, fill:'#f5c842' });
+  const hitB = make('circle', { r:26, fill:'transparent', cursor:'grab' });
+
+  let theta = 55;      // current draggable angle, 0-360
+  let mode = 'explore';
+  let target = TYPES[2]; // obtuse, to start
+
+  function arcPath(from, to, r){
+    const steps = Math.max(2, Math.round(Math.abs(to - from) / 3));
+    const pts = [];
+    for (let i = 0; i <= steps; i++){ const d = from + (to - from) * i / steps; const p = at(d, r); pts.push(`${i === 0 ? 'M' : 'L'}${p.x} ${p.y}`); }
+    return pts.join(' ');
+  }
+
+  function draw(){
+    const B = at(theta, R);
+    rayB.setAttribute('x1', V.x); rayB.setAttribute('y1', V.y);
+    rayB.setAttribute('x2', B.x); rayB.setAttribute('y2', B.y);
+    handle.setAttribute('cx', B.x); handle.setAttribute('cy', B.y);
+    hitB.setAttribute('cx', B.x); hitB.setAttribute('cy', B.y);
+    lblB.setAttribute('x', B.x + ((theta > 90 && theta < 270) ? -18 : 18));
+    lblB.setAttribute('y', B.y - (theta > 180 && theta < 360 ? -18 : 10));
+
+    const type = classify(theta);
+    arc.setAttribute('d', arcPath(0, theta, 55));
+    arc.setAttribute('stroke', type.color);
+
+    const deg = Math.round(theta);
+    let note = '';
+    if (type.key === 'right') note = ' — a perfect square corner!';
+    else if (type.key === 'straight') note = ' — one straight line!';
+
+    if (mode === 'explore') {
+      readout.innerHTML = `m&ang;AVB = <b style="color:${type.color}">${deg}&deg;</b> &middot; <b style="color:${type.color}">${type.label}</b>${note}`;
+      actions.hidden = true;
+    } else {
+      const hit = type.key === target.key;
+      readout.innerHTML = hit
+        ? `<span class="match">Match! m&ang;AVB = ${deg}&deg; is ${type.label}</span>`
+        : `Make the angle <b style="color:${target.color}">${target.label}</b> &middot; you're at <b>${deg}&deg;</b> (${type.label})`;
+      actions.hidden = false;
+    }
+  }
+
+  function setMode(m){
+    mode = m;
+    [...document.querySelectorAll('#modes button')].forEach(b => b.classList.toggle('on', b.dataset.mode === m));
+    hint.textContent = m === 'explore'
+      ? "Drag the gold handle all the way around the full circle. Ray VA stays fixed at 0°. Watch m∠AVB and its type update live — the arc's color always matches the classification. Try landing exactly on 90° and 180°, then keep going past 180° into reflex."
+      : "A target type is named above. Drag ray VB anywhere on the circle until your angle's type matches — there's more than one right answer for acute, obtuse, and reflex, but only one exact spot for right and straight.";
+    draw();
+  }
+
+  function newTarget(){
+    let t;
+    do { t = TYPES[Math.floor(Math.random() * TYPES.length)]; } while (t.key === target.key);
+    target = t;
+    draw();
+  }
+
+  // ---- drag handling (grab the handle, drag anywhere on the full circle) ----
+  let dragging = false;
+  function toLocal(e){
+    const r = svg.getBoundingClientRect();
+    const cx = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+    const cy = (e.touches ? e.touches[0].clientY : e.clientY) - r.top;
+    return { x: cx / r.width * 640, y: cy / r.height * 460 };
+  }
+  function angleFromPoint(p){
+    let d = Math.atan2(V.y - p.y, p.x - V.x) * 180 / Math.PI;
+    if (d < 0) d += 360;
+    return Math.max(0.25, Math.min(359.75, d));
+  }
+  function down(e){ dragging = true; move(e); e.preventDefault(); }
+  function move(e){ if (!dragging) return; theta = angleFromPoint(toLocal(e)); draw(); e.preventDefault(); }
+  function up(){ dragging = false; }
+
+  hitB.addEventListener('pointerdown', down);
+  window.addEventListener('pointermove', move);
+  window.addEventListener('pointerup', up);
+  hitB.addEventListener('touchstart', down, { passive:false });
+  window.addEventListener('touchmove', move, { passive:false });
+  window.addEventListener('touchend', up);
+
+  document.getElementById('modes').addEventListener('click', e => { const m = e.target.dataset.mode; if (m) setMode(m); });
+  document.getElementById('newTarget').addEventListener('click', newTarget);
+
+  setMode('explore');
+})();
+</script>
+</body>
+</html>

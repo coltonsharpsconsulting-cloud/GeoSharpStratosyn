@@ -1,0 +1,47 @@
+{
+  "id": "LP-W05-S1", "course": "geometry", "week": 5, "session": 1,
+  "session_type": "concept", "lesson": "L04 — Types of Angles",
+  "unit": "u01", "duration_min": 60, "mode": "Concept",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 5 · Types of Angles",
+  "essential_question": "Once you can measure an angle to the exact degree, what do you call it — and what happens when two angles are added together?",
+  "objective": "Classify an angle as acute, right, obtuse, straight, or reflex from its degree measure, and find the resulting type when two angle measures are added.",
+  "standards": ["G-CO.A.1"],
+  "vocab": ["acute angle", "right angle", "obtuse angle", "straight angle", "reflex angle"],
+  "agenda": [
+    {"phase":"launch","min":6,"title":"Launch — A Door Swinging Open","board":"launch","content":{"prompt":"Picture a door swinging open from fully closed, all the way until it lies flat against a wall — and then imagine a strong hinge that keeps going past that. How many different 'kinds' of angle do you think that one swing passes through, and where do you think the swing changes name?"}},
+    {"phase":"i_do","min":12,"title":"I do — Five Families, Sorted by Degree","board":"i_do","content":{"heading":"Every angle belongs to exactly one family","figure":"angle-pair","bullets":["Acute: greater than 0° and less than 90° — a narrow, 'tight' opening.","Right: exactly 90° — a perfect square corner, marked with a small square, never an arc.","Obtuse: greater than 90° and less than 180° — wider than square, not yet flat.","Straight: exactly 180° — two opposite rays forming one unbroken line.","Reflex: greater than 180° and less than 360° — bigger than straight, the 'far side' of an angle.","Add two angle measures like plain numbers, then reclassify the sum: right + acute = obtuse; right + right = straight; straight + acute = reflex."]}},
+    {"phase":"explore","min":8,"title":"Explore — Drag the Ray, Watch the Type","board":"explore","content":{"heading":"Turn the ray all the way around; watch the family change","note":"On the sim, drag the gold handle around the full circle. Watch m∠AVB and its type update live — the arc's color always matches the classification. Land exactly on 90° and 180°, then keep going past 180° into reflex. Switch to 'Match the Type' and try to land in a named family.","figure":"angle-pair"}},
+    {"phase":"check","min":5,"title":"Check for Understanding","board":"check","content":{"heading":"Name that type","items":["n1","n2"]}},
+    {"phase":"you_do","min":12,"title":"You do — Classify & Add","board":"you_do","content":{"heading":"Your turn on the worksheet","items":["p1","p2","p3","p4"]}},
+    {"phase":"exit","min":5,"title":"Exit Ticket","board":"exit","content":{"items":["x1"],"preview":"Build session: hunt real angles of each type and build a reflex angle with a hinge or a clock face."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can classify an angle as acute, right, obtuse, straight, or reflex from its degree measure"},
+    {"id":"SC2","text":"I can find the resulting angle type when two angle measures are added (e.g., right + acute = obtuse)"},
+    {"id":"SC3","text":"I can explain why 90° and 180° each get their own exact name instead of falling under acute, obtuse, or reflex"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W05-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W05 Types of Angles.md"},
+    "mus": {"practice":"MUS/L04 — Lesson Practice.pdf","review":"MUS/L04 — Systematic Review.pdf","test":"MUS/L04 — Lesson Test.pdf"},
+    "interactive": {"slug":"angle-classifier","note":"Curriculum/Geometry/Lessons/W05-S1/sims/angle-classifier.html"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"check","kind":"check","title":"Name That Type","items":["n1","n2"]},
+      {"phase":"practice","kind":"practice","title":"Classify & Add","items":["p1","p2","p3","p4"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"n1","type":"dropdown","sc":"SC1","points":1,"prompt":"An angle measuring exactly 90° is a(n)…","options":["acute","right","obtuse","straight"],"answer":"right","explain":"90° is the one exact boundary between acute and obtuse, so it gets its own name: right."},
+    {"ref":"n2","type":"mc","sc":"SC1","points":1,"prompt":"Which of these degree measures describes an obtuse angle?","options":["45°","90°","135°","180°"],"answer":"135°","explain":"Obtuse is strictly between 90° and 180°; 135° falls in that open range, while 90° and 180° are their own named types."},
+    {"ref":"p1","type":"measure","sc":"SC1","points":2,"figure":"angle-pair","prompt":"The figure shows ∠AVB. Measure it with a real protractor to the nearest whole degree, then classify it as acute, right, obtuse, straight, or reflex.","answer":"m∠AVB ≈ 25°; acute.","explain":"Rubric: a measured value of about 23°–27° (print/measurement tolerance) plus the correct family — any value strictly between 0° and 90° is acute."},
+    {"ref":"p2","type":"dropdown","sc":"SC2","points":1,"prompt":"A straight angle (180°) plus an acute angle equals a(n) ___ angle.","options":["obtuse","straight","reflex"],"answer":"reflex","explain":"180° plus any amount greater than 0° is more than 180° and less than 360° (as long as the acute part stays under 180°) — that range is reflex."},
+    {"ref":"p3","type":"short","sc":"SC3","points":2,"prompt":"Explain why 90° is classified as its own type, 'right,' rather than being called acute or obtuse.","answer":"Acute is defined as strictly less than 90°, and obtuse is defined as strictly greater than 90°; 90° itself sits exactly on that boundary, so it belongs to neither open range and gets its own exact name and mark instead.","explain":"Full credit: names the strict (open) inequality on both sides of 90° and says the boundary value gets its own category."},
+    {"ref":"p4","type":"construct","sc":"SC1","points":2,"figure":"grid-blank","prompt":"On the grid, draw an obtuse angle. Label the vertex and both rays, and write its degree measure next to it.","answer":"Any angle drawn strictly between 90° and 180°, with the vertex and both rays labeled and the measure written beside it.","explain":"Rubric: a vertex with two labeled rays (1 pt) + a written degree measure that is honestly between 90° and 180° when checked with a protractor (1 pt)."},
+    {"ref":"x1","type":"short","sc":"SC1","points":2,"prompt":"Exit: find one angle around you right now and classify it (acute, right, obtuse, straight, or reflex). Defend your answer using its degree range."}
+  ]
+}

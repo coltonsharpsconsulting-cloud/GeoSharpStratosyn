@@ -1,0 +1,184 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>L04 — Types of Angles — Checkpoint</title>
+<style>/* ws.css — student-facing worksheet, light theme, US-Letter print */
+:root{
+  --ink:#181b22; --mist:#5a606c; --line:#cfd4df; --line2:#e4e8f0;
+  --gold:#5b3fb0; --cyan:#0a6373; --ok:#1c7a45; --no:#b00020;
+  --money:#137a45; --money-bg:#eaf6ee;
+  --bg-page:#eef1f6; --bg-sheet:#fff; --bg-soft:#f6f8fc;
+  --radius:8px;
+}
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+body{
+  font-family:-apple-system,Inter,system-ui,sans-serif;
+  font-size:15px; color:var(--ink); background:var(--bg-page);
+  margin:0; padding:28px 16px 56px; line-height:1.5;
+}
+
+/* Page container */
+.ws{max-width:780px; margin:0 auto; background:var(--bg-sheet);
+  border:1px solid var(--line); border-radius:10px; padding:30px 34px 40px;}
+
+/* ── Tools (screen only) ── */
+.tools{max-width:780px; margin:0 auto 12px; display:flex; gap:8px; justify-content:flex-end;}
+.tools button{font:600 13px/1 inherit; border:1px solid var(--line); background:#fff;
+  color:var(--ink); border-radius:7px; padding:9px 14px; cursor:pointer;}
+.tools button:hover{background:var(--bg-soft);}
+.tools .primary{background:var(--ink); color:#fff; border-color:var(--ink);}
+.tools .primary:hover{background:#000;}
+
+/* ── Header ── */
+.ws-head{margin-bottom:22px;}
+.eyebrow{font:600 11px/1 ui-monospace,monospace; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--gold); margin-bottom:9px;}
+.ws-head h1{font-size:24px; font-weight:800; margin:0 0 4px; letter-spacing:-.01em;}
+.sub{font-size:13px; color:var(--mist); margin-bottom:16px;}
+.ws-id{display:flex; gap:12px; flex-wrap:wrap;}
+.ws-id input{flex:1; min-width:110px;}
+
+/* ── Objective / EQ bar ── */
+.brief{border:1px solid var(--line2); background:var(--bg-soft);
+  border-radius:var(--radius); padding:14px 16px; margin-top:6px;}
+.brief p{margin:0 0 7px;}
+.brief p:last-child{margin-bottom:0;}
+.brief .lab{font:600 10.5px/1 ui-monospace,monospace; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--cyan); margin-right:7px;}
+.sc{margin:9px 0 0; padding:0; list-style:none; font-size:13px; color:var(--mist);}
+.sc li{margin:2px 0; padding-left:18px; position:relative;}
+.sc li::before{content:"▢"; position:absolute; left:0; color:var(--cyan);}
+.vocab{margin-top:11px; display:flex; flex-wrap:wrap; gap:6px;}
+.vocab .lab{display:block; width:100%; margin-bottom:2px;}
+.chip{font:600 12px/1 inherit; border:1px solid var(--line); background:#fff;
+  color:var(--ink); border-radius:20px; padding:5px 11px;}
+
+/* ── Sections ── */
+.ws-sec{border-top:2px solid var(--line); margin-top:26px; padding-top:18px;}
+.ws-sec h2{font-size:13px; font-weight:800; letter-spacing:.09em; text-transform:uppercase;
+  color:var(--cyan); margin:0 0 4px;}
+.ws-sec .lede{font-size:13px; color:var(--mist); margin:0 0 14px;}
+.tag{display:inline-block; font:600 10px/1 ui-monospace,monospace; letter-spacing:.1em;
+  text-transform:uppercase; color:#fff; background:var(--cyan); border-radius:4px;
+  padding:3px 6px; margin-left:8px; vertical-align:2px;}
+.tag.warm{background:var(--gold);} .tag.exit{background:var(--money);}
+
+/* ── Question blocks ── */
+.q{margin-bottom:18px;}
+.q-prompt{font-weight:600; font-size:14px; margin:0 0 9px; color:var(--ink);}
+.q-prompt .pn{color:var(--cyan); font-weight:800; margin-right:6px;}
+.hint{font-size:12px; color:var(--mist); font-weight:400;}
+
+/* ── Inputs ── */
+input,select,textarea{width:100%; font:inherit; font-size:14px; padding:8px 10px;
+  border:1px solid var(--line); border-radius:6px; background:#fbfcfe; color:var(--ink);
+  transition:border-color .15s;}
+input:focus,select:focus,textarea:focus{outline:none; border-color:var(--cyan);}
+textarea{min-height:70px; resize:vertical;}
+.inline-in{display:inline-block; width:150px; padding:4px 8px;}
+.inline-in.sm{width:92px;}
+
+/* answer blank */
+.ans{display:flex; align-items:center; gap:9px; margin-top:10px;
+  background:var(--money-bg); border:1px solid #cfe6d6; border-radius:6px; padding:9px 12px;}
+.ans .lab{font:800 11px/1 ui-monospace,monospace; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--money); white-space:nowrap;}
+.ans input{background:#fff; border-color:#bcd9c6;}
+.ans .unit{font-size:12.5px; color:var(--mist); white-space:nowrap;}
+
+/* work space */
+.work{margin-top:10px; border:1px dashed var(--line); border-radius:6px;
+  background:repeating-linear-gradient(#fff,#fff 27px,var(--line2) 27px,var(--line2) 28px);
+  min-height:88px; padding:6px 12px 4px;}
+.work .wlab{font:600 10px/1 ui-monospace,monospace; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--mist);}
+.work.tall{min-height:120px;}
+
+/* choose-one option lists */
+.q-opts{display:flex; flex-direction:column; gap:7px; margin-top:2px;}
+.q-opts label{display:flex; align-items:center; gap:9px; font-weight:400; font-size:14px; cursor:pointer;}
+.q-opts input[type=radio]{width:auto; flex-shrink:0; accent-color:var(--cyan);}
+
+/* ── Tables (spending logs) ── */
+.tbl-wrap{overflow-x:auto; margin:12px 0;}
+table.log{width:100%; border-collapse:collapse; font-size:14px;}
+table.log th,table.log td{border:1px solid var(--line); padding:8px 10px; text-align:left;}
+table.log th{background:var(--bg-soft); font-size:11px; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--mist); font-weight:700;}
+table.log td.amt,table.log th.amt,table.log td.run,table.log th.run{text-align:right;
+  font-variant-numeric:tabular-nums;}
+table.log .fill{color:#b9bfca; font-style:italic;}
+table.log tr.tot td{border-top:2px solid var(--ink); font-weight:800; background:var(--money-bg);}
+table.log td.run{color:var(--money); font-weight:700;}
+
+/* worked-step list */
+ol.steps{margin:12px 0 4px; padding-left:22px;}
+ol.steps li{margin:7px 0;}
+ol.steps b{color:var(--money);}
+.callout{border-left:3px solid var(--cyan); background:#eef7f9; border-radius:0 6px 6px 0;
+  padding:10px 13px; margin:12px 0; font-size:13.5px;}
+.callout b{color:var(--cyan);}
+.result{display:flex; flex-wrap:wrap; gap:8px 20px; margin:12px 0 2px; padding:11px 14px;
+  background:var(--money-bg); border:1px solid #cfe6d6; border-radius:6px;}
+.result .r{font-size:13px;} .result .r b{color:var(--money); font-size:15px;}
+
+.example{border:1px solid var(--line2); border-radius:var(--radius); padding:14px 16px; margin-top:4px;}
+.example + .example{margin-top:16px;}
+.example h3{font-size:14px; margin:0 0 2px;}
+.example .who{font:600 10.5px/1 ui-monospace,monospace; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--gold); margin-bottom:8px;}
+
+/* ── Teacher Answer Key ── */
+#teacherKey{display:none;}
+body.show-key #teacherKey{display:block;}
+.key{page-break-before:always; break-before:page; border-top:none; margin-top:34px;}
+.key-banner{background:var(--ink); color:#fff; border-radius:8px; padding:12px 16px; margin-bottom:16px;}
+.key-banner h2{color:#fff; font-size:15px; margin:0 0 2px; letter-spacing:.04em;}
+.key-banner p{margin:0; font-size:12px; color:#c7ccd6;}
+.key .kq{margin-bottom:13px; padding-bottom:11px; border-bottom:1px solid var(--line2);}
+.key .kref{font:800 12px/1 ui-monospace,monospace; color:var(--cyan); margin-right:8px;}
+.key .kans{color:var(--money); font-weight:800;}
+.key .kwhy{display:block; font-size:12.5px; color:var(--mist); margin-top:4px;}
+.key .kpts{float:right; font:700 11px/1 ui-monospace,monospace; color:var(--mist);}
+
+.foot{margin-top:26px; padding-top:14px; border-top:1px solid var(--line); font-size:12px; color:var(--mist);}
+
+/* ── Print (US-Letter) ── */
+@page{size:letter; margin:.5in;}
+@media print{
+  body{background:#fff; padding:0; font-size:12.5px;}
+  .ws{max-width:100%; border:none; border-radius:0; padding:0;}
+  .tools{display:none;}
+  .ws-sec{break-inside:auto;}
+  .q,.example,.tbl-wrap,.result,.callout,.ans{break-inside:avoid;}
+  input,select,textarea{border:none; border-bottom:1px solid #888; border-radius:0;
+    background:transparent; padding:3px 2px;}
+  .inline-in{border-bottom:1px solid #666;}
+  .work{background:#fff; border:1px solid #bbb;}
+  .ans{background:#f4faf5;}
+  /* Teacher key always prints, on its own page */
+  #teacherKey{display:block !important;}
+}
+
+.chk-score{background:var(--ink);color:#fff;border-radius:8px;padding:12px 16px;margin:16px 0;font:700 15px/1.3 ui-monospace,monospace;}
+.chk-reveal{font:600 12px/1 ui-monospace,monospace;border:1px solid #cfd4df;background:#fff;border-radius:6px;padding:6px 10px;cursor:pointer;margin-top:8px}
+.chk-model{margin-top:8px;color:#1c7a45;font-weight:600}
+#chkCheck{font:600 14px/1 inherit;border:1px solid #181b22;background:#181b22;color:#fff;border-radius:7px;padding:10px 16px;cursor:pointer;margin-top:14px}
+.ws-fig{margin:10px 0;text-align:center}.ws-fig svg{max-width:100%;height:auto;max-height:240px}</style></head><body>
+<div class="ws"><header class="ws-head"><div class="eyebrow">The Salas Compass · Mastery Checkpoint</div>
+<h1>L04 — Types of Angles</h1><div class="sub">Week 5 · Types of Angles</div></header>
+<section class="ws-sec"><div class="q chk-q" data-ref="n1" data-answer="right"><p class="q-prompt"><span class="pn">1.</span>An angle measuring exactly 90° is a(n)…</p><div class="q-opts"><label><input type="radio" name="c0" value="acute"> acute</label><label><input type="radio" name="c0" value="right"> right</label><label><input type="radio" name="c0" value="obtuse"> obtuse</label><label><input type="radio" name="c0" value="straight"> straight</label></div></div><div class="q chk-q" data-ref="n2" data-answer="135°"><p class="q-prompt"><span class="pn">2.</span>Which of these degree measures describes an obtuse angle?</p><div class="q-opts"><label><input type="radio" name="c1" value="45°"> 45°</label><label><input type="radio" name="c1" value="90°"> 90°</label><label><input type="radio" name="c1" value="135°"> 135°</label><label><input type="radio" name="c1" value="180°"> 180°</label></div></div><div class="q chk-q" data-ref="p1"><p class="q-prompt"><span class="pn">3.</span>The figure shows ∠AVB. Measure it with a real protractor to the nearest whole degree, then classify it as acute, right, obtuse, straight, or reflex.</p><div class="ws-fig"><svg viewBox="0 0 560 220" xmlns="http://www.w3.org/2000/svg" font-family="DM Mono, monospace"><line x1="160" y1="180" x2="420" y2="60" stroke="#8b5cf6" stroke-width="4"/><path d="M423.352465419694 67.26367507600361 L432.7114313830063 54.133185515535544 L416.647534580306 52.736324923996385 Z" fill="#8b5cf6"/><line x1="160" y1="180" x2="420" y2="180" stroke="#8b5cf6" stroke-width="4"/><path d="M420 188 L434 180 L420 172 Z" fill="#8b5cf6"/><circle cx="160" cy="180" r="6" fill="#8b5cf6"/><path d="M 200 180 A 40 40 0 0 0 196.31837538001807 163.23767290153012" fill="none" stroke="#8b5cf6" stroke-width="2"/><text x="140" y="200" text-anchor="middle" font-size="20" fill="#181b22">V</text><text x="430" y="54" text-anchor="middle" font-size="20" fill="#181b22">A</text><text x="440" y="186" text-anchor="middle" font-size="20" fill="#181b22">B</text><text x="215" y="166" text-anchor="middle" font-size="14" fill="#181b22">°</text></svg></div><div class="ans"><span class="lab">Answer</span><input></div><button type="button" class="chk-reveal">reveal model answer</button><div class="chk-model" hidden>m∠AVB ≈ 25°; acute.</div></div><div class="q chk-q" data-ref="p2" data-answer="reflex"><p class="q-prompt"><span class="pn">4.</span>A straight angle (180°) plus an acute angle equals a(n) ___ angle.</p><div class="q-opts"><label><input type="radio" name="c3" value="obtuse"> obtuse</label><label><input type="radio" name="c3" value="straight"> straight</label><label><input type="radio" name="c3" value="reflex"> reflex</label></div></div><div class="q chk-q" data-ref="p3"><p class="q-prompt"><span class="pn">5.</span>Explain why 90° is classified as its own type, 'right,' rather than being called acute or obtuse.</p><div class="ans"><span class="lab">Answer</span><input></div><button type="button" class="chk-reveal">reveal model answer</button><div class="chk-model" hidden>Acute is defined as strictly less than 90°, and obtuse is defined as strictly greater than 90°; 90° itself sits exactly on that boundary, so it belongs to neither open range and gets its own exact name and mark instead.</div></div><div class="q chk-q" data-ref="p4"><p class="q-prompt"><span class="pn">6.</span>On the grid, draw an obtuse angle. Label the vertex and both rays, and write its degree measure next to it.</p><div class="ws-fig"><svg viewBox="0 0 560 360" xmlns="http://www.w3.org/2000/svg" font-family="DM Mono, monospace"><line x1="0" y1="0" x2="0" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="28" y1="0" x2="28" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="56" y1="0" x2="56" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="84" y1="0" x2="84" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="112" y1="0" x2="112" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="140" y1="0" x2="140" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="168" y1="0" x2="168" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="196" y1="0" x2="196" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="224" y1="0" x2="224" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="252" y1="0" x2="252" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="280" y1="0" x2="280" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="308" y1="0" x2="308" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="336" y1="0" x2="336" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="364" y1="0" x2="364" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="392" y1="0" x2="392" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="420" y1="0" x2="420" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="448" y1="0" x2="448" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="476" y1="0" x2="476" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="504" y1="0" x2="504" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="532" y1="0" x2="532" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="560" y1="0" x2="560" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="0" x2="560" y2="0" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="28" x2="560" y2="28" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="56" x2="560" y2="56" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="84" x2="560" y2="84" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="112" x2="560" y2="112" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="140" x2="560" y2="140" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="168" x2="560" y2="168" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="196" x2="560" y2="196" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="224" x2="560" y2="224" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="252" x2="560" y2="252" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="280" x2="560" y2="280" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="308" x2="560" y2="308" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="336" x2="560" y2="336" stroke="#cfd4df" stroke-width="1"/></svg></div><div class="ans"><span class="lab">Answer</span><input></div><button type="button" class="chk-reveal">reveal model answer</button><div class="chk-model" hidden>Any angle drawn strictly between 90° and 180°, with the vertex and both rays labeled and the measure written beside it.</div></div><div class="q chk-q" data-ref="x1"><p class="q-prompt"><span class="pn">7.</span>Exit: find one angle around you right now and classify it (acute, right, obtuse, straight, or reflex). Defend your answer using its degree range.</p><div class="ans"><span class="lab">Answer</span><input></div></div></section>
+<button id="chkCheck">Check my answers</button>
+<div class="chk-score" id="chkScore">Answer the questions, then press Check.</div>
+</div>
+<script>
+document.querySelectorAll('.chk-reveal').forEach(b=>b.addEventListener('click',()=>{b.nextElementSibling.hidden=false;b.remove();}));
+document.getElementById('chkCheck').addEventListener('click',()=>{
+  let correct=0,auto=0;
+  document.querySelectorAll('.chk-q[data-answer]').forEach(q=>{
+    auto++;
+    const sel=q.querySelector('input[type=radio]:checked');
+    if(sel && sel.value===q.dataset.answer){correct++;q.style.background='#eaf6ee';}else{q.style.background='#fdeaea';}
+  });
+  const selfN=7-auto;
+  document.getElementById('chkScore').textContent='Auto-scored: '+correct+' / '+auto+' correct'+(selfN>0?'  ·  plus '+selfN+' self-graded above':'');
+});</script></body></html>

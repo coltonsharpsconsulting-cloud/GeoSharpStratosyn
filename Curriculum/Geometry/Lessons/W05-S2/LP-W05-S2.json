@@ -1,0 +1,42 @@
+{
+  "id": "LP-W05-S2", "course": "geometry", "week": 5, "session": 2,
+  "session_type": "build", "lesson": "L04 — Types of Angles",
+  "unit": "u01", "duration_min": 60, "mode": "Build",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 5 · Angle Type Hunt & Reflex Build",
+  "essential_question": "Can you find all five angle types in the real world — including the one that has to wrap past a straight line?",
+  "objective": "Measure real-world examples of acute, right, obtuse, and straight angles, and build and measure a reflex angle using a hinge or clock face.",
+  "standards": ["G-CO.A.1"],
+  "vocab": ["acute angle", "right angle", "obtuse angle", "straight angle", "reflex angle"],
+  "agenda": [
+    {"phase":"brief","min":6,"title":"Brief — From Naming Types to Finding Them","board":"brief","content":{"heading":"From the five families to five real objects","bullets":["Yesterday: sorted degree measures into acute, right, obtuse, straight, and reflex.","Today: hunt one real example of each of the first four, then build the trickiest one — a reflex angle — yourself.","The test: can you measure to the nearest degree, and can you show a real angle bigger than a straight line?"]}},
+    {"phase":"plan","min":8,"title":"Plan — Read the Build Card","board":"plan","content":{"heading":"Gather + plan","note":"Open the project card. Gather your protractor, ruler, pencil, paper, and either a real analog clock (or a printed clock face with brad-fastened hands) or two straight strips joined by a paper fastener to make an adjustable hinge. Decide which four real angles you'll hunt before you start measuring."}},
+    {"phase":"build","min":25,"title":"Build — Hunt the Four, Build the Fifth","board":"build","content":{"heading":"Measure the world, then build past straight","bullets":["Type Hunt — find and measure one real example each of acute, right, obtuse, and straight.","Reflex Build — using your hinge or clock hands, rotate past 180° and measure the resulting reflex angle.","For every angle, mark or note the vertex and both rays, and write m∠ = its value beside it.","Re-check every measurement with the protractor before you call it done."]}},
+    {"phase":"measure","min":12,"title":"Record Your Hunt & Your Build","board":"measure","content":{"heading":"Get the numbers down","figure":"angle-pair","items":["m1","m2","m3"]}},
+    {"phase":"reflect","min":9,"title":"Reflect & Photograph","board":"reflect","content":{"items":["r1"],"preview":"Session 3: defend why the boundaries never blur, review the week's Math-U-See practice, then the checkpoint."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can find and measure real-world examples of acute, right, obtuse, and straight angles"},
+    {"id":"SC2","text":"I can build and measure a reflex angle using a hinge or a clock face"},
+    {"id":"SC3","text":"I can explain the relationship between an angle and its reflex counterpart at the same vertex"}
+  ],
+  "assets": {
+    "project": {"note":"Curriculum/Geometry/Lessons/W05-S2/project-card.md"},
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W05-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W05 Types of Angles.md"},
+    "mus": {"practice":"MUS/L04 — Lesson Practice.pdf","review":"MUS/L04 — Systematic Review.pdf","test":"MUS/L04 — Lesson Test.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"measure","kind":"practice","title":"Hunt Log & Reflex Build","items":["m1","m2","m3"]},
+      {"phase":"reflect","kind":"exit","title":"Reflect","items":["r1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"m1","type":"measure","sc":"SC1","points":2,"prompt":"List the four real-world angles you hunted (acute, right, obtuse, straight) — name each object and its measured degree, to the nearest whole degree.","answer":"Any four honest, plausible real objects with degree measures matching their claimed type, e.g. scissors open a crack ≈ 15° (acute), a book cover square to its spine = 90° (right), a laptop screen tipped back ≈ 110° (obtuse), a book laid flat open = 180° (straight).","explain":"Rubric: four named real objects (1 pt) + four degree measures that are honestly consistent with the claimed type (1 pt)."},
+    {"ref":"m2","type":"measure","sc":"SC2","points":2,"prompt":"Using your hinge or clock hands, rotate past 180° and measure the resulting reflex angle to the nearest whole degree. Name what you used and record the measurement.","answer":"Any reflex measurement strictly between 180° and 360°, e.g. clock hands at 10:00 measured the long way around ≈ 300°.","explain":"Rubric: names the object/tool used (1 pt) + a measured value strictly between 180° and 360° (1 pt)."},
+    {"ref":"m3","type":"short","sc":"SC3","points":2,"prompt":"Your hinge or clock hands actually make two angles at once — the one you'd normally call 'the angle,' and the reflex angle on the other side. Add your two measurements together. What do they equal, and why does that make sense?","answer":"They add to 360°, because together the two angles sweep completely around the vertex back to the starting ray — one full turn.","explain":"Full credit: states the sum is 360° and connects it to 'one full turn around the vertex.'"},
+    {"ref":"r1","type":"short","sc":"SC3","points":2,"prompt":"Reflect: which was harder — finding a real straight angle, or building a real reflex angle? What did building the reflex angle teach you that the definition alone didn't?"}
+  ]
+}

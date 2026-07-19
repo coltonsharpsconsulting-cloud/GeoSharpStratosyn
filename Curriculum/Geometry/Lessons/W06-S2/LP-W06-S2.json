@@ -1,0 +1,42 @@
+{
+  "id": "LP-W06-S2", "course": "geometry", "week": 6, "session": 2,
+  "session_type": "build", "lesson": "L05 — Parallel & Perpendicular Lines; Bisectors",
+  "unit": "u01", "duration_min": 60, "mode": "Build",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 6 · Construction Lab — Perpendicular & Angle Bisectors",
+  "essential_question": "Can you use only a compass and straightedge — no ruler measuring, no protractor guessing — to land exactly on a segment's midpoint and exactly bisect an angle?",
+  "objective": "Construct a segment's perpendicular bisector and an angle's bisector using only a compass and straightedge, and verify each construction with a ruler and protractor.",
+  "standards": ["G-CO.D.12"],
+  "vocab": ["perpendicular bisector", "angle bisector", "arc", "compass", "straightedge", "midpoint"],
+  "agenda": [
+    {"phase":"brief","min":6,"title":"Brief — From Definitions to the Compass","board":"brief","content":{"heading":"From words to arcs","bullets":["Yesterday: told parallel and perpendicular apart, and defined bisector, perpendicular bisector, and midpoint.","Today: build both classic constructions with real arcs — no ruler measuring, no protractor guessing.","The test: can your arcs alone land you exactly on the midpoint, and exactly split an angle in half?"]}},
+    {"phase":"plan","min":8,"title":"Plan — Read the Build Card","board":"plan","content":{"heading":"Gather + plan","note":"Open the project card. Gather your compass, straightedge, pencil, protractor, and ruler. Practice opening your compass to a fixed width and swinging one clean arc before you start the real constructions."}},
+    {"phase":"build","min":25,"title":"Build — Two Classic Constructions","board":"build","content":{"heading":"Make them","bullets":["Perpendicular Bisector — draw segment AB; swing equal-radius arcs from A and from B, above and below; connect the two arc-crossings with a straight line; label the midpoint M.","Angle Bisector — draw ∠XYZ; swing one arc from vertex Y crossing both rays; swing equal-radius arcs from those two crossing points into the interior; draw the ray from Y through where they cross.","Do not erase your arcs — they are the proof you constructed, not guessed, each answer."]}},
+    {"phase":"measure","min":12,"title":"Verify Your Constructions","board":"measure","content":{"heading":"Get the numbers","items":["m1","m2","m3"]}},
+    {"phase":"reflect","min":9,"title":"Reflect & Photograph","board":"reflect","content":{"items":["r1"],"preview":"Session 3: reason out loud about why the arcs always land exactly on the midpoint, review MUS Lesson Practice 5A/5B, and take the mastery checkpoint."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can construct a segment's perpendicular bisector using only a compass and straightedge"},
+    {"id":"SC2","text":"I can construct an angle's bisector using only a compass and straightedge"},
+    {"id":"SC3","text":"I can verify a construction with a ruler and protractor and explain what the arcs guarantee"}
+  ],
+  "assets": {
+    "project": {"note":"Curriculum/Geometry/Lessons/W06-S2/project-card.md"},
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W06-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W06 Parallel, Perpendicular & Bisectors.md"},
+    "mus": {"practice":"MUS/L05 — Lesson Practice.pdf","review":"MUS/L05 — Systematic Review.pdf","test":"MUS/L05 — Lesson Test.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"measure","kind":"practice","title":"Verify Your Constructions","items":["m1","m2","m3"]},
+      {"phase":"reflect","kind":"exit","title":"Reflect","items":["r1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"m1","type":"measure","sc":"SC1","points":2,"prompt":"Measure AM and MB on your perpendicular-bisector construction with a ruler. Record both lengths.","answer":"Any correct pair of equal (or nearly equal) measured lengths, e.g. AM = 3.0 cm and MB = 3.0 cm.","explain":"Rubric: two lengths recorded with units (1 pt) + the two lengths equal within measuring tolerance (1 pt)."},
+    {"ref":"m2","type":"measure","sc":"SC3","points":1,"prompt":"Place your protractor where your new line crosses AB. What angle does it read?","answer":"At or very near 90°.","explain":"The perpendicular bisector is defined to cross the segment at a right angle — a careful compass construction should read at or within a couple degrees of 90°."},
+    {"ref":"m3","type":"measure","sc":"SC2","points":2,"prompt":"Measure ∠XYW and ∠WYZ on your angle-bisector construction with a protractor. Record both.","answer":"Any correct pair of equal (or nearly equal) angle measures, e.g. ∠XYW = 34° and ∠WYZ = 34°, together matching the original ∠XYZ.","explain":"Rubric: both angle measures recorded (1 pt) + the two measures equal within a degree or two, and summing back to the original angle (1 pt)."},
+    {"ref":"r1","type":"short","sc":"SC3","points":2,"prompt":"Reflect: which construction felt more like 'magic' before you understood why it works — the perpendicular bisector or the angle bisector? What do you think the equal-radius arcs are actually guaranteeing?"}
+  ]
+}

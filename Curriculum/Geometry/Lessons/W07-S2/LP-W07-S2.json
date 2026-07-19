@@ -1,0 +1,42 @@
+{
+  "id": "LP-W07-S2", "course": "geometry", "week": 7, "session": 2,
+  "session_type": "build", "lesson": "L06 — Supplementary, Complementary & Vertical Angles",
+  "unit": "u01", "duration_min": 60, "mode": "Build",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 7 · Angle-Pair Hunt & X-Stick Build",
+  "essential_question": "Can you find real complementary and supplementary pairs in the world, and prove with your own hands that vertical angles come out equal?",
+  "objective": "Build a physical \"X\" and measure all four angles to confirm vertical angles are congruent, and find and classify real-world complementary and supplementary angle pairs.",
+  "standards": ["G-CO.C.9"],
+  "vocab": ["adjacent angles", "vertical angles", "complementary angles", "supplementary angles", "linear pair"],
+  "agenda": [
+    {"phase":"brief","min":6,"title":"Brief — From Naming to Building","board":"brief","content":{"heading":"From definitions to a real X","bullets":["Yesterday: defined adjacent, vertical, complementary, and supplementary angles, and computed missing measures.","Today: build a real 'X' and measure it, then hunt real complementary and supplementary pairs.","The test: do your two vertical-angle measurements actually come out equal?"]}},
+    {"phase":"plan","min":8,"title":"Plan — Read the Build Card","board":"plan","content":{"heading":"Gather + plan","note":"Open the project card. Gather two sticks or rulers, a fastener or tape to pivot them, and a protractor. Decide where in your house you'll look for a real complementary pair and a real supplementary pair before you start."}},
+    {"phase":"build","min":25,"title":"Build — The X & the Hunt","board":"build","content":{"heading":"Build it, then find it in the world","bullets":["Build the X — cross two sticks at their midpoints (or near one end) so they pivot at one shared point, like scissors.","Label the four angles ∠1, ∠2, ∠3, ∠4 going around the pivot.","Angle Hunt — find one real complementary pair (sums to about 90°, like a folded paper corner) and one real supplementary pair (sums to about 180°, like a door against a wall) somewhere in your house."]}},
+    {"phase":"measure","min":12,"title":"Measure & Record","board":"measure","content":{"heading":"Get the numbers down","figure":"angle-pair","items":["m1","m2","m3"]}},
+    {"phase":"reflect","min":9,"title":"Reflect & Photograph","board":"reflect","content":{"items":["r1"],"preview":"Session 3: defend in words why vertical angles must always be congruent, then the checkpoint."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can build an X and measure all four angles it forms with a protractor"},
+    {"id":"SC2","text":"I can confirm by measurement that vertical angles are congruent and that adjacent linear pairs sum to 180°"},
+    {"id":"SC3","text":"I can find and classify a real complementary pair and a real supplementary pair in the world"}
+  ],
+  "assets": {
+    "project": {"note":"Curriculum/Geometry/Lessons/W07-S2/project-card.md"},
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W07-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W07 Angle Pairs.md"},
+    "mus": {"practice":"MUS/L06 — Lesson Practice.pdf","review":"MUS/L06 — Systematic Review.pdf","test":"MUS/L06 — Lesson Test.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"measure","kind":"practice","title":"Build Log & Hunt","items":["m1","m2","m3"]},
+      {"phase":"reflect","kind":"exit","title":"Reflect","items":["r1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"m1","type":"measure","sc":"SC1","points":2,"figure":"angle-pair","prompt":"Build an X from two sticks pivoting at one shared point. Measure all four angles with a protractor and record them in order around the X: m∠1, m∠2, m∠3, m∠4.","answer":"Any four honest measurements where opposite angles match (within a degree or two) and each side-by-side pair adds to about 180°, e.g. 60°, 120°, 60°, 120°.","explain":"Rubric: all four angles measured and recorded in order (1 pt) + the two vertical pairs match within measurement tolerance (1 pt)."},
+    {"ref":"m2","type":"short","sc":"SC2","points":2,"prompt":"Which two of your four measured angles came out almost exactly equal? Are they adjacent to each other or vertical to each other?","answer":"The two angles directly across the pivot from each other (vertical angles) came out equal; angles next to each other (adjacent) did not need to match.","explain":"Vertical angles share only the vertex and are always congruent; adjacent angles share a side and can be any two measures that add to 180° with their partner."},
+    {"ref":"m3","type":"short","sc":"SC3","points":2,"prompt":"Record ONE real complementary pair and ONE real supplementary pair you found in your house. Name the object and each angle's measured (or estimated) degree.","answer":"Any two plausible real pairs, e.g. a folded paper corner split into 35° and 55° (complementary), and a door propped against a wall reading 40° and 140° (supplementary).","explain":"Rubric: one pair whose two measures add to about 90° (1 pt) + one pair whose two measures add to about 180° (1 pt), each with a named real object."},
+    {"ref":"r1","type":"short","sc":"SC2","points":2,"prompt":"Reflect: which felt more convincing that vertical angles are always congruent — measuring your own X, or the reasoning argument you'll build in Session 3? What did building it teach you that the definition alone didn't?"}
+  ]
+}

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Parallel & Perpendicular Lines; Bisectors — Sim</title>
+<style>
+  :root{--void:#0d1322;--ink:#161d31;--bone:#e8ecf3;--mist:#9aabd0;--accent:#8b5cf6;--gold:#f5c842;--border:#2a3142;--good:#7ee081}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--void);color:var(--bone);font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;min-height:100%}
+  header{padding:2vh 4vw;border-bottom:1px solid var(--border);background:var(--ink)}
+  .eyebrow{font-family:"DM Mono",ui-monospace,monospace;letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--accent)}
+  h1{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(20px,3vw,30px);margin-top:.3rem}
+  main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.6vh;padding:3vh 4vw}
+  .stage{width:100%;max-width:720px;aspect-ratio:16/11;background:var(--ink);border:1px solid var(--border);border-radius:16px;touch-action:none;overflow:hidden}
+  svg{width:100%;height:100%;display:block}
+  .controls{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
+  button{font-family:"DM Mono",ui-monospace,monospace;font-size:14px;background:var(--ink);color:var(--bone);border:1px solid var(--border);border-radius:999px;padding:.6rem 1.2rem;cursor:pointer}
+  button:active{border-color:var(--accent);color:var(--accent)}
+  .readout{font-family:"DM Mono",ui-monospace,monospace;font-size:clamp(14px,2.1vw,19px);color:var(--mist);text-align:center;min-height:2.6em;line-height:1.5}
+  .readout b{color:var(--gold);font-size:1.1em}
+  .readout .match{color:var(--good);font-weight:bold}
+  .hint{color:var(--mist);font-size:14px;max-width:58ch;text-align:center}
+</style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Geometry · Lesson 5 · sim</div>
+    <h1>Drag either end. Watch the midpoint hold the line.</h1>
+  </header>
+  <main>
+    <div class="stage"><svg viewBox="0 0 640 400" id="svg"></svg></div>
+    <div class="readout" id="readout"></div>
+    <div class="controls">
+      <button id="resetBtn">Reset</button>
+    </div>
+    <p class="hint">Drag the gold handles at P and Q. The violet segment is PQ; the dashed green line is its perpendicular bisector — it always crosses PQ at the midpoint M, at a right angle, no matter how far apart or how tilted you drag the ends.</p>
+  </main>
+<script>
+(() => {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  const readout = document.getElementById('readout');
+
+  function make(tag, attrs){ const n=document.createElementNS(NS,tag); for(const k in attrs) n.setAttribute(k,attrs[k]); svg.appendChild(n); return n; }
+  function dist(a,b){ return Math.hypot(a.x-b.x, a.y-b.y); }
+
+  const BOUNDS = { minX: 40, maxX: 600, minY: 40, maxY: 360 };
+  const START = { P: {x:150,y:300}, Q:{x:490,y:120} };
+  let P = { ...START.P }, Q = { ...START.Q };
+
+  // ---- perpendicular bisector (drawn first, underneath the segment) ----
+  const bisector = make('line', { stroke:'#7ee081', 'stroke-width':3, 'stroke-dasharray':'8 6' });
+
+  // ---- segment PQ ----
+  const seg = make('line', { stroke:'#8b5cf6', 'stroke-width':5, 'stroke-linecap':'round' });
+
+  // ---- right-angle marker at M (proves the 90° crossing) ----
+  const rightAngle = make('polyline', { fill:'none', stroke:'#9aabd0', 'stroke-width':2 });
+
+  // ---- midpoint M ----
+  const mDot = make('circle', { r:8, fill:'#f5c842' });
+  const mLbl = make('text', { 'font-size':18, fill:'#e8ecf3', 'font-family':'DM Mono, monospace', 'text-anchor':'middle' }); mLbl.textContent = 'M';
+
+  // ---- draggable endpoint P ----
+  const pDot = make('circle', { r:11, fill:'#f5c842' });
+  const pLbl = make('text', { 'font-size':20, fill:'#e8ecf3', 'font-family':'DM Mono, monospace', 'text-anchor':'middle' }); pLbl.textContent = 'P';
+  const pHit = make('circle', { r:26, fill:'transparent', cursor:'grab' });
+
+  // ---- draggable endpoint Q ----
+  const qDot = make('circle', { r:11, fill:'#f5c842' });
+  const qLbl = make('text', { 'font-size':20, fill:'#e8ecf3', 'font-family':'DM Mono, monospace', 'text-anchor':'middle' }); qLbl.textContent = 'Q';
+  const qHit = make('circle', { r:26, fill:'transparent', cursor:'grab' });
+
+  function draw(){
+    const M = { x:(P.x+Q.x)/2, y:(P.y+Q.y)/2 };
+    const dx = Q.x-P.x, dy = Q.y-P.y;
+    const len = Math.hypot(dx,dy) || 1;
+    const ux = dx/len, uy = dy/len;   // unit vector along PQ
+    const vx = -uy, vy = ux;          // unit vector perpendicular to PQ
+
+    seg.setAttribute('x1',P.x); seg.setAttribute('y1',P.y);
+    seg.setAttribute('x2',Q.x); seg.setAttribute('y2',Q.y);
+
+    const EXT = 500; // long enough that the SVG viewport itself clips it
+    bisector.setAttribute('x1', M.x - vx*EXT); bisector.setAttribute('y1', M.y - vy*EXT);
+    bisector.setAttribute('x2', M.x + vx*EXT); bisector.setAttribute('y2', M.y + vy*EXT);
+
+    pDot.setAttribute('cx',P.x); pDot.setAttribute('cy',P.y);
+    pHit.setAttribute('cx',P.x); pHit.setAttribute('cy',P.y);
+    pLbl.setAttribute('x', P.x - ux*24); pLbl.setAttribute('y', P.y - uy*24 + 5);
+
+    qDot.setAttribute('cx',Q.x); qDot.setAttribute('cy',Q.y);
+    qHit.setAttribute('cx',Q.x); qHit.setAttribute('cy',Q.y);
+    qLbl.setAttribute('x', Q.x + ux*24); qLbl.setAttribute('y', Q.y + uy*24 + 5);
+
+    mDot.setAttribute('cx',M.x); mDot.setAttribute('cy',M.y);
+    mLbl.setAttribute('x', M.x + vx*22); mLbl.setAttribute('y', M.y + vy*22 + 5);
+
+    // small right-angle tick straddling M: one leg along PQ, one along the bisector
+    const s = 16;
+    const c1 = { x:M.x + ux*s, y:M.y + uy*s };
+    const c2 = { x:c1.x + vx*s, y:c1.y + vy*s };
+    const c3 = { x:M.x + vx*s, y:M.y + vy*s };
+    rightAngle.setAttribute('points', `${c1.x},${c1.y} ${c2.x},${c2.y} ${c3.x},${c3.y}`);
+
+    const pm = dist(P,M), qm = dist(Q,M), pq = dist(P,Q);
+    const same = Math.abs(pm-qm) < 0.05;
+    readout.innerHTML =
+      `PM = <b>${pm.toFixed(0)}</b> &middot; MQ = <b>${qm.toFixed(0)}</b> &mdash; ` +
+      `<span class="${same ? 'match' : ''}">${same ? 'equal halves — M is the midpoint ✓' : ''}</span><br>` +
+      `PQ = ${pq.toFixed(0)} &middot; the dashed line meets PQ at M, at exactly 90°`;
+  }
+
+  function clamp(p){ return { x:Math.max(BOUNDS.minX,Math.min(BOUNDS.maxX,p.x)), y:Math.max(BOUNDS.minY,Math.min(BOUNDS.maxY,p.y)) }; }
+  function toLocal(e){
+    const r = svg.getBoundingClientRect();
+    const cx = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+    const cy = (e.touches ? e.touches[0].clientY : e.clientY) - r.top;
+    return { x: cx / r.width * 640, y: cy / r.height * 400 };
+  }
+
+  let dragging = null;
+  function down(id){ return e => { dragging = id; e.preventDefault(); }; }
+  function move(e){
+    if (!dragging) return;
+    const p = clamp(toLocal(e));
+    if (dragging === 'P') P = p; else Q = p;
+    draw();
+    e.preventDefault();
+  }
+  function up(){ dragging = null; }
+
+  pHit.addEventListener('pointerdown', down('P'));
+  qHit.addEventListener('pointerdown', down('Q'));
+  window.addEventListener('pointermove', move);
+  window.addEventListener('pointerup', up);
+  pHit.addEventListener('touchstart', down('P'), { passive:false });
+  qHit.addEventListener('touchstart', down('Q'), { passive:false });
+  window.addEventListener('touchmove', move, { passive:false });
+  window.addEventListener('touchend', up);
+
+  document.getElementById('resetBtn').addEventListener('click', () => { P = { ...START.P }; Q = { ...START.Q }; draw(); });
+
+  draw();
+})();
+</script>
+</body>
+</html>

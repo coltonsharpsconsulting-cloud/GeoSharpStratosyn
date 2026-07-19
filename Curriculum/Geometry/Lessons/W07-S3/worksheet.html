@@ -1,0 +1,232 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>L06 — Supplementary, Complementary &amp; Vertical Angles — Worksheet</title>
+<style>/* ws.css — student-facing worksheet, light theme, US-Letter print */
+:root{
+  --ink:#181b22; --mist:#5a606c; --line:#cfd4df; --line2:#e4e8f0;
+  --gold:#5b3fb0; --cyan:#0a6373; --ok:#1c7a45; --no:#b00020;
+  --money:#137a45; --money-bg:#eaf6ee;
+  --bg-page:#eef1f6; --bg-sheet:#fff; --bg-soft:#f6f8fc;
+  --radius:8px;
+}
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+body{
+  font-family:-apple-system,Inter,system-ui,sans-serif;
+  font-size:15px; color:var(--ink); background:var(--bg-page);
+  margin:0; padding:28px 16px 56px; line-height:1.5;
+}
+
+/* Page container */
+.ws{max-width:780px; margin:0 auto; background:var(--bg-sheet);
+  border:1px solid var(--line); border-radius:10px; padding:30px 34px 40px;}
+
+/* ── Tools (screen only) ── */
+.tools{max-width:780px; margin:0 auto 12px; display:flex; gap:8px; justify-content:flex-end;}
+.tools button{font:600 13px/1 inherit; border:1px solid var(--line); background:#fff;
+  color:var(--ink); border-radius:7px; padding:9px 14px; cursor:pointer;}
+.tools button:hover{background:var(--bg-soft);}
+.tools .primary{background:var(--ink); color:#fff; border-color:var(--ink);}
+.tools .primary:hover{background:#000;}
+
+/* ── Header ── */
+.ws-head{margin-bottom:22px;}
+.eyebrow{font:600 11px/1 ui-monospace,monospace; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--gold); margin-bottom:9px;}
+.ws-head h1{font-size:24px; font-weight:800; margin:0 0 4px; letter-spacing:-.01em;}
+.sub{font-size:13px; color:var(--mist); margin-bottom:16px;}
+.ws-id{display:flex; gap:12px; flex-wrap:wrap;}
+.ws-id input{flex:1; min-width:110px;}
+
+/* ── Objective / EQ bar ── */
+.brief{border:1px solid var(--line2); background:var(--bg-soft);
+  border-radius:var(--radius); padding:14px 16px; margin-top:6px;}
+.brief p{margin:0 0 7px;}
+.brief p:last-child{margin-bottom:0;}
+.brief .lab{font:600 10.5px/1 ui-monospace,monospace; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--cyan); margin-right:7px;}
+.sc{margin:9px 0 0; padding:0; list-style:none; font-size:13px; color:var(--mist);}
+.sc li{margin:2px 0; padding-left:18px; position:relative;}
+.sc li::before{content:"▢"; position:absolute; left:0; color:var(--cyan);}
+.vocab{margin-top:11px; display:flex; flex-wrap:wrap; gap:6px;}
+.vocab .lab{display:block; width:100%; margin-bottom:2px;}
+.chip{font:600 12px/1 inherit; border:1px solid var(--line); background:#fff;
+  color:var(--ink); border-radius:20px; padding:5px 11px;}
+
+/* ── Sections ── */
+.ws-sec{border-top:2px solid var(--line); margin-top:26px; padding-top:18px;}
+.ws-sec h2{font-size:13px; font-weight:800; letter-spacing:.09em; text-transform:uppercase;
+  color:var(--cyan); margin:0 0 4px;}
+.ws-sec .lede{font-size:13px; color:var(--mist); margin:0 0 14px;}
+.tag{display:inline-block; font:600 10px/1 ui-monospace,monospace; letter-spacing:.1em;
+  text-transform:uppercase; color:#fff; background:var(--cyan); border-radius:4px;
+  padding:3px 6px; margin-left:8px; vertical-align:2px;}
+.tag.warm{background:var(--gold);} .tag.exit{background:var(--money);}
+
+/* ── Question blocks ── */
+.q{margin-bottom:18px;}
+.q-prompt{font-weight:600; font-size:14px; margin:0 0 9px; color:var(--ink);}
+.q-prompt .pn{color:var(--cyan); font-weight:800; margin-right:6px;}
+.hint{font-size:12px; color:var(--mist); font-weight:400;}
+
+/* ── Inputs ── */
+input,select,textarea{width:100%; font:inherit; font-size:14px; padding:8px 10px;
+  border:1px solid var(--line); border-radius:6px; background:#fbfcfe; color:var(--ink);
+  transition:border-color .15s;}
+input:focus,select:focus,textarea:focus{outline:none; border-color:var(--cyan);}
+textarea{min-height:70px; resize:vertical;}
+.inline-in{display:inline-block; width:150px; padding:4px 8px;}
+.inline-in.sm{width:92px;}
+
+/* answer blank */
+.ans{display:flex; align-items:center; gap:9px; margin-top:10px;
+  background:var(--money-bg); border:1px solid #cfe6d6; border-radius:6px; padding:9px 12px;}
+.ans .lab{font:800 11px/1 ui-monospace,monospace; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--money); white-space:nowrap;}
+.ans input{background:#fff; border-color:#bcd9c6;}
+.ans .unit{font-size:12.5px; color:var(--mist); white-space:nowrap;}
+
+/* work space */
+.work{margin-top:10px; border:1px dashed var(--line); border-radius:6px;
+  background:repeating-linear-gradient(#fff,#fff 27px,var(--line2) 27px,var(--line2) 28px);
+  min-height:88px; padding:6px 12px 4px;}
+.work .wlab{font:600 10px/1 ui-monospace,monospace; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--mist);}
+.work.tall{min-height:120px;}
+
+/* choose-one option lists */
+.q-opts{display:flex; flex-direction:column; gap:7px; margin-top:2px;}
+.q-opts label{display:flex; align-items:center; gap:9px; font-weight:400; font-size:14px; cursor:pointer;}
+.q-opts input[type=radio]{width:auto; flex-shrink:0; accent-color:var(--cyan);}
+
+/* ── Tables (spending logs) ── */
+.tbl-wrap{overflow-x:auto; margin:12px 0;}
+table.log{width:100%; border-collapse:collapse; font-size:14px;}
+table.log th,table.log td{border:1px solid var(--line); padding:8px 10px; text-align:left;}
+table.log th{background:var(--bg-soft); font-size:11px; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--mist); font-weight:700;}
+table.log td.amt,table.log th.amt,table.log td.run,table.log th.run{text-align:right;
+  font-variant-numeric:tabular-nums;}
+table.log .fill{color:#b9bfca; font-style:italic;}
+table.log tr.tot td{border-top:2px solid var(--ink); font-weight:800; background:var(--money-bg);}
+table.log td.run{color:var(--money); font-weight:700;}
+
+/* worked-step list */
+ol.steps{margin:12px 0 4px; padding-left:22px;}
+ol.steps li{margin:7px 0;}
+ol.steps b{color:var(--money);}
+.callout{border-left:3px solid var(--cyan); background:#eef7f9; border-radius:0 6px 6px 0;
+  padding:10px 13px; margin:12px 0; font-size:13.5px;}
+.callout b{color:var(--cyan);}
+.result{display:flex; flex-wrap:wrap; gap:8px 20px; margin:12px 0 2px; padding:11px 14px;
+  background:var(--money-bg); border:1px solid #cfe6d6; border-radius:6px;}
+.result .r{font-size:13px;} .result .r b{color:var(--money); font-size:15px;}
+
+.example{border:1px solid var(--line2); border-radius:var(--radius); padding:14px 16px; margin-top:4px;}
+.example + .example{margin-top:16px;}
+.example h3{font-size:14px; margin:0 0 2px;}
+.example .who{font:600 10.5px/1 ui-monospace,monospace; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--gold); margin-bottom:8px;}
+
+/* ── Teacher Answer Key ── */
+#teacherKey{display:none;}
+body.show-key #teacherKey{display:block;}
+.key{page-break-before:always; break-before:page; border-top:none; margin-top:34px;}
+.key-banner{background:var(--ink); color:#fff; border-radius:8px; padding:12px 16px; margin-bottom:16px;}
+.key-banner h2{color:#fff; font-size:15px; margin:0 0 2px; letter-spacing:.04em;}
+.key-banner p{margin:0; font-size:12px; color:#c7ccd6;}
+.key .kq{margin-bottom:13px; padding-bottom:11px; border-bottom:1px solid var(--line2);}
+.key .kref{font:800 12px/1 ui-monospace,monospace; color:var(--cyan); margin-right:8px;}
+.key .kans{color:var(--money); font-weight:800;}
+.key .kwhy{display:block; font-size:12.5px; color:var(--mist); margin-top:4px;}
+.key .kpts{float:right; font:700 11px/1 ui-monospace,monospace; color:var(--mist);}
+
+.foot{margin-top:26px; padding-top:14px; border-top:1px solid var(--line); font-size:12px; color:var(--mist);}
+
+/* ── Print (US-Letter) ── */
+@page{size:letter; margin:.5in;}
+@media print{
+  body{background:#fff; padding:0; font-size:12.5px;}
+  .ws{max-width:100%; border:none; border-radius:0; padding:0;}
+  .tools{display:none;}
+  .ws-sec{break-inside:auto;}
+  .q,.example,.tbl-wrap,.result,.callout,.ans{break-inside:avoid;}
+  input,select,textarea{border:none; border-bottom:1px solid #888; border-radius:0;
+    background:transparent; padding:3px 2px;}
+  .inline-in{border-bottom:1px solid #666;}
+  .work{background:#fff; border:1px solid #bbb;}
+  .ans{background:#f4faf5;}
+  /* Teacher key always prints, on its own page */
+  #teacherKey{display:block !important;}
+}
+
+.ws-fig{margin:10px 0;text-align:center}.ws-fig svg{max-width:100%;height:auto;max-height:260px}
+#teacherKey:not([hidden]){display:block}</style></head><body>
+<div class="tools"><button id="keyBtn">Show Teacher Key</button><button id="printBtn" class="primary">Print / Save PDF</button></div>
+<div class="ws"><header class="ws-head"><div class="eyebrow">The Salas Compass · Worksheet</div>
+<h1>L06 — Supplementary, Complementary &amp; Vertical Angles</h1><div class="sub">Week 7 · Prove It — Angle Pairs</div>
+<div class="ws-id"><input placeholder="Stephen Salas"><input placeholder="Date"></div></header>
+<div class="brief"><p><span class="lab">Objective</span>Justify why vertical angles are always congruent (both are supplements of the same angle), review the week's Math-U-See practice, and pass the mastery checkpoint on adjacent, complementary, supplementary, and vertical angles.</p></div>
+<section class="ws-sec"><h2>Mastery Checkpoint</h2><div class="q" data-ref="c1"><p class="q-prompt"><span class="pn">C1.</span>Two angles that share a vertex and a side, without overlapping, are called…</p><div class="q-opts"><label><input type="radio" name="c1"> vertical angles</label><label><input type="radio" name="c1"> adjacent angles</label><label><input type="radio" name="c1"> complementary angles</label></div></div><div class="q" data-ref="c2"><p class="q-prompt"><span class="pn">C2.</span>Two angles whose measures add to 180° are called ___ angles.</p><div class="q-opts"><label><input type="radio" name="c2"> complementary</label><label><input type="radio" name="c2"> supplementary</label><label><input type="radio" name="c2"> vertical</label></div></div><div class="q" data-ref="c3"><p class="q-prompt"><span class="pn">C3.</span>∠A and ∠B are complementary. If m∠A = 37°, what is m∠B?</p><div class="q-opts"><label><input type="radio" name="c3"> 53°</label><label><input type="radio" name="c3"> 63°</label><label><input type="radio" name="c3"> 143°</label></div></div><div class="q" data-ref="c4"><p class="q-prompt"><span class="pn">C4.</span>Two lines intersect at H, forming ∠1, ∠2, ∠3, ∠4 in order around H. If m∠2 = 48°, find m∠1 and m∠3, and name the relationship you used for each.</p><div class="work"><span class="wlab">work</span></div><div class="ans"><span class="lab">Answer</span><input></div></div><div class="q" data-ref="c5"><p class="q-prompt"><span class="pn">C5.</span>Draw two lines crossing at a point V. Label the four angles ∠1, ∠2, ∠3, ∠4 in order, mark ONE vertical pair with matching arc marks, and mark ONE linear pair showing their measures sum to 180°.</p><div class="ws-fig"><svg viewBox="0 0 560 360" xmlns="http://www.w3.org/2000/svg" font-family="DM Mono, monospace"><line x1="0" y1="0" x2="0" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="28" y1="0" x2="28" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="56" y1="0" x2="56" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="84" y1="0" x2="84" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="112" y1="0" x2="112" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="140" y1="0" x2="140" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="168" y1="0" x2="168" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="196" y1="0" x2="196" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="224" y1="0" x2="224" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="252" y1="0" x2="252" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="280" y1="0" x2="280" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="308" y1="0" x2="308" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="336" y1="0" x2="336" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="364" y1="0" x2="364" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="392" y1="0" x2="392" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="420" y1="0" x2="420" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="448" y1="0" x2="448" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="476" y1="0" x2="476" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="504" y1="0" x2="504" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="532" y1="0" x2="532" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="560" y1="0" x2="560" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="0" x2="560" y2="0" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="28" x2="560" y2="28" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="56" x2="560" y2="56" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="84" x2="560" y2="84" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="112" x2="560" y2="112" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="140" x2="560" y2="140" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="168" x2="560" y2="168" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="196" x2="560" y2="196" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="224" x2="560" y2="224" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="252" x2="560" y2="252" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="280" x2="560" y2="280" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="308" x2="560" y2="308" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="336" x2="560" y2="336" stroke="#cfd4df" stroke-width="1"/></svg></div><div class="work tall"><span class="wlab">construction space</span></div></div><div class="q" data-ref="c6"><p class="q-prompt"><span class="pn">C6.</span>In your own words, explain why vertical angles must always be congruent — use the word 'supplement' in your answer.</p><div class="work"><span class="wlab">work</span></div><div class="ans"><span class="lab">Answer</span><input></div></div></section><section class="ws-sec"><h2>Set Your Mastery</h2><div class="q" data-ref="x1"><p class="q-prompt"><span class="pn">X1.</span>Close: rate yourself on Lesson 6 (Emerging / Proficient / Mastered) and name the one idea you'd want to revisit.</p><div class="work"><span class="wlab">work</span></div><div class="ans"><span class="lab">Answer</span><input></div></div></section>
+<section id="teacherKey" class="ws-sec key" hidden data-key-blob="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"></section>
+</div>
+<script>// key-lock.js — "phony" passphrase gate for teacher answer keys.
+// Obfuscation only: the passphrase is derivable from the shipped JS, by design.
+const enc = new TextEncoder();
+const dec = new TextDecoder();
+// Sentinel prepended before XOR so a wrong passphrase is rejected reliably
+// (a right decode always begins with MAGIC; garbage from a wrong key won't).
+const MAGIC = 'GEOKEY';
+
+async function keystream(pass, len) {
+  const digest = new Uint8Array(await crypto.subtle.digest('SHA-256', enc.encode(pass)));
+  const out = new Uint8Array(len);
+  for (let i = 0; i < len; i++) out[i] = digest[i % digest.length];
+  return out;
+}
+function b64encode(bytes) {
+  let s = ''; for (const b of bytes) s += String.fromCharCode(b);
+  return (typeof btoa === 'function') ? btoa(s) : Buffer.from(s, 'binary').toString('base64');
+}
+function b64decode(str) {
+  const s = (typeof atob === 'function') ? atob(str) : Buffer.from(str, 'base64').toString('binary');
+  const out = new Uint8Array(s.length);
+  for (let i = 0; i < s.length; i++) out[i] = s.charCodeAt(i);
+  return out;
+}
+
+async function encodeKey(html, pass) {
+  const data = enc.encode(MAGIC + html);
+  const ks = await keystream(pass, data.length);
+  const x = new Uint8Array(data.length);
+  for (let i = 0; i < data.length; i++) x[i] = data[i] ^ ks[i];
+  return b64encode(x);
+}
+// Returns the decoded HTML on the right passphrase, or null on a wrong one.
+async function decodeKey(blob, pass) {
+  const data = b64decode(blob);
+  const ks = await keystream(pass, data.length);
+  const x = new Uint8Array(data.length);
+  for (let i = 0; i < data.length; i++) x[i] = data[i] ^ ks[i];
+  const text = dec.decode(x);
+  return text.startsWith(MAGIC) ? text.slice(MAGIC.length) : null;
+}
+
+// Browser wiring: call from a worksheet. buttonEl toggles a prompt; on correct
+// passphrase, decoded HTML is injected into targetEl. Returns nothing.
+function wireKeyGate({ button, target, blob }) {
+  if (!button || !target) return;
+  button.addEventListener('click', async () => {
+    if (target.dataset.open === '1') { target.hidden = true; target.dataset.open = '0'; button.textContent = 'Show Teacher Key'; return; }
+    const pass = window.prompt('Parent passphrase to reveal the answer key:');
+    if (pass == null) return;
+    const html = await decodeKey(blob, pass);
+    // decodeKey returns null unless the sentinel decoded — a reliable wrong-pass reject.
+    if (html == null) { window.alert('That passphrase does not match.'); return; }
+    target.innerHTML = html; target.hidden = false; target.dataset.open = '1';
+    button.textContent = 'Hide Teacher Key';
+  });
+}
+
+document.getElementById('printBtn').addEventListener('click',()=>window.print());
+const _kt=document.getElementById('teacherKey');
+wireKeyGate({button:document.getElementById('keyBtn'),target:_kt,blob:_kt.dataset.keyBlob});</script></body></html>

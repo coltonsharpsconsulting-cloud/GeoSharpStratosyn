@@ -1,0 +1,44 @@
+{
+  "id": "LP-W07-S3", "course": "geometry", "week": 7, "session": 3,
+  "session_type": "prove", "lesson": "L06 — Supplementary, Complementary & Vertical Angles",
+  "unit": "u01", "duration_min": 60, "mode": "Prove",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 7 · Prove It — Angle Pairs",
+  "essential_question": "Why must vertical angles always be congruent — not just usually equal?",
+  "objective": "Justify why vertical angles are always congruent (both are supplements of the same angle), review the week's Math-U-See practice, and pass the mastery checkpoint on adjacent, complementary, supplementary, and vertical angles.",
+  "standards": ["G-CO.C.9"],
+  "vocab": ["adjacent angles", "vertical angles", "complementary angles", "supplementary angles", "linear pair"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Redraw From Memory","board":"warmup","content":{"prompt":"Without looking, sketch two intersecting lines, label the four angles ∠1–∠4 in order, and mark the two vertical pairs. Then say from memory what makes angles adjacent, complementary, supplementary, and vertical."}},
+    {"phase":"review","min":12,"title":"Review — Your Math-U-See Work","board":"review","content":{"heading":"Go over Lesson Practice 6A & 6B together","note":"Bring your completed MUS Lesson Practice 6A/6B. We check the tricky ones: reading vertical vs. adjacent off a busy diagram, telling complementary (90°) from supplementary (180°) at a glance, and the Greek-letter angle names some problems use (α, β, γ, δ). Fix any you missed and note WHY."}},
+    {"phase":"prove","min":16,"title":"Prove It — Reason Out Loud","board":"prove","content":{"heading":"Defend three claims","figure":"angle-pair","bullets":["Claim 1: vertical angles are always congruent. Argue it — ∠1 and ∠3 are each a linear pair with the SAME angle ∠2, so both must equal 180° minus m∠2.","Claim 2: adjacent angles do NOT have to be complementary or supplementary. Argue it with a counterexample — two adjacent angles measuring, say, 20° and 100°.","Claim 3: a linear pair is always supplementary, but two supplementary angles are not always a linear pair. Argue it — a 50° angle and a 130° angle drawn nowhere near each other are still supplementary, but they share no vertex and no side."]}},
+    {"phase":"checkpoint","min":18,"title":"Mastery Checkpoint","board":"checkpoint","content":{"heading":"Show what you own","items":["c1","c2","c3","c4","c5","c6"]}},
+    {"phase":"close","min":8,"title":"Close & Set Mastery","board":"close","content":{"items":["x1"],"preview":"Next week, Lesson 7 — Transversals & Parallel Lines — where these same angle pairs reappear when one line crosses two parallel lines."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can identify and symbolize adjacent, complementary, supplementary, and vertical angles without help"},
+    {"id":"SC2","text":"I can compute an unknown angle's measure given its complementary, supplementary, or vertical partner"},
+    {"id":"SC3","text":"I can justify why vertical angles are always congruent, using the fact that both are supplements of the same angle"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W07-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W07 Angle Pairs.md"},
+    "mus": {"practice":"MUS/L06 — Lesson Practice.pdf","review":"MUS/L06 — Systematic Review.pdf","test":"MUS/L06 — Lesson Test.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"checkpoint","kind":"check","title":"Mastery Checkpoint","items":["c1","c2","c3","c4","c5","c6"]},
+      {"phase":"close","kind":"exit","title":"Set Your Mastery","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"c1","type":"mc","sc":"SC1","points":1,"prompt":"Two angles that share a vertex and a side, without overlapping, are called…","options":["vertical angles","adjacent angles","complementary angles"],"answer":"adjacent angles","explain":"Adjacent angles share a vertex and one ray, sitting right next to each other with no overlap."},
+    {"ref":"c2","type":"dropdown","sc":"SC1","points":1,"prompt":"Two angles whose measures add to 180° are called ___ angles.","options":["complementary","supplementary","vertical"],"answer":"supplementary","explain":"Supplementary angles' measures always add to exactly 180° — enough to fill a straight line."},
+    {"ref":"c3","type":"mc","sc":"SC2","points":1,"prompt":"∠A and ∠B are complementary. If m∠A = 37°, what is m∠B?","options":["53°","63°","143°"],"answer":"53°","explain":"Complementary angles add to 90°: 90° − 37° = 53°."},
+    {"ref":"c4","type":"short","sc":"SC2","points":2,"prompt":"Two lines intersect at H, forming ∠1, ∠2, ∠3, ∠4 in order around H. If m∠2 = 48°, find m∠1 and m∠3, and name the relationship you used for each.","answer":"m∠1 = 132° (180° − 48°, since ∠1 and ∠2 are a linear pair — supplementary); m∠3 = 48° (∠2 and ∠3 are vertical angles, always congruent).","explain":"∠1 and ∠2 are adjacent and form a straight line (linear pair, supplementary); ∠2 and ∠3 are opposite each other across the vertex (vertical, congruent)."},
+    {"ref":"c5","type":"construct","sc":"SC1","points":2,"figure":"grid-blank","prompt":"Draw two lines crossing at a point V. Label the four angles ∠1, ∠2, ∠3, ∠4 in order, mark ONE vertical pair with matching arc marks, and mark ONE linear pair showing their measures sum to 180°.","answer":"Two lines crossing at V with four angles labeled in order; one vertical pair marked with matching arcs, and one adjacent (linear) pair marked as summing to 180°.","explain":"Rubric: two crossing lines with four labeled angles in order (1 pt) + a correctly marked vertical pair AND a correctly marked linear pair (1 pt)."},
+    {"ref":"c6","type":"short","sc":"SC3","points":2,"prompt":"In your own words, explain why vertical angles must always be congruent — use the word 'supplement' in your answer.","answer":"Each vertical angle forms a linear pair (a supplement) with the same third angle between them; since both vertical angles are supplements of that identical angle, 180° minus the same number gives the same result twice, so the two vertical angles must be equal.","explain":"Full credit: names that both vertical angles are supplements of the SAME adjacent angle, which forces their measures to match."},
+    {"ref":"x1","type":"short","sc":"SC1","points":1,"prompt":"Close: rate yourself on Lesson 6 (Emerging / Proficient / Mastered) and name the one idea you'd want to revisit."}
+  ]
+}
