@@ -1,0 +1,37 @@
+{
+  "id": "LP-W01-S1", "course": "geometry", "week": 1, "session": 1,
+  "session_type": "concept", "lesson": "Orientation — Your Compass & Tools",
+  "unit": "u01", "duration_min": 60, "mode": "Concept",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 1 · Meet Your Tools · Start the Compass",
+  "essential_question": "What does it take to draw geometry you can trust?",
+  "objective": "Identify and safely use the compass, straightedge, and protractor, and start The Salas Compass as your running notebook.",
+  "standards": ["G-CO.A.1"],
+  "vocab": ["compass", "straightedge", "protractor", "construction", "The Salas Compass"],
+  "agenda": [
+    {"phase":"launch","min":8,"title":"Welcome — The Deal","board":"launch","content":{"prompt":"Three days a week we meet: Concept, Build, Prove. In between, the Math-U-See work is yours. What do you already know about geometry — and what do you want to build with it?"}},
+    {"phase":"tools","min":16,"title":"Meet the Tools","board":"tools","content":{"heading":"Four tools, one job each","figure":"grid-blank","bullets":["Straightedge — draws a straight line (never measure with its markings during a construction).","Compass — draws circles and equal lengths; the width IS the length.","Protractor — measures and marks angles in degrees.","Pencil — sharp, light; geometry is done in pencil so you can fix it."]}},
+    {"phase":"compass","min":14,"title":"Start The Salas Compass","board":"compass","content":{"heading":"Your notebook is a tool too","note":"Label the first page 'The Salas Compass — Geometry.' This is where your before-session reads, sketches, and build photos live all year. Draw today's date and write one goal for the year."}},
+    {"phase":"do","min":14,"title":"First Freehand Figures","board":"do","content":{"heading":"Draw the four you'll master this week","items":["p1","p2"]}},
+    {"phase":"exit","min":8,"title":"Exit","board":"exit","content":{"items":["x1"],"preview":"Next session: FreeCAD + measuring the real world."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can name the compass, straightedge, and protractor and what each is for"},
+    {"id":"SC2","text":"I have started The Salas Compass notebook"}
+  ],
+  "assets": {
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W01 Welcome & Tools.md"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"do","kind":"practice","title":"Tools & First Figures","items":["p1","p2"]},
+      {"phase":"exit","kind":"exit","title":"Exit","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"p1","type":"short","sc":"SC1","points":2,"prompt":"Match the job to the tool: (a) draw a perfect circle, (b) draw a straight line, (c) measure a 60° angle.","answer":"(a) compass, (b) straightedge, (c) protractor","explain":"Compass = circles/equal lengths; straightedge = straight lines; protractor = angles."},
+    {"ref":"p2","type":"construct","sc":"SC1","points":2,"figure":"grid-blank","prompt":"Freehand-draw and label a point, a segment, a ray, and a line. (We make them precise this week.)","answer":"Four labeled figures: a dot, a two-end segment, a one-arrow ray, a two-arrow line.","explain":"Rubric: all four present and labeled; precision not required today."},
+    {"ref":"x1","type":"short","points":1,"prompt":"Exit: write the one goal you set on the first page of your Compass."}
+  ]
+}

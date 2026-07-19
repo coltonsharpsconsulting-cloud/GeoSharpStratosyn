@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Points, Lines, Rays & Segments — Sim</title>
+<style>
+  :root{--void:#0d1322;--ink:#161d31;--bone:#e8ecf3;--mist:#9aabd0;--accent:#8b5cf6;--gold:#f5c842;--border:#2a3142}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--void);color:var(--bone);font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;min-height:100%}
+  header{padding:2vh 4vw;border-bottom:1px solid var(--border);background:var(--ink)}
+  .eyebrow{font-family:"DM Mono",ui-monospace,monospace;letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--accent)}
+  h1{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(20px,3vw,30px);margin-top:.3rem}
+  main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2vh;padding:3vh 4vw}
+  .stage{width:100%;max-width:720px;aspect-ratio:16/9;background:var(--ink);border:1px solid var(--border);border-radius:16px;touch-action:none}
+  svg{width:100%;height:100%;display:block}
+  .controls{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
+  button{font-family:"DM Mono",ui-monospace,monospace;font-size:14px;background:var(--ink);color:var(--bone);border:1px solid var(--border);border-radius:999px;padding:.6rem 1.2rem;cursor:pointer}
+  button.on{border-color:var(--accent);color:var(--accent)}
+  .readout{font-family:"DM Mono",ui-monospace,monospace;font-size:clamp(14px,2vw,18px);color:var(--mist)}
+  .readout b{color:var(--gold)}
+  .hint{color:var(--mist);font-size:14px;max-width:52ch;text-align:center}
+</style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Geometry · Lesson 1 · sim</div>
+    <h1>Drag the endpoints. Watch the figure change.</h1>
+  </header>
+  <main>
+    <div class="controls" id="modes">
+      <button data-mode="segment" class="on">segment &nbsp;A—B</button>
+      <button data-mode="ray">ray &nbsp;A→</button>
+      <button data-mode="line">line &nbsp;↔</button>
+    </div>
+    <div class="stage"><svg viewBox="0 0 640 360" id="svg"></svg></div>
+    <div class="readout" id="readout"></div>
+    <p class="hint">A <b style="color:var(--accent)">segment</b> stops at both ends (measurable). A <b style="color:var(--accent)">ray</b> stops at A and runs forever past B. A <b style="color:var(--accent)">line</b> runs forever both ways. Same two points — different figure.</p>
+  </main>
+<script>
+(() => {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  const readout = document.getElementById('readout');
+  const P = { A:{x:200,y:210}, B:{x:460,y:150} };
+  let mode = 'segment';
+  const el = {};
+  function make(tag, attrs){ const n=document.createElementNS(NS,tag); for(const k in attrs) n.setAttribute(k,attrs[k]); svg.appendChild(n); return n; }
+  // build once
+  el.main = make('line',{stroke:'#8b5cf6','stroke-width':5,'stroke-linecap':'round'});
+  el.arrowA = make('polygon',{fill:'#8b5cf6'});
+  el.arrowB = make('polygon',{fill:'#8b5cf6'});
+  el.dotA = make('circle',{r:11,fill:'#8b5cf6',cursor:'grab'}); el.dotA.dataset.id='A';
+  el.dotB = make('circle',{r:11,fill:'#8b5cf6',cursor:'grab'}); el.dotB.dataset.id='B';
+  el.lblA = make('text',{fill:'#e8ecf3','font-size':22,'font-family':'DM Mono, monospace','text-anchor':'middle'}); el.lblA.textContent='A';
+  el.lblB = make('text',{fill:'#e8ecf3','font-size':22,'font-family':'DM Mono, monospace','text-anchor':'middle'}); el.lblB.textContent='B';
+
+  function unit(a,b){ const dx=b.x-a.x, dy=b.y-a.y, d=Math.hypot(dx,dy)||1; return {x:dx/d, y:dy/d, d}; }
+  function extend(a,b,len){ const u=unit(a,b); return {x:b.x+u.x*len, y:b.y+u.y*len}; }
+  function arrow(at, from){ const u=unit(from,at), s=13; const p1={x:at.x, y:at.y};
+    const p2={x:at.x-u.x*s-u.y*s*0.7, y:at.y-u.y*s+u.x*s*0.7};
+    const p3={x:at.x-u.x*s+u.y*s*0.7, y:at.y-u.y*s-u.x*s*0.7};
+    return `${p1.x},${p1.y} ${p2.x},${p2.y} ${p3.x},${p3.y}`; }
+
+  function draw(){
+    const A=P.A, B=P.B;
+    let x1=A.x,y1=A.y,x2=B.x,y2=B.y;
+    el.arrowA.setAttribute('points',''); el.arrowB.setAttribute('points','');
+    if(mode==='ray'){ const far=extend(A,B,600); x2=far.x; y2=far.y; el.arrowB.setAttribute('points', arrow(far, A)); }
+    if(mode==='line'){ const f1=extend(B,A,600), f2=extend(A,B,600); x1=f1.x;y1=f1.y;x2=f2.x;y2=f2.y;
+      el.arrowA.setAttribute('points', arrow(f1, B)); el.arrowB.setAttribute('points', arrow(f2, A)); }
+    el.main.setAttribute('x1',x1); el.main.setAttribute('y1',y1); el.main.setAttribute('x2',x2); el.main.setAttribute('y2',y2);
+    el.dotA.setAttribute('cx',A.x); el.dotA.setAttribute('cy',A.y);
+    el.dotB.setAttribute('cx',B.x); el.dotB.setAttribute('cy',B.y);
+    el.lblA.setAttribute('x',A.x); el.lblA.setAttribute('y',A.y-18);
+    el.lblB.setAttribute('x',B.x); el.lblB.setAttribute('y',B.y-18);
+    // B is only an endpoint dot for a segment; for ray/line it's a "through" point
+    el.dotB.setAttribute('r', mode==='segment' ? 11 : 7);
+    const len = unit(A,B).d;
+    const label = mode==='segment' ? `segment AB · length <b>${(len/40).toFixed(1)}</b> units`
+      : mode==='ray' ? 'ray AB · starts at <b>A</b>, runs forever past B'
+      : 'line AB · runs forever both ways · <b>infinitely many</b> points';
+    readout.innerHTML = label;
+  }
+
+  // drag
+  let drag=null;
+  function pt(e){ const r=svg.getBoundingClientRect(); const cx=(e.touches?e.touches[0].clientX:e.clientX)-r.left; const cy=(e.touches?e.touches[0].clientY:e.clientY)-r.top;
+    return { x: cx/r.width*640, y: cy/r.height*360 }; }
+  function down(e){ const id=e.target.dataset.id; if(id){ drag=id; e.preventDefault(); } }
+  function move(e){ if(!drag) return; const q=pt(e); P[drag].x=Math.max(16,Math.min(624,q.x)); P[drag].y=Math.max(16,Math.min(344,q.y)); draw(); e.preventDefault(); }
+  function up(){ drag=null; }
+  svg.addEventListener('pointerdown',down); svg.addEventListener('pointermove',move); window.addEventListener('pointerup',up);
+  svg.addEventListener('touchstart',down,{passive:false}); svg.addEventListener('touchmove',move,{passive:false}); window.addEventListener('touchend',up);
+
+  document.getElementById('modes').addEventListener('click', e => {
+    const m=e.target.dataset.mode; if(!m) return;
+    mode=m; [...document.querySelectorAll('#modes button')].forEach(b=>b.classList.toggle('on', b.dataset.mode===m));
+    draw();
+  });
+
+  draw();
+})();
+</script>
+</body>
+</html>

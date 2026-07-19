@@ -1,0 +1,36 @@
+{
+  "id": "LP-W01-S2", "course": "geometry", "week": 1, "session": 2,
+  "session_type": "build", "lesson": "Orientation — FreeCAD & Measuring",
+  "unit": "u01", "duration_min": 60, "mode": "Build",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 1 · Your Digital Compass — FreeCAD & Measuring",
+  "essential_question": "How do we turn a real object into exact numbers — and back?",
+  "objective": "Open FreeCAD and place a point and a line; measure three real objects and record lengths with units and honest precision.",
+  "standards": ["G-CO.A.1"],
+  "vocab": ["FreeCAD", "sketch", "measurement", "unit", "precision"],
+  "agenda": [
+    {"phase":"brief","min":8,"title":"Brief — Two New Instruments","board":"brief","content":{"heading":"A ruler and a computer","bullets":["FreeCAD is a compass and straightedge that never slips — we'll build real solids in it later.","A tape measure / calipers turn the world into numbers.","Today: get both working with something simple."]}},
+    {"phase":"cad","min":22,"title":"FreeCAD — First Point & Line","board":"cad","content":{"heading":"Open a Sketch, place geometry","note":"Open FreeCAD → new document → Sketcher → new sketch on the XY plane. Place a Point. Draw a Line (a segment). Add a length constraint and watch the number update. Save it as 'orientation-first-sketch'. Screenshot for your Portfolio."}},
+    {"phase":"measure","min":20,"title":"Measure Three Real Things","board":"measure","content":{"heading":"World → numbers","figure":"segment","items":["m1","m2"]}},
+    {"phase":"reflect","min":10,"title":"Reflect","board":"reflect","content":{"items":["r1"],"preview":"Next session: how this class runs + your goals."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can open FreeCAD and place a point and a constrained line"},
+    {"id":"SC2","text":"I can measure a real object and record length with a unit and sensible precision"}
+  ],
+  "assets": {
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W01 Welcome & Tools.md"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"measure","kind":"practice","title":"Measurement Log","items":["m1","m2"]},
+      {"phase":"reflect","kind":"exit","title":"Reflect","items":["r1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"m1","type":"measure","sc":"SC2","points":2,"figure":"segment","prompt":"Measure three objects (a book, a table edge, your hand span). Record each length with a unit.","answer":"Three lengths, each with a unit (cm or in).","explain":"Rubric: three measurements, each with a number AND a unit; realistic values."},
+    {"ref":"m2","type":"short","sc":"SC2","points":1,"prompt":"Which of your three measurements was hardest to make precise, and why?","answer":"Open — e.g. the hand span, because the ends aren't sharp points.","explain":"Full credit: names a real source of imprecision (soft ends, bending tape, reading between marks)."},
+    {"ref":"r1","type":"short","sc":"SC1","points":2,"prompt":"Reflect: what could you do in FreeCAD that you couldn't do freehand yesterday?"}
+  ]
+}

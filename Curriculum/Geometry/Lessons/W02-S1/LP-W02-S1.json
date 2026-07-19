@@ -1,0 +1,47 @@
+{
+  "id": "LP-W02-S1", "course": "geometry", "week": 2, "session": 1,
+  "session_type": "concept", "lesson": "L01 — Points, Lines, Rays & Segments",
+  "unit": "u01", "duration_min": 60, "mode": "Concept",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 2 · Points, Lines & the Four Building Blocks",
+  "essential_question": "How little does it take to pin down exactly where something is?",
+  "objective": "Name and symbolize points, lines, rays, and segments, and tell them apart by how many endpoints they have.",
+  "standards": ["G-CO.A.1"],
+  "vocab": ["point", "line", "ray", "segment", "endpoint", "collinear", "congruent"],
+  "agenda": [
+    {"phase":"launch","min":6,"title":"Launch — One Dot, One Address","board":"launch","content":{"prompt":"If a point has no size, how can it tell you where anything is? Put one dot on the page and defend that it marks an exact spot."}},
+    {"phase":"i_do","min":12,"title":"I do — Four Building Blocks","board":"i_do","content":{"heading":"Point, line, ray, segment — sorted by endpoints","figure":"four-blocks","bullets":["A point marks a location — no length, no width.","A line runs forever both ways (arrows both ends).","A ray starts at one endpoint, runs forever one way — write the endpoint first.","A segment has two endpoints — it is finite and measurable."]}},
+    {"phase":"explore","min":8,"title":"Explore — Drag the Endpoints","board":"explore","content":{"heading":"Move the points; watch the figure change","note":"On the sim, drag A and B. Toggle segment / ray / line and say aloud what each endpoint is doing.","figure":"segment"}},
+    {"phase":"check","min":5,"title":"Check for Understanding","board":"check","content":{"heading":"Name that figure","items":["n1","n2"]}},
+    {"phase":"you_do","min":12,"title":"You do — Symbolize It","board":"you_do","content":{"heading":"Your turn on the worksheet","items":["p1","p2","p3","p4"]}},
+    {"phase":"exit","min":5,"title":"Exit Ticket","board":"exit","content":{"items":["x1"],"preview":"Build session: string-and-nail a line, ray, and segment you can walk along."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can name a point, line, ray, and segment and write each one's symbol"},
+    {"id":"SC2","text":"I can tell figures apart by how many endpoints they have"},
+    {"id":"SC3","text":"I can explain why ray AB and ray BA are different but segment AB and BA are the same"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W02-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W02 Points & Lines.md"},
+    "mus": {"practice":"MUS/L01 — Lesson Practice.pdf","review":"MUS/L01 — Systematic Review.pdf","test":"MUS/L01 — Lesson Test.pdf"},
+    "interactive": {"slug":"points-lines","note":"Curriculum/Geometry/Lessons/W02-S1/sims/points-lines.html"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"check","kind":"check","title":"Name That Figure","items":["n1","n2"]},
+      {"phase":"practice","kind":"practice","title":"Symbolize It","items":["p1","p2","p3","p4"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"n1","type":"dropdown","sc":"SC1","points":1,"prompt":"A figure with exactly one endpoint is a…","options":["line","ray","segment","point"],"answer":"ray","explain":"A ray starts at one endpoint and runs forever in one direction."},
+    {"ref":"n2","type":"mc","sc":"SC2","points":1,"prompt":"Which figure is measurable (has a finite length)?","options":["line","ray","segment"],"answer":"segment","explain":"A segment has two endpoints, so its length is finite and measurable."},
+    {"ref":"p1","type":"short","sc":"SC1","points":2,"prompt":"Write the symbol for the ray that starts at A and passes through B.","answer":"ray AB (endpoint A first, one-way arrow over AB)","explain":"A ray is written endpoint-first with a one-way arrow: ray AB starts at A and goes through B."},
+    {"ref":"p2","type":"construct","sc":"SC1","points":2,"prompt":"On the grid, draw segment CD and mark both endpoints.","answer":"A straight segment with C and D labeled at its two ends.","figure":"grid-blank","explain":"Rubric: a straight segment (1 pt) with both endpoints clearly labeled C and D (1 pt)."},
+    {"ref":"p3","type":"mc","sc":"SC2","points":1,"prompt":"How many points lie on any line?","options":["exactly two","the number you label","infinitely many"],"answer":"infinitely many","explain":"A line is made of an infinite number of points — between any two there is always another."},
+    {"ref":"p4","type":"short","sc":"SC3","points":2,"prompt":"Is ray AB the same as ray BA? Is segment AB the same as segment BA? Explain each in one sentence.","answer":"Ray AB ≠ ray BA (different endpoints, opposite directions); segment AB = segment BA (same piece, direction doesn't matter).","explain":"Rays carry direction from their endpoint, so order matters; a segment is just the piece between two ends, so naming order doesn't."},
+    {"ref":"x1","type":"short","sc":"SC2","points":2,"prompt":"Exit: name one figure from your day (a road, a beam of light, a pencil mark) and say whether it is most like a point, line, ray, or segment — and why."}
+  ]
+}

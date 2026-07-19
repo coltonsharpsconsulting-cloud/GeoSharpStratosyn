@@ -1,0 +1,42 @@
+{
+  "id": "LP-W02-S2", "course": "geometry", "week": 2, "session": 2,
+  "session_type": "build", "lesson": "L01 — Points, Lines, Rays & Segments",
+  "unit": "u01", "duration_min": 60, "mode": "Build",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 2 · String-Line Lab",
+  "essential_question": "What does 'runs forever' feel like when you build it?",
+  "objective": "Physically build a point, segment, ray, and line; measure the segment; and explain why a ray and a line cannot be measured.",
+  "standards": ["G-CO.A.1"],
+  "vocab": ["endpoint", "segment", "ray", "line", "opposite rays", "length"],
+  "agenda": [
+    {"phase":"brief","min":6,"title":"Brief — Today You Build the Four","board":"brief","content":{"heading":"From definitions to string","bullets":["Yesterday: named the four figures by their endpoints.","Today: make each one real with tacks + string.","The test: can you build a ray you can walk toward — and say why you can't measure it?"]}},
+    {"phase":"plan","min":8,"title":"Plan — Read the Build Card","board":"plan","content":{"heading":"Gather + plan","note":"Open the project card. Lay out your board, tacks, string, ruler. Decide where P, C–D, A–B, and E–F will go so they don't overlap."}},
+    {"phase":"build","min":25,"title":"Build — Point, Segment, Ray, Line","board":"build","content":{"heading":"Make them","bullets":["Point P — one tack, labeled.","Segment CD — string between two tacks; measure it.","Ray AB — one endpoint, string off one edge, 'forever' flag.","Line EF — string off both edges, flags both ends."]}},
+    {"phase":"measure","min":12,"title":"Measure & Record","board":"measure","content":{"heading":"Get the numbers","figure":"segment","items":["m1","m2","m3"]}},
+    {"phase":"reflect","min":9,"title":"Reflect & Photograph","board":"reflect","content":{"items":["r1"],"preview":"Session 3: defend the difference in words, then the checkpoint."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can build a point, segment, ray, and line and label each correctly"},
+    {"id":"SC2","text":"I can measure a segment and record its length with units"},
+    {"id":"SC3","text":"I can explain why a ray and a line have no measurable length"}
+  ],
+  "assets": {
+    "project": {"note":"Curriculum/Geometry/Lessons/W02-S2/project-card.md"},
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W02-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W02 Points & Lines.md"},
+    "mus": {"practice":"MUS/L01 — Lesson Practice.pdf","review":"MUS/L01 — Systematic Review.pdf","test":"MUS/L01 — Lesson Test.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"measure","kind":"practice","title":"Build Log & Measurements","items":["m1","m2","m3"]},
+      {"phase":"reflect","kind":"exit","title":"Reflect","items":["r1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"m1","type":"measure","sc":"SC2","points":2,"figure":"segment","prompt":"Measure your segment CD with the ruler. Record its length (with units).","answer":"Any correct measured length with a unit, e.g. 18 cm.","explain":"Rubric: a number + a unit (cm/in). A segment has two endpoints, so it has a real, finite length."},
+    {"ref":"m2","type":"short","sc":"SC3","points":2,"prompt":"Try to measure your ray AB. Write what happens and why in one sentence.","answer":"You can't — a ray runs forever past B, so it has no endpoint on that side and no finite length.","explain":"A ray has only one endpoint; the other direction never stops, so there is nothing to measure to."},
+    {"ref":"m3","type":"short","sc":"SC1","points":1,"prompt":"On your board you strung opposite rays from A. Name them both (endpoint first).","answer":"Ray AB and ray A(reverse) — e.g. ray AB and ray AX, both starting at A, pointing opposite ways.","explain":"Opposite rays share the endpoint A and together form a straight line."},
+    {"ref":"r1","type":"short","sc":"SC3","points":2,"prompt":"Reflect: which of the four figures was hardest to build honestly, and what did building it teach you that the definition didn't?"}
+  ]
+}

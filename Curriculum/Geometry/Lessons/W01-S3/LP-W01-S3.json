@@ -1,0 +1,37 @@
+{
+  "id": "LP-W01-S3", "course": "geometry", "week": 1, "session": 3,
+  "session_type": "prove", "lesson": "Orientation — How This Class Works",
+  "unit": "u01", "duration_min": 60, "mode": "Prove",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 1 · The Rhythm, the Work, the Goals",
+  "essential_question": "What's my job, what's your job, and where are we headed?",
+  "objective": "Explain the Concept–Build–Prove rhythm and how the independent Math-U-See work fits, and set your goals for the year.",
+  "standards": ["G-CO.A.1"],
+  "vocab": ["Concept", "Build", "Prove", "mastery", "Math-U-See"],
+  "agenda": [
+    {"phase":"warmup","min":8,"title":"Warm-Up — Two Days In","board":"warmup","content":{"prompt":"You've met the tools and made your first measurement. What surprised you? What are you already curious to build?"}},
+    {"phase":"rhythm","min":16,"title":"The Weekly Rhythm","board":"rhythm","content":{"heading":"Concept → Build → Prove","bullets":["Concept: I teach the idea; you explore it (read the concept note first).","Build: you make it — with your hands, in CAD, or by measuring.","Prove: you reason it out, we review your Math-U-See work, and you take a short checkpoint.","Between sessions: read the note, then do the Math-U-See Lesson Practice + Test on your own."]}},
+    {"phase":"mastery","min":14,"title":"How Mastery Works","board":"mastery","content":{"heading":"You move on when you own it","note":"Each lesson's mastery comes from your MUS Lesson Test + the session checkpoint + your build. Emerging → Proficient → Mastered. We don't race; we make sure it's real. Unit Tests come after Lessons 10, 19, and 30, with a Final at the end."}},
+    {"phase":"goals","min":14,"title":"Set Your Goals","board":"goals","content":{"heading":"Name what you're after","items":["g1","g2"]}},
+    {"phase":"close","min":8,"title":"Close","board":"close","content":{"items":["x1"],"preview":"Next week, Lesson 1: Points, Lines, Rays & Segments — read the concept note first."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can describe what happens in a Concept, Build, and Prove session"},
+    {"id":"SC2","text":"I can explain how my independent Math-U-See work fits the week"}
+  ],
+  "assets": {
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W01 Welcome & Tools.md"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"goals","kind":"practice","title":"Your Goals","items":["g1","g2"]},
+      {"phase":"close","kind":"exit","title":"Close","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"g1","type":"short","sc":"SC1","points":2,"prompt":"In one sentence each, describe what you do in a Concept, a Build, and a Prove session.","answer":"Concept: learn/explore the idea; Build: make it (hands/CAD/measure); Prove: reason it out, review MUS, checkpoint.","explain":"Full credit: all three sessions described distinctly."},
+    {"ref":"g2","type":"short","sc":"SC2","points":2,"prompt":"Write two goals for the year — one about a skill, one about something you want to build.","answer":"Open — one skill goal + one build goal.","explain":"Rubric: two goals, at least one naming a concrete build/project."},
+    {"ref":"x1","type":"short","points":1,"prompt":"Close: what's the one part of geometry you're most looking forward to?"}
+  ]
+}

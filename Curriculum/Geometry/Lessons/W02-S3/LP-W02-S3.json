@@ -1,0 +1,44 @@
+{
+  "id": "LP-W02-S3", "course": "geometry", "week": 2, "session": 3,
+  "session_type": "prove", "lesson": "L01 — Points, Lines, Rays & Segments",
+  "unit": "u01", "duration_min": 60, "mode": "Prove",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 2 · Prove It — Points, Lines, Rays & Segments",
+  "essential_question": "Can you defend the difference — not just name it?",
+  "objective": "Justify why a line has infinitely many points and how rays carry direction, review the week's Math-U-See practice, and pass the mastery checkpoint.",
+  "standards": ["G-CO.A.1"],
+  "vocab": ["collinear", "congruent", "opposite rays", "endpoint", "infinite"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Redraw From Memory","board":"warmup","content":{"prompt":"Without looking, draw and correctly symbolize a point, a line, a ray, and a segment. Then check against your concept note."}},
+    {"phase":"review","min":12,"title":"Review — Your Math-U-See Work","board":"review","content":{"heading":"Go over Lesson Practice 1A & 1B together","note":"Bring your completed MUS Lesson Practice 1A/1B. We check the tricky ones: opposite rays, is AB included in BC, and the = vs ≅ boxes. Fix any you missed and note WHY."}},
+    {"phase":"prove","min":16,"title":"Prove It — Reason Out Loud","board":"prove","content":{"heading":"Defend two claims","figure":"ray","bullets":["Claim 1: a line has infinitely many points. Argue it: between any two points you can always find another.","Claim 2: ray AB and ray BA are different. Argue it from the endpoint.","Claim 3: segment AB and segment BA are the same. Argue it from 'the piece between'."]}},
+    {"phase":"checkpoint","min":18,"title":"Mastery Checkpoint","board":"checkpoint","content":{"heading":"Show what you own","items":["c1","c2","c3","c4","c5","c6"]}},
+    {"phase":"close","min":8,"title":"Close & Set Mastery","board":"close","content":{"items":["x1"],"preview":"Next week, Lesson 2: planes & sets — where these figures live."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can symbolize and identify all four figures without help"},
+    {"id":"SC2","text":"I can justify why a line has infinitely many points"},
+    {"id":"SC3","text":"I can explain how endpoints give rays direction but not segments"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W02-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W02 Points & Lines.md"},
+    "mus": {"practice":"MUS/L01 — Lesson Practice.pdf","review":"MUS/L01 — Systematic Review.pdf","test":"MUS/L01 — Lesson Test.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"checkpoint","kind":"check","title":"Mastery Checkpoint","items":["c1","c2","c3","c4","c5","c6"]},
+      {"phase":"close","kind":"exit","title":"Set Your Mastery","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"c1","type":"mc","sc":"SC1","points":1,"prompt":"A geometric figure with no dimensions (no length, no width) is a…","options":["ray","segment","point","line"],"answer":"point","explain":"A point marks a location only — no length or width."},
+    {"ref":"c2","type":"dropdown","sc":"SC1","points":1,"prompt":"The symbol with an arrow on only one end, written endpoint-first, is a…","options":["line","ray","segment"],"answer":"ray","explain":"One arrow, one endpoint = a ray; the endpoint is written first."},
+    {"ref":"c3","type":"mc","sc":"SC3","points":1,"prompt":"Which pair names the SAME figure?","options":["ray AB and ray BA","segment AB and segment BA","line AB and ray AB"],"answer":"segment AB and segment BA","explain":"A segment is the piece between two ends; naming order doesn't matter. Ray AB and ray BA point opposite ways."},
+    {"ref":"c4","type":"mc","sc":"SC2","points":1,"prompt":"How many points lie on a line 3 cm long?","options":["3","30","infinitely many"],"answer":"infinitely many","explain":"Length has nothing to do with it — any line (or segment) contains infinitely many points."},
+    {"ref":"c5","type":"construct","sc":"SC1","points":2,"figure":"grid-blank","prompt":"Draw line EF, then mark a point G on it that is collinear with E and F.","answer":"A line through E and F with G placed anywhere on that same line.","explain":"Rubric: a straight line labeled E and F (1 pt) + a third point G on that line, i.e. collinear (1 pt)."},
+    {"ref":"c6","type":"short","sc":"SC2","points":2,"prompt":"In your own words, explain to a younger student why a line has infinitely many points.","answer":"Between any two points on the line you can always squeeze another point, and you can keep doing that forever — so there is no end to how many points fit.","explain":"Full credit: names 'between any two there's always another' or an equivalent never-ending argument."},
+    {"ref":"x1","type":"short","sc":"SC3","points":1,"prompt":"Close: rate yourself on Lesson 1 (Emerging / Proficient / Mastered) and name the one idea you'd want to revisit."}
+  ]
+}
