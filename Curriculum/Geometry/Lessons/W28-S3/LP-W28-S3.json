@@ -1,0 +1,44 @@
+{
+  "id": "LP-W28-S3", "course": "geometry", "week": 28, "session": 3,
+  "session_type": "prove", "lesson": "L24 — Two-Column Proofs: SSS & SAS",
+  "unit": "u03", "duration_min": 60, "mode": "Prove",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 28 · Prove It — Writing the Two-Column SSS/SAS Proof",
+  "essential_question": "Can you write — start to finish, in two columns — a real proof that two triangles are congruent, using nothing but Given, the Reflexive Property, and a postulate?",
+  "objective": "Justify why SSS and SAS each force a single triangle while SSA does not, complete a full two-column proof using SSS or SAS, review the week's Math-U-See Lesson Practice, and pass the mastery checkpoint.",
+  "standards": ["G-CO.B.8"],
+  "vocab": ["SSS postulate", "SAS postulate", "included angle", "two-column proof", "reflexive property", "given"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Redraw From Memory","board":"warmup","content":{"prompt":"Without looking, state the SSS Postulate and the SAS Postulate from memory. Then sketch two triangles sharing a common side, mark the shared side 'reflexive,' and label which postulate you'd use to prove them congruent."}},
+    {"phase":"review","min":12,"title":"Review — Your Math-U-See Work","board":"review","content":{"heading":"Go over Lesson Practice 24A & 24B together","note":"Bring your completed MUS Lesson Practice 24A/24B. We check the tricky ones: the square, kite, and rhombus proofs (naming Given, definition, Reflexive Property, and SSS/SAS Postulate in the right order), and the isosceles-triangle bisector proof's final line — once you prove the triangles congruent, the base angles come along for free. Fix any you missed and note WHY."}},
+    {"phase":"prove","min":16,"title":"Prove It — Reason Out Loud","board":"prove","content":{"heading":"Defend three claims","figure":"grid-blank","bullets":["Claim 1: SSS forces exactly ONE triangle. Argue it from the Build session — three fixed straw lengths, joined at their vertices, would not wiggle no matter how hard you tried.","Claim 2: SAS forces exactly ONE triangle ONLY when the angle is included. Argue it by contrast — the SAME two straw lengths, with the angle fixed anywhere else, closed into more than one triangle (or failed to close at all).","Claim 3: the Reflexive Property is what lets a shared side or angle count as a match without ever measuring it. Argue it from the square proof — BD ≅ BD is true because it's the same segment in both triangles, not because anyone measured it twice."]}},
+    {"phase":"checkpoint","min":18,"title":"Mastery Checkpoint","board":"checkpoint","content":{"heading":"Show what you own","items":["c1","c2","c3","c4","c5","c6"]}},
+    {"phase":"close","min":8,"title":"Close & Set Mastery","board":"close","content":{"items":["x1"],"preview":"Next unit: Lesson 25 picks up the two remaining congruence shortcuts — ASA and AAS."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can state the SSS and SAS postulates and identify which applies to a given pair of triangles"},
+    {"id":"SC2","text":"I can justify why SSS and SAS each force one triangle, while SSA does not"},
+    {"id":"SC3","text":"I can complete a full two-column proof (Statements | Reasons) using Given, the Reflexive Property, and SSS or SAS as the final reason"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W28-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W28 SSS & SAS Proofs.md"},
+    "mus": {"practice":"MUS/L24 — Lesson Practice.pdf","review":"MUS/L24 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"checkpoint","kind":"check","title":"Mastery Checkpoint","items":["c1","c2","c3","c4","c5","c6"]},
+      {"phase":"close","kind":"exit","title":"Set Your Mastery","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"c1","type":"mc","sc":"SC1","points":1,"prompt":"SSS stands for…","options":["Side-Side-Angle","Side-Angle-Side","Side-Side-Side"],"answer":"Side-Side-Side","explain":"All three pairs of corresponding sides are matched — no angle is even needed."},
+    {"ref":"c2","type":"dropdown","sc":"SC1","points":1,"prompt":"In the SAS Postulate, the marked angle must be the one ___ the two given sides.","options":["included between","opposite","adjacent to only one of"],"answer":"included between","explain":"SAS requires the angle formed by the two named sides — the one sitting at their shared vertex."},
+    {"ref":"c3","type":"short","sc":"SC2","points":2,"prompt":"Explain in your own words why three fixed side lengths (SSS) allow only ONE possible triangle shape.","answer":"Once three side lengths are fixed and joined end to end at their vertices, there is no remaining freedom to change any of the triangle's angles — the three lengths pin down the whole shape. Any attempt to wiggle one vertex would force at least one side to change length, which isn't allowed.","explain":"This is exactly what the straw build showed: three fixed lengths, joined at their vertices, physically cannot wiggle."},
+    {"ref":"c4","type":"proof","sc":"SC3","points":3,"prompt":"Complete the proof. Given: BD bisects ∠ABC; AB ≅ CB. Prove: △ABD ≅ △CBD. Statements: (1) BD bisects ∠ABC. AB ≅ CB. (2) ∠ABD ≅ ∠CBD. (3) BD ≅ BD. (4) △ABD ≅ △CBD. Fill in the REASON for each of the four statements above.","answer":"(1) Given. (2) Definition of an angle bisector. (3) Reflexive Property. (4) SAS Postulate.","explain":"The two given sides (AB, CB) sandwich the included angle (∠ABD ≅ ∠CBD) at vertex B, and BD is shared by both triangles — that's the Reflexive Property closing the proof with SAS."},
+    {"ref":"c5","type":"short","sc":"SC2","points":2,"prompt":"Two triangles share two pairs of congruent sides and one congruent angle, but the angle is NOT between those two sides. Are the triangles guaranteed congruent? Name the situation and explain.","answer":"No — that's SSA, not SAS, and SSA does not guarantee congruence. The same two side lengths and that same non-included angle can close into more than one triangle, or fail to close at all.","explain":"Whether the marked angle sits between the two named sides is the entire test for SAS (guaranteed) versus SSA (not guaranteed)."},
+    {"ref":"c6","type":"short","sc":"SC1","points":2,"prompt":"Name the postulate (SSS or SAS) that best matches each situation: (a) three pairs of sides are congruent and no angle is given at all. (b) two pairs of sides are congruent, and the angle between those two sides is also congruent.","answer":"(a) SSS Postulate. (b) SAS Postulate.","explain":"(a) has no angle to check at all — SSS. (b) has exactly the included angle marked — SAS."},
+    {"ref":"x1","type":"short","sc":"SC1","points":1,"prompt":"Close: rate yourself on Lesson 24 (Emerging / Proficient / Mastered) and name the one part of a two-column proof you'd want to drill more — Given, the Reflexive Property, or naming the right postulate."}
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": "LP-W30-S1", "course": "geometry", "week": 30, "session": 1,
+  "session_type": "concept", "lesson": "L26 — Right-Triangle Congruence: HL, LL, HA, LA",
+  "unit": "u03", "duration_min": 60, "mode": "Concept",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 30 · Right-Triangle Congruence — HL, LL, HA, LA",
+  "essential_question": "A right triangle already gives you one congruent angle for free — the right angle. Does that mean you only need TWO more matching parts, not three, to prove two right triangles congruent?",
+  "objective": "Identify and apply the HL, LL, HA, and LA right-triangle congruence shortcuts, explain why HL works using the Pythagorean theorem, and connect each shortcut to the general postulate it comes from (SSS, SAS, AAS, or ASA).",
+  "standards": ["G-SRT.B.5"],
+  "vocab": ["hypotenuse-leg (HL)", "leg-leg (LL)", "hypotenuse-angle (HA)", "leg-angle (LA)", "right triangle", "leg", "hypotenuse", "included angle", "Pythagorean theorem", "CPCTC", "SSA"],
+  "agenda": [
+    {"phase":"launch","min":6,"title":"Launch — Two Parts Instead of Three?","board":"launch","content":{"prompt":"Two right triangles both have a hypotenuse of 10 and one leg of 6. Without ever measuring the third side, are the triangles forced to be congruent? Use what you know about the Pythagorean theorem to decide before we name the rule."}},
+    {"phase":"i_do","min":12,"title":"I do — HL, LL, HA, LA","board":"i_do","content":{"heading":"The free right angle changes the math","figure":"grid-blank","bullets":["HL (Hypotenuse-Leg): hypotenuse ≅ hypotenuse, one leg ≅ one leg — really SSS, because the Pythagorean theorem forces the third leg to match too.","LL (Leg-Leg): both legs ≅ both legs — really SAS, since the right angle is always the angle included between the two legs.","HA (Hypotenuse-Angle): hypotenuse ≅ hypotenuse, one acute angle ≅ one acute angle — really AAS, since the hypotenuse sits opposite the right angle, not between the two named angles.","LA (Leg-Angle): one leg ≅ one leg, one acute angle ≅ one acute angle — really ASA if the leg is between the two angles, or AAS if the leg is opposite the given angle.","Side-Side-Angle (SSA) is NOT a valid shortcut in general — HL is the one exception, and only because the angle involved is a right angle."]}},
+    {"phase":"explore","min":8,"title":"Explore — Match the Parts","board":"explore","content":{"heading":"Pick a shortcut; force the triangles congruent","note":"On the sim, choose HL, LL, HA, or LA. Drag both sliders on Triangle 2 until its matching parts equal Triangle 1's. Watch the THIRD part — read the live note connecting your shortcut to SSS, SAS, ASA, or AAS.","figure":"grid-blank"}},
+    {"phase":"check","min":5,"title":"Check for Understanding","board":"check","content":{"heading":"Name that shortcut","items":["n1","n2"]}},
+    {"phase":"you_do","min":12,"title":"You do — Apply the Shortcuts","board":"you_do","content":{"heading":"Your turn on the worksheet","items":["p1","p2","p3","p4"]}},
+    {"phase":"exit","min":5,"title":"Exit Ticket","board":"exit","content":{"items":["x1"],"preview":"Build session: build right triangles fixing a hypotenuse-and-leg (and other) pairs to feel each shortcut."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can name and apply the HL, LL, HA, and LA right-triangle congruence shortcuts given specific matching parts"},
+    {"id":"SC2","text":"I can explain why HL works even though SSA is not generally a valid congruence shortcut, using the Pythagorean theorem"},
+    {"id":"SC3","text":"I can connect each right-triangle shortcut (HL, LL, HA, LA) to the general triangle congruence postulate it comes from (SSS, SAS, AAS, ASA)"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W30-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W30 Right-Triangle Congruence.md"},
+    "mus": {"practice":"MUS/L26 — Lesson Practice.pdf","review":"MUS/L26 — Systematic Review.pdf"},
+    "interactive": {"slug":"hl-congruence","note":"Curriculum/Geometry/Lessons/W30-S1/sims/hl-congruence.html"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"check","kind":"check","title":"Name That Shortcut","items":["n1","n2"]},
+      {"phase":"practice","kind":"practice","title":"Apply the Shortcuts","items":["p1","p2","p3","p4"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"n1","type":"dropdown","sc":"SC1","points":1,"prompt":"Two right triangles each have a hypotenuse and ONE leg marked congruent. Which shortcut proves them congruent?","options":["HL","LL","HA"],"answer":"HL","explain":"Hypotenuse + one leg is exactly the HL (Hypotenuse-Leg) postulate."},
+    {"ref":"n2","type":"mc","sc":"SC3","points":1,"prompt":"The LL shortcut is really which general congruence postulate in disguise?","options":["SSS","SAS","ASA"],"answer":"SAS","explain":"The right angle is always the angle included between the two legs, so LL is Side-Angle-Side."},
+    {"ref":"p1","type":"short","sc":"SC2","points":2,"prompt":"Right triangles ΔJKL and ΔMNO are both right-angled at K and N. JL ≅ MO (hypotenuses) and JK ≅ MN (one leg each). Explain, using the Pythagorean theorem, why the triangles must be congruent even though only two parts (plus the right angle) are marked congruent.","answer":"With the hypotenuse and one leg fixed, the Pythagorean theorem forces the third leg's length (the other leg = √(hyp² − leg²)) to come out the same for both triangles. All three sides now match, which is really SSS — that's why HL is valid even though Side-Side-Angle is not valid in general.","explain":"HL only works because the given angle is a right angle: c² − a² = b² has exactly one positive solution, so the missing leg can't come out two different ways."},
+    {"ref":"p2","type":"construct","sc":"SC1","points":2,"figure":"grid-blank","prompt":"On the grid, draw two separate right triangles that satisfy the LA shortcut: mark the right angle in each, make one leg 4 units long in each, and mark a 40° acute angle adjacent to that leg (between the right angle and the 40° angle) in each. Label which general postulate (ASA or AAS) this arrangement matches.","answer":"Two right triangles, each with the right angle marked, a 4-unit leg, and a 40° angle adjacent to that leg (the leg between the right angle and the 40° angle) — labeled ASA, since the leg is the included side between the two given angles.","explain":"Rubric: both right triangles correctly drawn with the right angle, the 4-unit leg, and the 40° angle in matching adjacent positions (1 pt) + correctly labeled ASA because the leg is included between the two angles (1 pt)."},
+    {"ref":"p3","type":"mc","sc":"SC1","points":1,"prompt":"Two right triangles each have their hypotenuse marked congruent, and one ACUTE angle (not the right angle) marked congruent. Which shortcut applies?","options":["HL","HA","LA"],"answer":"HA","explain":"Hypotenuse + an acute angle is the HA (Hypotenuse-Angle) postulate."},
+    {"ref":"p4","type":"short","sc":"SC3","points":2,"prompt":"Explain why HA is really just a renamed version of AAS, naming the two angles and the side involved.","answer":"The two angles are the right angle (always congruent, since both are 90°) and the given acute angle. The hypotenuse is the side opposite the right angle, which is NOT between the two named angles — so it's angle-angle-side, i.e., AAS.","explain":"If the given side were between the two angles instead, it would be ASA — the hypotenuse never sits between the right angle and an acute angle, so HA is always AAS, never ASA."},
+    {"ref":"x1","type":"short","sc":"SC2","points":1,"prompt":"Exit: of the four shortcuts (HL, LL, HA, LA), which one is the ONLY one that looks like a Side-Side-Angle (SSA) setup — and what makes it safe in that one special case?"}
+  ]
+}

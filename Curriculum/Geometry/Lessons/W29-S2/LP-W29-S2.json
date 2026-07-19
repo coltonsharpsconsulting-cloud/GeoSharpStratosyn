@@ -1,0 +1,42 @@
+{
+  "id": "LP-W29-S2", "course": "geometry", "week": 29, "session": 2,
+  "session_type": "build", "lesson": "L25 — Two-Column Proofs: ASA & AAS",
+  "unit": "u03", "duration_min": 60, "mode": "Build",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 29 · Force the Triangle Lab",
+  "essential_question": "If you build a triangle from two angles and one side, then build it again from the same three facts, will your two triangles really come out congruent — and does that guarantee vanish once you drop the side and keep only the angles?",
+  "objective": "Build physical ASA and AAS triangles from two given angles and one side, rebuild each from the same three facts to test that the result is forced, and build an AAA (angles-only) triangle to show many different sizes satisfy the same angles — similar, not congruent.",
+  "standards": ["G-CO.B.8"],
+  "vocab": ["ASA postulate", "AAS postulate", "included side", "non-included side", "similar", "congruent"],
+  "agenda": [
+    {"phase":"brief","min":6,"title":"Brief — From Proof to Physical Build","board":"brief","content":{"heading":"From naming the postulate to testing it by hand","bullets":["Yesterday: stated the ASA and AAS postulates and completed a two-column proof on paper.","Today: build a real ASA triangle, rebuild it from the same facts, and check if the two really match. Then build an AAS triangle and, last, an AAA triangle with no side given at all.","The test: does 'two angles + one side' really leave zero room for a different triangle — and does 'angles only' really leave room for many?"]}},
+    {"phase":"plan","min":8,"title":"Plan — Read the Build Card","board":"plan","content":{"heading":"Gather + plan","note":"Open the project card. Gather cardstock, a ruler, a protractor, a pencil, and scissors. Decide your ASA baseline length and two angle measures before you start drawing (6 in and two angles under 90° each work well)."}},
+    {"phase":"build","min":25,"title":"Build — ASA, AAS, AAA","board":"build","content":{"heading":"Three triangles, three guarantees","bullets":["ASA: draw baseline AB at your chosen length, lay off your two chosen angles at A and B with the protractor, extend the rays to meet at C.","Rebuild: on a fresh sheet, build the SAME triangle again from the identical three facts (same AB length, same two angles). Cut both out.","AAS: compute ∠C = 180° − ∠A − ∠B first. Draw baseline AC (a length you choose) with ∠A and ∠C at its two ends — this is really an ASA build using the third angle.","AAA: using the SAME two angles as your ASA build, draw a brand-new, different-length baseline and build that triangle too — no side was specified this time."]}},
+    {"phase":"test","min":12,"title":"Test — Overlay & Measure","board":"test","content":{"heading":"Does it match? Does it not?","figure":"grid-blank","items":["m1","m2","m3"]}},
+    {"phase":"reflect","min":9,"title":"Reflect & Photograph","board":"reflect","content":{"items":["r1"],"preview":"Session 3: write a full two-column proof using ASA or AAS as the final reason; review MUS Lesson Practice 25A/25B; take the checkpoint."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can build a physical triangle from two given angles and one given side (ASA or AAS)"},
+    {"id":"SC2","text":"I can test whether two independently built triangles from the same ASA/AAS facts are actually congruent"},
+    {"id":"SC3","text":"I can build an AAA (angles-only) triangle and explain why it does NOT force one size, only one shape"}
+  ],
+  "assets": {
+    "project": {"note":"Curriculum/Geometry/Lessons/W29-S2/project-card.md"},
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W29-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W29 ASA & AAS Proofs.md"},
+    "mus": {"practice":"MUS/L25 — Lesson Practice.pdf","review":"MUS/L25 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"test","kind":"practice","title":"Overlay & Measurement Log","items":["m1","m2","m3"]},
+      {"phase":"reflect","kind":"exit","title":"Reflect","items":["r1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"m1","type":"short","sc":"SC1","points":2,"prompt":"Record the three facts you used for your ASA build (AB length, ∠A, ∠B), and the three facts you used for your AAS build (AC length, ∠A, ∠B, plus the computed ∠C).","answer":"Answers vary; e.g., ASA: AB = 6 in, ∠A = 50°, ∠B = 65°. AAS: AC = 5 in, ∠A = 50°, ∠B = 65°, computed ∠C = 65°.","explain":"Recording the exact given facts makes it possible to check, afterward, that the build actually used only those three pieces of information."},
+    {"ref":"m2","type":"short","sc":"SC2","points":2,"prompt":"Overlay your two ASA triangles (the original and the rebuild). Do they match exactly? If there's any gap, is it because the postulate failed, or because of drawing/cutting precision?","answer":"They should match essentially exactly (small gaps are drawing/cutting error, not a failure of ASA). ASA guarantees the triangle is forced — any real-world drift comes from hand precision, not the geometry.","explain":"This is the physical version of the algebraic guarantee: the SAME three given facts always produce the SAME triangle."},
+    {"ref":"m3","type":"short","sc":"SC3","points":2,"prompt":"Measure all three sides of your ASA triangle and your AAA triangle (same two angles, different baseline). Are the angles the same in both? Are the sides the same? What word describes triangles with the same angles but different side lengths?","answer":"The angles match in both triangles; the side lengths do NOT match (unless you happened to pick the same baseline length by coincidence). Triangles with the same angles but different sizes are SIMILAR, not congruent.","explain":"AAA alone only ever fixes the shape — the size is left completely open until a side length is added, which is exactly why AAA is not a valid congruence postulate."},
+    {"ref":"r1","type":"short","sc":"SC2","points":2,"prompt":"Reflect: which felt more surprising — that rebuilding the SAME ASA facts gave you (essentially) the same triangle, or that the AAA triangle came out a totally different size? Why?"}
+  ]
+}

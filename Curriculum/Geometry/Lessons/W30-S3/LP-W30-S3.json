@@ -1,0 +1,44 @@
+{
+  "id": "LP-W30-S3", "course": "geometry", "week": 30, "session": 3,
+  "session_type": "prove", "lesson": "L26 — Right-Triangle Congruence: HL, LL, HA, LA",
+  "unit": "u03", "duration_min": 60, "mode": "Prove",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 30 · Prove It — HL, LL, HA, LA",
+  "essential_question": "Can you write a COMPLETE two-column proof using HL, LL, HA, or LA — not just recognize the shortcut when it's already labeled?",
+  "objective": "Write a two-column proof (statements and reasons) that two right triangles are congruent using HL, LL, HA, or LA, review the week's Math-U-See practice, and pass the mastery checkpoint.",
+  "standards": ["G-SRT.B.5"],
+  "vocab": ["hypotenuse-leg (HL)", "leg-leg (LL)", "hypotenuse-angle (HA)", "leg-angle (LA)", "statements", "reasons", "two-column proof", "reflexive property", "given", "CPCTC"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Redraw From Memory","board":"warmup","content":{"prompt":"Without looking, sketch two right triangles and write, from memory, the four names HL, LL, HA, LA and the two parts each one requires. Then check against your concept note."}},
+    {"phase":"review","min":12,"title":"Review — Your Math-U-See Work","board":"review","content":{"heading":"Go over Lesson Practice 26A & 26B together","note":"Bring your completed MUS Lesson Practice 26A/26B. We check the tricky ones: the isosceles-triangle proof that used HL to reach 'C is the midpoint of BD' (is BC ≅ DC alone enough, or do you need one more step?), the equilateral-triangle proof that used LA, and the two circle-tangent proofs on 26B built on LL and LA. Fix any you missed and note WHY."}},
+    {"phase":"prove","min":16,"title":"Prove It — Reason Out Loud","board":"prove","content":{"heading":"Defend three claims","figure":"grid-blank","bullets":["Claim 1: HL is the one safe exception to 'Side-Side-Angle doesn't prove congruence.' Argue it — with the hypotenuse and one leg fixed, the Pythagorean theorem gives the third leg exactly ONE possible value, so there's no ambiguous second triangle to worry about.","Claim 2: given ∠PQS and ∠RQS are right angles and PQ ≅ RQ, argue out loud why ΔPQS ≅ ΔRQS by LL — name QS as the shared side and explain why the Reflexive Property lets a single shared leg count as 'two legs given.'","Claim 3: LA can mean either ASA or AAS depending on where the given leg sits. Argue why BOTH arrangements still work — in each case you end up with two angles (the right angle plus the given angle) and one side, which is always enough to fix a triangle."]}},
+    {"phase":"checkpoint","min":18,"title":"Mastery Checkpoint","board":"checkpoint","content":{"heading":"Show what you own","items":["c1","c2","c3","c4","c5","c6"]}},
+    {"phase":"close","min":8,"title":"Close & Set Mastery","board":"close","content":{"items":["x1"],"preview":"Next week, Lesson 27: similar triangles and AA similarity — where 'same shape' replaces 'same size.'"}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can choose the correct right-triangle shortcut (HL, LL, HA, or LA) given which parts are marked congruent"},
+    {"id":"SC2","text":"I can explain why HL is valid despite looking like Side-Side-Angle, and connect each shortcut to its general postulate (SSS, SAS, ASA, or AAS)"},
+    {"id":"SC3","text":"I can write a complete two-column proof (statements and reasons) that two right triangles are congruent using HL, LL, HA, or LA"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W30-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W30 Right-Triangle Congruence.md"},
+    "mus": {"practice":"MUS/L26 — Lesson Practice.pdf","review":"MUS/L26 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"checkpoint","kind":"check","title":"Mastery Checkpoint","items":["c1","c2","c3","c4","c5","c6"]},
+      {"phase":"close","kind":"exit","title":"Set Your Mastery","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"c1","type":"dropdown","sc":"SC1","points":1,"prompt":"Two right triangles each have BOTH legs marked congruent (no hypotenuse or angle marked). Which shortcut applies?","options":["HL","LL","HA"],"answer":"LL","explain":"Two matching legs, with the right angle already free between them, is the LL (Leg-Leg) postulate."},
+    {"ref":"c2","type":"mc","sc":"SC2","points":1,"prompt":"HA is really which general triangle congruence postulate in disguise?","options":["SSS","SAS","AAS"],"answer":"AAS","explain":"The right angle and the given acute angle are the two angles; the hypotenuse (opposite the right angle) is not between them, so HA is AAS."},
+    {"ref":"c3","type":"short","sc":"SC2","points":2,"prompt":"In your own words, explain why HL is the one safe exception to 'Side-Side-Angle does not prove triangles congruent.'","answer":"SSA usually fails because two sides and a non-included angle can close into two different triangles (the ambiguous case). But when that angle is a right angle, the Pythagorean theorem forces the third side to exactly one value — c² − a² = b² has only one positive solution — so there's no second triangle possible. That single-value guarantee is what makes HL safe.","explain":"The right angle removes the ambiguity that makes SSA unreliable everywhere else."},
+    {"ref":"c4","type":"proof","sc":"SC3","points":3,"prompt":"Complete the proof. Given: ∠PQS and ∠RQS are right angles; PQ ≅ RQ. Prove: ΔPQS ≅ ΔRQS. Statements: (1) ∠PQS and ∠RQS are right angles. (2) PQ ≅ RQ. (3) QS ≅ QS. (4) ΔPQS and ΔRQS are right triangles. (5) ΔPQS ≅ ΔRQS. Fill in the REASON for each of the five statements above.","answer":"(1) Given. (2) Given. (3) Reflexive Property. (4) Definition of a right triangle (each triangle contains a right angle). (5) LL Postulate — leg QS (shared) and leg PQ ≅ RQ (given) are two legs of one right triangle congruent to two legs of the other.","explain":"QS is the side the two triangles share, so it is congruent to itself by the Reflexive Property — that shared leg plus the given leg PQ ≅ RQ is exactly the LL postulate."},
+    {"ref":"c5","type":"short","sc":"SC1","points":2,"prompt":"A carpenter has two right-triangle braces. Both have a 7-inch leg adjacent to a 35° angle. Which shortcut proves the braces congruent, and why doesn't the carpenter need to check the hypotenuse at all?","answer":"LA (Leg-Angle) — the leg and the adjacent angle already force the rest of the triangle (this is ASA, since the leg sits between the right angle and the 35° angle). The hypotenuse's length is fixed by trig once the leg and angle are set, so measuring it would only confirm what's already guaranteed.","explain":"Once a leg and its adjacent acute angle match, every other part of the triangle — including the hypotenuse — is determined; there's nothing left to check."},
+    {"ref":"c6","type":"dropdown","sc":"SC2","points":1,"prompt":"Which of the four right-triangle shortcuts is the odd one out, because it relies on the Pythagorean theorem to pin down a missing side rather than directly matching an included angle or included side?","options":["HL","LL","HA","LA"],"answer":"HL","explain":"LL, HA, and LA all map directly onto SAS, AAS, or ASA using parts you're simply given. HL is the exception — the third side isn't given, it's forced by the Pythagorean theorem."},
+    {"ref":"x1","type":"short","sc":"SC1","points":1,"prompt":"Close: rate yourself on Lesson 26 (Emerging / Proficient / Mastered) and name the one shortcut — HL, LL, HA, or LA — you'd want to drill more before moving on to similar triangles next week."}
+  ]
+}

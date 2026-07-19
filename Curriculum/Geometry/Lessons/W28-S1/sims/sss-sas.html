@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Two-Column Proofs: SSS &amp; SAS — Sim</title>
+<style>
+  :root{--void:#0d1322;--ink:#161d31;--bone:#e8ecf3;--mist:#9aabd0;--accent:#8b5cf6;--gold:#f5c842;--border:#2a3142;--good:#7ee081;--bad:#ff8787}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--void);color:var(--bone);font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;min-height:100%}
+  header{padding:2vh 4vw;border-bottom:1px solid var(--border);background:var(--ink)}
+  .eyebrow{font-family:"DM Mono",ui-monospace,monospace;letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--accent)}
+  h1{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(20px,3vw,30px);margin-top:.3rem}
+  main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.4vh;padding:3vh 4vw}
+  .stage{width:100%;max-width:760px;aspect-ratio:16/10;background:var(--ink);border:1px solid var(--border);border-radius:16px;touch-action:none}
+  .stage[hidden]{display:none}
+  svg{width:100%;height:100%;display:block}
+  .controls{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center}
+  button{font-family:"DM Mono",ui-monospace,monospace;font-size:13px;background:var(--ink);color:var(--bone);border:1px solid var(--border);border-radius:999px;padding:.55rem 1.1rem;cursor:pointer}
+  button.on{border-color:var(--accent);color:var(--accent)}
+  .sliders{display:flex;gap:1.4rem;flex-wrap:wrap;justify-content:center;font-family:"DM Mono",ui-monospace,monospace;font-size:12.5px;color:var(--mist)}
+  .sliders[hidden]{display:none}
+  .sliders label{display:flex;flex-direction:column;align-items:center;gap:.3rem}
+  .sliders input[type=range]{width:150px}
+  .sliders .val{color:var(--gold);font-weight:bold}
+  .readout{font-family:"DM Mono",ui-monospace,monospace;font-size:clamp(12.5px,1.8vw,15.5px);color:var(--mist);text-align:center;min-height:5em;line-height:1.55;max-width:700px}
+  .readout b{color:var(--gold)}
+  .readout .rule{color:var(--good);font-weight:bold}
+  .readout .bad{color:var(--bad);font-weight:bold}
+  .readout .note{color:var(--bone);margin-top:.3em}
+  .hint{color:var(--mist);font-size:13.5px;max-width:66ch;text-align:center}
+</style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Geometry · Lesson 24 · sim</div>
+    <h1>Set the sides (and angle). Does the triangle wiggle?</h1>
+  </header>
+  <main>
+    <div class="controls" id="modes">
+      <button data-mode="sss" class="on">SSS</button>
+      <button data-mode="sas">SAS</button>
+      <button data-mode="ssa">SSA</button>
+      <button data-mode="aaa">AAA</button>
+    </div>
+
+    <div class="stage" id="stageSSS"><svg viewBox="0 0 640 400" id="svgSSS"></svg></div>
+    <div class="stage" id="stageSAS" hidden><svg viewBox="0 0 640 400" id="svgSAS"></svg></div>
+    <div class="stage" id="stageSSA" hidden><svg viewBox="0 0 640 400" id="svgSSA"></svg></div>
+    <div class="stage" id="stageAAA" hidden><svg viewBox="0 0 640 400" id="svgAAA"></svg></div>
+
+    <div class="readout" id="readout"></div>
+
+    <div class="sliders" id="slidersSSS">
+      <label>side AB (c) <input type="range" id="sssC" min="3" max="10" step="0.5" value="6"><span class="val" id="sssCval">6</span></label>
+      <label>side BC (a) <input type="range" id="sssA" min="3" max="10" step="0.5" value="5"><span class="val" id="sssAval">5</span></label>
+      <label>side CA (b) <input type="range" id="sssB" min="3" max="10" step="0.5" value="7"><span class="val" id="sssBval">7</span></label>
+    </div>
+    <div class="sliders" id="slidersSAS" hidden>
+      <label>side AB (c) <input type="range" id="sasC" min="3" max="10" step="0.5" value="6"><span class="val" id="sasCval">6</span></label>
+      <label>side AC (b) <input type="range" id="sasB" min="3" max="10" step="0.5" value="7"><span class="val" id="sasBval">7</span></label>
+      <label>included &ang;A <input type="range" id="sasAngle" min="10" max="170" step="1" value="55"><span class="val" id="sasAngleval">55°</span></label>
+    </div>
+    <div class="sliders" id="slidersSSA" hidden>
+      <label>side AB (c) <input type="range" id="ssaC" min="4" max="10" step="0.5" value="7"><span class="val" id="ssaCval">7</span></label>
+      <label>&ang;A (not included) <input type="range" id="ssaAngle" min="15" max="75" step="1" value="35"><span class="val" id="ssaAngleval">35°</span></label>
+      <label>target side BC (a) <input type="range" id="ssaA" min="2" max="10" step="0.5" value="5"><span class="val" id="ssaAval">5</span></label>
+      <button id="ssaSolutions">Show Both Solutions</button>
+      <button id="ssaReset">Reset Drag</button>
+    </div>
+    <div class="sliders" id="slidersAAA" hidden>
+      <label>&ang;A <input type="range" id="aaaA" min="30" max="100" step="1" value="55"><span class="val" id="aaaAval">55°</span></label>
+      <label>&ang;B <input type="range" id="aaaB" min="30" max="100" step="1" value="60"><span class="val" id="aaaBval">60°</span></label>
+      <label>size of copy <input type="range" id="aaaScale" min="0.5" max="2" step="0.05" value="1.4"><span class="val" id="aaaScaleval">1.4×</span></label>
+    </div>
+
+    <p class="hint" id="hint"></p>
+  </main>
+<script>
+(() => {
+  const GOLD = '#f5c842', GREEN = '#7ee081', ACCENT = '#8b5cf6', STEEL = '#5c6685', BONE = '#e8ecf3', BAD = '#ff8787';
+  const readout = document.getElementById('readout');
+  const hint = document.getElementById('hint');
+  const rad = d => d * Math.PI / 180;
+  const SCALE = 26; // px per unit length
+  const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+  const dist = (P, Q) => Math.hypot(P.x - Q.x, P.y - Q.y);
+
+  function centroidOf(A, B, C){ return { x: (A.x + B.x + C.x) / 3, y: (A.y + B.y + C.y) / 3 }; }
+  // label placed at the midpoint of P-Q, nudged perpendicular AWAY from the centroid
+  function sideLabelPos(P, Q, centroid, off){
+    const M = { x: (P.x + Q.x) / 2, y: (P.y + Q.y) / 2 };
+    const dx = Q.x - P.x, dy = Q.y - P.y;
+    const len = Math.hypot(dx, dy) || 1;
+    let n = { x: -dy / len, y: dx / len };
+    const toC = { x: centroid.x - M.x, y: centroid.y - M.y };
+    if (n.x * toC.x + n.y * toC.y > 0) n = { x: -n.x, y: -n.y };
+    return { x: M.x + n.x * off, y: M.y + n.y * off };
+  }
+  function trianglePath(A, B, C){ return `M${A.x} ${A.y} L${B.x} ${B.y} L${C.x} ${C.y} Z`; }
+  function vertexDot(P, label, color, dy){
+    return `<circle cx="${P.x.toFixed(1)}" cy="${P.y.toFixed(1)}" r="6" fill="${color}"/>` +
+      `<text x="${P.x.toFixed(1)}" y="${(P.y + (dy||0)).toFixed(1)}" text-anchor="middle" font-size="17" fill="${BONE}" font-family="DM Mono, monospace">${label}</text>`;
+  }
+
+  // ================= MODE 1: SSS — set three sides, no drag handle exists =================
+  const svgSSS = document.getElementById('svgSSS');
+  const sssC = document.getElementById('sssC'), sssA = document.getElementById('sssA'), sssB = document.getElementById('sssB');
+  const sssCval = document.getElementById('sssCval'), sssAval = document.getElementById('sssAval'), sssBval = document.getElementById('sssBval');
+
+  function drawSSS(){
+    const c = parseFloat(sssC.value), a = parseFloat(sssA.value), b = parseFloat(sssB.value);
+    sssCval.textContent = c; sssAval.textContent = a; sssBval.textContent = b;
+    const A = { x: 150, y: 300 };
+    const B = { x: A.x + c * SCALE, y: A.y };
+    const valid = (a + b > c) && (a + c > b) && (b + c > a);
+    let html = '';
+    html += `<line x1="${A.x}" y1="${A.y}" x2="${B.x}" y2="${B.y}" stroke="${STEEL}" stroke-width="3" stroke-dasharray="${valid ? '0' : '6 5'}"/>`;
+    html += vertexDot(A, 'A', ACCENT, 26) + vertexDot(B, 'B', ACCENT, 26);
+    if (valid){
+      const cosA = clamp((b*b + c*c - a*a) / (2*b*c), -1, 1);
+      const angleA = Math.acos(cosA);
+      const C = { x: A.x + b * SCALE * Math.cos(angleA), y: A.y - b * SCALE * Math.sin(angleA) };
+      const cen = centroidOf(A, B, C);
+      html += `<path d="${trianglePath(A,B,C)}" fill="${ACCENT}22" stroke="${ACCENT}" stroke-width="4"/>`;
+      html += vertexDot(C, 'C', GOLD, -14);
+      const pc = sideLabelPos(A, B, cen, 18); html += `<text x="${pc.x.toFixed(1)}" y="${pc.y.toFixed(1)}" text-anchor="middle" font-size="14" fill="${BONE}" font-family="DM Mono, monospace">c=${c}</text>`;
+      const pa = sideLabelPos(B, C, cen, 18); html += `<text x="${pa.x.toFixed(1)}" y="${pa.y.toFixed(1)}" text-anchor="middle" font-size="14" fill="${BONE}" font-family="DM Mono, monospace">a=${a}</text>`;
+      const pb = sideLabelPos(C, A, cen, 18); html += `<text x="${pb.x.toFixed(1)}" y="${pb.y.toFixed(1)}" text-anchor="middle" font-size="14" fill="${BONE}" font-family="DM Mono, monospace">b=${b}</text>`;
+      svgSSS.innerHTML = html;
+      readout.innerHTML =
+        `<div>Sides a=<b>${a}</b>, b=<b>${b}</b>, c=<b>${c}</b> &middot; <span class="rule">exactly ONE triangle</span> — the <b>SSS Postulate</b></div>` +
+        `<div class="note">There is no separate handle on vertex C — its position is 100% determined by the three slider values above. Slide any length and the WHOLE triangle updates as one rigid shape.</div>`;
+    } else {
+      svgSSS.innerHTML = html;
+      readout.innerHTML = `<div><span class="bad">Not a triangle</span> — these three lengths can't close (two of them don't add up to more than the third). Slide the lengths until the dashed line becomes a solid triangle.</div>`;
+    }
+  }
+  [sssC, sssA, sssB].forEach(el => el.addEventListener('input', drawSSS));
+
+  // ================= MODE 2: SAS — two sides + the included angle, no drag handle =================
+  const svgSAS = document.getElementById('svgSAS');
+  const sasC = document.getElementById('sasC'), sasB = document.getElementById('sasB'), sasAngle = document.getElementById('sasAngle');
+  const sasCval = document.getElementById('sasCval'), sasBval = document.getElementById('sasBval'), sasAngleval = document.getElementById('sasAngleval');
+
+  function drawSAS(){
+    const c = parseFloat(sasC.value), b = parseFloat(sasB.value), angleDeg = parseFloat(sasAngle.value);
+    sasCval.textContent = c; sasBval.textContent = b; sasAngleval.textContent = angleDeg + '°';
+    const A = { x: 150, y: 300 };
+    const B = { x: A.x + c * SCALE, y: A.y };
+    const angle = rad(angleDeg);
+    const C = { x: A.x + b * SCALE * Math.cos(angle), y: A.y - b * SCALE * Math.sin(angle) };
+    const a = dist(B, C) / SCALE;
+    const cen = centroidOf(A, B, C);
+    const r = 34;
+    const arcPts = []; const steps = 24;
+    for (let i = 0; i <= steps; i++){ const d = angle * i / steps; arcPts.push(`${i===0?'M':'L'}${(A.x + r*Math.cos(d)).toFixed(1)} ${(A.y - r*Math.sin(d)).toFixed(1)}`); }
+    let html = '';
+    html += `<path d="${trianglePath(A,B,C)}" fill="${ACCENT}22" stroke="${ACCENT}" stroke-width="4"/>`;
+    html += `<path d="${arcPts.join(' ')}" fill="none" stroke="${GOLD}" stroke-width="3"/>`;
+    html += vertexDot(A, 'A', ACCENT, 26) + vertexDot(B, 'B', ACCENT, 26) + vertexDot(C, 'C', ACCENT, -14);
+    const pc = sideLabelPos(A, B, cen, 18); html += `<text x="${pc.x.toFixed(1)}" y="${pc.y.toFixed(1)}" text-anchor="middle" font-size="14" fill="${BONE}" font-family="DM Mono, monospace">c=${c}</text>`;
+    const pb = sideLabelPos(C, A, cen, 18); html += `<text x="${pb.x.toFixed(1)}" y="${pb.y.toFixed(1)}" text-anchor="middle" font-size="14" fill="${BONE}" font-family="DM Mono, monospace">b=${b}</text>`;
+    const pa = sideLabelPos(B, C, cen, 18); html += `<text x="${pa.x.toFixed(1)}" y="${pa.y.toFixed(1)}" text-anchor="middle" font-size="14" fill="${GOLD}" font-family="DM Mono, monospace">a=${a.toFixed(2)} (forced)</text>`;
+    svgSAS.innerHTML = html;
+    readout.innerHTML =
+      `<div>Sides c=<b>${c}</b>, b=<b>${b}</b>, included &ang;A=<b>${angleDeg}&deg;</b> &middot; <span class="rule">exactly ONE triangle</span> — the <b>SAS Postulate</b></div>` +
+      `<div class="note">You set two sides and the angle BETWEEN them, and the third side is forced to <b>${a.toFixed(2)}</b> units — no separate handle to drag, just like SSS.</div>`;
+  }
+  [sasC, sasB, sasAngle].forEach(el => el.addEventListener('input', drawSAS));
+
+  // ================= MODE 3: SSA — the ambiguous case, C is draggable along the ray =================
+  const svgSSA = document.getElementById('svgSSA');
+  const ssaC = document.getElementById('ssaC'), ssaAngle = document.getElementById('ssaAngle'), ssaA = document.getElementById('ssaA');
+  const ssaCval = document.getElementById('ssaCval'), ssaAngleval = document.getElementById('ssaAngleval'), ssaAval = document.getElementById('ssaAval');
+  const A_SSA = { x: 130, y: 320 };
+  let ssaT = 6 * SCALE; // free drag distance (px) along the ray from A
+  let showSolutions = false;
+
+  function drawSSA(){
+    const c = parseFloat(ssaC.value), angleDeg = parseFloat(ssaAngle.value), targetA = parseFloat(ssaA.value);
+    ssaCval.textContent = c; ssaAngleval.textContent = angleDeg + '°'; ssaAval.textContent = targetA;
+    const angle = rad(angleDeg);
+    const u = { x: Math.cos(angle), y: -Math.sin(angle) };
+    const B = { x: A_SSA.x + c * SCALE, y: A_SSA.y };
+    const maxT = 12 * SCALE;
+    ssaT = clamp(ssaT, 0, maxT);
+    const C = { x: A_SSA.x + u.x * ssaT, y: A_SSA.y + u.y * ssaT };
+    const currentA = dist(B, C) / SCALE;
+
+    const r = 30;
+    const arcPts = []; const steps = 20;
+    for (let i = 0; i <= steps; i++){ const d = angle * i / steps; arcPts.push(`${i===0?'M':'L'}${(A_SSA.x + r*Math.cos(d)).toFixed(1)} ${(A_SSA.y - r*Math.sin(d)).toFixed(1)}`); }
+
+    let html = '';
+    // the ray from A (dashed, extends past the draggable point so the freedom is visible)
+    const far = { x: A_SSA.x + u.x * (maxT + 20), y: A_SSA.y + u.y * (maxT + 20) };
+    html += `<line x1="${A_SSA.x}" y1="${A_SSA.y}" x2="${far.x.toFixed(1)}" y2="${far.y.toFixed(1)}" stroke="${STEEL}" stroke-width="2" stroke-dasharray="5 5"/>`;
+    html += `<path d="${trianglePath(A_SSA,B,C)}" fill="${ACCENT}22" stroke="${ACCENT}" stroke-width="4"/>`;
+    html += `<path d="${arcPts.join(' ')}" fill="none" stroke="${GOLD}" stroke-width="3"/>`;
+    html += vertexDot(A_SSA, 'A', ACCENT, 26) + vertexDot(B, 'B', ACCENT, 26);
+    html += `<circle cx="${C.x.toFixed(1)}" cy="${C.y.toFixed(1)}" r="12" fill="${GOLD}"/>`;
+    html += `<circle id="hitSSA" cx="${C.x.toFixed(1)}" cy="${C.y.toFixed(1)}" r="26" fill="transparent" cursor="grab"/>`;
+    html += `<text x="${(C.x+16).toFixed(1)}" y="${(C.y-10).toFixed(1)}" text-anchor="middle" font-size="17" fill="${BONE}" font-family="DM Mono, monospace">C (drag me)</text>`;
+
+    let special = '';
+    if (showSolutions){
+      const h = c * Math.sin(angle);
+      const Dv = targetA*targetA - h*h;
+      if (Dv < -1e-6){
+        special = `<div class="note bad">No triangle reaches — target side a=${targetA} is shorter than the perpendicular distance ${h.toFixed(2)} from B to the ray. Raise the target slider.</div>`;
+      } else {
+        const sq = Math.sqrt(Math.max(0, Dv));
+        const t1 = c * Math.cos(angle) - sq, t2 = c * Math.cos(angle) + sq;
+        const valid1 = t1 > 0.05, valid2 = t2 > 0.05;
+        if (valid1){
+          const C1 = { x: A_SSA.x + u.x * t1 * SCALE, y: A_SSA.y + u.y * t1 * SCALE };
+          html += `<path d="${trianglePath(A_SSA,B,C1)}" fill="none" stroke="${GOLD}" stroke-width="2.5" stroke-dasharray="7 5"/>` + vertexDot(C1, "C₁", GOLD, -12);
+        }
+        if (valid2 && Math.abs(t2 - t1) > 0.05){
+          const C2 = { x: A_SSA.x + u.x * t2 * SCALE, y: A_SSA.y + u.y * t2 * SCALE };
+          html += `<path d="${trianglePath(A_SSA,B,C2)}" fill="none" stroke="${GREEN}" stroke-width="2.5" stroke-dasharray="7 5"/>` + vertexDot(C2, "C₂", GREEN, -12);
+        }
+        if (valid1 && valid2 && Math.abs(t2 - t1) > 0.05){
+          special = `<div class="note"><span class="rule">Two different triangles</span> (dashed gold C&#8321; and green C&#8322;) share the SAME angle A, SAME side AB=${c}, and SAME side BC=${targetA} — SSA does not pin down one shape.</div>`;
+        } else {
+          special = `<div class="note">Only one of the two algebraic solutions actually lands on the ray here — side a is long enough that just one triangle works. But SSA still isn't a general guarantee the way SSS/SAS are.</div>`;
+        }
+      }
+    }
+
+    svgSSA.innerHTML = html;
+    readout.innerHTML =
+      `<div>&ang;A=<b>${angleDeg}&deg;</b> (not included), side AB=<b>${c}</b> &middot; dragging C freely gives current BC = <span class="rule">${currentA.toFixed(2)}</span></div>` +
+      `<div class="note">Angle A and side AB stay exactly fixed by the sliders, yet C can still slide along the ray — the SAME two given facts (an angle plus one adjacent side) don't lock in a single triangle.</div>` +
+      special;
+  }
+
+  let draggingSSA = false;
+  function toLocalSSA(e){
+    const r = svgSSA.getBoundingClientRect();
+    const cx = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+    const cy = (e.touches ? e.touches[0].clientY : e.clientY) - r.top;
+    return { x: cx / r.width * 640, y: cy / r.height * 400 };
+  }
+  function projectT(p){
+    const angle = rad(parseFloat(ssaAngle.value));
+    const u = { x: Math.cos(angle), y: -Math.sin(angle) };
+    const v = { x: p.x - A_SSA.x, y: p.y - A_SSA.y };
+    return clamp(v.x * u.x + v.y * u.y, 0, 12 * SCALE);
+  }
+  function downSSA(e){ if (!(e.target && e.target.id === 'hitSSA')) return; draggingSSA = true; moveSSA(e); e.preventDefault(); }
+  function moveSSA(e){ if (!draggingSSA) return; ssaT = projectT(toLocalSSA(e)); drawSSA(); e.preventDefault(); }
+  function upSSA(){ draggingSSA = false; }
+  svgSSA.addEventListener('pointerdown', downSSA);
+  window.addEventListener('pointermove', moveSSA);
+  window.addEventListener('pointerup', upSSA);
+  svgSSA.addEventListener('touchstart', downSSA, { passive:false });
+  window.addEventListener('touchmove', moveSSA, { passive:false });
+  window.addEventListener('touchend', upSSA);
+  [ssaC, ssaAngle, ssaA].forEach(el => el.addEventListener('input', drawSSA));
+  document.getElementById('ssaSolutions').addEventListener('click', () => { showSolutions = !showSolutions; drawSSA(); });
+  document.getElementById('ssaReset').addEventListener('click', () => { ssaT = 6 * SCALE; drawSSA(); });
+
+  // ================= MODE 4: AAA — same angles, free size, NOT congruent =================
+  const svgAAA = document.getElementById('svgAAA');
+  const aaaA = document.getElementById('aaaA'), aaaB = document.getElementById('aaaB'), aaaScale = document.getElementById('aaaScale');
+  const aaaAval = document.getElementById('aaaAval'), aaaBval = document.getElementById('aaaBval'), aaaScaleval = document.getElementById('aaaScaleval');
+  const BASE_UNITS = 5;
+
+  function apexFor(P0, P1, Adeg, Bdeg){
+    const Cdeg = 180 - Adeg - Bdeg;
+    const L = dist(P0, P1);
+    const b = L * Math.sin(rad(Bdeg)) / Math.sin(rad(Cdeg)); // length P0-P2
+    const A = rad(Adeg);
+    return { x: P0.x + b * Math.cos(A), y: P0.y - b * Math.sin(A) };
+  }
+
+  function drawAAA(){
+    let Adeg = parseFloat(aaaA.value), Bdeg = parseFloat(aaaB.value);
+    if (Adeg + Bdeg > 168) Bdeg = 168 - Adeg;
+    const Cdeg = 180 - Adeg - Bdeg;
+    aaaAval.textContent = Adeg + '°'; aaaBval.textContent = Math.round(Bdeg) + '°'; aaaScaleval.textContent = parseFloat(aaaScale.value).toFixed(2) + '×';
+    const scaleFactor = parseFloat(aaaScale.value);
+
+    const P0 = { x: 70, y: 330 }, P1 = { x: 70 + BASE_UNITS * SCALE, y: 330 };
+    const P2 = apexFor(P0, P1, Adeg, Bdeg);
+    const cen1 = centroidOf(P0, P1, P2);
+
+    const Q0 = { x: 340, y: 330 }, Q1 = { x: 340 + BASE_UNITS * SCALE * scaleFactor, y: 330 };
+    const Q2 = apexFor(Q0, Q1, Adeg, Bdeg);
+    const cen2 = centroidOf(Q0, Q1, Q2);
+
+    let html = '';
+    html += `<path d="${trianglePath(P0,P1,P2)}" fill="${ACCENT}22" stroke="${ACCENT}" stroke-width="4"/>`;
+    html += vertexDot(P0,'D',ACCENT,26) + vertexDot(P1,'E',ACCENT,26) + vertexDot(P2,'F',ACCENT,-14);
+    html += `<path d="${trianglePath(Q0,Q1,Q2)}" fill="${GOLD}22" stroke="${GOLD}" stroke-width="4"/>`;
+    html += vertexDot(Q0,'G',GOLD,26) + vertexDot(Q1,'H',GOLD,26) + vertexDot(Q2,'I',GOLD,-14);
+
+    svgAAA.innerHTML = html;
+    readout.innerHTML =
+      `<div>&ang;D=&ang;G=<b>${Adeg}&deg;</b>, &ang;E=&ang;H=<b>${Math.round(Bdeg)}&deg;</b>, &ang;F=&ang;I=<b>${Cdeg.toFixed(0)}&deg;</b> &middot; <span class="bad">same three angles, different SIZE</span></div>` +
+      `<div class="note">Both triangles share every angle — that's AAA. But the size slider proves they don't have to share a SIZE. Same shape (similar), not necessarily congruent — AAA is never listed as a congruence postulate.</div>`;
+  }
+  [aaaA, aaaB, aaaScale].forEach(el => el.addEventListener('input', drawAAA));
+
+  // ================= mode switching =================
+  let mode = 'sss';
+  const HINTS = {
+    sss: "Slide all three side lengths. The triangle updates as ONE rigid shape every time — there's no handle to grab because SSS leaves nothing free to wiggle.",
+    sas: "Slide the two sides and the angle BETWEEN them. Watch the third side get computed for you — SAS is just as rigid as SSS.",
+    ssa: "Grab the gold vertex C and drag it along the dashed ray. Angle A and side AB never change, yet the triangle keeps changing — that's the freedom SSA leaves behind. Try 'Show Both Solutions' to see two genuinely different triangles that satisfy the exact same SSA data.",
+    aaa: "Slide &ang;A and &ang;B (the third angle is whatever's left). Then slide the size of the gold copy — same three angles, any size you like. AAA guarantees SIMILAR, never congruent.",
+  };
+  const STAGES = { sss:'stageSSS', sas:'stageSAS', ssa:'stageSSA', aaa:'stageAAA' };
+  const SLIDERS = { sss:'slidersSSS', sas:'slidersSAS', ssa:'slidersSSA', aaa:'slidersAAA' };
+  const DRAW = { sss:drawSSS, sas:drawSAS, ssa:drawSSA, aaa:drawAAA };
+
+  function setMode(m){
+    mode = m;
+    [...document.querySelectorAll('#modes button')].forEach(b => b.classList.toggle('on', b.dataset.mode === m));
+    Object.keys(STAGES).forEach(k => { document.getElementById(STAGES[k]).hidden = k !== m; });
+    Object.keys(SLIDERS).forEach(k => { document.getElementById(SLIDERS[k]).hidden = k !== m; });
+    hint.innerHTML = HINTS[m];
+    DRAW[m]();
+  }
+  document.getElementById('modes').addEventListener('click', e => { const m = e.target.dataset.mode; if (m) setMode(m); });
+
+  setMode('sss');
+})();
+</script>
+</body>
+</html>

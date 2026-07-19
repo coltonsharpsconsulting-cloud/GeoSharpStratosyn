@@ -1,0 +1,47 @@
+{
+  "id": "LP-W29-S1", "course": "geometry", "week": 29, "session": 1,
+  "session_type": "concept", "lesson": "L25 — Two-Column Proofs: ASA & AAS",
+  "unit": "u03", "duration_min": 60, "mode": "Concept",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 29 · Two-Column Proofs — ASA & AAS",
+  "essential_question": "If you're handed only TWO angles and ONE side of a triangle — never all three sides — is the whole triangle still forced into exactly one shape and size?",
+  "objective": "State the ASA and AAS postulates, tell an included side from a non-included side, and complete two-column proofs that end in ASA or AAS as the final reason, using Given, vertical angles, the reflexive property, and the postulates/theorems from Lesson 22 along the way.",
+  "standards": ["G-CO.B.8"],
+  "vocab": ["ASA postulate", "AAS postulate", "included side", "non-included side", "two-column proof", "given", "reflexive property", "vertical angles theorem", "CPCTC"],
+  "agenda": [
+    {"phase":"launch","min":6,"title":"Launch — Two Angles, One Side","board":"launch","content":{"prompt":"Lesson 24 needed three sides (SSS) or two sides and the angle between them (SAS) to force one exact triangle. Here's the flip: what if all you're ever handed is TWO ANGLES and just ONE side — is that still enough to force one exact triangle, or does the triangle still have room to wobble?"}},
+    {"phase":"i_do","min":12,"title":"I do — ASA and AAS","board":"i_do","content":{"heading":"Two more ways to force a triangle","figure":"grid-blank","bullets":["ASA Postulate: two angles and the INCLUDED side (the side that is a ray of BOTH angles) force one triangle.","AAS Postulate: two angles and a NON-included side (touching only one of the two given angles) also force one triangle.","Why AAS still works: a triangle's angles always sum to 180°, so knowing two angles means you already know the third — relabel, and the 'non-included' side becomes included between two DIFFERENT angles you now also know. AAS is ASA in disguise.","A two-column proof's last line names the postulate — ASA or AAS — only once every needed angle and side has already been shown congruent above it.","Reasons you'll use constantly: Given, Vertical Angles Theorem, Reflexive Property, Alternate Interior Angles Theorem, definition of midpoint/bisector, and CPCTC once triangles are already proven congruent."]}},
+    {"phase":"explore","min":8,"title":"Explore — Force the Triangle","board":"explore","content":{"heading":"Drag the sliders; watch what's forced","note":"On the sim, switch between ASA, AAS, and AAA. In ASA/AAS mode, drag ∠A, ∠B, and the one given side — notice vertex C is never draggable; it's computed. In AAA mode, drag Size and watch many different triangles satisfy the SAME two angles — same shape, no forced size.","figure":"grid-blank"}},
+    {"phase":"check","min":5,"title":"Check for Understanding","board":"check","content":{"heading":"Included or not?","items":["n1","n2"]}},
+    {"phase":"you_do","min":12,"title":"You do — Name It, Prove It","board":"you_do","content":{"heading":"Your turn on the worksheet","items":["p1","p2","p3","p4"]}},
+    {"phase":"exit","min":5,"title":"Exit Ticket","board":"exit","content":{"items":["x1"],"preview":"Build session: build physical ASA and AAS triangles from two angles and one side, then build from angles alone (AAA) to see many sizes fit."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can state the ASA and AAS postulates and tell an included side from a non-included side"},
+    {"id":"SC2","text":"I can explain why AAS forces a unique triangle even though its given side isn't between the two given angles"},
+    {"id":"SC3","text":"I can complete a two-column proof that uses Given, vertical angles, or the reflexive property, ending in ASA or AAS as the final reason"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W29-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W29 ASA & AAS Proofs.md"},
+    "mus": {"practice":"MUS/L25 — Lesson Practice.pdf","review":"MUS/L25 — Systematic Review.pdf"},
+    "interactive": {"slug":"asa-aas","note":"Curriculum/Geometry/Lessons/W29-S1/sims/asa-aas.html"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"check","kind":"check","title":"Included or Not?","items":["n1","n2"]},
+      {"phase":"practice","kind":"practice","title":"Name It, Prove It","items":["p1","p2","p3","p4"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"n1","type":"dropdown","sc":"SC1","points":1,"prompt":"A side that lies between the two given angles is called the ___.","options":["hypotenuse","non-included side","included side","reflexive side"],"answer":"included side","explain":"A side is included between two angles when it is a ray of BOTH of them — that's exactly the side ASA requires."},
+    {"ref":"n2","type":"mc","sc":"SC1","points":1,"prompt":"Which set of given facts is enough to guarantee two triangles are congruent?","options":["three angles (AAA)","two angles and a non-included side (AAS)","two sides and a non-included angle (SSA)"],"answer":"two angles and a non-included side (AAS)","explain":"AAA only fixes the shape (similar), never the size. SSA is famously NOT a valid congruence shortcut. AAS, like ASA, forces one exact triangle."},
+    {"ref":"p1","type":"short","sc":"SC2","points":2,"prompt":"Explain why AAS still forces exactly one triangle, even though the given side isn't between the two given angles.","answer":"Because the triangle's angles always sum to 180°, knowing two angles means the third is already known for free. Relabeling with that third angle, the same side turns out to be included between two angles you now also know — so AAS is really ASA using a different pair of angles.","explain":"This is the 'AAS is ASA in disguise' idea from the concept note — the third angle is never actually unknown."},
+    {"ref":"p2","type":"construct","sc":"SC1","points":2,"figure":"grid-blank","prompt":"On the grid, draw a triangle ABC. Mark ∠A and ∠B, and mark side AB. Label AB as the included side and state which postulate (ASA) applies if ∠A, AB, and ∠B are all given.","answer":"A triangle with ∠A and ∠B marked, side AB labeled 'included side — ASA'.","explain":"Rubric: a clearly drawn triangle with both angles marked (1 pt) + AB correctly identified as the included side between them, with ASA named (1 pt)."},
+    {"ref":"p3","type":"dropdown","sc":"SC1","points":1,"prompt":"In △DEF, you are given ∠D, ∠E, and side EF. Side EF touches ∠E but not ∠D — so it is the ___ side, and the postulate that applies is ___.","options":["included side / ASA","non-included side / AAS","included side / AAS","non-included side / ASA"],"answer":"non-included side / AAS","explain":"EF is adjacent only to ∠E (opposite ∠D), so it is non-included relative to the given angle pair — that makes this an AAS case."},
+    {"ref":"p4","type":"proof","sc":"SC3","points":3,"prompt":"Complete the proof. Two segments AD and BE cross at point C. Given: AB ∥ DE; C is the midpoint of BE. Prove: △ABC ≅ △DEC. Statements: (1) AB ∥ DE. (2) ∠ABC ≅ ∠DEC. (3) C is the midpoint of BE. (4) BC ≅ EC. (5) ∠ACB ≅ ∠DCE. (6) △ABC ≅ △DEC. Fill in the REASON for each of the six statements above.","answer":"(1) Given. (2) Alternate Interior Angles Theorem. (3) Given. (4) Definition of midpoint. (5) Vertical Angles Theorem. (6) ASA Postulate — ∠ABC (statement 2), included side BC≅EC (statement 4), ∠ACB (statement 5).","explain":"Check the order: angle, then the side between that angle and the next, then the second angle — angle-side-angle, matching ASA exactly."},
+    {"ref":"x1","type":"short","sc":"SC1","points":2,"prompt":"Exit: in your own words, what is the ONE difference between the ASA postulate and the AAS postulate?"}
+  ]
+}

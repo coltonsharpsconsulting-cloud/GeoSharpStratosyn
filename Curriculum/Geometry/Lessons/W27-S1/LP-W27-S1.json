@@ -1,0 +1,47 @@
+{
+  "id": "LP-W27-S1", "course": "geometry", "week": 27, "session": 1,
+  "session_type": "concept", "lesson": "L23 — Congruent Triangles & Corresponding Parts",
+  "unit": "u03", "duration_min": 60, "mode": "Concept",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 27 · Congruent Triangles, Correspondence & CPCTC",
+  "essential_question": "When you write △ABC ≅ △DEF, what exactly are you promising about EVERY side and EVERY angle — and why does the ORDER of those six letters matter as much as the symbol between them?",
+  "objective": "Define congruent triangles as having all six corresponding parts (three sides, three angles) congruent; read and write correct congruence notation where vertex order names the correspondence; and apply CPCTC to conclude a specific pair of corresponding parts is congruent.",
+  "standards": ["G-CO.B.7"],
+  "vocab": ["congruent", "corresponding parts", "CPCTC", "correspondence"],
+  "agenda": [
+    {"phase":"launch","min":6,"title":"Launch — What's Really Being Promised?","board":"launch","content":{"prompt":"Someone hands you two triangles and says 'these are congruent.' Before you learn a single new word, guess: does that promise something about EVERY side and EVERY angle, or just that the two triangles look alike overall? And if they write it as △ABC ≅ △DEF, does the ORDER of those letters tell you anything you'd lose by scrambling it?"}},
+    {"phase":"i_do","min":12,"title":"I do — Six Parts, One Correspondence","board":"i_do","content":{"heading":"Reading △ABC ≅ △DEF letter by letter","figure":"grid-blank","bullets":["Congruent triangles match in ALL six respects: three pairs of corresponding sides AND three pairs of corresponding angles congruent — not just 'similar-looking.'","Congruence notation packs in the whole correspondence at once: the 1st, 2nd, and 3rd letters of each name pair up in order — A↔D, B↔E, C↔F.","Order is everything: △ABC ≅ △DEF names a DIFFERENT correspondence than △ABC ≅ △EDF. Swap two letters and you've named different (and maybe false) pairings.","Corresponding sides are named by their two endpoint letters in matching order: AB↔DE, BC↔EF, CA↔FD. Corresponding angles are named by their single vertex letter: ∠A↔∠D, ∠B↔∠E, ∠C↔∠F.","CPCTC — Corresponding Parts of Congruent Triangles are Congruent. Once triangles are known congruent, EVERY one of the six pairs is congruent, even ones nobody measured directly."]}},
+    {"phase":"explore","min":8,"title":"Explore — Slide, Spin, Superimpose","board":"explore","content":{"heading":"Drag △DEF onto △ABC and watch the six pairs light up","note":"On the sim, drag triangle DEF — slide it with the body, spin it with the gold ring — until it lands exactly on top of triangle ABC. Once superimposed, read the congruence statement and all six corresponding pairs the sim reveals. Matching colors mark matching positions in the correspondence.","figure":"grid-blank"}},
+    {"phase":"check","min":5,"title":"Check for Understanding","board":"check","content":{"heading":"Which part corresponds?","items":["n1","n2"]}},
+    {"phase":"you_do","min":12,"title":"You do — Name the Correspondence","board":"you_do","content":{"heading":"Your turn on the worksheet","items":["p1","p2","p3","p4"]}},
+    {"phase":"exit","min":5,"title":"Exit Ticket","board":"exit","content":{"items":["x1"],"preview":"Build session: cut out two congruent triangles and physically superimpose them to find every corresponding part by hand."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can state the definition of congruent triangles — all three corresponding sides and all three corresponding angles congruent"},
+    {"id":"SC2","text":"I can read a congruence statement like △ABC ≅ △DEF and correctly name every corresponding side and angle pair, even when the vertex order isn't the 'obvious' one"},
+    {"id":"SC3","text":"I can apply CPCTC to conclude that a specific pair of corresponding parts is congruent once I know two triangles are congruent"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W27-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W27 Congruent Triangles.md"},
+    "mus": {"practice":"MUS/L23 — Lesson Practice.pdf","review":"MUS/L23 — Systematic Review.pdf"},
+    "interactive": {"slug":"congruent-triangles","note":"Curriculum/Geometry/Lessons/W27-S1/sims/congruent-triangles.html"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"check","kind":"check","title":"Which Part Corresponds?","items":["n1","n2"]},
+      {"phase":"practice","kind":"practice","title":"Name the Correspondence","items":["p1","p2","p3","p4"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"n1","type":"dropdown","sc":"SC2","points":1,"prompt":"If △ABC ≅ △DEF, which angle corresponds to ∠B?","options":["∠D","∠E","∠F"],"answer":"∠E","explain":"Reading the letters in order (1st↔1st, 2nd↔2nd, 3rd↔3rd): A↔D, B↔E, C↔F — so ∠B corresponds to ∠E."},
+    {"ref":"n2","type":"mc","sc":"SC2","points":1,"prompt":"If △ABC ≅ △DEF, which side corresponds to side BC?","options":["DE","EF","FD"],"answer":"EF","explain":"BC connects the 2nd and 3rd letters (B, C); the matching side connects the 2nd and 3rd letters of the other name (E, F) — so BC corresponds to EF."},
+    {"ref":"p1","type":"short","sc":"SC2","points":2,"prompt":"Given △PQR ≅ △TQS (the two triangles share vertex Q). Name: (a) the side that corresponds to QR, (b) the angle that corresponds to ∠P, (c) the triangle name that corresponds to △RQP.","answer":"(a) QS (b) ∠T (c) △SQT","explain":"Reading in order: P↔T, Q↔Q, R↔S. (a) QR is the 2nd-3rd letters, so it corresponds to QS. (b) ∠P is the 1st letter, so it corresponds to ∠T. (c) Relabeling the same triangle as R,Q,P and applying the identical substitution gives S,Q,T — △SQT."},
+    {"ref":"p2","type":"construct","sc":"SC1","points":2,"figure":"grid-blank","prompt":"On the grid, draw two congruent triangles △ABC and △DEF in different locations and orientations (not overlapping). Label all six vertices, then mark corresponding sides with matching tick marks and corresponding angles with matching arc marks — one style per corresponding pair.","answer":"Two same-size triangles, fully vertex-labeled, with AB/DE tick-marked alike, BC/EF tick-marked alike, CA/FD tick-marked alike, and ∠A/∠D, ∠B/∠E, ∠C/∠F arc-marked alike.","explain":"Rubric: two clearly congruent (same-size) triangles drawn and fully labeled (1 pt) + all six corresponding parts correctly matched with consistent tick/arc marks (1 pt)."},
+    {"ref":"p3","type":"short","sc":"SC3","points":2,"prompt":"Given: △ABC ≅ △DEF. If AB = 7 cm and m∠C = 52°, what does CPCTC let you conclude about DE and ∠F? Explain in one sentence.","answer":"DE = 7 cm and m∠F = 52°.","explain":"CPCTC guarantees every corresponding pair is congruent once the triangles themselves are congruent — including AB↔DE and ∠C↔∠F — so no separate measurement is needed."},
+    {"ref":"p4","type":"short","sc":"SC2","points":2,"prompt":"Two identical triangles are drawn in the exact same left-to-right layout on the page. One statement calls them △MNP ≅ △QRS; a second statement calls the SAME two triangles △MNP ≅ △RQS. Do these two statements name the same correspondence? Explain, using what actually determines a correspondence.","answer":"No — they name different correspondences. In the first, M↔Q and N↔R; in the second, swapping Q and R means M↔R and N↔Q instead.","explain":"The correspondence is decided by the ORDER of the letters in the name, not by where the points sit on the page — swapping two letters changes which points are declared to match even though the drawing never moved."},
+    {"ref":"x1","type":"short","sc":"SC2","points":2,"prompt":"Exit: write your own two-triangle congruence statement (invent your own letters), then list one corresponding side pair and one corresponding angle pair from it."}
+  ]
+}

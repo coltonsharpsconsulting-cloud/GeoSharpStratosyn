@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Right-Triangle Congruence: HL, LL, HA, LA — Sim</title>
+<style>
+  :root{--void:#0d1322;--ink:#161d31;--bone:#e8ecf3;--mist:#9aabd0;--accent:#8b5cf6;--gold:#f5c842;--border:#2a3142;--good:#7ee081;--warn:#f2665a}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--void);color:var(--bone);font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;min-height:100%}
+  header{padding:2vh 4vw;border-bottom:1px solid var(--border);background:var(--ink)}
+  .eyebrow{font-family:"DM Mono",ui-monospace,monospace;letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--accent)}
+  h1{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(20px,3vw,30px);margin-top:.3rem}
+  main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.4vh;padding:3vh 4vw}
+  .modes{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
+  button{font-family:"DM Mono",ui-monospace,monospace;font-size:14px;background:var(--ink);color:var(--bone);border:1px solid var(--border);border-radius:999px;padding:.6rem 1.2rem;cursor:pointer}
+  button.on{border-color:var(--accent);color:var(--accent)}
+  .ssa{color:var(--mist);font-size:13px;max-width:60ch;text-align:center}
+  .ssa b{color:var(--warn)}
+  .stage{width:100%;max-width:760px;aspect-ratio:760/460;background:var(--ink);border:1px solid var(--border);border-radius:16px;touch-action:none}
+  svg{width:100%;height:100%;display:block}
+  .sliders{display:flex;gap:1.6rem;flex-wrap:wrap;justify-content:center;width:100%;max-width:760px}
+  .slider{display:flex;flex-direction:column;align-items:center;gap:.3rem;min-width:220px}
+  .slider label{font-family:"DM Mono",ui-monospace,monospace;font-size:13px;color:var(--mist)}
+  .slider b{color:var(--gold)}
+  input[type=range]{width:220px;accent-color:#8b5cf6}
+  .readout{font-family:"DM Mono",ui-monospace,monospace;font-size:clamp(13px,1.8vw,16px);color:var(--mist);text-align:center;min-height:4.6em;line-height:1.55;max-width:66ch}
+  .readout .good{color:var(--good);font-weight:bold}
+  .readout .note{color:var(--bone)}
+  .hint{color:var(--mist);font-size:13px;max-width:64ch;text-align:center}
+</style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Geometry · Lesson 26 · sim</div>
+    <h1>Pick a shortcut. Match the parts. Watch them lock congruent.</h1>
+  </header>
+  <main>
+    <div class="modes" id="modes">
+      <button data-mode="HL" class="on">HL</button>
+      <button data-mode="LL">LL</button>
+      <button data-mode="HA">HA</button>
+      <button data-mode="LA">LA</button>
+    </div>
+    <p class="ssa">Reminder: Side-Side-Angle (SSA) is <b>not</b> a valid shortcut in general. HL is the one exception — and only because the angle is a right angle.</p>
+    <div class="stage"><svg viewBox="0 0 760 460" id="svg"></svg></div>
+    <div class="sliders" id="sliders"></div>
+    <div class="readout" id="readout"></div>
+    <p class="hint">Triangle 1 (left) is fixed. Drag both sliders for Triangle 2 (right) until its matching (gold-marked) parts equal Triangle 1's. The right angle is always congruent for free — watch what happens to the THIRD part once you match the other two.</p>
+  </main>
+<script>
+(() => {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  const slidersEl = document.getElementById('sliders');
+  const readout = document.getElementById('readout');
+  const S = 15; // px per unit
+  const R1 = { x: 100, y: 400 };
+  const R2 = { x: 410, y: 400 };
+
+  const T1 = { legH: 8, legV: 6 };
+  T1.hyp = Math.hypot(T1.legH, T1.legV);
+  T1.angleH = Math.atan2(T1.legV, T1.legH) * 180 / Math.PI;
+
+  const MODES = {
+    HL: {
+      sliders: [
+        { key: 'hyp',  label: 'Hypotenuse (c)', min: 5, max: 16, step: 0.5, target: T1.hyp,  tol: 0.26, def: 13 },
+        { key: 'legV', label: 'Leg (b)',        min: 2, max: 12, step: 0.5, target: T1.legV, tol: 0.26, def: 3 }
+      ],
+      compute(v){ const legH = Math.sqrt(Math.max(0, v.hyp*v.hyp - v.legV*v.legV)); return { legH, legV: v.legV, hyp: v.hyp }; },
+      given: ['hyp','legV'], derived: ['legH'],
+      note(m){ return m
+        ? 'MATCHED — HL ↔ SSS: match the hypotenuse and one leg, and the Pythagorean theorem forces the THIRD leg to match too. All three sides now agree — that’s SSS underneath, just proven with one side handed to you for free.'
+        : 'HL ↔ SSS (via the Pythagorean theorem): match the hypotenuse and one leg. Side-Side-Angle normally can’t finish a proof — but a right angle removes the ambiguity, because c² − a² = b² has only ONE positive solution.'; }
+    },
+    LL: {
+      sliders: [
+        { key: 'legH', label: 'Leg (a)', min: 2, max: 12, step: 0.5, target: T1.legH, tol: 0.26, def: 4 },
+        { key: 'legV', label: 'Leg (b)', min: 2, max: 12, step: 0.5, target: T1.legV, tol: 0.26, def: 10 }
+      ],
+      compute(v){ return { legH: v.legH, legV: v.legV, hyp: Math.hypot(v.legH, v.legV) }; },
+      given: ['legH','legV'], derived: ['hyp'],
+      note(m){ return m
+        ? 'MATCHED — LL ↔ SAS: both legs matched, and the hypotenuse came out equal for free. The right angle is always the angle INCLUDED between the two legs — leg, included angle, leg — that is exactly SAS.'
+        : 'LL ↔ SAS: the right angle sits included between the two legs, so matching both legs (with the right angle between them) is exactly Side-Angle-Side.'; }
+    },
+    HA: {
+      sliders: [
+        { key: 'hyp',    label: 'Hypotenuse (c)',  min: 5,  max: 16, step: 0.5, target: T1.hyp,    tol: 0.26, def: 14 },
+        { key: 'angleH', label: 'Angle at H (°)', min: 15, max: 65, step: 1,   target: T1.angleH, tol: 1.5,  def: 55 }
+      ],
+      compute(v){ const r = v.angleH * Math.PI / 180; return { legH: v.hyp*Math.cos(r), legV: v.hyp*Math.sin(r), hyp: v.hyp }; },
+      given: ['hyp','angleH'], derived: ['legH','legV'],
+      note(m){ return m
+        ? 'MATCHED — HA ↔ AAS: the hypotenuse & one acute angle forced BOTH legs to match too. The right angle and the given angle are your two angles; the hypotenuse sits opposite the right angle, so it is NOT the side between them — that is Angle-Angle-Side.'
+        : 'HA ↔ AAS: the right angle and the given acute angle are the two angles. The hypotenuse is not the included side, so this is AAS, not ASA.'; }
+    },
+    LA: {
+      sliders: [
+        { key: 'legH',   label: 'Leg (a)',         min: 2,  max: 12, step: 0.5, target: T1.legH,   tol: 0.26, def: 3 },
+        { key: 'angleH', label: 'Angle at H (°)', min: 15, max: 65, step: 1,   target: T1.angleH, tol: 1.5,  def: 60 }
+      ],
+      compute(v){ const r = v.angleH * Math.PI / 180; return { legH: v.legH, legV: v.legH*Math.tan(r), hyp: v.legH/Math.cos(r) }; },
+      given: ['legH','angleH'], derived: ['legV','hyp'],
+      note(m){ return m
+        ? 'MATCHED — LA ↔ ASA: this leg sits BETWEEN the right angle and the given acute angle, so matching leg + angle is Angle-Side-Angle. The other leg and the hypotenuse were forced equal too.'
+        : 'LA ↔ ASA in this arrangement: the leg shown sits between the right angle and the given angle — angle, included side, angle. (The same two facts on the far leg instead would read AAS.)'; }
+    }
+  };
+
+  let mode = 'HL';
+  let vals = {};
+
+  function make(tag, attrs){ const n = document.createElementNS(NS, tag); for (const k in attrs) n.setAttribute(k, attrs[k]); svg.appendChild(n); return n; }
+  function clear(){ while (svg.firstChild) svg.removeChild(svg.firstChild); }
+  function pt(R, legH, legV){ return { H: { x: R.x + legH*S, y: R.y }, V: { x: R.x, y: R.y - legV*S } }; }
+
+  function rightTick(R){
+    make('path', { d: `M${R.x+14},${R.y} L${R.x+14},${R.y-14} L${R.x},${R.y-14}`, fill:'none', stroke:'#e8ecf3', 'stroke-width':2 });
+  }
+
+  function sideTick(p1, p2, count, color){
+    const mx = (p1.x+p2.x)/2, my = (p1.y+p2.y)/2;
+    const dx = p2.x-p1.x, dy = p2.y-p1.y, len = Math.hypot(dx,dy) || 1;
+    const ux = -dy/len, uy = dx/len;
+    const spacing = 6;
+    for (let i=0;i<count;i++){
+      const off = (i - (count-1)/2) * spacing;
+      const cx = mx + (dx/len)*off, cy = my + (dy/len)*off;
+      make('line', { x1: cx-ux*6, y1: cy-uy*6, x2: cx+ux*6, y2: cy+uy*6, stroke: color, 'stroke-width':2.5 });
+    }
+  }
+
+  function angleArc(vertex, p1, p2, count, color){
+    const a1 = Math.atan2(p1.y-vertex.y, p1.x-vertex.x);
+    const a2 = Math.atan2(p2.y-vertex.y, p2.x-vertex.x);
+    for (let i=0;i<count;i++){
+      const r = 16 + i*6;
+      const x1 = vertex.x + r*Math.cos(a1), y1 = vertex.y + r*Math.sin(a1);
+      const x2 = vertex.x + r*Math.cos(a2), y2 = vertex.y + r*Math.sin(a2);
+      const large = Math.abs(a2-a1) > Math.PI ? 1 : 0;
+      make('path', { d: `M${x1},${y1} A${r},${r} 0 ${large} 1 ${x2},${y2}`, fill:'none', stroke: color, 'stroke-width':2 });
+    }
+  }
+
+  function label(x, y, text, extra){
+    const attrs = Object.assign({ x, y, 'text-anchor':'middle', 'font-family':'DM Mono, monospace', 'font-size':13, fill:'#9aabd0' }, extra||{});
+    const t = make('text', attrs);
+    t.textContent = text;
+    return t;
+  }
+
+  function drawTriangle(R, legH, legV, given, derived, matched, caption){
+    const { H, V } = pt(R, legH, legV);
+    make('polygon', { points: `${R.x},${R.y} ${H.x},${H.y} ${V.x},${V.y}`, fill:'rgba(139,92,246,0.16)', stroke:'#8b5cf6', 'stroke-width':3 });
+    rightTick(R);
+    [R,H,V].forEach(p => make('circle', { cx:p.x, cy:p.y, r:3, fill:'#e8ecf3' }));
+
+    const givenColor = '#f5c842';
+    const derivedColor = matched ? '#7ee081' : '#5c6685';
+    const marks = { legH: 1, legV: 2, hyp: 3, angleH: 1 };
+
+    given.forEach(k => {
+      if (k === 'legH') sideTick(R, H, marks.legH, givenColor);
+      if (k === 'legV') sideTick(R, V, marks.legV, givenColor);
+      if (k === 'hyp')  sideTick(H, V, marks.hyp, givenColor);
+      if (k === 'angleH') angleArc(H, R, V, marks.angleH, givenColor);
+    });
+    derived.forEach(k => {
+      if (k === 'legH') sideTick(R, H, marks.legH, derivedColor);
+      if (k === 'legV') sideTick(R, V, marks.legV, derivedColor);
+      if (k === 'hyp')  sideTick(H, V, marks.hyp, derivedColor);
+    });
+
+    label((R.x+H.x)/2, R.y+20, `a=${legH.toFixed(1)}`, { fill:'#e8ecf3' });
+    label(R.x-26, (R.y+V.y)/2, `b=${legV.toFixed(1)}`, { fill:'#e8ecf3' });
+    label((H.x+V.x)/2+22, (H.y+V.y)/2-6, `c=${Math.hypot(legH,legV).toFixed(1)}`, { fill:'#e8ecf3' });
+    label(R.x, R.y+20, 'R', { fill:'#9aabd0', 'font-size':11 });
+    label(H.x+12, H.y+16, 'H', { fill:'#9aabd0', 'font-size':11 });
+    label(V.x-12, V.y-8, 'V', { fill:'#9aabd0', 'font-size':11 });
+    label(R.x + (H.x-R.x)/2, R.y+44, caption, {});
+  }
+
+  function within(v, target, tol){ return Math.abs(v - target) <= tol; }
+
+  function draw(){
+    clear();
+    for (let x=0;x<=760;x+=20) make('line', { x1:x, y1:0, x2:x, y2:460, stroke:'#1a2136', 'stroke-width':1 });
+    for (let y=0;y<=460;y+=20) make('line', { x1:0, y1:y, x2:760, y2:y, stroke:'#1a2136', 'stroke-width':1 });
+
+    const cfg = MODES[mode];
+    const t2 = cfg.compute(vals);
+    const matched = cfg.sliders.every(s => within(vals[s.key], s.target, s.tol));
+
+    drawTriangle(R1, T1.legH, T1.legV, cfg.given, cfg.derived, true, 'Triangle 1 (given)');
+    drawTriangle(R2, t2.legH, t2.legV, cfg.given, cfg.derived, matched, 'Triangle 2 (yours)');
+
+    const angleH2 = Math.atan2(t2.legV, t2.legH) * 180/Math.PI;
+    const lines = [];
+    lines.push(`Triangle 2 → a=${t2.legH.toFixed(2)}, b=${t2.legV.toFixed(2)}, c=${t2.hyp.toFixed(2)}, ∠H=${angleH2.toFixed(1)}°`);
+    lines.push(matched ? `<span class="good">MATCHED — △ 1 ≅ △ 2</span>` : `Not matched yet — keep adjusting the sliders.`);
+    lines.push(`<span class="note">${cfg.note(matched)}</span>`);
+    readout.innerHTML = lines.join('<br>');
+  }
+
+  function buildSliders(){
+    slidersEl.innerHTML = '';
+    const cfg = MODES[mode];
+    cfg.sliders.forEach(s => {
+      if (!(s.key in vals)) vals[s.key] = s.def;
+      const wrap = document.createElement('div'); wrap.className = 'slider';
+      const lbl = document.createElement('label');
+      const unit = s.key === 'angleH' ? '' : ' units';
+      lbl.innerHTML = `${s.label}: <b>${vals[s.key]}</b>${unit}`;
+      const input = document.createElement('input');
+      input.type = 'range'; input.min = s.min; input.max = s.max; input.step = s.step; input.value = vals[s.key];
+      input.addEventListener('input', () => {
+        vals[s.key] = parseFloat(input.value);
+        lbl.innerHTML = `${s.label}: <b>${vals[s.key]}</b>${unit}`;
+        draw();
+      });
+      wrap.appendChild(lbl); wrap.appendChild(input);
+      slidersEl.appendChild(wrap);
+    });
+    draw();
+  }
+
+  document.getElementById('modes').addEventListener('click', e => {
+    const m = e.target.dataset.mode;
+    if (!m || m === mode) return;
+    mode = m;
+    vals = {};
+    [...document.querySelectorAll('#modes button')].forEach(b => b.classList.toggle('on', b.dataset.mode === m));
+    buildSliders();
+  });
+
+  buildSliders();
+})();
+</script>
+</body>
+</html>

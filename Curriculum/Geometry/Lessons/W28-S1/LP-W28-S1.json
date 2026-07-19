@@ -1,0 +1,47 @@
+{
+  "id": "LP-W28-S1", "course": "geometry", "week": 28, "session": 1,
+  "session_type": "concept", "lesson": "L24 — Two-Column Proofs: SSS & SAS",
+  "unit": "u03", "duration_min": 60, "mode": "Concept",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 28 · SSS & SAS — Two Postulates for Proving Triangles Congruent",
+  "essential_question": "Two congruent triangles match in six ways — three pairs of sides, three pairs of angles. Can matching just THREE of them force the other three to match too, without ever measuring them?",
+  "objective": "State the SSS and SAS postulates precisely (including what makes an angle 'included'), and write a two-column proof (Statements | Reasons) using Given, the Reflexive Property, and a postulate as the final reason.",
+  "standards": ["G-CO.B.8"],
+  "vocab": ["SSS postulate", "SAS postulate", "included angle", "two-column proof", "given", "statement", "reason", "reflexive property", "congruent triangles"],
+  "agenda": [
+    {"phase":"launch","min":6,"title":"Launch — Is Three Enough?","board":"launch","content":{"prompt":"Two triangles are congruent when all SIX corresponding parts match — three sides, three angles. But if I only hand you THREE of those six facts, could you be certain the triangles are congruent without checking the other three? Guess: is three enough — and which three?"}},
+    {"phase":"i_do","min":12,"title":"I do — SSS & SAS Postulates","board":"i_do","content":{"heading":"Two shortcuts, both postulates","figure":"grid-blank","bullets":["The SSS Postulate: if three sides of one triangle are congruent to three sides of another triangle, the triangles are congruent.","The SAS Postulate: if two sides AND the INCLUDED angle (the angle between them) of one triangle are congruent to the corresponding two sides and included angle of another, the triangles are congruent.","Both are POSTULATES — accepted outright, like the Linear Pair Postulate from Lesson 22 — not proven from something simpler.","A two-column proof has a Given, a Prove, and a Statements | Reasons table where every line has its reason: Given, a definition, a property, or — on the last line — the postulate.","The Reflexive Property (a segment or angle is congruent to itself, e.g. BD ≅ BD) shows up whenever two triangles share a side or an angle.","Order matters in SAS: the angle must sit BETWEEN the two named sides — two sides plus some OTHER angle is called SSA, and SSA does NOT guarantee congruence."]}},
+    {"phase":"explore","min":8,"title":"Explore — Does It Wiggle?","board":"explore","content":{"heading":"Set the sides (and angle); watch what locks and what doesn't","note":"On the sim, set three side lengths (SSS) or two sides + the included angle (SAS) — the triangle locks into ONE shape; there is no separate handle to drag. Now switch to SSA (two sides + a non-included angle) and drag the free vertex, or try AAA (three angles only) and slide the size — watch the SAME given facts allow more than one triangle.","figure":"grid-blank"}},
+    {"phase":"check","min":5,"title":"Check for Understanding","board":"check","content":{"heading":"SSS or SAS?","items":["n1","n2"]}},
+    {"phase":"you_do","min":12,"title":"You do — Name It & Prove It","board":"you_do","content":{"heading":"Your turn on the worksheet","items":["p1","p2","p3","p4"]}},
+    {"phase":"exit","min":5,"title":"Exit Ticket","board":"exit","content":{"items":["x1"],"preview":"Build session: build straw triangles to feel SSS and SAS rigidity — and test why SSA wiggles."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can state the SSS and SAS postulates precisely, including what makes an angle 'included'"},
+    {"id":"SC2","text":"I can write a two-column proof (Statements | Reasons) using Given, the Reflexive Property, and a postulate as the final reason"},
+    {"id":"SC3","text":"I can explain why SSA (two sides + a non-included angle) does NOT guarantee congruent triangles"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W28-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W28 SSS & SAS Proofs.md"},
+    "mus": {"practice":"MUS/L24 — Lesson Practice.pdf","review":"MUS/L24 — Systematic Review.pdf"},
+    "interactive": {"slug":"sss-sas","note":"Curriculum/Geometry/Lessons/W28-S1/sims/sss-sas.html"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"check","kind":"check","title":"SSS or SAS?","items":["n1","n2"]},
+      {"phase":"practice","kind":"practice","title":"Name It & Prove It","items":["p1","p2","p3","p4"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"n1","type":"dropdown","sc":"SC1","points":1,"prompt":"If three sides of one triangle are congruent to three sides of another triangle, the triangles are congruent by the ___.","options":["SAS Postulate","SSS Postulate","Reflexive Property","ASA Postulate"],"answer":"SSS Postulate","explain":"Three matching pairs of sides is exactly the SSS Postulate — no angle needs to be checked at all."},
+    {"ref":"n2","type":"mc","sc":"SC1","points":1,"prompt":"In the SAS Postulate, the marked congruent angle must be the angle that is…","options":["opposite the longest side","included between the two named sides","the largest angle in the triangle"],"answer":"included between the two named sides","explain":"SAS requires the angle FORMED BY the two sides you're using — the one sitting at their shared vertex, between them."},
+    {"ref":"p1","type":"short","sc":"SC1","points":2,"prompt":"In your own words, state the SAS Postulate, and explain what makes an angle 'included' rather than just any angle in the triangle.","answer":"SAS Postulate: if two sides and the angle BETWEEN them (the included angle) in one triangle are congruent to two sides and the included angle of another triangle, the triangles are congruent. The angle is 'included' because it sits at the shared vertex of the two named sides — not at some other corner of the triangle.","explain":"Naming the angle by its position (between the two given sides) is the whole difference between SAS and the non-guaranteed SSA case."},
+    {"ref":"p2","type":"construct","sc":"SC2","points":2,"figure":"grid-blank","prompt":"On the grid, draw two triangles that share one common side (like the diagonal of a quadrilateral). Mark the two pairs of given sides with tick marks, mark the shared side with its own tick mark and label it 'reflexive,' and write SSS or SAS beneath your figure to say which postulate proves them congruent.","answer":"Two triangles sharing a labeled diagonal, tick-marked sides matching in pairs, the shared side marked 'reflexive,' and SSS or SAS named correctly based on whether an included angle was also marked.","explain":"Rubric: two triangles correctly sharing a labeled side (1 pt) + the correct postulate named for the marks shown (1 pt)."},
+    {"ref":"p3","type":"proof","sc":"SC2","points":2,"prompt":"Complete the proof. Given: ABCD is a square. Prove: △ABD ≅ △CDB. Statements: (1) ABCD is a square. (2) AB ≅ DC, AD ≅ BC. (3) BD ≅ BD. (4) △ABD ≅ △CDB. Fill in the REASON for each of the four statements above.","answer":"(1) Given. (2) Definition of a square — all four sides congruent. (3) Reflexive Property. (4) SSS Postulate.","explain":"This is exactly the square proof from your concept note — the shared diagonal BD is why the Reflexive Property appears before the SSS Postulate closes the proof."},
+    {"ref":"p4","type":"short","sc":"SC3","points":2,"prompt":"Two triangles share two pairs of congruent sides, but the one marked congruent angle is NOT between those two sides — it's at one of the far vertices instead. Is this SAS? Are the triangles definitely congruent? Explain.","answer":"No, this is not SAS — it's SSA, because the angle isn't included between the two given sides. SSA does NOT guarantee congruence; the same two sides and that same non-included angle can close into two different triangles (or none at all).","explain":"The position of the angle relative to the two named sides is the entire test for whether a pattern is SAS (guaranteed) or SSA (not guaranteed)."},
+    {"ref":"x1","type":"short","sc":"SC1","points":2,"prompt":"Exit: in one or two sentences, explain to a younger student why matching just THREE parts of a triangle (not all six) can be enough to prove two triangles congruent."}
+  ]
+}

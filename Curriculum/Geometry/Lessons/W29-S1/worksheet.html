@@ -1,0 +1,232 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>L25 — Two-Column Proofs: ASA &amp; AAS — Worksheet</title>
+<style>/* ws.css — student-facing worksheet, light theme, US-Letter print */
+:root{
+  --ink:#181b22; --mist:#5a606c; --line:#cfd4df; --line2:#e4e8f0;
+  --gold:#5b3fb0; --cyan:#0a6373; --ok:#1c7a45; --no:#b00020;
+  --money:#137a45; --money-bg:#eaf6ee;
+  --bg-page:#eef1f6; --bg-sheet:#fff; --bg-soft:#f6f8fc;
+  --radius:8px;
+}
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+body{
+  font-family:-apple-system,Inter,system-ui,sans-serif;
+  font-size:15px; color:var(--ink); background:var(--bg-page);
+  margin:0; padding:28px 16px 56px; line-height:1.5;
+}
+
+/* Page container */
+.ws{max-width:780px; margin:0 auto; background:var(--bg-sheet);
+  border:1px solid var(--line); border-radius:10px; padding:30px 34px 40px;}
+
+/* ── Tools (screen only) ── */
+.tools{max-width:780px; margin:0 auto 12px; display:flex; gap:8px; justify-content:flex-end;}
+.tools button{font:600 13px/1 inherit; border:1px solid var(--line); background:#fff;
+  color:var(--ink); border-radius:7px; padding:9px 14px; cursor:pointer;}
+.tools button:hover{background:var(--bg-soft);}
+.tools .primary{background:var(--ink); color:#fff; border-color:var(--ink);}
+.tools .primary:hover{background:#000;}
+
+/* ── Header ── */
+.ws-head{margin-bottom:22px;}
+.eyebrow{font:600 11px/1 ui-monospace,monospace; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--gold); margin-bottom:9px;}
+.ws-head h1{font-size:24px; font-weight:800; margin:0 0 4px; letter-spacing:-.01em;}
+.sub{font-size:13px; color:var(--mist); margin-bottom:16px;}
+.ws-id{display:flex; gap:12px; flex-wrap:wrap;}
+.ws-id input{flex:1; min-width:110px;}
+
+/* ── Objective / EQ bar ── */
+.brief{border:1px solid var(--line2); background:var(--bg-soft);
+  border-radius:var(--radius); padding:14px 16px; margin-top:6px;}
+.brief p{margin:0 0 7px;}
+.brief p:last-child{margin-bottom:0;}
+.brief .lab{font:600 10.5px/1 ui-monospace,monospace; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--cyan); margin-right:7px;}
+.sc{margin:9px 0 0; padding:0; list-style:none; font-size:13px; color:var(--mist);}
+.sc li{margin:2px 0; padding-left:18px; position:relative;}
+.sc li::before{content:"▢"; position:absolute; left:0; color:var(--cyan);}
+.vocab{margin-top:11px; display:flex; flex-wrap:wrap; gap:6px;}
+.vocab .lab{display:block; width:100%; margin-bottom:2px;}
+.chip{font:600 12px/1 inherit; border:1px solid var(--line); background:#fff;
+  color:var(--ink); border-radius:20px; padding:5px 11px;}
+
+/* ── Sections ── */
+.ws-sec{border-top:2px solid var(--line); margin-top:26px; padding-top:18px;}
+.ws-sec h2{font-size:13px; font-weight:800; letter-spacing:.09em; text-transform:uppercase;
+  color:var(--cyan); margin:0 0 4px;}
+.ws-sec .lede{font-size:13px; color:var(--mist); margin:0 0 14px;}
+.tag{display:inline-block; font:600 10px/1 ui-monospace,monospace; letter-spacing:.1em;
+  text-transform:uppercase; color:#fff; background:var(--cyan); border-radius:4px;
+  padding:3px 6px; margin-left:8px; vertical-align:2px;}
+.tag.warm{background:var(--gold);} .tag.exit{background:var(--money);}
+
+/* ── Question blocks ── */
+.q{margin-bottom:18px;}
+.q-prompt{font-weight:600; font-size:14px; margin:0 0 9px; color:var(--ink);}
+.q-prompt .pn{color:var(--cyan); font-weight:800; margin-right:6px;}
+.hint{font-size:12px; color:var(--mist); font-weight:400;}
+
+/* ── Inputs ── */
+input,select,textarea{width:100%; font:inherit; font-size:14px; padding:8px 10px;
+  border:1px solid var(--line); border-radius:6px; background:#fbfcfe; color:var(--ink);
+  transition:border-color .15s;}
+input:focus,select:focus,textarea:focus{outline:none; border-color:var(--cyan);}
+textarea{min-height:70px; resize:vertical;}
+.inline-in{display:inline-block; width:150px; padding:4px 8px;}
+.inline-in.sm{width:92px;}
+
+/* answer blank */
+.ans{display:flex; align-items:center; gap:9px; margin-top:10px;
+  background:var(--money-bg); border:1px solid #cfe6d6; border-radius:6px; padding:9px 12px;}
+.ans .lab{font:800 11px/1 ui-monospace,monospace; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--money); white-space:nowrap;}
+.ans input{background:#fff; border-color:#bcd9c6;}
+.ans .unit{font-size:12.5px; color:var(--mist); white-space:nowrap;}
+
+/* work space */
+.work{margin-top:10px; border:1px dashed var(--line); border-radius:6px;
+  background:repeating-linear-gradient(#fff,#fff 27px,var(--line2) 27px,var(--line2) 28px);
+  min-height:88px; padding:6px 12px 4px;}
+.work .wlab{font:600 10px/1 ui-monospace,monospace; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--mist);}
+.work.tall{min-height:120px;}
+
+/* choose-one option lists */
+.q-opts{display:flex; flex-direction:column; gap:7px; margin-top:2px;}
+.q-opts label{display:flex; align-items:center; gap:9px; font-weight:400; font-size:14px; cursor:pointer;}
+.q-opts input[type=radio]{width:auto; flex-shrink:0; accent-color:var(--cyan);}
+
+/* ── Tables (spending logs) ── */
+.tbl-wrap{overflow-x:auto; margin:12px 0;}
+table.log{width:100%; border-collapse:collapse; font-size:14px;}
+table.log th,table.log td{border:1px solid var(--line); padding:8px 10px; text-align:left;}
+table.log th{background:var(--bg-soft); font-size:11px; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--mist); font-weight:700;}
+table.log td.amt,table.log th.amt,table.log td.run,table.log th.run{text-align:right;
+  font-variant-numeric:tabular-nums;}
+table.log .fill{color:#b9bfca; font-style:italic;}
+table.log tr.tot td{border-top:2px solid var(--ink); font-weight:800; background:var(--money-bg);}
+table.log td.run{color:var(--money); font-weight:700;}
+
+/* worked-step list */
+ol.steps{margin:12px 0 4px; padding-left:22px;}
+ol.steps li{margin:7px 0;}
+ol.steps b{color:var(--money);}
+.callout{border-left:3px solid var(--cyan); background:#eef7f9; border-radius:0 6px 6px 0;
+  padding:10px 13px; margin:12px 0; font-size:13.5px;}
+.callout b{color:var(--cyan);}
+.result{display:flex; flex-wrap:wrap; gap:8px 20px; margin:12px 0 2px; padding:11px 14px;
+  background:var(--money-bg); border:1px solid #cfe6d6; border-radius:6px;}
+.result .r{font-size:13px;} .result .r b{color:var(--money); font-size:15px;}
+
+.example{border:1px solid var(--line2); border-radius:var(--radius); padding:14px 16px; margin-top:4px;}
+.example + .example{margin-top:16px;}
+.example h3{font-size:14px; margin:0 0 2px;}
+.example .who{font:600 10.5px/1 ui-monospace,monospace; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--gold); margin-bottom:8px;}
+
+/* ── Teacher Answer Key ── */
+#teacherKey{display:none;}
+body.show-key #teacherKey{display:block;}
+.key{page-break-before:always; break-before:page; border-top:none; margin-top:34px;}
+.key-banner{background:var(--ink); color:#fff; border-radius:8px; padding:12px 16px; margin-bottom:16px;}
+.key-banner h2{color:#fff; font-size:15px; margin:0 0 2px; letter-spacing:.04em;}
+.key-banner p{margin:0; font-size:12px; color:#c7ccd6;}
+.key .kq{margin-bottom:13px; padding-bottom:11px; border-bottom:1px solid var(--line2);}
+.key .kref{font:800 12px/1 ui-monospace,monospace; color:var(--cyan); margin-right:8px;}
+.key .kans{color:var(--money); font-weight:800;}
+.key .kwhy{display:block; font-size:12.5px; color:var(--mist); margin-top:4px;}
+.key .kpts{float:right; font:700 11px/1 ui-monospace,monospace; color:var(--mist);}
+
+.foot{margin-top:26px; padding-top:14px; border-top:1px solid var(--line); font-size:12px; color:var(--mist);}
+
+/* ── Print (US-Letter) ── */
+@page{size:letter; margin:.5in;}
+@media print{
+  body{background:#fff; padding:0; font-size:12.5px;}
+  .ws{max-width:100%; border:none; border-radius:0; padding:0;}
+  .tools{display:none;}
+  .ws-sec{break-inside:auto;}
+  .q,.example,.tbl-wrap,.result,.callout,.ans{break-inside:avoid;}
+  input,select,textarea{border:none; border-bottom:1px solid #888; border-radius:0;
+    background:transparent; padding:3px 2px;}
+  .inline-in{border-bottom:1px solid #666;}
+  .work{background:#fff; border:1px solid #bbb;}
+  .ans{background:#f4faf5;}
+  /* Teacher key always prints, on its own page */
+  #teacherKey{display:block !important;}
+}
+
+.ws-fig{margin:10px 0;text-align:center}.ws-fig svg{max-width:100%;height:auto;max-height:260px}
+#teacherKey:not([hidden]){display:block}</style></head><body>
+<div class="tools"><button id="keyBtn">Show Teacher Key</button><button id="printBtn" class="primary">Print / Save PDF</button></div>
+<div class="ws"><header class="ws-head"><div class="eyebrow">The Salas Compass · Worksheet</div>
+<h1>L25 — Two-Column Proofs: ASA &amp; AAS</h1><div class="sub">Week 29 · Two-Column Proofs — ASA &amp; AAS</div>
+<div class="ws-id"><input placeholder="Stephen Salas"><input placeholder="Date"></div></header>
+<div class="brief"><p><span class="lab">Objective</span>State the ASA and AAS postulates, tell an included side from a non-included side, and complete two-column proofs that end in ASA or AAS as the final reason, using Given, vertical angles, the reflexive property, and the postulates/theorems from Lesson 22 along the way.</p></div>
+<section class="ws-sec"><h2>Included or Not?</h2><div class="q" data-ref="n1"><p class="q-prompt"><span class="pn">N1.</span>A side that lies between the two given angles is called the ___.</p><div class="q-opts"><label><input type="radio" name="n1"> hypotenuse</label><label><input type="radio" name="n1"> non-included side</label><label><input type="radio" name="n1"> included side</label><label><input type="radio" name="n1"> reflexive side</label></div></div><div class="q" data-ref="n2"><p class="q-prompt"><span class="pn">N2.</span>Which set of given facts is enough to guarantee two triangles are congruent?</p><div class="q-opts"><label><input type="radio" name="n2"> three angles (AAA)</label><label><input type="radio" name="n2"> two angles and a non-included side (AAS)</label><label><input type="radio" name="n2"> two sides and a non-included angle (SSA)</label></div></div></section><section class="ws-sec"><h2>Name It, Prove It</h2><div class="q" data-ref="p1"><p class="q-prompt"><span class="pn">P1.</span>Explain why AAS still forces exactly one triangle, even though the given side isn't between the two given angles.</p><div class="work"><span class="wlab">work</span></div><div class="ans"><span class="lab">Answer</span><input></div></div><div class="q" data-ref="p2"><p class="q-prompt"><span class="pn">P2.</span>On the grid, draw a triangle ABC. Mark ∠A and ∠B, and mark side AB. Label AB as the included side and state which postulate (ASA) applies if ∠A, AB, and ∠B are all given.</p><div class="ws-fig"><svg viewBox="0 0 560 360" xmlns="http://www.w3.org/2000/svg" font-family="DM Mono, monospace"><line x1="0" y1="0" x2="0" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="28" y1="0" x2="28" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="56" y1="0" x2="56" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="84" y1="0" x2="84" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="112" y1="0" x2="112" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="140" y1="0" x2="140" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="168" y1="0" x2="168" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="196" y1="0" x2="196" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="224" y1="0" x2="224" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="252" y1="0" x2="252" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="280" y1="0" x2="280" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="308" y1="0" x2="308" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="336" y1="0" x2="336" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="364" y1="0" x2="364" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="392" y1="0" x2="392" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="420" y1="0" x2="420" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="448" y1="0" x2="448" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="476" y1="0" x2="476" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="504" y1="0" x2="504" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="532" y1="0" x2="532" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="560" y1="0" x2="560" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="0" x2="560" y2="0" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="28" x2="560" y2="28" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="56" x2="560" y2="56" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="84" x2="560" y2="84" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="112" x2="560" y2="112" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="140" x2="560" y2="140" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="168" x2="560" y2="168" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="196" x2="560" y2="196" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="224" x2="560" y2="224" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="252" x2="560" y2="252" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="280" x2="560" y2="280" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="308" x2="560" y2="308" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="336" x2="560" y2="336" stroke="#cfd4df" stroke-width="1"/></svg></div><div class="work tall"><span class="wlab">construction space</span></div></div><div class="q" data-ref="p3"><p class="q-prompt"><span class="pn">P3.</span>In △DEF, you are given ∠D, ∠E, and side EF. Side EF touches ∠E but not ∠D — so it is the ___ side, and the postulate that applies is ___.</p><div class="q-opts"><label><input type="radio" name="p3"> included side / ASA</label><label><input type="radio" name="p3"> non-included side / AAS</label><label><input type="radio" name="p3"> included side / AAS</label><label><input type="radio" name="p3"> non-included side / ASA</label></div></div><div class="q" data-ref="p4"><p class="q-prompt"><span class="pn">P4.</span>Complete the proof. Two segments AD and BE cross at point C. Given: AB ∥ DE; C is the midpoint of BE. Prove: △ABC ≅ △DEC. Statements: (1) AB ∥ DE. (2) ∠ABC ≅ ∠DEC. (3) C is the midpoint of BE. (4) BC ≅ EC. (5) ∠ACB ≅ ∠DCE. (6) △ABC ≅ △DEC. Fill in the REASON for each of the six statements above.</p><table class="log"><thead><tr><th>Statements</th><th>Reasons</th></tr></thead><tbody><tr><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table></div></section><section class="ws-sec"><h2>Exit Ticket</h2><div class="q" data-ref="x1"><p class="q-prompt"><span class="pn">X1.</span>Exit: in your own words, what is the ONE difference between the ASA postulate and the AAS postulate?</p><div class="work"><span class="wlab">work</span></div><div class="ans"><span class="lab">Answer</span><input></div></div></section>
+<section id="teacherKey" class="ws-sec key" hidden data-key-blob="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"></section>
+</div>
+<script>// key-lock.js — "phony" passphrase gate for teacher answer keys.
+// Obfuscation only: the passphrase is derivable from the shipped JS, by design.
+const enc = new TextEncoder();
+const dec = new TextDecoder();
+// Sentinel prepended before XOR so a wrong passphrase is rejected reliably
+// (a right decode always begins with MAGIC; garbage from a wrong key won't).
+const MAGIC = 'GEOKEY';
+
+async function keystream(pass, len) {
+  const digest = new Uint8Array(await crypto.subtle.digest('SHA-256', enc.encode(pass)));
+  const out = new Uint8Array(len);
+  for (let i = 0; i < len; i++) out[i] = digest[i % digest.length];
+  return out;
+}
+function b64encode(bytes) {
+  let s = ''; for (const b of bytes) s += String.fromCharCode(b);
+  return (typeof btoa === 'function') ? btoa(s) : Buffer.from(s, 'binary').toString('base64');
+}
+function b64decode(str) {
+  const s = (typeof atob === 'function') ? atob(str) : Buffer.from(str, 'base64').toString('binary');
+  const out = new Uint8Array(s.length);
+  for (let i = 0; i < s.length; i++) out[i] = s.charCodeAt(i);
+  return out;
+}
+
+async function encodeKey(html, pass) {
+  const data = enc.encode(MAGIC + html);
+  const ks = await keystream(pass, data.length);
+  const x = new Uint8Array(data.length);
+  for (let i = 0; i < data.length; i++) x[i] = data[i] ^ ks[i];
+  return b64encode(x);
+}
+// Returns the decoded HTML on the right passphrase, or null on a wrong one.
+async function decodeKey(blob, pass) {
+  const data = b64decode(blob);
+  const ks = await keystream(pass, data.length);
+  const x = new Uint8Array(data.length);
+  for (let i = 0; i < data.length; i++) x[i] = data[i] ^ ks[i];
+  const text = dec.decode(x);
+  return text.startsWith(MAGIC) ? text.slice(MAGIC.length) : null;
+}
+
+// Browser wiring: call from a worksheet. buttonEl toggles a prompt; on correct
+// passphrase, decoded HTML is injected into targetEl. Returns nothing.
+function wireKeyGate({ button, target, blob }) {
+  if (!button || !target) return;
+  button.addEventListener('click', async () => {
+    if (target.dataset.open === '1') { target.hidden = true; target.dataset.open = '0'; button.textContent = 'Show Teacher Key'; return; }
+    const pass = window.prompt('Parent passphrase to reveal the answer key:');
+    if (pass == null) return;
+    const html = await decodeKey(blob, pass);
+    // decodeKey returns null unless the sentinel decoded — a reliable wrong-pass reject.
+    if (html == null) { window.alert('That passphrase does not match.'); return; }
+    target.innerHTML = html; target.hidden = false; target.dataset.open = '1';
+    button.textContent = 'Hide Teacher Key';
+  });
+}
+
+document.getElementById('printBtn').addEventListener('click',()=>window.print());
+const _kt=document.getElementById('teacherKey');
+wireKeyGate({button:document.getElementById('keyBtn'),target:_kt,blob:_kt.dataset.keyBlob});</script></body></html>

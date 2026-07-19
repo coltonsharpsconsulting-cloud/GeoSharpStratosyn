@@ -1,0 +1,44 @@
+{
+  "id": "LP-W29-S3", "course": "geometry", "week": 29, "session": 3,
+  "session_type": "prove", "lesson": "L25 — Two-Column Proofs: ASA & AAS",
+  "unit": "u03", "duration_min": 60, "mode": "Prove",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 29 · Prove It — Two-Column Proofs with ASA & AAS",
+  "essential_question": "Can you write out, completely on your own, a two-column proof that ends in ASA or AAS — supplying Given, vertical angles, or the reflexive property yourself along the way?",
+  "objective": "Complete and defend two-column proofs using the ASA and AAS postulates, supplying Given, vertical angles, the reflexive property, and definitions as needed, review MUS Lesson Practice 25A/25B, and pass the mastery checkpoint distinguishing ASA, AAS, and cases where neither applies.",
+  "standards": ["G-CO.B.8"],
+  "vocab": ["ASA postulate", "AAS postulate", "included side", "non-included side", "reflexive property", "vertical angles theorem", "CPCTC"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Redraw From Memory","board":"warmup","content":{"prompt":"Without looking, draw two segments crossing at a point, label the four angles, and mark one vertical pair. Then state, from memory: what does ASA require? What does AAS require? What's the ONE difference between them?"}},
+    {"phase":"review","min":12,"title":"Review — Your Math-U-See Work","board":"review","content":{"heading":"Go over Lesson Practice 25A & 25B together","note":"Bring your completed MUS Lesson Practice 25A/25B. We check the tricky ones: telling ASA from AAS in each proof, the reflexive-property steps (a shared side or angle used twice), and the final 'Is ___ ≅ ___? Why?' CPCTC questions. Fix any you missed and note WHY."}},
+    {"phase":"prove","min":16,"title":"Prove It — Work a Full Proof Aloud","board":"prove","content":{"heading":"Build one proof from scratch, out loud","figure":"grid-blank","bullets":["Given: ∠J ≅ ∠M, and K is the midpoint of both ∠J's bisected side JL and ∠M's bisected side ML — reason through, step by step, what you'd need to show before you could write 'ASA Postulate' or 'AAS Postulate' as a final reason.","Claim: whenever the Given includes a bisector, the definition of that bisector supplies a congruent-angle or congruent-segment statement for free — the same way a midpoint supplies a congruent-segment statement.","Claim: whenever two proofs share a vertex where two lines cross, the Vertical Angles Theorem is almost always one of the reasons you'll need — check for it first.","Claim: a proof is only finished once the LAST line names the triangles congruent, with the postulate as its reason — everything above that line exists only to earn ASA or AAS honestly, one justified step at a time."]}},
+    {"phase":"checkpoint","min":18,"title":"Mastery Checkpoint","board":"checkpoint","content":{"heading":"Show what you own","items":["c1","c2","c3","c4","c5","c6"]}},
+    {"phase":"close","min":8,"title":"Close & Set Mastery","board":"close","content":{"items":["x1"],"preview":"Next week, Lesson 26 — Right-Triangle Congruence: HL, LL, HA, LA — four more named postulates, this time built just for right triangles."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can state the ASA and AAS postulates and identify which one applies given a diagram and its marked parts"},
+    {"id":"SC2","text":"I can complete a two-column proof, supplying Given, vertical angles, the reflexive property, or a definition as needed, ending in ASA or AAS"},
+    {"id":"SC3","text":"I can recognize when a set of given parts (like SSA) does NOT guarantee congruence, and say so"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W29-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W29 ASA & AAS Proofs.md"},
+    "mus": {"practice":"MUS/L25 — Lesson Practice.pdf","review":"MUS/L25 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"checkpoint","kind":"check","title":"Mastery Checkpoint","items":["c1","c2","c3","c4","c5","c6"]},
+      {"phase":"close","kind":"exit","title":"Set Your Mastery","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"c1","type":"mc","sc":"SC3","points":1,"prompt":"Which of these is NOT a valid way to guarantee two triangles are congruent?","options":["ASA","AAS","SSA"],"answer":"SSA","explain":"Two sides and a non-included angle (SSA) can produce two different triangles from the same three facts — it is not a valid congruence shortcut, unlike SSS, SAS, ASA, and AAS."},
+    {"ref":"c2","type":"dropdown","sc":"SC1","points":1,"prompt":"A side that touches only ONE of the two given angles — never both — is the side required by the ___ postulate.","options":["ASA","AAS","SSS"],"answer":"AAS","explain":"ASA requires the side shared by (included between) both given angles; AAS requires a side that touches only one of them."},
+    {"ref":"c3","type":"short","sc":"SC1","points":2,"prompt":"You are given ∠P, ∠Q, and side PQ in △PQR. Is PQ included or non-included, and which postulate applies?","answer":"PQ is included — it is a ray of both ∠P and ∠Q (it connects them directly). ASA Postulate applies.","explain":"A side is included exactly when it is shared by both given angles — PQ connects P and Q directly, so it is a ray of each."},
+    {"ref":"c4","type":"proof","sc":"SC2","points":3,"prompt":"Complete the proof. Given: ∠J ≅ ∠M; K is the midpoint of JL; K is the midpoint of MN; J, K, N are collinear and M, K, L are collinear (so JL and MN cross at K). Prove: △JKL ≅ △MKN. Statements: (1) ∠J ≅ ∠M. (2) K is the midpoint of JL, K is the midpoint of MN. (3) JK ≅ MK. (4) ∠JKL ≅ ∠MKN. (5) △JKL ≅ △MKN. Fill in the REASON for each of the five statements above.","answer":"(1) Given. (2) Given. (3) Definition of midpoint. (4) Vertical Angles Theorem. (5) ASA Postulate — ∠J (statement 1), included side JK≅MK (statement 3), ∠JKL≅∠MKN (statement 4).","explain":"Same skeleton as every ASA proof this week: one given angle pair, one included side from a midpoint or reflexive property, one more angle pair from vertical angles — then ASA."},
+    {"ref":"c5","type":"short","sc":"SC3","points":2,"prompt":"In △XYZ and △RST, you are told ∠X ≅ ∠R and ∠Y ≅ ∠S, but no side of either triangle is given as congruent to anything. Can you conclude the triangles are congruent? Why or why not?","answer":"No — two angles alone only guarantees the triangles are SIMILAR (same shape), not congruent. Without at least one pair of congruent corresponding sides, there is no way to rule out different sizes.","explain":"This is the AAA trap from the Build session: angles alone fix shape, never size — a side is required for ASA or AAS to apply."},
+    {"ref":"c6","type":"short","sc":"SC2","points":2,"prompt":"Once you've proven △ABC ≅ △DEF by ASA, what single word/abbreviation justifies the claim that AC ≅ DF, even though that pair was never mentioned in the Given?","answer":"CPCTC — Corresponding Parts of Congruent Triangles are Congruent.","explain":"Once the triangles themselves are proven congruent, every other pair of corresponding parts comes along for free, justified by CPCTC."},
+    {"ref":"x1","type":"short","sc":"SC1","points":1,"prompt":"Close: rate yourself on Lesson 25 (Emerging / Proficient / Mastered) and name the one postulate (ASA or AAS) or reason (vertical angles, reflexive property) you'd want to drill more."}
+  ]
+}

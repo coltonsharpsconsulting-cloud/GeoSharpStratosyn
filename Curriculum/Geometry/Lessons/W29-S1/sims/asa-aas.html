@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Two-Column Proofs: ASA & AAS — Sim</title>
+<style>
+  :root{--void:#0d1322;--ink:#161d31;--bone:#e8ecf3;--mist:#9aabd0;--accent:#8b5cf6;--gold:#f5c842;--border:#2a3142;--good:#7ee081}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--void);color:var(--bone);font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;min-height:100%}
+  header{padding:2vh 4vw;border-bottom:1px solid var(--border);background:var(--ink)}
+  .eyebrow{font-family:"DM Mono",ui-monospace,monospace;letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--accent)}
+  h1{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(20px,3vw,30px);margin-top:.3rem}
+  main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.3vh;padding:3vh 4vw}
+  .stage{width:100%;max-width:720px;aspect-ratio:16/11.5;background:var(--ink);border:1px solid var(--border);border-radius:16px;touch-action:none}
+  svg{width:100%;height:100%;display:block}
+  .controls{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;align-items:center}
+  button{font-family:"DM Mono",ui-monospace,monospace;font-size:13px;background:var(--ink);color:var(--bone);border:1px solid var(--border);border-radius:999px;padding:.55rem 1.1rem;cursor:pointer}
+  button.on{border-color:var(--accent);color:var(--accent)}
+  button:hover{border-color:var(--accent)}
+  .sliderRow{display:flex;gap:.5rem;align-items:center;font-family:"DM Mono",ui-monospace,monospace;font-size:13px;color:var(--mist)}
+  input[type=range]{width:min(200px,42vw);accent-color:var(--accent)}
+  .sliderRow .val{color:var(--gold);min-width:3.6em;display:inline-block;text-align:right}
+  .readout{font-family:"DM Mono",ui-monospace,monospace;font-size:clamp(12.5px,1.8vw,15.5px);color:var(--mist);text-align:center;min-height:5.4em;line-height:1.55;max-width:680px}
+  .readout b{color:var(--gold)}
+  .readout .forced{color:var(--good);font-weight:bold}
+  .readout .given{color:var(--gold);font-weight:bold}
+  .hint{color:var(--mist);font-size:13.5px;max-width:66ch;text-align:center}
+</style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Geometry · Lesson 25 · sim</div>
+    <h1>Fix two angles and a side. Watch the triangle get forced.</h1>
+  </header>
+  <main>
+    <div class="controls" id="modes">
+      <button data-mode="asa" class="on">ASA — Included Side</button>
+      <button data-mode="aas">AAS — Non-Included Side</button>
+      <button data-mode="aaa">AAA — Angles Only</button>
+    </div>
+
+    <div class="controls">
+      <div class="sliderRow">
+        <span>&ang;A</span>
+        <input type="range" id="angA" min="30" max="100" step="5" value="70">
+        <span class="val" id="angAval">70&deg;</span>
+      </div>
+      <div class="sliderRow">
+        <span>&ang;B</span>
+        <input type="range" id="angB" min="30" max="100" step="5" value="50">
+        <span class="val" id="angBval">50&deg;</span>
+      </div>
+    </div>
+    <div class="controls">
+      <div class="sliderRow" id="sideRow">
+        <span id="sideLabel">AB (included)</span>
+        <input type="range" id="sideLen" min="3" max="9" step="0.5" value="6">
+        <span class="val" id="sideVal">6.0</span>
+      </div>
+      <div class="sliderRow" id="scaleRow" hidden>
+        <span>Size</span>
+        <input type="range" id="scaleSlider" min="0.5" max="2" step="0.1" value="1">
+        <span class="val" id="scaleVal">1.0&times;</span>
+      </div>
+    </div>
+
+    <div class="stage"><svg viewBox="0 0 640 460" id="svg"></svg></div>
+    <div class="readout" id="readout"></div>
+    <p class="hint" id="hint"></p>
+  </main>
+<script>
+(() => {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  const readout = document.getElementById('readout');
+  const hint = document.getElementById('hint');
+  const W = 640, H = 460, PX = 34;
+  const ORIGIN = { x: 130, y: 360 };
+  const GOLD = '#f5c842', GREEN = '#7ee081', ACCENT = '#8b5cf6', BONE = '#e8ecf3', GRID = '#1a2136';
+
+  const angASlider = document.getElementById('angA');
+  const angBSlider = document.getElementById('angB');
+  const angAval = document.getElementById('angAval');
+  const angBval = document.getElementById('angBval');
+  const sideSlider = document.getElementById('sideLen');
+  const sideVal = document.getElementById('sideVal');
+  const sideLabel = document.getElementById('sideLabel');
+  const sideRow = document.getElementById('sideRow');
+  const scaleSlider = document.getElementById('scaleSlider');
+  const scaleVal = document.getElementById('scaleVal');
+  const scaleRow = document.getElementById('scaleRow');
+
+  const rad = d => d * Math.PI / 180;
+  const fmt = n => Number.isInteger(n) ? String(n) : n.toFixed(2);
+
+  function make(tag, attrs){ const n = document.createElementNS(NS, tag); for (const k in attrs) n.setAttribute(k, attrs[k]); return n; }
+
+  // ---- background grid (built once) ----
+  const gridLayer = make('g', {});
+  for (let x = 0; x <= W; x += 28) gridLayer.appendChild(make('line', { x1:x, y1:0, x2:x, y2:H, stroke:GRID, 'stroke-width':1 }));
+  for (let y = 0; y <= H; y += 28) gridLayer.appendChild(make('line', { x1:0, y1:y, x2:W, y2:y, stroke:GRID, 'stroke-width':1 }));
+  svg.appendChild(gridLayer);
+
+  const drawLayer = make('g', {});
+  svg.appendChild(drawLayer);
+
+  function clearDraw(){ while (drawLayer.firstChild) drawLayer.removeChild(drawLayer.firstChild); }
+
+  // angle arc between rays V->P1 and V->P2, radius r
+  function angleArcPath(vx, vy, p1, p2, r){
+    const d1 = { x: p1.x - vx, y: p1.y - vy }, d2 = { x: p2.x - vx, y: p2.y - vy };
+    const len1 = Math.hypot(d1.x, d1.y), len2 = Math.hypot(d2.x, d2.y);
+    const u1 = { x: d1.x/len1, y: d1.y/len1 }, u2 = { x: d2.x/len2, y: d2.y/len2 };
+    const start = { x: vx + u2.x*r, y: vy + u2.y*r };
+    const end = { x: vx + u1.x*r, y: vy + u1.y*r };
+    const sweep = (u2.x*u1.y - u2.y*u1.x) > 0 ? 1 : 0;
+    return `M ${start.x} ${start.y} A ${r} ${r} 0 0 ${sweep} ${end.x} ${end.y}`;
+  }
+
+  // Solve the third angle + all three sides from two angles and ONE known
+  // side (either the included side c=AB, or the non-included side b=AC),
+  // using the Law of Sines: a/sinA = b/sinB = c/sinC.
+  function solve(angleA, angleB, which, len){
+    const angleC = 180 - angleA - angleB;
+    const sA = Math.sin(rad(angleA)), sB = Math.sin(rad(angleB)), sC = Math.sin(rad(angleC));
+    let a, b, c;
+    if (which === 'c'){ c = len; b = c * sB / sC; a = c * sA / sC; }
+    else               { b = len; c = b * sC / sB; a = b * sA / sB; }
+    return { angleC, a, b, c };
+  }
+
+  // Place A at ORIGIN, B along the baseline (length c), C by angle A + length b.
+  function place(angleA, b, c, origin){
+    const A = { x: origin.x, y: origin.y };
+    const B = { x: origin.x + c * PX, y: origin.y };
+    const C = { x: origin.x + b * PX * Math.cos(rad(angleA)), y: origin.y - b * PX * Math.sin(rad(angleA)) };
+    return { A, B, C };
+  }
+
+  function drawTriangle(pts, opts){
+    const { A, B, C } = pts;
+    const color = opts.color || ACCENT;
+    const dash = opts.dash ? `stroke-dasharray="8 6"` : '';
+    const tri = make('polygon', { points: `${A.x},${A.y} ${B.x},${B.y} ${C.x},${C.y}`, fill: opts.fill || 'rgba(139,92,246,0.16)', stroke: color, 'stroke-width': opts.width || 4, 'stroke-linejoin':'round' });
+    if (opts.dash) tri.setAttribute('stroke-dasharray', '8 6');
+    drawLayer.appendChild(tri);
+    return tri;
+  }
+
+  function label(x, y, text, color, size){
+    const t = make('text', { x, y, 'text-anchor':'middle', 'font-size': size || 15, fill: color, 'font-family':'DM Mono, monospace' });
+    t.textContent = text;
+    drawLayer.appendChild(t);
+    return t;
+  }
+
+  function dot(x, y, color){
+    drawLayer.appendChild(make('circle', { cx:x, cy:y, r:5, fill: color }));
+  }
+
+  function drawSingle(angleA, angleB, which, len){
+    const { angleC, a, b, c } = solve(angleA, angleB, which, len);
+    const pts = place(angleA, b, c, ORIGIN);
+    const { A, B, C } = pts;
+
+    drawTriangle(pts, { color: ACCENT, fill: 'rgba(139,92,246,0.18)', width: 4 });
+
+    // angle arcs: A and B are GIVEN (gold), C is FORCED (green)
+    drawLayer.appendChild(make('path', { d: angleArcPath(A.x, A.y, C, B, 30), fill:'none', stroke: GOLD, 'stroke-width':2.5 }));
+    drawLayer.appendChild(make('path', { d: angleArcPath(B.x, B.y, A, C, 30), fill:'none', stroke: GOLD, 'stroke-width':2.5 }));
+    drawLayer.appendChild(make('path', { d: angleArcPath(C.x, C.y, A, B, 22), fill:'none', stroke: GREEN, 'stroke-width':2.5 }));
+
+    dot(A.x, A.y, BONE); dot(B.x, B.y, BONE); dot(C.x, C.y, BONE);
+    label(A.x - 16, A.y + 20, 'A', BONE, 17);
+    label(B.x + 16, B.y + 20, 'B', BONE, 17);
+    label(C.x, C.y - 16, 'C', BONE, 17);
+
+    label(A.x + 44, A.y - 10, `${Math.round(angleA)}°`, GOLD, 14);
+    label(B.x - 44, B.y - 10, `${Math.round(angleB)}°`, GOLD, 14);
+    label(C.x, C.y + 30, `${Math.round(angleC)}°`, GREEN, 14);
+
+    const midAB = { x: (A.x+B.x)/2, y: (A.y+B.y)/2 + 20 };
+    const midAC = { x: (A.x+C.x)/2 - 24, y: (A.y+C.y)/2 };
+    const midBC = { x: (B.x+C.x)/2 + 24, y: (B.y+C.y)/2 };
+    const cGiven = which === 'c', bGiven = which === 'b';
+    label(midAB.x, midAB.y, `AB=${fmt(c)}${cGiven ? ' (given)' : ''}`, cGiven ? GOLD : GREEN, 13);
+    label(midAC.x, midAC.y, `AC=${fmt(b)}${bGiven ? ' (given)' : ''}`, bGiven ? GOLD : GREEN, 13);
+    label(midBC.x, midBC.y, `BC=${fmt(a)} (forced)`, GREEN, 13);
+
+    const givenName = which === 'c' ? 'AB (the included side)' : 'AC (a non-included side)';
+    const postulate = which === 'c' ? 'ASA' : 'AAS';
+    readout.innerHTML =
+      `You handed geometry exactly THREE facts: &ang;A = <b>${Math.round(angleA)}°</b>, &ang;B = <b>${Math.round(angleB)}°</b>, and <span class="given">${givenName} = ${fmt(len)}</span>.<br>` +
+      `Everything else was <span class="forced">FORCED</span> — &ang;C = ${Math.round(angleC)}° (angles must sum to 180°), and both remaining sides, computed by the Law of Sines.<br>` +
+      `Vertex C is not draggable — there is nowhere else for it to go. That is exactly what the <b>${postulate} Postulate</b> guarantees: one triangle, no other possibility.`;
+  }
+
+  function drawAAA(angleA, angleB, scale){
+    const angleC = 180 - angleA - angleB;
+    const refC = 5, yourC = 5 * scale;
+
+    const refPts = place(angleA, refC * Math.sin(rad(angleB)) / Math.sin(rad(angleC)), refC, ORIGIN);
+    const yourOrigin = { x: ORIGIN.x, y: ORIGIN.y };
+    const yourPts = place(angleA, yourC * Math.sin(rad(angleB)) / Math.sin(rad(angleC)), yourC, yourOrigin);
+
+    drawTriangle(refPts, { color: ACCENT, fill: 'rgba(139,92,246,0.14)', width: 3 });
+    drawTriangle(yourPts, { color: GOLD, fill: 'rgba(245,200,66,0.10)', width: 3, dash: true });
+
+    dot(refPts.A.x, refPts.A.y, BONE);
+    label(refPts.A.x - 18, refPts.A.y + 20, 'A', BONE, 16);
+    label(refPts.B.x, refPts.B.y + 20, `B (ref)`, ACCENT, 12);
+    label(refPts.C.x, refPts.C.y - 12, `C (ref)`, ACCENT, 12);
+    label(yourPts.B.x, yourPts.B.y + 20, `B (yours)`, GOLD, 12);
+    label(yourPts.C.x, yourPts.C.y - 12, `C (yours)`, GOLD, 12);
+
+    const refB = refC * Math.sin(rad(angleB)) / Math.sin(rad(angleC));
+    const refA = refC * Math.sin(rad(angleA)) / Math.sin(rad(angleC));
+    const yourB = yourC * Math.sin(rad(angleB)) / Math.sin(rad(angleC));
+    const yourA = yourC * Math.sin(rad(angleA)) / Math.sin(rad(angleC));
+
+    readout.innerHTML =
+      `Only &ang;A = <b>${Math.round(angleA)}°</b> and &ang;B = <b>${Math.round(angleB)}°</b> were given — <span class="given">no side at all</span>.<br>` +
+      `Reference triangle: AB=${fmt(refC)}, AC=${fmt(refB)}, BC=${fmt(refA)}. Yours (Size ×${fmt(scale)}): AB=${fmt(yourC)}, AC=${fmt(yourB)}, BC=${fmt(yourA)}.<br>` +
+      `Same angles both times — <b>similar</b> (~). Different side lengths — <span class="forced">NOT congruent</span> (≇). AAA alone never forces one size; drag Size and confirm infinitely many triangles fit.`;
+  }
+
+  let mode = 'asa';
+  const HINTS = {
+    asa: 'Drag &ang;A, &ang;B, or the AB slider. AB is the side BETWEEN the two given angles — the included side. Watch AC, BC, and &ang;C compute themselves; nothing about the triangle is left for you to choose.',
+    aas: 'Drag &ang;A, &ang;B, or the AC slider. AC touches &ang;A but not &ang;B — it is a NON-included side. Notice AAS still forces the exact same kind of unique triangle as ASA.',
+    aaa: 'Only the two angles are locked in — there is no side to fix the size. Drag Size and watch a whole family of different-sized triangles satisfy the same AAA facts: same shape, any size.',
+  };
+
+  function clampAngles(){
+    let a = parseFloat(angASlider.value), b = parseFloat(angBSlider.value);
+    if (a + b > 160){
+      // pull back whichever slider is currently further from its last-drawn value is unnecessary —
+      // simplest fair rule: cap B so the pair always leaves at least 20° for angle C.
+      b = 160 - a;
+      angBSlider.value = b;
+    }
+    return { a, b };
+  }
+
+  function draw(){
+    clearDraw();
+    const { a, b } = clampAngles();
+    angAval.textContent = `${Math.round(a)}°`;
+    angBval.textContent = `${Math.round(b)}°`;
+
+    if (mode === 'aaa'){
+      const scale = parseFloat(scaleSlider.value);
+      scaleVal.textContent = `${scale.toFixed(1)}×`;
+      drawAAA(a, b, scale);
+    } else {
+      const len = parseFloat(sideSlider.value);
+      sideVal.textContent = fmt(len);
+      drawSingle(a, b, mode === 'asa' ? 'c' : 'b', len);
+    }
+  }
+
+  function setMode(m){
+    mode = m;
+    [...document.querySelectorAll('#modes button')].forEach(btn => btn.classList.toggle('on', btn.dataset.mode === m));
+    sideRow.hidden = (m === 'aaa');
+    scaleRow.hidden = (m !== 'aaa');
+    sideLabel.textContent = m === 'asa' ? 'AB (included)' : 'AC (non-included)';
+    hint.innerHTML = HINTS[m];
+    draw();
+  }
+
+  document.getElementById('modes').addEventListener('click', e => { const m = e.target.dataset.mode; if (m) setMode(m); });
+  [angASlider, angBSlider, sideSlider, scaleSlider].forEach(el => el.addEventListener('input', draw));
+
+  setMode('asa');
+})();
+</script>
+</body>
+</html>

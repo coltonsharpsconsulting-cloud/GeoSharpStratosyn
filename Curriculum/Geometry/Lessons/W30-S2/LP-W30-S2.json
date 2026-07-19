@@ -1,0 +1,43 @@
+{
+  "id": "LP-W30-S2", "course": "geometry", "week": 30, "session": 2,
+  "session_type": "build", "lesson": "L26 — Right-Triangle Congruence: HL, LL, HA, LA",
+  "unit": "u03", "duration_min": 60, "mode": "Build",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 30 · Right-Triangle Shortcut Lab",
+  "essential_question": "If you build a right triangle from just two fixed parts (plus the free right angle), does the rest of the triangle come out exactly where the math predicts?",
+  "objective": "Construct four right triangles with a ruler and protractor, one for each shortcut (HL, LL, HA, LA), predicting the missing part with the Pythagorean theorem or right-triangle trig BEFORE measuring, and verify HL specifically by computing the third side and checking it against a straightedge measurement.",
+  "standards": ["G-SRT.B.5"],
+  "vocab": ["hypotenuse-leg (HL)", "leg-leg (LL)", "hypotenuse-angle (HA)", "leg-angle (LA)", "right triangle", "leg", "hypotenuse", "Pythagorean theorem"],
+  "agenda": [
+    {"phase":"brief","min":6,"title":"Brief — From Naming to Building","board":"brief","content":{"heading":"From the sim to your own ruler and protractor","bullets":["Yesterday: named HL, LL, HA, and LA, and connected each to SSS, SAS, ASA, or AAS on the sim.","Today: build four real right triangles by hand, one per shortcut, fixing only the two named parts each time.","The test: predict the missing side (or sides) with math FIRST, then measure your construction — do they match?"]}},
+    {"phase":"plan","min":8,"title":"Plan — Read the Build Card","board":"plan","content":{"heading":"Gather + plan","note":"Open the project card. Gather plain or graph paper, a ruler, a protractor, a pencil, and a calculator. Pick a consistent unit (cm or in) for all four triangles, and leave room on the page for four separate constructions plus your predictions written next to each."}},
+    {"phase":"build","min":26,"title":"Build — Four Constructions, Four Shortcuts","board":"build","content":{"heading":"Fix two parts; let the rest fall out","bullets":["HL — draw a right angle at C; mark leg CB = 6 units along one ray. Before drawing anything else, COMPUTE the other leg for a hypotenuse of 10 units. Then swing a 10-unit arc from B to find point A on the other ray, and measure CA to check your prediction.","LL — draw a right angle at C; mark leg CB = 5 units and leg CD = 12 units along the two rays. Predict the hypotenuse BD with the Pythagorean theorem, then connect B to D and measure it.","HA — draw hypotenuse AB = 10 units. At A, protractor a 30° angle (this ray becomes leg AC); at B, protractor a 60° angle (this ray becomes leg BC) — where the two rays cross is C, and angle C should land at 90° without you setting it directly. Predict both legs with trig first, then measure.","LA — draw leg CA = 7 units from the right-angle vertex C. At A, protractor a 50° angle from CA (this ray becomes the hypotenuse). At C, draw the perpendicular ray (leg CB). Where the two rays cross is B. Predict leg CB and hypotenuse AB with trig first, then measure."]}},
+    {"phase":"measure","min":12,"title":"Predict, Then Measure","board":"measure","content":{"heading":"Record every prediction next to its measurement","figure":"grid-blank","items":["m1","m2","m3","m4"]}},
+    {"phase":"reflect","min":8,"title":"Reflect & Photograph","board":"reflect","content":{"items":["r1"],"preview":"Session 3: write a two-column HL/LL/HA/LA proof, review MUS Lesson Practice 26A/26B, and take the checkpoint."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can construct a right triangle from two given right-triangle congruence parts (HL, LL, HA, or LA) using a ruler and protractor"},
+    {"id":"SC2","text":"I can predict a right triangle's missing side(s) using the Pythagorean theorem or right-triangle trig BEFORE measuring, and verify HL specifically by computing and then measuring the third side"},
+    {"id":"SC3","text":"I can explain, from my own constructions, why fixing just two right-triangle parts (plus the free right angle) pins down one exact triangle"}
+  ],
+  "assets": {
+    "project": {"note":"Curriculum/Geometry/Lessons/W30-S2/project-card.md"},
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W30-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W30 Right-Triangle Congruence.md"},
+    "mus": {"practice":"MUS/L26 — Lesson Practice.pdf","review":"MUS/L26 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"measure","kind":"practice","title":"Predict, Then Measure","items":["m1","m2","m3","m4"]},
+      {"phase":"reflect","kind":"exit","title":"Reflect","items":["r1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"m1","type":"measure","sc":"SC2","points":2,"figure":"grid-blank","prompt":"HL construction: you fixed hypotenuse = 10 units and leg CB = 6 units. BEFORE measuring, compute the other leg CA using the Pythagorean theorem. Then measure your constructed CA with a ruler. Record both the prediction and the measurement.","answer":"Prediction: CA = √(10² − 6²) = √64 = 8 units. Measurement: any value within about ±0.2 units of 8, allowing for drawing/measuring error.","explain":"This is the whole point of HL: hypotenuse + one leg force the third leg to a single computable value — your construction should land almost exactly on the number you predicted before you ever picked up the ruler."},
+    {"ref":"m2","type":"short","sc":"SC2","points":2,"prompt":"LL construction: you fixed legs CB = 5 and CD = 12. Predict the hypotenuse BD with the Pythagorean theorem, then measure your constructed BD. Record both.","answer":"Prediction: BD = √(5² + 12²) = √169 = 13 units. Measurement: any value within about ±0.2 units of 13.","explain":"Matching both legs (with the right angle already free between them) is SAS — the hypotenuse comes out forced, exactly like the sim showed."},
+    {"ref":"m3","type":"short","sc":"SC2","points":2,"prompt":"HA construction: you fixed hypotenuse AB = 10 and a 30°/60° angle pair at A and B. Predict both legs using trig (leg opposite 30° = 10·sin30°, leg opposite 60° = 10·sin60°), then measure both legs of your construction. Record predictions and measurements.","answer":"Predictions: leg opposite 30° = 10·sin(30°) = 5 units; leg opposite 60° = 10·sin(60°) ≈ 8.66 units. Measurements: within about ±0.3 units of each prediction.","explain":"Hypotenuse + one acute angle (really two angles, since the right angle comes free) forces BOTH legs — that's AAS, and your protractor construction should confirm it without you ever measuring a leg to build the triangle."},
+    {"ref":"m4","type":"short","sc":"SC2","points":2,"prompt":"LA construction: you fixed leg CA = 7 and a 50° angle at A. Predict leg CB and hypotenuse AB using trig (CB = 7·tan50°, AB = 7/cos50°), then measure both on your construction. Record predictions and measurements.","answer":"Predictions: CB = 7·tan(50°) ≈ 8.34 units; AB = 7/cos(50°) ≈ 10.89 units. Measurements: within about ±0.3 units of each prediction.","explain":"One leg + one acute angle (ASA here, since the leg sits between the right angle and the given angle) forces the rest of the triangle — your protractor-and-ruler build should land close to the trig prediction."},
+    {"ref":"r1","type":"short","sc":"SC3","points":2,"prompt":"Reflect: which of your four constructions felt most 'locked in' the moment you drew the second part — and which felt like it needed the most careful protractor work? What does that tell you about why these shortcuts are called shortcuts?"}
+  ]
+}

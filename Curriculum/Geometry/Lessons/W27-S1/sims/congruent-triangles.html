@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Congruent Triangles & Corresponding Parts — Sim</title>
+<style>
+  :root{--void:#0d1322;--ink:#161d31;--bone:#e8ecf3;--mist:#9aabd0;--accent:#8b5cf6;--gold:#f5c842;--border:#2a3142;--good:#7ee081;--sky:#38bdf8;--steel:#5c6685}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--void);color:var(--bone);font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;min-height:100%}
+  header{padding:2vh 4vw;border-bottom:1px solid var(--border);background:var(--ink)}
+  .eyebrow{font-family:"DM Mono",ui-monospace,monospace;letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--accent)}
+  h1{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(20px,3vw,30px);margin-top:.3rem}
+  main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.4vh;padding:3vh 4vw}
+  .stage{width:100%;max-width:760px;aspect-ratio:16/10;background:var(--ink);border:1px solid var(--border);border-radius:16px;touch-action:none}
+  svg{width:100%;height:100%;display:block}
+  .controls{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center}
+  button{font-family:"DM Mono",ui-monospace,monospace;font-size:13px;background:var(--ink);color:var(--bone);border:1px solid var(--border);border-radius:999px;padding:.55rem 1.1rem;cursor:pointer}
+  button.on{border-color:var(--accent);color:var(--accent)}
+  .readout{font-family:"DM Mono",ui-monospace,monospace;font-size:clamp(12.5px,1.7vw,15.5px);color:var(--mist);text-align:center;min-height:7.2em;line-height:1.55;max-width:680px}
+  .readout b{color:var(--gold)}
+  .readout .statement{color:var(--good);font-weight:bold;font-size:1.2em}
+  .readout .part{font-weight:bold}
+  .readout .note{color:var(--bone);margin-top:.3em}
+  .hint{color:var(--mist);font-size:13.5px;max-width:64ch;text-align:center}
+</style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Geometry · Lesson 23 · sim</div>
+    <h1>Slide, spin, superimpose. Watch corresponding parts light up.</h1>
+  </header>
+  <main>
+    <div class="stage"><svg viewBox="0 0 640 400" id="svg"></svg></div>
+    <div class="readout" id="readout"></div>
+    <div class="controls" id="actions">
+      <button id="scrambleBtn">Scramble</button>
+      <button id="resetBtn">Reset</button>
+      <button id="snapBtn">Snap to Match</button>
+    </div>
+    <p class="hint">Drag anywhere INSIDE triangle DEF to slide it. Drag the gold ring above it to spin it. Line D up on A, E up on B, and F up on C — once △DEF sits exactly on top of △ABC, the congruence statement and all six corresponding parts light up in matched colors.</p>
+  </main>
+<script>
+(() => {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  const readout = document.getElementById('readout');
+  const W = 640, H = 400;
+  const rad = d => d * Math.PI / 180;
+  const deg = r => r * 180 / Math.PI;
+
+  function make(tag, attrs){ const n=document.createElementNS(NS,tag); for(const k in attrs) n.setAttribute(k,attrs[k]); svg.appendChild(n); return n; }
+  function dist(P,Q){ return Math.hypot(Q.x-P.x, Q.y-P.y); }
+  function angleAt(V,P1,P2){
+    const v1x=P1.x-V.x, v1y=P1.y-V.y, v2x=P2.x-V.x, v2y=P2.y-V.y;
+    const m1=Math.hypot(v1x,v1y), m2=Math.hypot(v2x,v2y);
+    let c=(v1x*v2x+v1y*v2y)/(m1*m2); c=Math.max(-1,Math.min(1,c));
+    return deg(Math.acos(c));
+  }
+  const bearing = (V,Q) => deg(Math.atan2(-(Q.y-V.y), Q.x-V.x));
+  function arcPath(V, fromDeg, toDeg, r){
+    const delta = ((toDeg - fromDeg + 540) % 360) - 180;
+    const to = fromDeg + delta;
+    const steps = Math.max(2, Math.round(Math.abs(delta) / 4));
+    const pts = [];
+    for (let i = 0; i <= steps; i++){
+      const d = fromDeg + (to - fromDeg) * i / steps;
+      const x = V.x + r*Math.cos(rad(d)), y = V.y - r*Math.sin(rad(d));
+      pts.push(`${i === 0 ? 'M' : 'L'}${x.toFixed(2)} ${y.toFixed(2)}`);
+    }
+    return pts.join(' ');
+  }
+  function rightMarkPath(V, P1, P2, s){
+    const d1 = bearing(V,P1), d2 = bearing(V,P2);
+    const u1 = { x: Math.cos(rad(d1)), y: -Math.sin(rad(d1)) };
+    const u2 = { x: Math.cos(rad(d2)), y: -Math.sin(rad(d2)) };
+    const p1 = { x: V.x + u1.x*s, y: V.y + u1.y*s };
+    const p2 = { x: p1.x + u2.x*s, y: p1.y + u2.y*s };
+    const p3 = { x: V.x + u2.x*s, y: V.y + u2.y*s };
+    return `M${p1.x} ${p1.y} L${p2.x} ${p2.y} L${p3.x} ${p3.y}`;
+  }
+
+  // ---- colors: position 1 (A/D) gold, position 2 (B/E) green, position 3 (C/F) sky ----
+  const COL = { 1: '#f5c842', 2: '#7ee081', 3: '#38bdf8' };
+  const NEUTRAL_ABC = '#8b5cf6', NEUTRAL_DEF = '#5c6685';
+  const POS_TOL = 16, ROT_TOL = 6;
+
+  // ---- fixed target triangle ABC (right angle at B) ----
+  const ABC = {
+    A: { x: 180, y: 320 },
+    B: { x: 460, y: 320 },
+    C: { x: 460, y: 140 }
+  };
+  const G = { x: (ABC.A.x+ABC.B.x+ABC.C.x)/3, y: (ABC.A.y+ABC.B.y+ABC.C.y)/3 };
+  const REL = {
+    A: { x: ABC.A.x - G.x, y: ABC.A.y - G.y },
+    B: { x: ABC.B.x - G.x, y: ABC.B.y - G.y },
+    C: { x: ABC.C.x - G.x, y: ABC.C.y - G.y }
+  };
+  const HANDLE_REL = { x: 0, y: -170 }; // straight "up" from centroid at rot = 0
+
+  // ---- draggable triangle DEF state (rigid transform of ABC about its own centroid) ----
+  let state = { cx: 150, cy: 100, rot: 145 };
+  const START = { cx: 150, cy: 100, rot: 145 };
+
+  function rotVec(v, thetaDeg){
+    const t = rad(thetaDeg);
+    return { x: v.x*Math.cos(t) - v.y*Math.sin(t), y: v.x*Math.sin(t) + v.y*Math.cos(t) };
+  }
+  function computeDEF(s){
+    const rD = rotVec(REL.A, s.rot), rE = rotVec(REL.B, s.rot), rF = rotVec(REL.C, s.rot);
+    const rH = rotVec(HANDLE_REL, s.rot);
+    return {
+      D: { x: s.cx + rD.x, y: s.cy + rD.y },
+      E: { x: s.cx + rE.x, y: s.cy + rE.y },
+      F: { x: s.cx + rF.x, y: s.cy + rF.y },
+      handle: { x: s.cx + rH.x, y: s.cy + rH.y }
+    };
+  }
+
+  // ---- static ABC elements ----
+  const triABC = make('polygon', { fill:'rgba(139,92,246,0.10)', 'stroke-width':4, 'stroke-linejoin':'round' });
+  const sideABC = { AB: make('text',{'font-size':13,'font-family':'DM Mono, monospace','text-anchor':'middle'}),
+                     BC: make('text',{'font-size':13,'font-family':'DM Mono, monospace','text-anchor':'middle'}),
+                     CA: make('text',{'font-size':13,'font-family':'DM Mono, monospace','text-anchor':'middle'}) };
+  const angArcABC = { A: make('path',{fill:'none','stroke-width':3}), C: make('path',{fill:'none','stroke-width':3}) };
+  const rightMarkABC = make('path', { fill:'none', 'stroke-width':3 });
+  const angLblABC = { A: make('text',{'font-size':13,'font-family':'DM Mono, monospace','text-anchor':'middle'}),
+                      B: make('text',{'font-size':13,'font-family':'DM Mono, monospace','text-anchor':'middle'}),
+                      C: make('text',{'font-size':13,'font-family':'DM Mono, monospace','text-anchor':'middle'}) };
+  const vLabelABC = { A: make('text',{'font-size':19,'font-family':'DM Mono, monospace','font-weight':'bold'}),
+                       B: make('text',{'font-size':19,'font-family':'DM Mono, monospace','font-weight':'bold'}),
+                       C: make('text',{'font-size':19,'font-family':'DM Mono, monospace','font-weight':'bold'}) };
+  const dotABC = { A: make('circle',{r:5}), B: make('circle',{r:5}), C: make('circle',{r:5}) };
+
+  // ---- draggable DEF elements ----
+  const triDEF = make('polygon', { fill:'rgba(92,102,133,0.16)', 'stroke-width':4, 'stroke-linejoin':'round', cursor:'grab' });
+  const sideDEF = { DE: make('text',{'font-size':13,'font-family':'DM Mono, monospace','text-anchor':'middle'}),
+                     EF: make('text',{'font-size':13,'font-family':'DM Mono, monospace','text-anchor':'middle'}),
+                     FD: make('text',{'font-size':13,'font-family':'DM Mono, monospace','text-anchor':'middle'}) };
+  const angArcDEF = { D: make('path',{fill:'none','stroke-width':3}), F: make('path',{fill:'none','stroke-width':3}) };
+  const rightMarkDEF = make('path', { fill:'none', 'stroke-width':3 });
+  const angLblDEF = { D: make('text',{'font-size':13,'font-family':'DM Mono, monospace','text-anchor':'middle'}),
+                      E: make('text',{'font-size':13,'font-family':'DM Mono, monospace','text-anchor':'middle'}),
+                      F: make('text',{'font-size':13,'font-family':'DM Mono, monospace','text-anchor':'middle'}) };
+  const vLabelDEF = { D: make('text',{'font-size':19,'font-family':'DM Mono, monospace','font-weight':'bold'}),
+                       E: make('text',{'font-size':19,'font-family':'DM Mono, monospace','font-weight':'bold'}),
+                       F: make('text',{'font-size':19,'font-family':'DM Mono, monospace','font-weight':'bold'}) };
+  const dotDEF = { D: make('circle',{r:5}), E: make('circle',{r:5}), F: make('circle',{r:5}) };
+
+  // ---- rotate handle for DEF ----
+  const rotLine = make('line', { stroke: NEUTRAL_DEF, 'stroke-width':2, 'stroke-dasharray':'4 4' });
+  const rotHandle = make('circle', { r:11, fill: '#f5c842' });
+  const rotHit = make('circle', { r:24, fill:'transparent', cursor:'grab' });
+
+  function midLabel(el, P1, P2, centroid, text, color){
+    const mx = (P1.x+P2.x)/2, my = (P1.y+P2.y)/2;
+    const ox = mx-centroid.x, oy = my-centroid.y;
+    const m = Math.hypot(ox,oy) || 1;
+    el.setAttribute('x', mx + ox/m*15);
+    el.setAttribute('y', my + oy/m*15);
+    el.setAttribute('fill', color);
+    el.textContent = text;
+  }
+  function placeVLabel(el, V, centroid, text, color){
+    const ox = V.x-centroid.x, oy = V.y-centroid.y;
+    const m = Math.hypot(ox,oy) || 1;
+    el.setAttribute('x', V.x + ox/m*24);
+    el.setAttribute('y', V.y + oy/m*24 + 6);
+    el.setAttribute('text-anchor','middle');
+    el.setAttribute('fill', color);
+    el.textContent = text;
+  }
+
+  function draw(){
+    const { D, E, F, handle } = computeDEF(state);
+    const cD = { x:(D.x+E.x+F.x)/3, y:(D.y+E.y+F.y)/3 };
+
+    // ---- match test ----
+    const distG = Math.hypot(state.cx-G.x, state.cy-G.y);
+    const normRot = ((state.rot % 360) + 360) % 360;
+    const rotDist = Math.min(normRot, 360-normRot);
+    let matched = distG < POS_TOL && rotDist < ROT_TOL;
+    if (matched){ state.cx = G.x; state.cy = G.y; state.rot = 0; }
+    const P = matched ? computeDEF(state) : { D, E, F, handle };
+
+    const colABC = matched ? { A: COL[1], B: COL[2], C: COL[3] } : { A: NEUTRAL_ABC, B: NEUTRAL_ABC, C: NEUTRAL_ABC };
+    const colDEF = matched ? { D: COL[1], E: COL[2], F: COL[3] } : { D: NEUTRAL_DEF, E: NEUTRAL_DEF, F: NEUTRAL_DEF };
+    const strokeABC = matched ? '#e8ecf3' : NEUTRAL_ABC;
+    const strokeDEF = matched ? '#e8ecf3' : NEUTRAL_DEF;
+
+    // ---- ABC (fixed) ----
+    triABC.setAttribute('points', `${ABC.A.x},${ABC.A.y} ${ABC.B.x},${ABC.B.y} ${ABC.C.x},${ABC.C.y}`);
+    triABC.setAttribute('stroke', strokeABC);
+    triABC.setAttribute('fill', matched ? 'rgba(126,224,129,0.12)' : 'rgba(139,92,246,0.10)');
+
+    ['A','B','C'].forEach(k => { dotABC[k].setAttribute('cx', ABC[k].x); dotABC[k].setAttribute('cy', ABC[k].y); dotABC[k].setAttribute('fill', colABC[k]);
+      placeVLabel(vLabelABC[k], ABC[k], G, k, colABC[k]); });
+
+    const lAB = dist(ABC.A,ABC.B), lBC = dist(ABC.B,ABC.C), lCA = dist(ABC.C,ABC.A);
+    midLabel(sideABC.AB, ABC.A, ABC.B, G, lAB.toFixed(0), colABC.A);
+    midLabel(sideABC.BC, ABC.B, ABC.C, G, lBC.toFixed(0), colABC.B);
+    midLabel(sideABC.CA, ABC.C, ABC.A, G, lCA.toFixed(0), colABC.C);
+
+    const angA = angleAt(ABC.A, ABC.B, ABC.C), angB = angleAt(ABC.B, ABC.C, ABC.A), angC = angleAt(ABC.C, ABC.A, ABC.B);
+    angArcABC.A.setAttribute('d', arcPath(ABC.A, bearing(ABC.A,ABC.C), bearing(ABC.A,ABC.B), 32));
+    angArcABC.A.setAttribute('stroke', colABC.A);
+    angArcABC.C.setAttribute('d', arcPath(ABC.C, bearing(ABC.C,ABC.A), bearing(ABC.C,ABC.B), 32));
+    angArcABC.C.setAttribute('stroke', colABC.C);
+    rightMarkABC.setAttribute('d', rightMarkPath(ABC.B, ABC.A, ABC.C, 16));
+    rightMarkABC.setAttribute('stroke', colABC.B);
+    angLblABC.A.setAttribute('x', ABC.A.x+40); angLblABC.A.setAttribute('y', ABC.A.y-14); angLblABC.A.setAttribute('fill', colABC.A); angLblABC.A.textContent = Math.round(angA)+'°';
+    angLblABC.B.setAttribute('x', ABC.B.x-24); angLblABC.B.setAttribute('y', ABC.B.y-22); angLblABC.B.setAttribute('fill', colABC.B); angLblABC.B.textContent = Math.round(angB)+'°';
+    angLblABC.C.setAttribute('x', ABC.C.x-30); angLblABC.C.setAttribute('y', ABC.C.y+30); angLblABC.C.setAttribute('fill', colABC.C); angLblABC.C.textContent = Math.round(angC)+'°';
+
+    // ---- DEF (draggable) ----
+    triDEF.setAttribute('points', `${P.D.x},${P.D.y} ${P.E.x},${P.E.y} ${P.F.x},${P.F.y}`);
+    triDEF.setAttribute('stroke', strokeDEF);
+    triDEF.setAttribute('fill', matched ? 'rgba(126,224,129,0.16)' : 'rgba(92,102,133,0.16)');
+
+    ['D','E','F'].forEach(k => { dotDEF[k].setAttribute('cx', P[k].x); dotDEF[k].setAttribute('cy', P[k].y); dotDEF[k].setAttribute('fill', colDEF[k]);
+      placeVLabel(vLabelDEF[k], P[k], cD, k, colDEF[k]); });
+
+    const lDE = dist(P.D,P.E), lEF = dist(P.E,P.F), lFD = dist(P.F,P.D);
+    midLabel(sideDEF.DE, P.D, P.E, cD, lDE.toFixed(0), colDEF.D);
+    midLabel(sideDEF.EF, P.E, P.F, cD, lEF.toFixed(0), colDEF.E);
+    midLabel(sideDEF.FD, P.F, P.D, cD, lFD.toFixed(0), colDEF.F);
+
+    const angD = angleAt(P.D, P.E, P.F), angE = angleAt(P.E, P.F, P.D), angF = angleAt(P.F, P.D, P.E);
+    angArcDEF.D.setAttribute('d', arcPath(P.D, bearing(P.D,P.F), bearing(P.D,P.E), 30));
+    angArcDEF.D.setAttribute('stroke', colDEF.D);
+    angArcDEF.F.setAttribute('d', arcPath(P.F, bearing(P.F,P.D), bearing(P.F,P.E), 30));
+    angArcDEF.F.setAttribute('stroke', colDEF.F);
+    rightMarkDEF.setAttribute('d', rightMarkPath(P.E, P.D, P.F, 15));
+    rightMarkDEF.setAttribute('stroke', colDEF.E);
+    const outD = { x:P.D.x-cD.x, y:P.D.y-cD.y }, mD = Math.hypot(outD.x,outD.y)||1;
+    const outE = { x:P.E.x-cD.x, y:P.E.y-cD.y }, mE = Math.hypot(outE.x,outE.y)||1;
+    const outF = { x:P.F.x-cD.x, y:P.F.y-cD.y }, mF = Math.hypot(outF.x,outF.y)||1;
+    angLblDEF.D.setAttribute('x', P.D.x+outD.x/mD*30); angLblDEF.D.setAttribute('y', P.D.y+outD.y/mD*30); angLblDEF.D.setAttribute('fill', colDEF.D); angLblDEF.D.textContent = Math.round(angD)+'°';
+    angLblDEF.E.setAttribute('x', P.E.x+outE.x/mE*30); angLblDEF.E.setAttribute('y', P.E.y+outE.y/mE*30); angLblDEF.E.setAttribute('fill', colDEF.E); angLblDEF.E.textContent = Math.round(angE)+'°';
+    angLblDEF.F.setAttribute('x', P.F.x+outF.x/mF*30); angLblDEF.F.setAttribute('y', P.F.y+outF.y/mF*30); angLblDEF.F.setAttribute('fill', colDEF.F); angLblDEF.F.textContent = Math.round(angF)+'°';
+
+    // ---- rotate handle ----
+    rotLine.setAttribute('x1', state.cx); rotLine.setAttribute('y1', state.cy);
+    rotLine.setAttribute('x2', P.handle.x); rotLine.setAttribute('y2', P.handle.y);
+    rotHandle.setAttribute('cx', P.handle.x); rotHandle.setAttribute('cy', P.handle.y);
+    rotHit.setAttribute('cx', P.handle.x); rotHit.setAttribute('cy', P.handle.y);
+    rotLine.setAttribute('opacity', matched ? 0.35 : 1);
+    rotHandle.setAttribute('opacity', matched ? 0.5 : 1);
+
+    // ---- readout ----
+    if (!matched){
+      readout.innerHTML =
+        `Slide and spin △DEF onto △ABC.<br>` +
+        `Distance to align: <b>${distG.toFixed(0)}px</b> &middot; Rotation to align: <b>${rotDist.toFixed(0)}&deg;</b><br>` +
+        `<span class="note">AB=${lAB.toFixed(0)} &middot; BC=${lBC.toFixed(0)} &middot; CA=${lCA.toFixed(0)} — compare to DE=${lDE.toFixed(0)}, EF=${lEF.toFixed(0)}, FD=${lFD.toFixed(0)}. Same three lengths, same three angles — just not superimposed yet.</span>`;
+    } else {
+      readout.innerHTML =
+        `<span class="statement">△ABC &cong; △DEF</span><br>` +
+        `<span class="part" style="color:${COL[1]}">AB &cong; DE</span> (${lAB.toFixed(0)}) &middot; ` +
+        `<span class="part" style="color:${COL[2]}">BC &cong; EF</span> (${lBC.toFixed(0)}) &middot; ` +
+        `<span class="part" style="color:${COL[3]}">CA &cong; FD</span> (${lCA.toFixed(0)})<br>` +
+        `<span class="part" style="color:${COL[1]}">&ang;A &cong; &ang;D</span> (${Math.round(angA)}&deg;) &middot; ` +
+        `<span class="part" style="color:${COL[2]}">&ang;B &cong; &ang;E</span> (${Math.round(angB)}&deg;) &middot; ` +
+        `<span class="part" style="color:${COL[3]}">&ang;C &cong; &ang;F</span> (${Math.round(angC)}&deg;)<br>` +
+        `<span class="note">CPCTC — Corresponding Parts of Congruent Triangles are Congruent. All six pairs above, read straight off the order A&harr;D, B&harr;E, C&harr;F.</span>`;
+    }
+  }
+
+  // ---- drag handling ----
+  function toLocal(e){
+    const r = svg.getBoundingClientRect();
+    const cx = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+    const cy = (e.touches ? e.touches[0].clientY : e.clientY) - r.top;
+    return { x: cx / r.width * W, y: cy / r.height * H };
+  }
+
+  let dragMode = null; // 'move' | 'rotate'
+  let moveOffset = { x:0, y:0 };
+
+  function downMove(e){ dragMode = 'move'; const p = toLocal(e); moveOffset = { x: p.x - state.cx, y: p.y - state.cy }; e.preventDefault(); }
+  function downRotate(e){ dragMode = 'rotate'; e.preventDefault(); }
+  function onMove(e){
+    if (!dragMode) return;
+    const p = toLocal(e);
+    if (dragMode === 'move'){
+      state.cx = Math.max(30, Math.min(W-30, p.x - moveOffset.x));
+      state.cy = Math.max(30, Math.min(H-30, p.y - moveOffset.y));
+    } else {
+      const rawAngle = deg(Math.atan2(p.y - state.cy, p.x - state.cx));
+      state.rot = rawAngle + 90; // handle sits at -90° (straight up) when rot = 0
+    }
+    draw();
+    e.preventDefault();
+  }
+  function onUp(){ dragMode = null; }
+
+  triDEF.addEventListener('pointerdown', downMove);
+  triDEF.addEventListener('touchstart', downMove, { passive:false });
+  rotHit.addEventListener('pointerdown', downRotate);
+  rotHit.addEventListener('touchstart', downRotate, { passive:false });
+  window.addEventListener('pointermove', onMove);
+  window.addEventListener('touchmove', onMove, { passive:false });
+  window.addEventListener('pointerup', onUp);
+  window.addEventListener('touchend', onUp);
+
+  document.getElementById('scrambleBtn').addEventListener('click', () => {
+    const angle = Math.random() * 360;
+    const r = 170 + Math.random() * 60;
+    state = {
+      cx: Math.max(60, Math.min(W-60, G.x + r*Math.cos(rad(angle)))),
+      cy: Math.max(60, Math.min(H-60, G.y + r*Math.sin(rad(angle)))),
+      rot: Math.round(Math.random() * 359)
+    };
+    draw();
+  });
+  document.getElementById('resetBtn').addEventListener('click', () => { state = { ...START }; draw(); });
+  document.getElementById('snapBtn').addEventListener('click', () => { state = { cx: G.x, cy: G.y, rot: 0 }; draw(); });
+
+  draw();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{
+  "id": "LP-W28-S2", "course": "geometry", "week": 28, "session": 2,
+  "session_type": "build", "lesson": "L24 — Two-Column Proofs: SSS & SAS",
+  "unit": "u03", "duration_min": 60, "mode": "Build",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 28 · Straw Triangle Rigidity Lab",
+  "essential_question": "If you build a triangle from three fixed-length sides, can you wiggle it into a different shape — or does SSS lock you into exactly one triangle, every time?",
+  "objective": "Build a triangle from three fixed straw lengths (SSS) and a triangle from two fixed sides plus their included angle (SAS), test each for rigidity by trying to wiggle it, then build an SSA (non-included-angle) triangle and show it is NOT rigid.",
+  "standards": ["G-CO.B.8"],
+  "vocab": ["SSS postulate", "SAS postulate", "included angle", "rigid", "hinge", "reflexive property"],
+  "agenda": [
+    {"phase":"brief","min":6,"title":"Brief — From Proof to Straws","board":"brief","content":{"heading":"From definitions to your hands","bullets":["Yesterday: defined the SSS and SAS postulates and watched two full two-column proofs built line by line.","Today: build three straw triangles and put rigidity to the test — can you wiggle each one?","The test: build SSS and SAS triangles that WON'T wiggle, then build an SSA case that WILL."]}},
+    {"phase":"plan","min":8,"title":"Plan — Read the Build Card","board":"plan","content":{"heading":"Gather + plan","note":"Open the project card. Gather straws (or cut dowels/coffee stirrers), scissors, a ruler, a protractor, and brads or paper fasteners for pivoting joints. Pick your three straw lengths ahead of time — make sure any two of them add up to MORE than the third, or the triangle won't close."}},
+    {"phase":"build","min":25,"title":"Build — Three Triangles","board":"build","content":{"heading":"SSS, then SAS, then SSA","bullets":["Triangle 1 — SSS: cut three straws to fixed lengths. Join all three ends with brads so the joints can pivot. Try to wiggle it.","Triangle 2 — SAS: cut two straws to fixed lengths. Join them at one shared vertex with a brad, and use the protractor to fix the angle BETWEEN them at a chosen measure. Close the triangle with a third straw (whatever length that turns out to be). Try to wiggle it.","Triangle 3 — SSA challenge: use the SAME two straw lengths from Triangle 2, joined at a shared vertex — but this time fix the angle at the OTHER end, not between the two straws. Try to close the triangle. Can you make it close in more than one way?"]}},
+    {"phase":"play","min":12,"title":"Hinge Test","board":"play","content":{"heading":"Wiggle every triangle and record what happens","figure":"grid-blank","items":["m1","m2","m3"]}},
+    {"phase":"reflect","min":9,"title":"Reflect & Photograph","board":"reflect","content":{"items":["r1"],"preview":"Session 3: write a full two-column proof, review MUS Lesson Practice 24A/24B, and take the checkpoint."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can build a triangle from three fixed side lengths and show it cannot be wiggled into a different shape (SSS rigidity)"},
+    {"id":"SC2","text":"I can build a triangle from two fixed sides and their included angle and show it too is rigid (SAS rigidity)"},
+    {"id":"SC3","text":"I can build an SSA case (two sides + a non-included angle) and show it is NOT rigid — it can close into more than one triangle"}
+  ],
+  "assets": {
+    "project": {"note":"Curriculum/Geometry/Lessons/W28-S2/project-card.md"},
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W28-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W28 SSS & SAS Proofs.md"},
+    "mus": {"practice":"MUS/L24 — Lesson Practice.pdf","review":"MUS/L24 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"play","kind":"practice","title":"Hinge Test Log","items":["m1","m2","m3"]},
+      {"phase":"reflect","kind":"exit","title":"Reflect","items":["r1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"m1","type":"short","sc":"SC1","points":2,"prompt":"Record the three straw lengths you used for your SSS triangle. After joining all three vertices with brads, try to wiggle it. What happened?","answer":"Any three lengths that satisfy the triangle inequality (each two lengths add up to more than the third). The SSS triangle did NOT wiggle — once three fixed sides are joined at their vertices, only one triangle shape is possible.","explain":"This is SSS rigidity in your hands: three fixed sides leave no freedom for a second shape."},
+    {"ref":"m2","type":"construct","sc":"SC2","points":2,"figure":"grid-blank","prompt":"Sketch your SAS triangle: the two fixed sides, the included angle you set with the protractor between them, and the resulting closing side. Label the lengths and the angle measure you used.","answer":"Two sides drawn from a shared vertex with their measured lengths labeled, the included angle marked between them at that vertex, and the triangle closed by a third side.","explain":"Rubric: two sides + the included angle correctly drawn and labeled (1 pt) + the closing side shown completing the triangle (1 pt)."},
+    {"ref":"m3","type":"short","sc":"SC3","points":2,"prompt":"Describe your SSA attempt: the same two side lengths as Triangle 2, but the angle fixed somewhere OTHER than between them. Could you close it into more than one triangle (or not at all)? What does that tell you about SSA?","answer":"Yes — the same two side lengths and that same non-included angle could close into two different triangle shapes (or, for some measures, fail to close at all), showing that SSA does not lock in one triangle the way SSS and SAS do.","explain":"The felt 'wiggle' in Triangle 3 is the physical version of why SSA is never listed as a congruence postulate."},
+    {"ref":"r1","type":"short","sc":"SC2","points":2,"prompt":"Reflect: of the three builds — SSS, SAS, or SSA — which one surprised you most, and why?"}
+  ]
+}

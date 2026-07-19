@@ -1,0 +1,42 @@
+{
+  "id": "LP-W27-S2", "course": "geometry", "week": 27, "session": 2,
+  "session_type": "build", "lesson": "L23 — Congruent Triangles & Corresponding Parts",
+  "unit": "u03", "duration_min": 60, "mode": "Build",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 27 · Congruence Cutout Lab",
+  "essential_question": "If you cut two triangles from the exact same template, will they always superimpose exactly — and can you PROVE, by hand, which corner matches which once you move and relabel one of them?",
+  "objective": "Cut two congruent triangles from a shared template, physically superimpose them to confirm all six corresponding parts match, then relabel and measure to write a correct congruence statement for a non-obvious correspondence.",
+  "standards": ["G-CO.B.7"],
+  "vocab": ["congruent", "corresponding parts", "correspondence", "CPCTC", "superimpose"],
+  "agenda": [
+    {"phase":"brief","min":6,"title":"Brief — From Notation to Your Hands","board":"brief","content":{"heading":"From reading letters to physically checking","bullets":["Yesterday: defined congruent triangles as a six-part match and decoded congruence notation letter by letter.","Today: cut two triangles from the SAME template, superimpose them to confirm the six-part match with your own hands, then relabel one and write your own correspondence.","The test: can you write a correct congruence statement just from where the corners actually landed — not from how the page happens to look?"]}},
+    {"phase":"plan","min":8,"title":"Plan — Read the Build Card","board":"plan","content":{"heading":"Gather + plan","note":"Open the project card. Gather cardstock or heavy paper, scissors, a ruler, a protractor, a pencil, and three colors of pencil or marker for tick and arc marks. Decide on your triangle template before you cut — anything scalene works well, since a scalene triangle makes every corresponding part distinct."}},
+    {"phase":"build","min":25,"title":"Build — Trace, Cut, Superimpose, Relabel","board":"build","content":{"heading":"Two identical cutouts, one honest test","bullets":["Trace one triangle template twice (or fold your paper and cut both layers at once) so both cutouts are identical. Label the first one's corners A, B, C.","Superimpose Test — lay cutout #2 directly on top of cutout #1. Confirm every side and every corner lines up exactly, all the way around.","Pick up cutout #2, rotate or flip it into a new position elsewhere on your paper, and trace around it there. Label its three corners D, E, F in an order YOU choose — pick an order that is not simply 'whichever corner is closest to A.'","Measure all three sides and all three angles of BOTH triangles with your ruler and protractor. Mark corresponding parts with matching tick marks (sides) and matching arc marks (angles), one color per corresponding pair."]}},
+    {"phase":"measure","min":12,"title":"Record Your Test & Your Correspondence","board":"measure","content":{"heading":"Get the numbers down","figure":"grid-blank","items":["m1","m2","m3"]}},
+    {"phase":"reflect","min":9,"title":"Reflect & Photograph","board":"reflect","content":{"items":["r1"],"preview":"Session 3: defend why order matters and use CPCTC to conclude a pair of parts equal, review MUS Lesson Practice 23A/23B, then the checkpoint."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can physically confirm two triangles are congruent by superimposing them and checking every side and angle"},
+    {"id":"SC2","text":"I can relabel a triangle's vertices and write the correspondence that matches how the shapes actually superimposed"},
+    {"id":"SC3","text":"I can measure and correctly tick/arc-mark all six corresponding parts between two congruent triangles"}
+  ],
+  "assets": {
+    "project": {"note":"Curriculum/Geometry/Lessons/W27-S2/project-card.md"},
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W27-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W27 Congruent Triangles.md"},
+    "mus": {"practice":"MUS/L23 — Lesson Practice.pdf","review":"MUS/L23 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"measure","kind":"practice","title":"Test Log & Correspondence","items":["m1","m2","m3"]},
+      {"phase":"reflect","kind":"exit","title":"Reflect","items":["r1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"m1","type":"measure","sc":"SC1","points":2,"prompt":"Record your superimpose test: when cutout #2 was laid exactly on top of cutout #1, did every side and every corner line up? List any side or corner that did NOT match (or write 'all matched').","answer":"All matched — every side and every angle lined up exactly, confirming the two triangles are congruent.","explain":"Two triangles cut from the identical template are congruent by construction; the superimpose test is the physical, hands-on meaning of congruence — if one shape can be placed exactly on the other, they're congruent."},
+    {"ref":"m2","type":"short","sc":"SC2","points":2,"prompt":"You relabeled your second cutout's corners D, E, F in your own order, then found which of D, E, F actually landed on A, B, C when superimposed. Write the resulting congruence statement (for example, △ABC ≅ △___) and explain how you know that order is the correct one.","answer":"Answers vary by student's own labeling, e.g. △ABC ≅ △EFD if corner D landed on B, E landed on C, and F landed on A.","explain":"Full credit: the order of D, E, F in the statement must match exactly which corner superimposed onto which corner — not just any convenient order."},
+    {"ref":"m3","type":"short","sc":"SC3","points":2,"prompt":"Report the three side lengths and three angle measures you found for △ABC, and name which part of △DEF each one matches.","answer":"Example: AB = 4.2 in matches (its corresponding side) = 4.2 in; m∠A = 51° matches its corresponding angle = 51°; and so on for all three sides and all three angles.","explain":"Rubric: all six measurements recorded (1 pt) + each one correctly paired to its corresponding part in the other triangle (1 pt)."},
+    {"ref":"r1","type":"short","sc":"SC2","points":2,"prompt":"Reflect: before you superimposed the two cutouts, could you have correctly guessed the correspondence just by looking at where D, E, F ended up sitting on the page? What convinced you the superimpose test — not just eyeballing position — was necessary?"}
+  ]
+}
