@@ -1,32 +1,22 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Geometry · Stratosyn</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Geometry · Stratosyn</title>
 <style>
-  :root { --void:#0d1322; --ink:#161d31; --bone:#e8ecf3; --mist:#9aabd0; --accent:#8b5cf6; }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html,body{height:100%}
-  body{background:var(--void);color:var(--bone);font-family:Inter,system-ui,sans-serif;
-    display:grid;place-items:center;padding:6vh 6vw;text-align:center}
-  .eyebrow{font-family:"DM Mono",ui-monospace,monospace;letter-spacing:.22em;text-transform:uppercase;
-    font-size:12px;color:var(--accent);margin-bottom:1.2rem}
-  h1{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;
-    font-size:clamp(34px,7vw,72px);line-height:1.05}
-  .mark{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:5px;
-    background:var(--accent);vertical-align:middle;margin-right:.5ch}
-  p{color:var(--mist);margin-top:1.4rem;font-size:clamp(15px,2.2vw,19px);max-width:44ch}
-  .soon{margin-top:2rem;font-family:"DM Mono",ui-monospace,monospace;font-size:12px;color:var(--mist);
-    border:1px solid #2a3142;border-radius:999px;padding:.6rem 1.1rem;display:inline-block}
-</style>
-</head>
-<body>
-  <main>
-    <div class="eyebrow"><span class="mark"></span>Stratosyn · Geometry</div>
-    <h1>Points become proofs.</h1>
-    <p>An interactive, build-first Geometry course. The boards, worksheets, and sims land here as each unit ships.</p>
-    <div class="soon">Under construction — Unit 01 first</div>
-  </main>
-</body>
-</html>
+:root{--void:#0d1322;--ink:#161d31;--bone:#e8ecf3;--mist:#9aabd0;--accent:#8b5cf6;--border:#2a3142}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--void);color:var(--bone);font-family:Inter,system-ui,sans-serif;min-height:100vh;padding:6vh 6vw}
+.eyebrow{font-family:"DM Mono",ui-monospace,monospace;letter-spacing:.22em;text-transform:uppercase;font-size:12px;color:var(--accent);margin-bottom:1rem}
+.mark{display:inline-grid;place-items:center;width:16px;height:16px;border-radius:5px;background:var(--accent);vertical-align:middle;margin-right:.5ch}
+h1{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(30px,6vw,60px);line-height:1.05;margin-bottom:1.6rem}
+.sessions{list-style:none;display:flex;flex-direction:column;gap:.5rem;max-width:720px}
+.sessions li{display:flex;justify-content:space-between;align-items:center;gap:1rem;background:var(--ink);border:1px solid var(--border);border-radius:12px;padding:.9rem 1.1rem}
+.sname{font-family:"DM Mono",ui-monospace,monospace;color:var(--bone)}
+.slinks{display:flex;gap:.6rem}
+.slinks a{font-family:"DM Mono",ui-monospace,monospace;font-size:13px;color:var(--accent);text-decoration:none;border:1px solid var(--border);border-radius:999px;padding:.3rem .8rem}
+.slinks a:hover{border-color:var(--accent)}
+.slinks .off{font-family:"DM Mono",ui-monospace,monospace;font-size:13px;color:var(--mist);opacity:.4;border:1px solid var(--border);border-radius:999px;padding:.3rem .8rem}
+.soon{margin-top:1rem;font-family:"DM Mono",ui-monospace,monospace;font-size:13px;color:var(--mist);border:1px solid var(--border);border-radius:999px;padding:.7rem 1.1rem;display:inline-block}
+</style></head><body>
+<div class="eyebrow"><span class="mark"></span>Stratosyn · Geometry</div>
+<h1>Points become proofs.</h1>
+<div class="soon">Under construction — Unit 01 first</div>
+</body></html>
