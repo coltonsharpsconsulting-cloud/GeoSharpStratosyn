@@ -1,0 +1,47 @@
+{
+  "id": "LP-W03-S1", "course": "geometry", "week": 3, "session": 1,
+  "session_type": "concept", "lesson": "L02 — Planes & Sets",
+  "unit": "u01", "duration_min": 60, "mode": "Concept",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 3 · Planes & the Language of Sets",
+  "essential_question": "What do you get when a line spreads sideways — and how do mathematicians talk about groups of things?",
+  "objective": "Define a plane and identify coplanar points, and use set notation (∪, ∩, ⊂, ∅) to combine and compare sets.",
+  "standards": ["G-CO.A.1"],
+  "vocab": ["plane", "coplanar", "set", "empty set", "union", "intersection", "subset"],
+  "agenda": [
+    {"phase":"launch","min":6,"title":"Launch — Spread the Line Sideways","board":"launch","content":{"prompt":"A line has no width — just length. Push it sideways forever. What do you get? And can two flat surfaces ever touch at just one single point?"}},
+    {"phase":"i_do","min":12,"title":"I do — Planes, Coplanar, and the Set Symbols","board":"i_do","content":{"heading":"Two dimensions, and four new symbols","figure":"plane","bullets":["A plane is flat, has length AND width (two-dimensional), and extends forever in every direction.","Name a plane one of two ways: a single letter (plane M) or three points not all on one line (plane ABC).","Points or lines that lie in the same plane are coplanar.","A set is a collection of things; the empty set (∅) contains nothing.","Union (∪) combines everything in two sets; intersection (∩) is only the overlap; subset (⊂) means fully contained."]}},
+    {"phase":"explore","min":8,"title":"Explore — Union & Intersection","board":"explore","content":{"heading":"Toggle the sets; watch the highlight change","note":"On the sim, click Union, Intersection, A only, and B only in turn. Say out loud, in your own words, what region lights up each time and why."}},
+    {"phase":"check","min":5,"title":"Check for Understanding","board":"check","content":{"heading":"Name that symbol","items":["n1","n2"]}},
+    {"phase":"you_do","min":12,"title":"You do — Sets on the Worksheet","board":"you_do","content":{"heading":"Your turn on the worksheet","items":["p1","p2","p3","p4"]}},
+    {"phase":"exit","min":5,"title":"Exit Ticket","board":"exit","content":{"items":["x1"],"preview":"Build session: hunt for a real plane and sort real objects into overlapping sets."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can define a plane and name it two ways, and identify coplanar points"},
+    {"id":"SC2","text":"I can find the union and intersection of two sets and use ∪, ∩, ⊂, ∅ correctly"},
+    {"id":"SC3","text":"I can state what two lines intersect in and what two planes intersect in"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W03-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W03 Planes & Sets.md"},
+    "mus": {"practice":"MUS/L02 — Lesson Practice.pdf","review":"MUS/L02 — Systematic Review.pdf","test":"MUS/L02 — Lesson Test.pdf"},
+    "interactive": {"slug":"planes-sets","note":"Curriculum/Geometry/Lessons/W03-S1/sims/planes-sets.html"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"check","kind":"check","title":"Name That Symbol","items":["n1","n2"]},
+      {"phase":"practice","kind":"practice","title":"Sets on the Worksheet","items":["p1","p2","p3","p4"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"n1","type":"dropdown","sc":"SC1","points":1,"prompt":"A plane has ___ dimension(s).","options":["one","two","three"],"answer":"two","explain":"A plane has length AND width — two dimensions — but no thickness."},
+    {"ref":"n2","type":"mc","sc":"SC3","points":1,"prompt":"The intersection of two distinct lines that cross is always a…","options":["line","point","plane"],"answer":"point","explain":"Two straight, non-parallel lines can only cross at one shared location."},
+    {"ref":"p1","type":"short","sc":"SC1","points":2,"prompt":"Give two correct ways to name a plane.","answer":"A single capital letter (e.g., plane M), or three points in it that are not all on one line (e.g., plane ABC).","explain":"Either a single letter or three non-collinear points uniquely identifies one flat plane."},
+    {"ref":"p2","type":"mc","sc":"SC1","points":1,"prompt":"Points and lines that lie in the same plane are called…","options":["collinear","coplanar","congruent"],"answer":"coplanar","explain":"Coplanar describes sharing one plane, the same way collinear describes sharing one line."},
+    {"ref":"p3","type":"short","sc":"SC2","points":2,"prompt":"Let A = {2, 4, 6, 8} and B = {4, 8, 12}. Find A ∪ B and A ∩ B.","answer":"A ∪ B = {2, 4, 6, 8, 12}; A ∩ B = {4, 8}.","explain":"Union combines every element from both sets, writing shared members once; intersection keeps only the members that appear in both lists (4 and 8)."},
+    {"ref":"p4","type":"construct","sc":"SC2","points":2,"figure":"grid-blank","prompt":"Draw two overlapping circles labeled Set A and Set B. Shade only the region that represents A ∩ B.","answer":"Two overlapping circles labeled A and B, with only the lens-shaped overlap shaded.","explain":"Rubric: two clearly overlapping circles labeled A and B (1 pt) + only the shared overlap region shaded, not the crescents (1 pt)."},
+    {"ref":"x1","type":"short","sc":"SC3","points":2,"prompt":"Exit: name one real object made of two overlapping groups (e.g., 'toys that are round' and 'toys that are blue') and say what belongs in the intersection."}
+  ]
+}

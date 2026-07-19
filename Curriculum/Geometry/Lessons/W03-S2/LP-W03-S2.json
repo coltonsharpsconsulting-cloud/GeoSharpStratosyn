@@ -1,0 +1,42 @@
+{
+  "id": "LP-W03-S2", "course": "geometry", "week": 3, "session": 2,
+  "session_type": "build", "lesson": "L02 — Planes & Sets",
+  "unit": "u01", "duration_min": 60, "mode": "Build",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 3 · Set Search / Plane Hunt",
+  "essential_question": "Can you find a real plane and sort real objects into a union and an intersection?",
+  "objective": "Identify a real-world plane and name it using three non-collinear points, and physically sort a group of objects into the union and intersection of two overlapping sets.",
+  "standards": ["G-CO.A.1"],
+  "vocab": ["plane", "coplanar", "set", "union", "intersection", "subset", "null set"],
+  "agenda": [
+    {"phase":"brief","min":6,"title":"Brief — From Definitions to Loops","board":"brief","content":{"heading":"From definitions to real loops","bullets":["Yesterday: defined planes, sets, union, intersection, subset, and the null set.","Today: hunt for a real plane and sort real objects into two overlapping sets.","The test: can you place an object in the RIGHT region — and defend why?"]}},
+    {"phase":"plan","min":8,"title":"Plan — Read the Build Card","board":"plan","content":{"heading":"Gather + choose categories","note":"Open the project card. Pick your flat surface (the plane), your two loops, and two categories likely to overlap (e.g., round ∩ metal). Gather 10+ small objects before you start sorting."}},
+    {"phase":"build","min":25,"title":"Build — Set Up & Sort","board":"build","content":{"heading":"Lay it out, then sort","bullets":["Lay two overlapping loops (string or hoops) on your plane — label them Set A and Set B.","Sort every object into A only, B only, both (the overlap), or outside both loops.","Mark three points on your plane that are NOT all on one line, and name the plane using them."]}},
+    {"phase":"sort","min":12,"title":"Record What You Found","board":"sort","content":{"heading":"Write it down","figure":"plane","items":["s1","s2","s3"]}},
+    {"phase":"reflect","min":9,"title":"Reflect & Photograph","board":"reflect","content":{"items":["r1"],"preview":"Session 3: defend why two planes always meet in a line, then the checkpoint."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can identify a real plane and name it using three non-collinear points"},
+    {"id":"SC2","text":"I can sort real objects into the union and intersection of two overlapping sets"},
+    {"id":"SC3","text":"I can explain what physically sorting taught me that the definitions alone didn't"}
+  ],
+  "assets": {
+    "project": {"note":"Curriculum/Geometry/Lessons/W03-S2/project-card.md"},
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W03-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W03 Planes & Sets.md"},
+    "mus": {"practice":"MUS/L02 — Lesson Practice.pdf","review":"MUS/L02 — Systematic Review.pdf","test":"MUS/L02 — Lesson Test.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"sort","kind":"practice","title":"Sort & Record","items":["s1","s2","s3"]},
+      {"phase":"reflect","kind":"exit","title":"Reflect","items":["r1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"s1","type":"short","sc":"SC2","points":2,"prompt":"List everything in your Set A ∪ B (everything inside either loop) and everything in your Set A ∩ B (only the overlap).","answer":"Any honest list matching the student's own sorted objects — e.g., A ∪ B: {coin, spoon, marble, ring}; A ∩ B: {marble} if 'marble' is both round AND metal.","explain":"Rubric: the union lists every object inside either loop with no double-counting (1 pt); the intersection lists only objects that landed in the shared overlap zone (1 pt)."},
+    {"ref":"s2","type":"mc","sc":"SC2","points":1,"prompt":"True or false: an object sitting outside BOTH loops is still part of A ∪ B.","options":["True","False"],"answer":"False","explain":"A ∪ B only includes what's inside at least one of the loops; anything outside both loops is outside the union entirely."},
+    {"ref":"s3","type":"short","sc":"SC1","points":2,"prompt":"Mark three points on your plane that are NOT all on one line, and write the plane's name using them.","answer":"Any three non-collinear points on the chosen surface, correctly written as a plane name (e.g., 'plane RST').","explain":"Three non-collinear points always pin down exactly one plane; if all three were collinear, they would not be enough to name a unique flat surface."},
+    {"ref":"r1","type":"short","sc":"SC3","points":2,"prompt":"Reflect: which was trickier — deciding whether an object belonged in the overlap, or picking three non-collinear points for your plane? What did the hands-on sorting teach you that the definitions alone didn't?"}
+  ]
+}

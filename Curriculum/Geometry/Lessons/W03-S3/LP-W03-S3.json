@@ -1,0 +1,44 @@
+{
+  "id": "LP-W03-S3", "course": "geometry", "week": 3, "session": 3,
+  "session_type": "prove", "lesson": "L02 — Planes & Sets",
+  "unit": "u01", "duration_min": 60, "mode": "Prove",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 3 · Prove It — Planes & Sets",
+  "essential_question": "Why must two planes meet in a line — never just a point?",
+  "objective": "Justify why two intersecting planes meet in a line (not a point) and two intersecting lines meet in a point, review the week's Math-U-See practice, and pass the mastery checkpoint on planes, sets, union, intersection, and subset.",
+  "standards": ["G-CO.A.1"],
+  "vocab": ["plane", "coplanar", "set", "union", "intersection", "subset", "null set"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Redraw From Memory","board":"warmup","content":{"prompt":"Without looking, sketch a plane and name it two ways. Then write the four set symbols (∪, ∩, ⊂, ∅) from memory and say what each one means."}},
+    {"phase":"review","min":12,"title":"Review — Your Math-U-See Work","board":"review","content":{"heading":"Go over Lesson Practice 2A & 2B together","note":"Bring your completed MUS Lesson Practice 2A/2B. We check the tricky ones: naming a plane by three points vs. one letter, whether a set can be a subset of itself, and reading union/intersection notation. Fix any you missed and note WHY."}},
+    {"phase":"prove","min":16,"title":"Prove It — Reason Out Loud","board":"prove","content":{"heading":"Defend three claims","figure":"plane","bullets":["Claim 1: two distinct lines that cross meet in exactly one point. Argue it — what would it mean if they shared two points instead?","Claim 2: two distinct planes that meet always meet in a line, never just a point. Argue it — think of two walls, or two flat sheets pushed together.","Claim 3: a plane contains infinitely many points. Argue it — same idea as a line, one dimension up."]}},
+    {"phase":"checkpoint","min":18,"title":"Mastery Checkpoint","board":"checkpoint","content":{"heading":"Show what you own","items":["c1","c2","c3","c4","c5","c6"]}},
+    {"phase":"close","min":8,"title":"Close & Set Mastery","board":"close","content":{"items":["x1"],"preview":"Next week, Lesson 3 — same rhythm: Concept, Build, Prove."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can symbolize and identify planes, sets, union, intersection, and subset without help"},
+    {"id":"SC2","text":"I can justify why two planes intersect in a line and two lines intersect in a point"},
+    {"id":"SC3","text":"I can explain what makes a plane 'flat' (two-dimensional) and why it holds infinitely many points"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W03-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W03 Planes & Sets.md"},
+    "mus": {"practice":"MUS/L02 — Lesson Practice.pdf","review":"MUS/L02 — Systematic Review.pdf","test":"MUS/L02 — Lesson Test.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"checkpoint","kind":"check","title":"Mastery Checkpoint","items":["c1","c2","c3","c4","c5","c6"]},
+      {"phase":"close","kind":"exit","title":"Set Your Mastery","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"c1","type":"mc","sc":"SC3","points":1,"prompt":"A plane has…","options":["length only","length and width","length, width, and height"],"answer":"length and width","explain":"A plane is two-dimensional — it has length and width but no thickness — and it extends infinitely in every direction."},
+    {"ref":"c2","type":"dropdown","sc":"SC2","points":1,"prompt":"The intersection of two distinct planes is always a…","options":["point","line","plane"],"answer":"line","explain":"When two flat planes meet (and aren't the same plane), they share exactly the points along one straight line — think of two walls meeting at the corner seam."},
+    {"ref":"c3","type":"mc","sc":"SC2","points":1,"prompt":"The intersection of two distinct, non-parallel lines is always a…","options":["point","line","empty set"],"answer":"point","explain":"Two straight lines that aren't parallel cross at exactly one shared location."},
+    {"ref":"c4","type":"short","sc":"SC1","points":2,"prompt":"Let A = {red, blue, green} and B = {blue, green, yellow}. Write A ∪ B and A ∩ B.","answer":"A ∪ B = {red, blue, green, yellow}; A ∩ B = {blue, green}.","explain":"Union combines every element from both sets without repeating; intersection keeps only what both sets share (blue and green)."},
+    {"ref":"c5","type":"construct","sc":"SC1","points":2,"figure":"grid-blank","prompt":"Draw two overlapping circles for Set A and Set B. Shade only the region that represents A ∩ B.","answer":"Two overlapping circles labeled A and B, with only the lens-shaped overlap shaded.","explain":"Rubric: two clearly overlapping circles labeled A and B (1 pt) + only the shared overlap region shaded, not the crescents (1 pt)."},
+    {"ref":"c6","type":"short","sc":"SC2","points":2,"prompt":"In your own words, explain why two planes can never meet at just a single point.","answer":"A plane is flat and extends infinitely in every direction; if two flat, non-parallel planes touched at even one point, they would have to keep spreading apart from each other all around that point — but because both are perfectly flat, the points where they agree line up straight, forming a whole line, not just one dot.","explain":"Full credit: names flatness/infinite extent as the reason the shared points must line up straight (a line) instead of stopping at one point."},
+    {"ref":"x1","type":"short","sc":"SC3","points":1,"prompt":"Close: rate yourself on Lesson 2 (Emerging / Proficient / Mastered) and name the one idea you'd want to revisit."}
+  ]
+}

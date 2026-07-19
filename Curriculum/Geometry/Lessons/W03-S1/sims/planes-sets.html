@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Planes & Sets — Sim</title>
+<style>
+  :root{--void:#0d1322;--ink:#161d31;--bone:#e8ecf3;--mist:#9aabd0;--accent:#8b5cf6;--gold:#f5c842;--border:#2a3142}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--void);color:var(--bone);font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;min-height:100%}
+  header{padding:2vh 4vw;border-bottom:1px solid var(--border);background:var(--ink)}
+  .eyebrow{font-family:"DM Mono",ui-monospace,monospace;letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--accent)}
+  h1{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(20px,3vw,30px);margin-top:.3rem}
+  main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2vh;padding:3vh 4vw}
+  .stage{width:100%;max-width:720px;aspect-ratio:16/9;background:var(--ink);border:1px solid var(--border);border-radius:16px;touch-action:none}
+  svg{width:100%;height:100%;display:block}
+  .controls{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
+  button{font-family:"DM Mono",ui-monospace,monospace;font-size:14px;background:var(--ink);color:var(--bone);border:1px solid var(--border);border-radius:999px;padding:.6rem 1.2rem;cursor:pointer}
+  button.on{border-color:var(--accent);color:var(--accent)}
+  .readout{font-family:"DM Mono",ui-monospace,monospace;font-size:clamp(14px,2vw,18px);color:var(--mist);text-align:center}
+  .readout b{color:var(--gold)}
+  .hint{color:var(--mist);font-size:14px;max-width:56ch;text-align:center}
+</style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Geometry · Lesson 2 · sim</div>
+    <h1>Two sets. Toggle a button. Watch what's shared.</h1>
+  </header>
+  <main>
+    <div class="controls" id="modes">
+      <button data-mode="union" class="on">Union &nbsp;A ∪ B</button>
+      <button data-mode="intersection">Intersection &nbsp;A ∩ B</button>
+      <button data-mode="aonly">A only</button>
+      <button data-mode="bonly">B only</button>
+      <button data-mode="none">Reset</button>
+    </div>
+    <div class="stage"><svg viewBox="0 0 640 360" id="svg">
+      <defs>
+        <clipPath id="clipA"><circle cx="250" cy="180" r="120"/></clipPath>
+        <clipPath id="clipB"><circle cx="390" cy="180" r="120"/></clipPath>
+      </defs>
+      <g id="hl"></g>
+      <circle cx="250" cy="180" r="120" fill="none" stroke="#8b5cf6" stroke-width="3"/>
+      <circle cx="390" cy="180" r="120" fill="none" stroke="#8b5cf6" stroke-width="3"/>
+      <text x="168" y="120" text-anchor="middle" font-size="22" fill="#e8ecf3" font-family="DM Mono, monospace">Set A</text>
+      <text x="472" y="120" text-anchor="middle" font-size="22" fill="#e8ecf3" font-family="DM Mono, monospace">Set B</text>
+    </svg></div>
+    <div class="readout" id="readout"></div>
+    <p class="hint">A ∪ B (<b style="color:var(--accent)">union</b>) is everything in either loop. A ∩ B (<b style="color:var(--accent)">intersection</b>) is only the overlap. "A only" and "B only" are the crescents — what belongs to one set but not the other.</p>
+  </main>
+<script>
+(() => {
+  const NS = 'http://www.w3.org/2000/svg';
+  const hl = document.getElementById('hl');
+  const readout = document.getElementById('readout');
+  const A = { cx: 250, cy: 180, r: 120 };
+  const B = { cx: 390, cy: 180, r: 120 };
+  const ACCENT = '#8b5cf6';
+  const BG = '#161d31';
+
+  function circle(attrs){
+    const c = document.createElementNS(NS, 'circle');
+    for (const k in attrs) c.setAttribute(k, attrs[k]);
+    return c;
+  }
+
+  const MESSAGES = {
+    none: 'No region selected — just the two sets, A and B, as drawn.',
+    union: 'Union (A ∪ B): <b>everything</b> in Set A, Set B, or both — combined into one group.',
+    intersection: 'Intersection (A ∩ B): only the <b>shared overlap</b> — items that belong to both A and B.',
+    aonly: '<b>A only</b>: items in Set A that are NOT in Set B.',
+    bonly: '<b>B only</b>: items in Set B that are NOT in Set A.'
+  };
+
+  function render(mode){
+    hl.innerHTML = '';
+    if (mode === 'union'){
+      hl.appendChild(circle({ cx:A.cx, cy:A.cy, r:A.r, fill:ACCENT }));
+      hl.appendChild(circle({ cx:B.cx, cy:B.cy, r:B.r, fill:ACCENT }));
+    } else if (mode === 'intersection'){
+      // Circle A's shape, clipped down to only the part also inside B == the lens.
+      hl.appendChild(circle({ cx:A.cx, cy:A.cy, r:A.r, fill:ACCENT, 'clip-path':'url(#clipB)' }));
+    } else if (mode === 'aonly'){
+      // Fill all of A, then paint the B-overlap back to background — leaves the A-only crescent.
+      hl.appendChild(circle({ cx:A.cx, cy:A.cy, r:A.r, fill:ACCENT }));
+      hl.appendChild(circle({ cx:A.cx, cy:A.cy, r:A.r, fill:BG, 'clip-path':'url(#clipB)' }));
+    } else if (mode === 'bonly'){
+      hl.appendChild(circle({ cx:B.cx, cy:B.cy, r:B.r, fill:ACCENT }));
+      hl.appendChild(circle({ cx:B.cx, cy:B.cy, r:B.r, fill:BG, 'clip-path':'url(#clipA)' }));
+    }
+    readout.innerHTML = MESSAGES[mode];
+  }
+
+  document.getElementById('modes').addEventListener('click', e => {
+    const m = e.target.dataset.mode; if (!m) return;
+    [...document.querySelectorAll('#modes button')].forEach(b => b.classList.toggle('on', b.dataset.mode === m));
+    render(m);
+  });
+
+  render('union');
+})();
+</script>
+</body>
+</html>
