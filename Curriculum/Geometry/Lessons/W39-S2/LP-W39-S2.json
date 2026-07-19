@@ -1,0 +1,190 @@
+{
+  "id": "LP-W39-S2",
+  "course": "geometry",
+  "duration_min": 60,
+  "teacher": "Colton",
+  "student": "Stephen Salas",
+  "week": 39,
+  "session": 2,
+  "session_type": "build",
+  "lesson": "Capstone Build — Build (Trig + Solid + Transformation)",
+  "unit": "u03",
+  "mode": "Build",
+  "banner": "Week 39 · Capstone Build — Build Day",
+  "essential_question": "Plans on paper, proof in your hands — can you make all three pieces real?",
+  "objective": "Carry out the three-part capstone build: take the trig measurement, build/print the solid, and perform the coordinate-plane transformation — recording every measurement as you go.",
+  "standards": [
+    "G-SRT.C.6",
+    "G-GMD.A.3",
+    "G-CO.A.2"
+  ],
+  "vocab": [
+    "angle of elevation",
+    "volume",
+    "surface area",
+    "transformation",
+    "coordinates"
+  ],
+  "agenda": [
+    {
+      "phase": "brief",
+      "min": 6,
+      "title": "Brief — Build Day",
+      "board": "brief",
+      "content": {
+        "heading": "From plan to proof",
+        "bullets": [
+          "Yesterday you planned all three parts of your capstone.",
+          "Today you make each one real and record the numbers as you go — nothing counts until it's measured."
+        ]
+      }
+    },
+    {
+      "phase": "build_trig",
+      "min": 14,
+      "title": "Build — Part 1: Measure & Calculate",
+      "board": "build_trig",
+      "content": {
+        "heading": "Height or distance, by angle",
+        "bullets": [
+          "Measure the angle of elevation (or depression) and the baseline distance.",
+          "Compute the height or distance using the correct trig ratio.",
+          "Record your work — the angle, the baseline, the equation, the answer."
+        ]
+      }
+    },
+    {
+      "phase": "build_solid",
+      "min": 16,
+      "title": "Build — Part 2: Construct/Print the Solid",
+      "board": "build_solid",
+      "content": {
+        "heading": "Build it, then measure it",
+        "bullets": [
+          "Build or print the solid from your plan.",
+          "Measure its real dimensions with a ruler.",
+          "Compute volume and surface area from those measured dimensions."
+        ]
+      }
+    },
+    {
+      "phase": "build_transform",
+      "min": 14,
+      "title": "Build — Part 3: Transform on the Coordinate Plane",
+      "board": "build_transform",
+      "content": {
+        "heading": "Move it, then prove it moved correctly",
+        "bullets": [
+          "Plot your original figure and label every vertex's coordinates.",
+          "Perform your planned transformation (or sequence).",
+          "Plot and label the image's coordinates."
+        ]
+      }
+    },
+    {
+      "phase": "measure",
+      "min": 6,
+      "title": "Record All Three Parts",
+      "board": "measure",
+      "content": {
+        "heading": "Get the numbers down",
+        "items": [
+          "m1",
+          "m2",
+          "m3"
+        ]
+      }
+    },
+    {
+      "phase": "reflect",
+      "min": 4,
+      "title": "Reflect & Photograph",
+      "board": "reflect",
+      "content": {
+        "items": [
+          "r1"
+        ],
+        "preview": "Session 3: write it all up for the Portfolio, with a short proof."
+      }
+    }
+  ],
+  "success_criteria": [
+    {
+      "id": "SC1",
+      "text": "I can measure an angle and baseline distance and compute a real height or distance using trig"
+    },
+    {
+      "id": "SC2",
+      "text": "I can build/print a solid, measure its dimensions, and compute its volume and surface area"
+    },
+    {
+      "id": "SC3",
+      "text": "I can perform a transformation on the coordinate plane and record the original and image coordinates"
+    }
+  ],
+  "assets": {
+    "compass": {
+      "date": "",
+      "note": "Curriculum/Geometry/The Salas Compass/2026-W39 Capstone Build.md"
+    }
+  },
+  "activity": {
+    "submit": {
+      "mode": "download",
+      "format": "pdf"
+    },
+    "sections": [
+      {
+        "phase": "measure",
+        "kind": "practice",
+        "title": "Record All Three Parts",
+        "items": [
+          "m1",
+          "m2",
+          "m3"
+        ]
+      },
+      {
+        "phase": "reflect",
+        "kind": "exit",
+        "title": "Reflect",
+        "items": [
+          "r1"
+        ]
+      }
+    ]
+  },
+  "questions": [
+    {
+      "ref": "m1",
+      "type": "measure",
+      "sc": "SC1",
+      "points": 2,
+      "prompt": "Record your Part 1 numbers: angle of elevation, baseline distance, and the computed height/distance (show the trig equation you used).",
+      "answer": "Any consistent measured angle + baseline distance + computed result, with the trig equation shown."
+    },
+    {
+      "ref": "m2",
+      "type": "measure",
+      "sc": "SC2",
+      "points": 2,
+      "prompt": "Record your Part 2 numbers: the solid's measured dimensions and your computed volume and surface area.",
+      "answer": "Any consistent measured dimensions plus computed volume/surface area, with formulas shown."
+    },
+    {
+      "ref": "m3",
+      "type": "short",
+      "sc": "SC3",
+      "points": 2,
+      "prompt": "Record your Part 3 numbers: the original figure's vertices and the image's vertices after your transformation.",
+      "answer": "Any consistent set of before/after coordinate pairs matching the transformation performed."
+    },
+    {
+      "ref": "r1",
+      "type": "short",
+      "sc": "SC1",
+      "points": 2,
+      "prompt": "Reflect: which of the three parts took the most rework today, and what would you do differently if you built it again?"
+    }
+  ]
+}

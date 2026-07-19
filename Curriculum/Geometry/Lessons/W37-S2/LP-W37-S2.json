@@ -1,0 +1,41 @@
+{
+  "id": "LP-W37-S2", "course": "geometry", "week": 37, "session": 2,
+  "session_type": "concept", "lesson": "Year-End Final — Review Unit 02",
+  "unit": "u03", "duration_min": 60, "mode": "Review",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 37 · Year-End Final — Review Unit 02",
+  "essential_question": "Of everything from Lessons 11–19, what still has to be automatic before the Final?",
+  "objective": "Review Unit 02 — polygons and circles, volume and surface area of solids, radicals, and the Pythagorean theorem — through mixed cumulative practice.",
+  "standards": ["G-C.A.2", "G-GMD.A.3", "N-RN.A.2", "G-SRT.C.8"],
+  "vocab": ["circumference", "volume", "surface area", "radical", "simplest form", "Pythagorean theorem"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Round and Solid","board":"warmup","content":{"prompt":"Unit 02 was Lessons 11–19 — round figures, three-dimensional solids, radicals, and the Pythagorean theorem. Without checking anything, which formula comes to mind first?"}},
+    {"phase":"review","min":14,"title":"Unit 02 in Five Ideas","board":"review","content":{"heading":"Circles, solids, radicals, Pythagorean","bullets":["Polygon angle sums and regular polygons; circles — radius, diameter, chord, arc, sector.","Circumference and area of circles (π).","Volume of rectangular solids, cylinders, pyramids, cones, prisms, and spheres.","Surface area — nets, lateral area versus total area.","Simplifying radicals, rationalizing denominators, and the Pythagorean theorem."]}},
+    {"phase":"practice","min":30,"title":"Mixed Cumulative Practice — Lessons 11–19","board":"practice","content":{"heading":"One from each big idea","items":["q1","q2","q3","q4","q5"]}},
+    {"phase":"exit","min":10,"title":"Exit Ticket","board":"exit","content":{"items":["x1"],"preview":"Session 3: Unit 03 — special triangles, proofs, similarity, transformations, and trig."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can compute circumference and other circle facts"},
+    {"id":"SC2","text":"I can compute volume of a solid"},
+    {"id":"SC3","text":"I can simplify a radical and rationalize a denominator"},
+    {"id":"SC4","text":"I can apply the Pythagorean theorem to find a missing side"}
+  ],
+  "assets": {
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W37 Year-End Final Review.md"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"practice","kind":"practice","title":"Mixed Cumulative Practice","items":["q1","q2","q3","q4","q5"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"q1","type":"short","sc":"SC1","points":2,"prompt":"Find the circumference of a circle with radius 5, in terms of π.","answer":"C=2πr=2π(5)=10π","explain":"Circumference formula: C=2πr."},
+    {"ref":"q2","type":"short","sc":"SC2","points":2,"prompt":"Find the volume of a rectangular solid with length 4, width 3, and height 2.","answer":"V=lwh=4×3×2=24 cubic units.","explain":"Volume of a rectangular solid = length × width × height."},
+    {"ref":"q3","type":"dropdown","sc":"SC3","points":1,"prompt":"√48 simplified is…","options":["4√3","2√12","16√3","6√8"],"answer":"4√3","explain":"48=16×3, so √48=√16·√3=4√3."},
+    {"ref":"q4","type":"short","sc":"SC3","points":1,"prompt":"Rationalize the denominator: 5/√5.","answer":"√5","explain":"5/√5 = (5/√5)×(√5/√5) = 5√5/5 = √5."},
+    {"ref":"q5","type":"short","sc":"SC4","points":2,"prompt":"A right triangle has legs 8 and 15. Find the hypotenuse.","answer":"17 — 8²+15²=64+225=289, √289=17 (the classic 8-15-17 triple).","explain":"a²+b²=c²."},
+    {"ref":"x1","type":"short","points":1,"prompt":"Exit: which Unit 02 idea from today's mix would you want one more example of before the Final?"}
+  ]
+}

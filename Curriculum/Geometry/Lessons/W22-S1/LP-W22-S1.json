@@ -1,0 +1,248 @@
+{
+  "id": "LP-W22-S1",
+  "course": "geometry",
+  "duration_min": 60,
+  "teacher": "Colton",
+  "student": "Stephen Salas",
+  "week": 22,
+  "session": 1,
+  "session_type": "concept",
+  "lesson": "Unit 02 Studio — Review (Lessons 11–19)",
+  "unit": "u02",
+  "mode": "Review",
+  "banner": "Week 22 · Unit 02 Studio — Review, Lessons 11–19",
+  "essential_question": "From flat polygons to solid shapes and the square roots that measure them — what's still solid in your memory?",
+  "objective": "Revisit and connect the vocabulary and skills from Lessons 11–19 — polygon angles through rationalizing denominators — and surface any gaps before the Unit 02 capstone build and MUS Unit Test II.",
+  "standards": [
+    "G-CO.C.11",
+    "G-C.A.2",
+    "G-GMD.A.1",
+    "G-GMD.A.3",
+    "N-RN.A.2",
+    "G-SRT.C.8"
+  ],
+  "vocab": [
+    "regular polygon",
+    "circumference",
+    "volume",
+    "surface area",
+    "radical",
+    "Pythagorean theorem"
+  ],
+  "agenda": [
+    {
+      "phase": "launch",
+      "min": 5,
+      "title": "Launch — Nine Lessons, Two Dimensions to Three",
+      "board": "launch",
+      "content": {
+        "prompt": "Name one lesson from 11–19 that was mostly flat (2D) and one that was solid (3D). Which was harder for you, and why?"
+      }
+    },
+    {
+      "phase": "review_early",
+      "min": 10,
+      "title": "Review — Polygons & Circles (L11–L13)",
+      "board": "review_early",
+      "content": {
+        "heading": "L11–L13 in sixty seconds each",
+        "bullets": [
+          "L11 Polygons: Angles, Diagonals & Regular Polygons — interior/exterior angle formulas, diagonals, regular polygons.",
+          "L12 Circles: Parts & Vocabulary — radius, diameter, chord, arc, sector.",
+          "L13 Circumference & Area of Circles — circumference = 2πr, area = πr², what π actually is."
+        ]
+      }
+    },
+    {
+      "phase": "review_mid",
+      "min": 10,
+      "title": "Review — Volume & Surface Area (L14–L16)",
+      "board": "review_mid",
+      "content": {
+        "heading": "L14–L16 in sixty seconds each",
+        "bullets": [
+          "L14 Volume of Rectangular Solids & Cylinders — V = Bh (base area × height).",
+          "L15 Volume of Pyramids, Cones, Prisms & Spheres — the ⅓ and ⁴⁄₃ formulas, slant height.",
+          "L16 Surface Area of Solids — unfold the net, add up every face's area, lateral vs. total."
+        ]
+      }
+    },
+    {
+      "phase": "review_late",
+      "min": 10,
+      "title": "Review — Radicals & the Pythagorean Theorem (L17–L19)",
+      "board": "review_late",
+      "content": {
+        "heading": "L17–L19 in sixty seconds each",
+        "bullets": [
+          "L17 Simplifying Radicals — pull out the biggest perfect-square factor.",
+          "L18 The Pythagorean Theorem — a² + b² = c², legs & hypotenuse, and its converse for testing right triangles.",
+          "L19 Rationalizing Denominators — multiply by the conjugate (or the radical itself) to clear the bottom."
+        ]
+      }
+    },
+    {
+      "phase": "check",
+      "min": 8,
+      "title": "Vocab Check — Unit 02",
+      "board": "check",
+      "content": {
+        "heading": "Name it fast",
+        "items": [
+          "n1",
+          "n2"
+        ]
+      }
+    },
+    {
+      "phase": "you_do",
+      "min": 12,
+      "title": "You do — Mixed Practice",
+      "board": "you_do",
+      "content": {
+        "heading": "One from each third of the unit",
+        "items": [
+          "p1",
+          "p2",
+          "p3"
+        ]
+      }
+    },
+    {
+      "phase": "exit",
+      "min": 5,
+      "title": "Exit Ticket",
+      "board": "exit",
+      "content": {
+        "items": [
+          "x1"
+        ],
+        "preview": "Next session: the Unit 02 capstone — a built/3D-printed solid with computed volume & surface area, verified by measurement."
+      }
+    }
+  ],
+  "success_criteria": [
+    {
+      "id": "SC1",
+      "text": "I can name the key vocabulary and formulas from Lessons 11–19 (polygons through rationalizing denominators)"
+    },
+    {
+      "id": "SC2",
+      "text": "I can choose and apply the correct volume, surface area, or Pythagorean formula for a given solid or right triangle"
+    },
+    {
+      "id": "SC3",
+      "text": "I can identify which of Lessons 11–19 I need to reteach before the test"
+    }
+  ],
+  "assets": {
+    "compass": {
+      "date": "",
+      "note": "Curriculum/Geometry/The Salas Compass/2026-W22 Unit 2 Studio.md"
+    }
+  },
+  "activity": {
+    "submit": {
+      "mode": "download",
+      "format": "pdf"
+    },
+    "sections": [
+      {
+        "phase": "check",
+        "kind": "check",
+        "title": "Vocab Check — Unit 02",
+        "items": [
+          "n1",
+          "n2"
+        ]
+      },
+      {
+        "phase": "practice",
+        "kind": "practice",
+        "title": "Mixed Practice",
+        "items": [
+          "p1",
+          "p2",
+          "p3"
+        ]
+      },
+      {
+        "phase": "exit",
+        "kind": "exit",
+        "title": "Exit Ticket",
+        "items": [
+          "x1"
+        ]
+      }
+    ]
+  },
+  "questions": [
+    {
+      "ref": "n1",
+      "type": "dropdown",
+      "sc": "SC1",
+      "points": 1,
+      "prompt": "The set of all points a fixed distance from a center point is a…",
+      "options": [
+        "polygon",
+        "circle",
+        "sphere"
+      ],
+      "answer": "circle",
+      "explain": "A circle is exactly the set of points at a fixed distance (the radius) from the center."
+    },
+    {
+      "ref": "n2",
+      "type": "mc",
+      "sc": "SC1",
+      "points": 1,
+      "prompt": "√50 simplified is…",
+      "options": [
+        "5√2",
+        "2√5",
+        "25√2"
+      ],
+      "answer": "5√2",
+      "explain": "√50 = √25 · √2 = 5√2."
+    },
+    {
+      "ref": "p1",
+      "type": "short",
+      "sc": "SC2",
+      "points": 2,
+      "prompt": "A cylinder has radius 3 in and height 10 in. Find its volume in terms of π.",
+      "answer": "V = πr²h = π(3²)(10) = 90π in³",
+      "explain": "Cylinder volume is base area (πr²) times height."
+    },
+    {
+      "ref": "p2",
+      "type": "mc",
+      "sc": "SC2",
+      "points": 1,
+      "prompt": "A right triangle has legs 6 and 8. What is the hypotenuse?",
+      "options": [
+        "10",
+        "14",
+        "48"
+      ],
+      "answer": "10",
+      "explain": "6² + 8² = 36 + 64 = 100, and √100 = 10."
+    },
+    {
+      "ref": "p3",
+      "type": "short",
+      "sc": "SC2",
+      "points": 2,
+      "prompt": "A rectangular box has a 4×5 base and height 6. Find its surface area.",
+      "answer": "2(4·5) + 2(4·6) + 2(5·6) = 40 + 48 + 60 = 148 square units",
+      "explain": "Surface area is the sum of the areas of all six rectangular faces, each counted twice (top/bottom, front/back, left/right)."
+    },
+    {
+      "ref": "x1",
+      "type": "short",
+      "sc": "SC3",
+      "points": 2,
+      "prompt": "Exit: which of Lessons 11–19 do you most need to review again before the capstone and the test — name it and why."
+    }
+  ]
+}

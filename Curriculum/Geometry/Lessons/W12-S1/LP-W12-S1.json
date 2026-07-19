@@ -1,0 +1,251 @@
+{
+  "id": "LP-W12-S1",
+  "course": "geometry",
+  "duration_min": 60,
+  "teacher": "Colton",
+  "student": "Stephen Salas",
+  "week": 12,
+  "session": 1,
+  "session_type": "concept",
+  "lesson": "Unit 01 Studio — Review (Lessons 1–10)",
+  "unit": "u01",
+  "mode": "Review",
+  "banner": "Week 12 · Unit 01 Studio — Review, Lessons 1–10",
+  "essential_question": "What holds together when you put all ten lessons side by side — and where's the crack?",
+  "objective": "Revisit and connect the vocabulary and skills from Lessons 1–10 — points through classifying triangles — and surface any gaps before the Unit 01 capstone build and MUS Unit Test I.",
+  "standards": [
+    "G-CO.A.1",
+    "G-CO.D.12",
+    "G-CO.C.9",
+    "G-MG.A.1",
+    "G-CO.C.10"
+  ],
+  "vocab": [
+    "angle",
+    "parallel",
+    "perpendicular",
+    "transversal",
+    "polygon",
+    "perimeter",
+    "area",
+    "triangle inequality"
+  ],
+  "agenda": [
+    {
+      "phase": "launch",
+      "min": 5,
+      "title": "Launch — Ten Lessons, One Map",
+      "board": "launch",
+      "content": {
+        "prompt": "List Lessons 1–10 from memory in order, one phrase each. Circle the one you're least sure about — that's where we start."
+      }
+    },
+    {
+      "phase": "review_early",
+      "min": 10,
+      "title": "Review — Building Blocks & Angles (L1–L4)",
+      "board": "review_early",
+      "content": {
+        "heading": "L1–L4 in sixty seconds each",
+        "bullets": [
+          "L1 Points, Lines, Rays & Segments — sorted by how many endpoints each has.",
+          "L2 Planes & Sets — coplanar points, union (everything in either set) vs. intersection (only what's shared).",
+          "L3 Angles & Angle Measure — vertex, rays, degrees, reading a protractor.",
+          "L4 Types of Angles — acute, right, obtuse, straight, reflex, sorted by degree range."
+        ]
+      }
+    },
+    {
+      "phase": "review_mid",
+      "min": 10,
+      "title": "Review — Lines & Angle Pairs (L5–L7)",
+      "board": "review_mid",
+      "content": {
+        "heading": "L5–L7 in sixty seconds each",
+        "bullets": [
+          "L5 Parallel & Perpendicular Lines; Bisectors — never-meet vs. meet-at-90°, and cutting something exactly in half.",
+          "L6 Supplementary, Complementary & Vertical Angles — 180°, 90°, and the 'across the X' pair that's always equal.",
+          "L7 Transversals & Parallel Lines — corresponding, alternate interior, alternate exterior angles, and their converses."
+        ]
+      }
+    },
+    {
+      "phase": "review_late",
+      "min": 10,
+      "title": "Review — Polygons, Area & Triangles (L8–L10)",
+      "board": "review_late",
+      "content": {
+        "heading": "L8–L10 in sixty seconds each",
+        "bullets": [
+          "L8 Polygons, Quadrilaterals & Perimeter — naming polygons, sorting quadrilaterals, perimeter = sum of sides.",
+          "L9 Area of Parallelograms, Triangles & Trapezoids — base × height (and the ÷2 or the average-of-bases moves).",
+          "L10 Classifying Triangles — scalene/isosceles/equilateral, acute/right/obtuse, and the triangle inequality."
+        ]
+      }
+    },
+    {
+      "phase": "check",
+      "min": 8,
+      "title": "Vocab Check — Unit 01",
+      "board": "check",
+      "content": {
+        "heading": "Name it fast",
+        "items": [
+          "n1",
+          "n2"
+        ]
+      }
+    },
+    {
+      "phase": "you_do",
+      "min": 12,
+      "title": "You do — Mixed Practice",
+      "board": "you_do",
+      "content": {
+        "heading": "One from each third of the unit",
+        "items": [
+          "p1",
+          "p2",
+          "p3"
+        ]
+      }
+    },
+    {
+      "phase": "exit",
+      "min": 5,
+      "title": "Exit Ticket",
+      "board": "exit",
+      "content": {
+        "items": [
+          "x1"
+        ],
+        "preview": "Next session: the Unit 01 capstone — a compass/CAD-built polygon with verified perimeter & angle sums."
+      }
+    }
+  ],
+  "success_criteria": [
+    {
+      "id": "SC1",
+      "text": "I can name the key vocabulary and tools from Lessons 1–10 (points through classifying triangles)"
+    },
+    {
+      "id": "SC2",
+      "text": "I can pick the correct formula or angle relationship for a given figure"
+    },
+    {
+      "id": "SC3",
+      "text": "I can identify which of the ten lessons I need to reteach before the test"
+    }
+  ],
+  "assets": {
+    "compass": {
+      "date": "",
+      "note": "Curriculum/Geometry/The Salas Compass/2026-W12 Unit 1 Studio.md"
+    }
+  },
+  "activity": {
+    "submit": {
+      "mode": "download",
+      "format": "pdf"
+    },
+    "sections": [
+      {
+        "phase": "check",
+        "kind": "check",
+        "title": "Vocab Check — Unit 01",
+        "items": [
+          "n1",
+          "n2"
+        ]
+      },
+      {
+        "phase": "practice",
+        "kind": "practice",
+        "title": "Mixed Practice",
+        "items": [
+          "p1",
+          "p2",
+          "p3"
+        ]
+      },
+      {
+        "phase": "exit",
+        "kind": "exit",
+        "title": "Exit Ticket",
+        "items": [
+          "x1"
+        ]
+      }
+    ]
+  },
+  "questions": [
+    {
+      "ref": "n1",
+      "type": "dropdown",
+      "sc": "SC1",
+      "points": 1,
+      "prompt": "Two angles that share a vertex and a side, and don't overlap, are called…",
+      "options": [
+        "complementary",
+        "adjacent",
+        "vertical",
+        "supplementary"
+      ],
+      "answer": "adjacent",
+      "explain": "Adjacent angles sit side by side, sharing a vertex and one ray, with no overlap."
+    },
+    {
+      "ref": "n2",
+      "type": "mc",
+      "sc": "SC1",
+      "points": 1,
+      "prompt": "A quadrilateral with exactly one pair of parallel sides is a…",
+      "options": [
+        "parallelogram",
+        "trapezoid",
+        "rhombus"
+      ],
+      "answer": "trapezoid",
+      "explain": "A trapezoid has exactly one pair of parallel sides; a parallelogram has two pairs."
+    },
+    {
+      "ref": "p1",
+      "type": "short",
+      "sc": "SC2",
+      "points": 2,
+      "prompt": "Two angles are supplementary and one measures 118°. What's the other?",
+      "answer": "62°",
+      "explain": "Supplementary angles sum to 180°: 180 − 118 = 62."
+    },
+    {
+      "ref": "p2",
+      "type": "mc",
+      "sc": "SC2",
+      "points": 1,
+      "prompt": "A transversal cuts two parallel lines. Which angle pair is always congruent?",
+      "options": [
+        "consecutive interior angles",
+        "corresponding angles",
+        "a linear pair"
+      ],
+      "answer": "corresponding angles",
+      "explain": "Corresponding angles occupy matching corners at each intersection and are always congruent when the lines are parallel."
+    },
+    {
+      "ref": "p3",
+      "type": "short",
+      "sc": "SC2",
+      "points": 2,
+      "prompt": "A triangle has sides 4 cm, 5 cm, and 10 cm. Does it close into a triangle? Use the triangle inequality to explain.",
+      "answer": "No — 4 + 5 = 9, which is less than 10, so the two short sides can't reach the long one.",
+      "explain": "The triangle inequality requires any two sides to sum to MORE than the third; 9 < 10 fails."
+    },
+    {
+      "ref": "x1",
+      "type": "short",
+      "sc": "SC3",
+      "points": 2,
+      "prompt": "Exit: which of Lessons 1–10 do you most need to review again before the capstone and the test — name it and one reason why."
+    }
+  ]
+}

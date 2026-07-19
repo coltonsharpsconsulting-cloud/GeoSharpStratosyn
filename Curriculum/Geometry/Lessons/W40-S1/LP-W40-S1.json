@@ -1,0 +1,40 @@
+{
+  "id": "LP-W40-S1", "course": "geometry", "week": 40, "session": 1,
+  "session_type": "build", "lesson": "Portfolio Show & Transcript Close — Assemble the Portfolio",
+  "unit": "u03", "duration_min": 60, "mode": "Build",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 40 · Assemble the Portfolio",
+  "essential_question": "Gathered together, what does a year of building actually look like?",
+  "objective": "Gather every build artifact from the year, select the strongest pieces, and record them in the course Portfolio.",
+  "standards": ["G-MG.A.1", "G-GMD.A.3", "G-SRT.C.6"],
+  "vocab": ["portfolio", "capstone", "artifact", "build log"],
+  "agenda": [
+    {"phase":"brief","min":8,"title":"Brief — Why a Portfolio","board":"brief","content":{"heading":"The transcript's evidence","bullets":["A mastery rating is a number; the Portfolio is the thing that was actually made.","Today's job: find everything — every build, every photo, every write-up from this year.","Tomorrow you'll present it. First, you have to find it all."]}},
+    {"phase":"build","min":20,"title":"Find Every Artifact","board":"build","content":{"heading":"Search the whole year","note":"Start with the four capstones — Week 12 (Unit 01), Week 22 (Unit 02), Week 35 (Unit 03), and Week 39 (Year-End Capstone Build) — then scan every weekly S2 · Build log in The Salas Compass.","items":["b1"]}},
+    {"phase":"build","min":16,"title":"Pick Your Best","board":"build","content":{"heading":"Not everything makes the cut","items":["b2","b3"]}},
+    {"phase":"build","min":10,"title":"Update the Portfolio","board":"build","content":{"heading":"Make it official","items":["b4"]}},
+    {"phase":"exit","min":6,"title":"Exit Ticket","board":"exit","content":{"items":["r1"],"preview":"Session 2: showcase — present your year's builds."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can locate and list the build artifacts from across the year"},
+    {"id":"SC2","text":"I can select and describe my strongest builds, including all four capstones"},
+    {"id":"SC3","text":"I can record my best build in the course Portfolio"}
+  ],
+  "assets": {
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W40 Portfolio Show & Transcript Close.md"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"build","kind":"practice","title":"Find, Select & Record","items":["b1","b2","b3","b4"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["r1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"b1","type":"short","sc":"SC1","points":2,"prompt":"List every build artifact you can find from this year — a photo, an STL file, a CAD screenshot, a PDF write-up. Start with the four capstones (Weeks 12, 22, 35, and 39), then scan your weekly S2 · Build logs in The Salas Compass."},
+    {"ref":"b2","type":"short","sc":"SC2","points":2,"prompt":"Pick your single best build from the year. Name it and say in one sentence why it best shows what you can do."},
+    {"ref":"b3","type":"short","sc":"SC2","points":2,"prompt":"For each of the four capstones — Week 12, 22, 35, and 39 — write one sentence describing what you built and what math it proved."},
+    {"ref":"b4","type":"short","sc":"SC3","points":2,"prompt":"Open [[Records/Portfolio]] and add a row for your best build with its artifact and a short note. Confirm you did it."},
+    {"ref":"r1","type":"short","points":1,"prompt":"Exit: what's missing from your portfolio that you wish you'd photographed or saved along the way?"}
+  ]
+}

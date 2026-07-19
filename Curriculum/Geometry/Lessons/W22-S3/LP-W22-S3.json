@@ -1,0 +1,208 @@
+{
+  "id": "LP-W22-S3",
+  "course": "geometry",
+  "duration_min": 60,
+  "teacher": "Colton",
+  "student": "Stephen Salas",
+  "week": 22,
+  "session": 3,
+  "session_type": "prove",
+  "lesson": "Unit 02 Studio — MUS Unit Test II (Lessons 11–19)",
+  "unit": "u02",
+  "mode": "Assess",
+  "banner": "Week 22 · Final Review + MUS Unit Test II",
+  "essential_question": "Can you show nine lessons of 2D-to-3D reasoning with nobody coaching you through it?",
+  "objective": "Complete a final mixed review of Lessons 11–19, take Math-U-See Unit Test II independently, and reflect honestly on which lessons are mastered and which need reteaching.",
+  "standards": [
+    "G-CO.C.11",
+    "G-C.A.2",
+    "G-GMD.A.1",
+    "G-GMD.A.3",
+    "N-RN.A.2",
+    "G-SRT.C.8"
+  ],
+  "vocab": [
+    "circumference",
+    "volume",
+    "surface area",
+    "radical",
+    "Pythagorean theorem",
+    "conjugate"
+  ],
+  "agenda": [
+    {
+      "phase": "warmup",
+      "min": 6,
+      "title": "Warm-Up — Cold Call Nine",
+      "board": "warmup",
+      "content": {
+        "prompt": "Without notes, write one fact each about: circle parts, cylinder volume, a solid's surface area, simplifying a radical, and the Pythagorean theorem."
+      }
+    },
+    {
+      "phase": "review",
+      "min": 14,
+      "title": "Review — Last Look Before the Test",
+      "board": "review",
+      "content": {
+        "heading": "Fix what you missed",
+        "note": "Go back over any missed problems from the capstone build and this week's practice, focusing on choosing the right volume/surface-area formula and simplifying radicals cleanly. Fix each one and note WHY you missed it."
+      }
+    },
+    {
+      "phase": "checkpoint",
+      "min": 16,
+      "title": "Final Mixed Checkpoint",
+      "board": "checkpoint",
+      "content": {
+        "heading": "Show what you own — all nine lessons",
+        "items": [
+          "c1",
+          "c2",
+          "c3",
+          "c4",
+          "c5"
+        ]
+      }
+    },
+    {
+      "phase": "test",
+      "min": 18,
+      "title": "MUS Unit Test II — Independent",
+      "board": "test",
+      "content": {
+        "heading": "On your own now",
+        "note": "Take Math-U-See Unit Test II (Lessons 11–19) independently — no notes, no help. Put it in the folder for grading when you're done."
+      }
+    },
+    {
+      "phase": "close",
+      "min": 6,
+      "title": "Close & Set Mastery",
+      "board": "close",
+      "content": {
+        "items": [
+          "x1"
+        ],
+        "preview": "Next week: Lesson 20, Special Right Triangles (45-45-90), starting Unit 03."
+      }
+    }
+  ],
+  "success_criteria": [
+    {
+      "id": "SC1",
+      "text": "I can correctly answer mixed questions across Lessons 11–19 without help"
+    },
+    {
+      "id": "SC2",
+      "text": "I can complete MUS Unit Test II independently within one session"
+    },
+    {
+      "id": "SC3",
+      "text": "I can honestly rate my mastery of each of the nine lessons and name what needs reteaching"
+    }
+  ],
+  "assets": {
+    "compass": {
+      "date": "",
+      "note": "Curriculum/Geometry/The Salas Compass/2026-W22 Unit 2 Studio.md"
+    }
+  },
+  "activity": {
+    "submit": {
+      "mode": "download",
+      "format": "pdf"
+    },
+    "sections": [
+      {
+        "phase": "checkpoint",
+        "kind": "check",
+        "title": "Final Mixed Checkpoint",
+        "items": [
+          "c1",
+          "c2",
+          "c3",
+          "c4",
+          "c5"
+        ]
+      },
+      {
+        "phase": "close",
+        "kind": "exit",
+        "title": "Set Your Mastery",
+        "items": [
+          "x1"
+        ]
+      }
+    ]
+  },
+  "questions": [
+    {
+      "ref": "c1",
+      "type": "mc",
+      "sc": "SC1",
+      "points": 1,
+      "prompt": "The distance around a circle is called its…",
+      "options": [
+        "area",
+        "circumference",
+        "diameter"
+      ],
+      "answer": "circumference",
+      "explain": "Circumference is the distance around a circle, equal to 2πr."
+    },
+    {
+      "ref": "c2",
+      "type": "short",
+      "sc": "SC1",
+      "points": 2,
+      "prompt": "Simplify √72.",
+      "answer": "6√2",
+      "explain": "√72 = √36 · √2 = 6√2."
+    },
+    {
+      "ref": "c3",
+      "type": "dropdown",
+      "sc": "SC1",
+      "points": 1,
+      "prompt": "A solid with two parallel congruent circular bases connected by a curved surface is a…",
+      "options": [
+        "cone",
+        "cylinder",
+        "sphere"
+      ],
+      "answer": "cylinder",
+      "explain": "A cylinder has two congruent circular bases joined by a curved lateral surface."
+    },
+    {
+      "ref": "c4",
+      "type": "mc",
+      "sc": "SC1",
+      "points": 1,
+      "prompt": "A right triangle has legs 9 and 12. What's the hypotenuse?",
+      "options": [
+        "15",
+        "21",
+        "108"
+      ],
+      "answer": "15",
+      "explain": "9² + 12² = 81 + 144 = 225, and √225 = 15."
+    },
+    {
+      "ref": "c5",
+      "type": "short",
+      "sc": "SC1",
+      "points": 2,
+      "prompt": "Rationalize the denominator: 5/√3.",
+      "answer": "5√3/3",
+      "explain": "Multiply top and bottom by √3: (5·√3)/(√3·√3) = 5√3/3."
+    },
+    {
+      "ref": "x1",
+      "type": "short",
+      "sc": "SC3",
+      "points": 2,
+      "prompt": "Close: after MUS Unit Test II, rate your mastery of Unit 02 and name the ONE lesson from 11–19 you'd want to revisit."
+    }
+  ]
+}

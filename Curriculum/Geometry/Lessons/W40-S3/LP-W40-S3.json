@@ -1,0 +1,41 @@
+{
+  "id": "LP-W40-S3", "course": "geometry", "week": 40, "session": 3,
+  "session_type": "prove", "lesson": "Portfolio Show & Transcript Close — Transcript Close",
+  "unit": "u03", "duration_min": 60, "mode": "Reflect",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 40 · Transcript Close",
+  "essential_question": "Looking back across all 30 lessons — what's the honest, full picture of a year of geometry?",
+  "objective": "Review mastery across all 30 lessons, confirm the Transcript record, and reflect on the year's full journey.",
+  "standards": ["G-CO.A.1", "G-GMD.A.3", "G-SRT.C.6"],
+  "vocab": ["mastery review", "transcript", "credit", "reflection"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — The Whole Year","board":"warmup","content":{"prompt":"Forty weeks, thirty lessons, four capstones. Before we look at any record — what's the one word you'd use to describe this year of geometry?"}},
+    {"phase":"review","min":20,"title":"Mastery Review — All 30 Lessons","board":"review","content":{"heading":"The full record","items":["t1","t2"]}},
+    {"phase":"review","min":14,"title":"Confirm the Transcript","board":"review","content":{"heading":"Make it official","items":["t3"]}},
+    {"phase":"reflect","min":12,"title":"Your Overall Rating","board":"reflect","content":{"items":["t4"]}},
+    {"phase":"close","min":8,"title":"Close the Year","board":"close","content":{"items":["x1"],"preview":"Course complete — 1.0 Geometry credit earned."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can review my mastery record across all 30 lessons and name specific strengths and gaps"},
+    {"id":"SC2","text":"I can confirm my Transcript record is accurate"},
+    {"id":"SC3","text":"I can give an honest overall self-rating for the year, with reasoning"}
+  ],
+  "assets": {
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W40 Portfolio Show & Transcript Close.md"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"review","kind":"practice","title":"Mastery Review & Transcript","items":["t1","t2","t3"]},
+      {"phase":"reflect","kind":"practice","title":"Your Overall Rating","items":["t4"]},
+      {"phase":"close","kind":"exit","title":"Close the Year","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"t1","type":"short","sc":"SC1","points":2,"prompt":"Open [[Records/Mastery & Progress]] and scan all 30 lessons. List any lesson still below Proficient."},
+    {"ref":"t2","type":"short","sc":"SC1","points":2,"prompt":"For each unit (01, 02, 03), name the one lesson you're most confident in and the one you'd want a refresher on before your next math course."},
+    {"ref":"t3","type":"short","sc":"SC2","points":2,"prompt":"Open [[Records/Transcript]] and confirm your name, the course title, and the credit awarded are all correct."},
+    {"ref":"t4","type":"short","sc":"SC3","points":2,"prompt":"Overall, how would you rate your mastery of Geometry this year — Emerging, Proficient, or Mastered — and why, in one sentence?"},
+    {"ref":"x1","type":"short","points":1,"prompt":"Exit: write one paragraph in The Salas Compass looking back at Week 1 you and forward to whatever comes next. What are you proudest of?"}
+  ]
+}

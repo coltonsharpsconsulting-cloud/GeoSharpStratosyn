@@ -1,0 +1,209 @@
+{
+  "id": "LP-W12-S3",
+  "course": "geometry",
+  "duration_min": 60,
+  "teacher": "Colton",
+  "student": "Stephen Salas",
+  "week": 12,
+  "session": 3,
+  "session_type": "prove",
+  "lesson": "Unit 01 Studio — MUS Unit Test I (Lessons 1–10)",
+  "unit": "u01",
+  "mode": "Assess",
+  "banner": "Week 12 · Final Review + MUS Unit Test I",
+  "essential_question": "Can you show ten lessons' worth of skill with nobody coaching you through it?",
+  "objective": "Complete a final mixed review of Lessons 1–10, take Math-U-See Unit Test I independently, and reflect honestly on which lessons are mastered and which need reteaching.",
+  "standards": [
+    "G-CO.A.1",
+    "G-CO.D.12",
+    "G-CO.C.9",
+    "G-MG.A.1",
+    "G-CO.C.10"
+  ],
+  "vocab": [
+    "supplementary",
+    "complementary",
+    "vertical angles",
+    "transversal",
+    "perimeter",
+    "area",
+    "triangle inequality"
+  ],
+  "agenda": [
+    {
+      "phase": "warmup",
+      "min": 6,
+      "title": "Warm-Up — Cold Call Ten",
+      "board": "warmup",
+      "content": {
+        "prompt": "Without notes, write one sentence each defining: point, angle, parallel lines, transversal, and triangle inequality. Then check against your concept notes."
+      }
+    },
+    {
+      "phase": "review",
+      "min": 14,
+      "title": "Review — Last Look Before the Test",
+      "board": "review",
+      "content": {
+        "heading": "Fix what you missed",
+        "note": "Go back over any missed problems from the capstone build and this week's practice, focusing on identifying angle pairs and picking the right perimeter/area formula. Fix each one and note WHY you missed it."
+      }
+    },
+    {
+      "phase": "checkpoint",
+      "min": 16,
+      "title": "Final Mixed Checkpoint",
+      "board": "checkpoint",
+      "content": {
+        "heading": "Show what you own — all ten lessons",
+        "items": [
+          "c1",
+          "c2",
+          "c3",
+          "c4",
+          "c5"
+        ]
+      }
+    },
+    {
+      "phase": "test",
+      "min": 18,
+      "title": "MUS Unit Test I — Independent",
+      "board": "test",
+      "content": {
+        "heading": "On your own now",
+        "note": "Take Math-U-See Unit Test I (Lessons 1–10) independently — no notes, no help. Put it in the folder for grading when you're done."
+      }
+    },
+    {
+      "phase": "close",
+      "min": 6,
+      "title": "Close & Set Mastery",
+      "board": "close",
+      "content": {
+        "items": [
+          "x1"
+        ],
+        "preview": "Next week: Lesson 11, Polygons — angles, diagonals & regular polygons, starting Unit 02."
+      }
+    }
+  ],
+  "success_criteria": [
+    {
+      "id": "SC1",
+      "text": "I can correctly answer mixed questions across Lessons 1–10 without help"
+    },
+    {
+      "id": "SC2",
+      "text": "I can complete MUS Unit Test I independently within one session"
+    },
+    {
+      "id": "SC3",
+      "text": "I can honestly rate my mastery of each of the ten lessons and name what needs reteaching"
+    }
+  ],
+  "assets": {
+    "compass": {
+      "date": "",
+      "note": "Curriculum/Geometry/The Salas Compass/2026-W12 Unit 1 Studio.md"
+    }
+  },
+  "activity": {
+    "submit": {
+      "mode": "download",
+      "format": "pdf"
+    },
+    "sections": [
+      {
+        "phase": "checkpoint",
+        "kind": "check",
+        "title": "Final Mixed Checkpoint",
+        "items": [
+          "c1",
+          "c2",
+          "c3",
+          "c4",
+          "c5"
+        ]
+      },
+      {
+        "phase": "close",
+        "kind": "exit",
+        "title": "Set Your Mastery",
+        "items": [
+          "x1"
+        ]
+      }
+    ]
+  },
+  "questions": [
+    {
+      "ref": "c1",
+      "type": "mc",
+      "sc": "SC1",
+      "points": 1,
+      "prompt": "Which best describes two lines that never meet and stay the same distance apart?",
+      "options": [
+        "perpendicular",
+        "parallel",
+        "transversal"
+      ],
+      "answer": "parallel",
+      "explain": "Parallel lines never intersect and keep a constant distance apart."
+    },
+    {
+      "ref": "c2",
+      "type": "dropdown",
+      "sc": "SC1",
+      "points": 1,
+      "prompt": "An angle measuring exactly 90° is called a(n)…",
+      "options": [
+        "acute",
+        "right",
+        "obtuse",
+        "straight"
+      ],
+      "answer": "right",
+      "explain": "A right angle measures exactly 90°."
+    },
+    {
+      "ref": "c3",
+      "type": "short",
+      "sc": "SC1",
+      "points": 2,
+      "prompt": "Two angles are complementary. One is 37°. What is the other?",
+      "answer": "53°",
+      "explain": "Complementary angles sum to 90°: 90 − 37 = 53."
+    },
+    {
+      "ref": "c4",
+      "type": "mc",
+      "sc": "SC1",
+      "points": 1,
+      "prompt": "A quadrilateral with two pairs of parallel sides is best called a…",
+      "options": [
+        "trapezoid",
+        "parallelogram",
+        "kite"
+      ],
+      "answer": "parallelogram",
+      "explain": "A parallelogram has two pairs of parallel sides; a trapezoid has only one."
+    },
+    {
+      "ref": "c5",
+      "type": "short",
+      "sc": "SC1",
+      "points": 2,
+      "prompt": "Classify a triangle with angles 40°, 40°, 100° by both its sides and its angles (you may assume it's isosceles by construction).",
+      "answer": "Isosceles (two equal angles mean two equal sides) and obtuse (one angle is over 90°).",
+      "explain": "Two congruent angles (40°, 40°) mean two congruent sides (isosceles); a 100° angle makes it obtuse."
+    },
+    {
+      "ref": "x1",
+      "type": "short",
+      "sc": "SC3",
+      "points": 2,
+      "prompt": "Close: after MUS Unit Test I, rate your mastery of Unit 01 (Emerging / Proficient / Mastered) and name the ONE lesson from 1–10 you'd want to revisit before it comes up again."
+    }
+  ]
+}

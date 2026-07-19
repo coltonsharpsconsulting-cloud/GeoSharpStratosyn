@@ -1,0 +1,39 @@
+{
+  "id": "LP-W23-S3", "course": "geometry", "week": 23, "session": 3,
+  "session_type": "prove", "lesson": "Catch-Up & Reteach — Reassess",
+  "unit": "u02", "duration_min": 60, "mode": "Assess",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 23 · Catch-Up & Reteach — Reassess",
+  "essential_question": "Now that you've retaught the weak spot — does it actually hold under a fresh check?",
+  "objective": "Retake a fresh mastery check across Lessons 11–19, mirroring a MUS Systematic Review, confirm the reteach worked, and honestly reset your mastery rating.",
+  "standards": ["G-CO.C.11", "G-GMD.A.1", "G-GMD.A.3", "G-SRT.C.8", "N-RN.A.2"],
+  "vocab": ["mastery check", "Systematic Review", "reassessment", "converse", "rationalize"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Name the Fix","board":"warmup","content":{"prompt":"Before we check anything — what specifically did you fix since Session 2? Say it in one sentence."}},
+    {"phase":"review","min":10,"title":"One More Pass","board":"review","content":{"heading":"Reread before you retest","note":"Skim your corrected Session 2 work one more time. Then close it — the next problems are fresh, not a repeat."}},
+    {"phase":"checkpoint","min":28,"title":"Fresh Mastery Check — Lessons 11–19","board":"checkpoint","content":{"heading":"Show it holds","items":["c1","c2","c3","c4","c5"]}},
+    {"phase":"close","min":16,"title":"Close & Reset Mastery","board":"close","content":{"items":["x1"],"preview":"Next: Lesson 20, Special Right Triangles 45-45-90 — Unit 03 begins."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can correctly solve fresh problems across Lessons 11–19 without help"},
+    {"id":"SC2","text":"I can honestly reset my mastery rating using today's evidence, not just how I feel"}
+  ],
+  "assets": {
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W23 Catch-Up & Reteach.md"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"checkpoint","kind":"check","title":"Fresh Mastery Check","items":["c1","c2","c3","c4","c5"]},
+      {"phase":"close","kind":"exit","title":"Set Your Mastery","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"c1","type":"mc","sc":"SC1","points":1,"prompt":"(L11) A polygon with 9 sides is called a…","options":["octagon","nonagon","decagon"],"answer":"nonagon","explain":"9 sides = nonagon (nona- = 9)."},
+    {"ref":"c2","type":"dropdown","sc":"SC1","points":1,"prompt":"(L13) The circumference of a circle with radius 4, in terms of π, is…","options":["4π","8π","16π"],"answer":"8π","explain":"C=2πr=2π(4)=8π."},
+    {"ref":"c3","type":"short","sc":"SC1","points":2,"prompt":"(L16) Find the total surface area of a rectangular solid 2 by 3 by 4.","answer":"SA=2(lw+lh+wh)=2(6+8+12)=2(26)=52 square units.","explain":"Add the areas of all three pairs of matching faces, then double."},
+    {"ref":"c4","type":"short","sc":"SC1","points":2,"prompt":"(L18) A right triangle has legs 5 and 12. Find the hypotenuse.","answer":"13 — 5²+12²=25+144=169, √169=13 (the classic 5-12-13 triple).","explain":"a²+b²=c²."},
+    {"ref":"c5","type":"mc","sc":"SC1","points":1,"prompt":"(L19) 1/√3, rationalized, is…","options":["√3/3","1/3","3/√3","√3"],"answer":"√3/3","explain":"Multiply top and bottom by √3: (1×√3)/(√3×√3)=√3/3."},
+    {"ref":"x1","type":"short","sc":"SC2","points":1,"prompt":"Exit: rate your mastery on the lesson you reteached (Emerging / Proficient / Mastered) and say what evidence from today backs that rating up."}
+  ]
+}

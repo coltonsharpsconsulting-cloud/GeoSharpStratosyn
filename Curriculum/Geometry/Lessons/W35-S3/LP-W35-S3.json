@@ -1,0 +1,211 @@
+{
+  "id": "LP-W35-S3",
+  "course": "geometry",
+  "duration_min": 60,
+  "teacher": "Colton",
+  "student": "Stephen Salas",
+  "week": 35,
+  "session": 3,
+  "session_type": "prove",
+  "lesson": "Unit 03 Studio — MUS Unit Test III (Lessons 20–30)",
+  "unit": "u03",
+  "mode": "Assess",
+  "banner": "Week 35 · Final Review + MUS Unit Test III",
+  "essential_question": "Can you show eleven lessons of proof, similarity, and trig with nobody coaching you through it?",
+  "objective": "Complete a final mixed review of Lessons 20–30, take Math-U-See Unit Test III independently, and reflect honestly on which lessons are mastered and which need reteaching.",
+  "standards": [
+    "G-SRT.C.8",
+    "G-CO.C.9",
+    "G-CO.B.7",
+    "G-CO.B.8",
+    "G-SRT.B.5",
+    "G-SRT.A.3",
+    "G-CO.A.2",
+    "G-SRT.C.6"
+  ],
+  "vocab": [
+    "two-column proof",
+    "CPCTC",
+    "similar",
+    "transformation",
+    "sine",
+    "cosine",
+    "tangent"
+  ],
+  "agenda": [
+    {
+      "phase": "warmup",
+      "min": 6,
+      "title": "Warm-Up — Cold Call Eleven",
+      "board": "warmup",
+      "content": {
+        "prompt": "Without notes, write one fact each on: a special right triangle ratio, a congruence shortcut, a proof step, similarity, a transformation, and a trig ratio."
+      }
+    },
+    {
+      "phase": "review",
+      "min": 14,
+      "title": "Review — Last Look Before the Test",
+      "board": "review",
+      "content": {
+        "heading": "Fix what you missed",
+        "note": "Go back over any missed problems from the capstone build and this week's practice, focusing on proof structure (statements & reasons) and choosing the right trig ratio. Fix each one and note WHY you missed it."
+      }
+    },
+    {
+      "phase": "checkpoint",
+      "min": 16,
+      "title": "Final Mixed Checkpoint",
+      "board": "checkpoint",
+      "content": {
+        "heading": "Show what you own — all eleven lessons",
+        "items": [
+          "c1",
+          "c2",
+          "c3",
+          "c4",
+          "c5"
+        ]
+      }
+    },
+    {
+      "phase": "test",
+      "min": 18,
+      "title": "MUS Unit Test III — Independent",
+      "board": "test",
+      "content": {
+        "heading": "On your own now",
+        "note": "Take Math-U-See Unit Test III (Lessons 20–30) independently — no notes, no help. Put it in the folder for grading when you're done."
+      }
+    },
+    {
+      "phase": "close",
+      "min": 6,
+      "title": "Close & Set Mastery",
+      "board": "close",
+      "content": {
+        "items": [
+          "x1"
+        ],
+        "preview": "Coming up: the Year-End Final review and MUS Final Exam, then the Capstone Build."
+      }
+    }
+  ],
+  "success_criteria": [
+    {
+      "id": "SC1",
+      "text": "I can correctly answer mixed questions across Lessons 20–30 without help"
+    },
+    {
+      "id": "SC2",
+      "text": "I can complete MUS Unit Test III independently within one session"
+    },
+    {
+      "id": "SC3",
+      "text": "I can honestly rate my mastery of each of the eleven lessons and name what needs reteaching"
+    }
+  ],
+  "assets": {
+    "compass": {
+      "date": "",
+      "note": "Curriculum/Geometry/The Salas Compass/2026-W35 Unit 3 Studio.md"
+    }
+  },
+  "activity": {
+    "submit": {
+      "mode": "download",
+      "format": "pdf"
+    },
+    "sections": [
+      {
+        "phase": "checkpoint",
+        "kind": "check",
+        "title": "Final Mixed Checkpoint",
+        "items": [
+          "c1",
+          "c2",
+          "c3",
+          "c4",
+          "c5"
+        ]
+      },
+      {
+        "phase": "close",
+        "kind": "exit",
+        "title": "Set Your Mastery",
+        "items": [
+          "x1"
+        ]
+      }
+    ]
+  },
+  "questions": [
+    {
+      "ref": "c1",
+      "type": "mc",
+      "sc": "SC1",
+      "points": 1,
+      "prompt": "In a 30-60-90 triangle, the side opposite the 60° angle is the…",
+      "options": [
+        "short leg",
+        "long leg",
+        "hypotenuse"
+      ],
+      "answer": "long leg",
+      "explain": "The long leg sits opposite the 60° angle; the short leg is opposite the 30° angle."
+    },
+    {
+      "ref": "c2",
+      "type": "dropdown",
+      "sc": "SC1",
+      "points": 1,
+      "prompt": "Two triangles are proven congruent using two sides and the included angle. This is the… shortcut",
+      "options": [
+        "SSS",
+        "SAS",
+        "ASA"
+      ],
+      "answer": "SAS",
+      "explain": "SAS (Side-Angle-Side) uses two sides and the angle between them."
+    },
+    {
+      "ref": "c3",
+      "type": "short",
+      "sc": "SC1",
+      "points": 2,
+      "prompt": "State CPCTC in your own words.",
+      "answer": "Once two triangles are proven congruent, every corresponding part — every side and every angle — is also congruent.",
+      "explain": "CPCTC (Corresponding Parts of Congruent Triangles are Congruent) is the payoff step after proving congruence."
+    },
+    {
+      "ref": "c4",
+      "type": "mc",
+      "sc": "SC1",
+      "points": 1,
+      "prompt": "A reflection over the y-axis sends (x, y) to…",
+      "options": [
+        "(x, -y)",
+        "(-x, y)",
+        "(-x, -y)"
+      ],
+      "answer": "(-x, y)",
+      "explain": "Reflecting over the y-axis flips the sign of x and keeps y the same."
+    },
+    {
+      "ref": "c5",
+      "type": "short",
+      "sc": "SC1",
+      "points": 2,
+      "prompt": "A right triangle has hypotenuse 20 and one acute angle of 25°. Which ratio and equation find the side opposite the 25° angle?",
+      "answer": "sin(25°) = opposite/20, so opposite = 20·sin(25°)",
+      "explain": "Sine relates the opposite leg to the hypotenuse: sin(angle) = opposite/hypotenuse."
+    },
+    {
+      "ref": "x1",
+      "type": "short",
+      "sc": "SC3",
+      "points": 2,
+      "prompt": "Close: after MUS Unit Test III, rate your mastery of Unit 03 and name the ONE lesson from 20–30 you'd want to revisit."
+    }
+  ]
+}

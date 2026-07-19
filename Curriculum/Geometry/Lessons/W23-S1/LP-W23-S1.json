@@ -1,0 +1,41 @@
+{
+  "id": "LP-W23-S1", "course": "geometry", "week": 23, "session": 1,
+  "session_type": "prove", "lesson": "Catch-Up & Reteach — Diagnose",
+  "unit": "u02", "duration_min": 60, "mode": "Assess",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 23 · Catch-Up & Reteach — Diagnose",
+  "essential_question": "Which of the last nine lessons still feels shaky — and how do you know?",
+  "objective": "Self-assess confidence across Lessons 11–19 using real evidence, name one lesson to reteach, and set a concrete plan to close that gap.",
+  "standards": ["G-C.A.2", "G-SRT.C.8", "N-RN.A.2"],
+  "vocab": ["diagnostic", "self-assessment", "Emerging", "Proficient", "Mastered", "Systematic Review"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Nine Lessons In","board":"warmup","content":{"prompt":"Unit 02 covered circles, solids, radicals, and the Pythagorean theorem — nine lessons in nine weeks. Without checking anything, which idea do you reach for confidently, and which one makes you pause?"}},
+    {"phase":"check","min":16,"title":"Three Quick Ones","board":"check","content":{"heading":"A fast spot-check across the unit","items":["n1","n2","n3"]}},
+    {"phase":"diagnose","min":26,"title":"Diagnose — Rate Every Lesson","board":"diagnose","content":{"heading":"Go lesson by lesson, honestly","note":"Lessons 11–19 map one-per-week to concept notes at Curriculum/Geometry/Lessons/W13-S1 through W21-S1, in order: L11→W13, L12→W14, L13→W15, L14→W16, L15→W17, L16→W18, L17→W19, L18→W20, L19→W21. For each lesson, rate yourself Emerging / Proficient / Mastered using your actual MUS Lesson Test score and how the S3 checkpoint felt — not gut feeling.","items":["d1","d2"]}},
+    {"phase":"exit","min":12,"title":"Exit Ticket","board":"exit","content":{"items":["x1"],"preview":"Session 2: reteach the lesson you picked — reread its concept note and redo its practice."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can rate my confidence on each of Lessons 11–19 using real evidence — test scores and checkpoint results, not a guess"},
+    {"id":"SC2","text":"I can name one lesson to reteach and describe specifically what part of it isn't solid yet"},
+    {"id":"SC3","text":"I can answer quick spot-check questions across circles, the Pythagorean theorem, and radicals without help"}
+  ],
+  "assets": {
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W23 Catch-Up & Reteach.md"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"check","kind":"check","title":"Three Quick Ones","items":["n1","n2","n3"]},
+      {"phase":"diagnose","kind":"practice","title":"Diagnose Your Nine Lessons","items":["d1","d2"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"n1","type":"mc","sc":"SC3","points":1,"prompt":"A chord that passes through the center of a circle is also its…","options":["radius","diameter","tangent","secant"],"answer":"diameter","explain":"The longest possible chord — the one through the center — is by definition the diameter."},
+    {"ref":"n2","type":"mc","sc":"SC3","points":1,"prompt":"A right triangle has legs 6 and 8. What is its hypotenuse?","options":["10","14","48","24"],"answer":"10","explain":"6²+8²=36+64=100, and √100=10 — a 6-8-10 triangle, the classic 3-4-5 scaled by 2."},
+    {"ref":"n3","type":"dropdown","sc":"SC3","points":1,"prompt":"√50 simplified is…","options":["5√2","2√5","25√2","10√5"],"answer":"5√2","explain":"50=25×2, so √50=√25·√2=5√2."},
+    {"ref":"d1","type":"short","sc":"SC1","points":2,"prompt":"Go lesson by lesson, L11 through L19 (see the mapping above). For each, rate yourself Emerging, Proficient, or Mastered using your actual MUS Lesson Test scores and checkpoint results. List every lesson you marked Emerging or a shaky Proficient."},
+    {"ref":"d2","type":"short","sc":"SC2","points":2,"prompt":"From your Emerging/shaky list, pick ONE lesson to reteach next session. Name it and describe specifically what trips you up — a formula, a vocabulary word, or a type of problem."},
+    {"ref":"x1","type":"short","sc":"SC2","points":1,"prompt":"Exit: what's your plan for Session 2 — which practice pages will you redo, and how will you know the gap is actually closed?"}
+  ]
+}

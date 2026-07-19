@@ -1,0 +1,255 @@
+{
+  "id": "LP-W35-S1",
+  "course": "geometry",
+  "duration_min": 60,
+  "teacher": "Colton",
+  "student": "Stephen Salas",
+  "week": 35,
+  "session": 1,
+  "session_type": "concept",
+  "lesson": "Unit 03 Studio — Review (Lessons 20–30)",
+  "unit": "u03",
+  "mode": "Review",
+  "banner": "Week 35 · Unit 03 Studio — Review, Lessons 20–30",
+  "essential_question": "Eleven lessons from special triangles to trig ratios — can you still prove it, not just remember it?",
+  "objective": "Revisit and connect the vocabulary and skills from Lessons 20–30 — special right triangles through the six trig ratios — and surface any gaps before the Unit 03 capstone build and MUS Unit Test III.",
+  "standards": [
+    "G-SRT.C.8",
+    "G-CO.C.9",
+    "G-CO.B.7",
+    "G-CO.B.8",
+    "G-SRT.B.5",
+    "G-SRT.A.3",
+    "G-CO.A.2",
+    "G-SRT.C.6"
+  ],
+  "vocab": [
+    "45-45-90",
+    "30-60-90",
+    "congruent",
+    "two-column proof",
+    "similar",
+    "transformation",
+    "sine",
+    "cosine",
+    "tangent"
+  ],
+  "agenda": [
+    {
+      "phase": "launch",
+      "min": 5,
+      "title": "Launch — Eleven Lessons, One Triangle",
+      "board": "launch",
+      "content": {
+        "prompt": "Sketch a right triangle. Label it with every tool from Lessons 20–30 you can still name: a ratio, a proof method, a transformation."
+      }
+    },
+    {
+      "phase": "review_early",
+      "min": 10,
+      "title": "Review — Special Right Triangles & Proof Basics (L20–L22)",
+      "board": "review_early",
+      "content": {
+        "heading": "L20–L22 in sixty seconds each",
+        "bullets": [
+          "L20 45-45-90 Triangles — leg : leg : hypotenuse = 1 : 1 : √2.",
+          "L21 30-60-90 Triangles — short leg : long leg : hypotenuse = 1 : √3 : 2.",
+          "L22 Postulates, Theorems & Angle Relationships — the rules every proof leans on."
+        ]
+      }
+    },
+    {
+      "phase": "review_mid",
+      "min": 10,
+      "title": "Review — Congruence & Proof (L23–L26)",
+      "board": "review_mid",
+      "content": {
+        "heading": "L23–L26 in sixty seconds each",
+        "bullets": [
+          "L23 Congruent Triangles & Corresponding Parts — CPCTC: once triangles match, every part matches.",
+          "L24 Two-Column Proofs: SSS & SAS.",
+          "L25 Two-Column Proofs: ASA & AAS.",
+          "L26 Right-Triangle Congruence: HL, LL, HA, LA — the right-triangle-only shortcuts."
+        ]
+      }
+    },
+    {
+      "phase": "review_late",
+      "min": 10,
+      "title": "Review — Similarity, Transformations & Trig (L27–L30)",
+      "board": "review_late",
+      "content": {
+        "heading": "L27–L30 in sixty seconds each",
+        "bullets": [
+          "L27 Similar Triangles & AA Similarity — two congruent angle pairs force similarity, and a scale factor.",
+          "L28 Transformations — translations, reflections, rotations on the coordinate plane.",
+          "L29 Right-Triangle Trigonometry — SOH-CAH-TOA.",
+          "L30 The Six Trigonometric Ratios — sine, cosine, tangent, and their reciprocals."
+        ]
+      }
+    },
+    {
+      "phase": "check",
+      "min": 8,
+      "title": "Vocab Check — Unit 03",
+      "board": "check",
+      "content": {
+        "heading": "Name it fast",
+        "items": [
+          "n1",
+          "n2"
+        ]
+      }
+    },
+    {
+      "phase": "you_do",
+      "min": 12,
+      "title": "You do — Mixed Practice",
+      "board": "you_do",
+      "content": {
+        "heading": "One from each third of the unit",
+        "items": [
+          "p1",
+          "p2",
+          "p3"
+        ]
+      }
+    },
+    {
+      "phase": "exit",
+      "min": 5,
+      "title": "Exit Ticket",
+      "board": "exit",
+      "content": {
+        "items": [
+          "x1"
+        ],
+        "preview": "Next session: the Unit 03 capstone — a real-world trig measurement plus a transformation design, written up with a proof."
+      }
+    }
+  ],
+  "success_criteria": [
+    {
+      "id": "SC1",
+      "text": "I can name the key ratios, proof methods, and transformations from Lessons 20–30"
+    },
+    {
+      "id": "SC2",
+      "text": "I can choose and apply the correct special-triangle ratio, congruence/similarity shortcut, or trig ratio for a given triangle"
+    },
+    {
+      "id": "SC3",
+      "text": "I can identify which of Lessons 20–30 I need to reteach before the test"
+    }
+  ],
+  "assets": {
+    "compass": {
+      "date": "",
+      "note": "Curriculum/Geometry/The Salas Compass/2026-W35 Unit 3 Studio.md"
+    }
+  },
+  "activity": {
+    "submit": {
+      "mode": "download",
+      "format": "pdf"
+    },
+    "sections": [
+      {
+        "phase": "check",
+        "kind": "check",
+        "title": "Vocab Check — Unit 03",
+        "items": [
+          "n1",
+          "n2"
+        ]
+      },
+      {
+        "phase": "practice",
+        "kind": "practice",
+        "title": "Mixed Practice",
+        "items": [
+          "p1",
+          "p2",
+          "p3"
+        ]
+      },
+      {
+        "phase": "exit",
+        "kind": "exit",
+        "title": "Exit Ticket",
+        "items": [
+          "x1"
+        ]
+      }
+    ]
+  },
+  "questions": [
+    {
+      "ref": "n1",
+      "type": "dropdown",
+      "sc": "SC1",
+      "points": 1,
+      "prompt": "In a 45-45-90 triangle, the hypotenuse equals a leg times…",
+      "options": [
+        "√2",
+        "√3",
+        "2"
+      ],
+      "answer": "√2",
+      "explain": "The 45-45-90 ratio is leg : leg : hypotenuse = 1 : 1 : √2."
+    },
+    {
+      "ref": "n2",
+      "type": "mc",
+      "sc": "SC1",
+      "points": 1,
+      "prompt": "Which shortcut proves two right triangles congruent using only their hypotenuses and one leg?",
+      "options": [
+        "SSS",
+        "HL",
+        "AA"
+      ],
+      "answer": "HL",
+      "explain": "HL (Hypotenuse-Leg) is a congruence shortcut that only applies to right triangles."
+    },
+    {
+      "ref": "p1",
+      "type": "short",
+      "sc": "SC2",
+      "points": 2,
+      "prompt": "A 30-60-90 triangle has a short leg of 7. Find the long leg and the hypotenuse.",
+      "answer": "Long leg = 7√3, hypotenuse = 14",
+      "explain": "The ratio is short leg : long leg : hypotenuse = 1 : √3 : 2, so multiply 7 by √3 and by 2."
+    },
+    {
+      "ref": "p2",
+      "type": "mc",
+      "sc": "SC2",
+      "points": 1,
+      "prompt": "Two triangles have two pairs of congruent angles. What can you conclude?",
+      "options": [
+        "they're congruent",
+        "they're similar",
+        "nothing"
+      ],
+      "answer": "they're similar",
+      "explain": "AA similarity: two congruent angle pairs force similarity, not necessarily congruence."
+    },
+    {
+      "ref": "p3",
+      "type": "short",
+      "sc": "SC2",
+      "points": 2,
+      "prompt": "A right triangle has an acute angle of 32° and adjacent leg 10. Which trig ratio and equation would you use to find the opposite leg?",
+      "answer": "tan(32°) = opposite/10, so opposite = 10·tan(32°)",
+      "explain": "Tangent relates the opposite and adjacent legs of a right triangle: tan(angle) = opposite/adjacent."
+    },
+    {
+      "ref": "x1",
+      "type": "short",
+      "sc": "SC3",
+      "points": 2,
+      "prompt": "Exit: which of Lessons 20–30 do you most need to review again before the capstone and the test — name it and why."
+    }
+  ]
+}

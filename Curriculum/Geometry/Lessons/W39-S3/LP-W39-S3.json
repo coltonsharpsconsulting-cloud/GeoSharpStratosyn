@@ -1,0 +1,186 @@
+{
+  "id": "LP-W39-S3",
+  "course": "geometry",
+  "duration_min": 60,
+  "teacher": "Colton",
+  "student": "Stephen Salas",
+  "week": 39,
+  "session": 3,
+  "session_type": "prove",
+  "lesson": "Capstone Build — Portfolio Write-Up & Proof",
+  "unit": "u03",
+  "mode": "Prove",
+  "banner": "Week 39 · Capstone Build — Write It Up for the Portfolio",
+  "essential_question": "Can you write up your capstone so someone who wasn't there believes every number?",
+  "objective": "Write up the three-part capstone for the Portfolio — presenting the trig measurement, the solid's volume/surface area, and the transformation — with a short proof that the transformation preserved (or predictably changed) length and angle.",
+  "standards": [
+    "G-SRT.C.6",
+    "G-GMD.A.3",
+    "G-CO.A.2",
+    "G-CO.B.8"
+  ],
+  "vocab": [
+    "proof",
+    "CPCTC",
+    "rigid transformation",
+    "volume",
+    "portfolio"
+  ],
+  "agenda": [
+    {
+      "phase": "warmup",
+      "min": 6,
+      "title": "Warm-Up — Reread Your Numbers",
+      "board": "warmup",
+      "content": {
+        "prompt": "Reread your Build Day measurements from Session 2. Circle any number you're not fully sure of before you write it up."
+      }
+    },
+    {
+      "phase": "write_trig",
+      "min": 10,
+      "title": "Write-Up — Part 1: The Measurement",
+      "board": "write_trig",
+      "content": {
+        "heading": "Make it checkable",
+        "note": "Write a short paragraph presenting your object, your angle and baseline, your equation, and your answer with units — clearly enough that someone else could redo your math and get the same number."
+      }
+    },
+    {
+      "phase": "write_solid",
+      "min": 10,
+      "title": "Write-Up — Part 2: The Solid",
+      "board": "write_solid",
+      "content": {
+        "heading": "Show the formulas",
+        "note": "Write a short paragraph presenting your solid, its dimensions, and your volume/surface-area calculations — and how they compared to what you actually built or measured."
+      }
+    },
+    {
+      "phase": "prove",
+      "min": 18,
+      "title": "Prove It — Part 3: The Transformation Proof",
+      "board": "prove",
+      "content": {
+        "heading": "Defend the claim",
+        "bullets": [
+          "State exactly what transformation (or sequence) you performed.",
+          "Write a short proof — two-column or paragraph — that it preserved side length and angle (or, if a dilation, that it preserved angle and scaled every length by a constant ratio).",
+          "Use the definition of your transformation (or CPCTC, if you compared triangles) as your reason."
+        ]
+      }
+    },
+    {
+      "phase": "checkpoint",
+      "min": 10,
+      "title": "Proof Checkpoint",
+      "board": "checkpoint",
+      "content": {
+        "heading": "Check your reasoning",
+        "items": [
+          "c1",
+          "c2",
+          "c3"
+        ]
+      }
+    },
+    {
+      "phase": "close",
+      "min": 6,
+      "title": "Close & Submit to the Portfolio",
+      "board": "close",
+      "content": {
+        "items": [
+          "x1"
+        ],
+        "preview": "Year-end: Portfolio Show & Transcript Close."
+      }
+    }
+  ],
+  "success_criteria": [
+    {
+      "id": "SC1",
+      "text": "I can write up a real-world trig measurement clearly enough that someone else could check it"
+    },
+    {
+      "id": "SC2",
+      "text": "I can write up a solid's volume and surface area with the formulas and numbers that support them"
+    },
+    {
+      "id": "SC3",
+      "text": "I can write a short proof that my transformation preserved (or predictably changed) length and angle"
+    }
+  ],
+  "assets": {
+    "compass": {
+      "date": "",
+      "note": "Curriculum/Geometry/The Salas Compass/2026-W39 Capstone Build.md"
+    }
+  },
+  "activity": {
+    "submit": {
+      "mode": "download",
+      "format": "pdf"
+    },
+    "sections": [
+      {
+        "phase": "checkpoint",
+        "kind": "check",
+        "title": "Proof Checkpoint",
+        "items": [
+          "c1",
+          "c2",
+          "c3"
+        ]
+      },
+      {
+        "phase": "close",
+        "kind": "exit",
+        "title": "Close & Submit to the Portfolio",
+        "items": [
+          "x1"
+        ]
+      }
+    ]
+  },
+  "questions": [
+    {
+      "ref": "c1",
+      "type": "mc",
+      "sc": "SC3",
+      "points": 1,
+      "prompt": "A transformation that preserves both side length and angle measure is called a…",
+      "options": [
+        "dilation",
+        "rigid transformation",
+        "similarity transformation"
+      ],
+      "answer": "rigid transformation",
+      "explain": "Translations, reflections, and rotations are rigid motions — they preserve every distance and angle."
+    },
+    {
+      "ref": "c2",
+      "type": "proof",
+      "sc": "SC3",
+      "points": 3,
+      "prompt": "Complete the proof. Given: triangle ABC is reflected over the y-axis to form triangle A'B'C'. Prove: triangle ABC ≅ triangle A'B'C'. Statements: (1) Triangle ABC is reflected over the y-axis to form A'B'C'. (2) A reflection is a rigid motion — it preserves every distance and angle measure. (3) AB = A'B', BC = B'C', AC = A'C', and all corresponding angles are congruent. (4) Triangle ABC ≅ Triangle A'B'C'. Fill in the REASON for each of the four statements above.",
+      "answer": "(1) Given. (2) Definition/property of a reflection (a reflection is a rigid motion). (3) Definition of a rigid motion — distance and angle measure are preserved. (4) Definition of congruent triangles (SSS, since all corresponding sides and angles match).",
+      "explain": "This is the general argument behind why any rigid transformation produces a congruent image — the transformation's own definition IS the reason at every step."
+    },
+    {
+      "ref": "c3",
+      "type": "short",
+      "sc": "SC1",
+      "points": 2,
+      "prompt": "Write one sentence stating your Part 1 result the way it should appear in your portfolio (object, method, answer with units).",
+      "answer": "Open-ended, e.g.: 'Using an angle of elevation of 31° measured from 40 ft away, the height of the oak tree was found to be 40·tan(31°) ≈ 24 ft.'"
+    },
+    {
+      "ref": "x1",
+      "type": "short",
+      "sc": "SC2",
+      "points": 2,
+      "prompt": "Close: submit your photo/CAD file and write-up to the Portfolio ([[Records/Portfolio]]), then rate your overall mastery for the year and name the one geometry idea you're proudest of proving."
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "id": "LP-W22-S2",
+  "course": "geometry",
+  "duration_min": 60,
+  "teacher": "Colton",
+  "student": "Stephen Salas",
+  "week": 22,
+  "session": 2,
+  "session_type": "build",
+  "lesson": "Unit 02 Studio — Capstone Build (3D solid, volume & surface area)",
+  "unit": "u02",
+  "mode": "Build",
+  "banner": "Week 22 · Unit 02 Capstone — Build & Verify a Solid",
+  "essential_question": "Can you build a solid, then prove its volume and surface area with your own measurements?",
+  "objective": "Design and build (or 3D-print) a rectangular solid, cylinder, prism, pyramid, or cone; measure its dimensions; and verify computed volume and surface area against real measurement.",
+  "standards": [
+    "G-GMD.A.3",
+    "G-GMD.A.1"
+  ],
+  "vocab": [
+    "volume",
+    "surface area",
+    "net",
+    "base",
+    "lateral area"
+  ],
+  "agenda": [
+    {
+      "phase": "brief",
+      "min": 6,
+      "title": "Brief — Today You Build & Prove a Solid",
+      "board": "brief",
+      "content": {
+        "heading": "Unit 02 skills, one build",
+        "bullets": [
+          "Volume formulas (L14, L15) — V = Bh for prisms/cylinders, the ⅓ formulas for pyramids/cones.",
+          "Surface area & nets (L16) — unfold the solid on paper and add up every face.",
+          "If you choose a round solid, bring back circle/π facts from L12–L13.",
+          "The test: build or print a real solid, then verify BOTH its volume and its surface area by measurement."
+        ]
+      }
+    },
+    {
+      "phase": "plan",
+      "min": 8,
+      "title": "Plan — Choose Your Solid",
+      "board": "plan",
+      "content": {
+        "heading": "Gather + plan",
+        "note": "Choose a rectangular solid, cylinder, cone, pyramid, or prism. Decide real-world dimensions. If it helps, sketch a net before you build or send a file to the printer."
+      }
+    },
+    {
+      "phase": "build",
+      "min": 24,
+      "title": "Build — Construct the Solid",
+      "board": "build",
+      "content": {
+        "heading": "Make it real",
+        "bullets": [
+          "Cut, fold, stack, or 3D-print the solid.",
+          "Label every measurable dimension: radius/height, or length/width/height.",
+          "Keep faces and edges clean enough to measure with a ruler."
+        ]
+      }
+    },
+    {
+      "phase": "measure",
+      "min": 14,
+      "title": "Measure & Verify",
+      "board": "measure",
+      "content": {
+        "heading": "Get the numbers",
+        "items": [
+          "m1",
+          "m2",
+          "m3"
+        ]
+      }
+    },
+    {
+      "phase": "reflect",
+      "min": 8,
+      "title": "Reflect & Photograph",
+      "board": "reflect",
+      "content": {
+        "items": [
+          "r1"
+        ],
+        "preview": "Session 3: final mixed review, then MUS Unit Test II on your own."
+      }
+    }
+  ],
+  "success_criteria": [
+    {
+      "id": "SC1",
+      "text": "I can build a real (or 3D-printed) solid and label its measurable dimensions"
+    },
+    {
+      "id": "SC2",
+      "text": "I can measure a solid's dimensions and use them to compute its volume"
+    },
+    {
+      "id": "SC3",
+      "text": "I can measure/compute a solid's surface area and explain any gap between computed and real values"
+    }
+  ],
+  "assets": {
+    "compass": {
+      "date": "",
+      "note": "Curriculum/Geometry/The Salas Compass/2026-W22 Unit 2 Studio.md"
+    }
+  },
+  "activity": {
+    "submit": {
+      "mode": "download",
+      "format": "pdf"
+    },
+    "sections": [
+      {
+        "phase": "measure",
+        "kind": "practice",
+        "title": "Build Log & Measurements",
+        "items": [
+          "m1",
+          "m2",
+          "m3"
+        ]
+      },
+      {
+        "phase": "reflect",
+        "kind": "exit",
+        "title": "Reflect",
+        "items": [
+          "r1"
+        ]
+      }
+    ]
+  },
+  "questions": [
+    {
+      "ref": "m1",
+      "type": "measure",
+      "sc": "SC2",
+      "points": 2,
+      "prompt": "Measure the dimensions of your solid (radius/height, or length/width/height) and record them with units.",
+      "answer": "Any consistent measured dimensions with units.",
+      "explain": "Every volume/surface-area formula depends on getting real, correctly-labeled measurements first."
+    },
+    {
+      "ref": "m2",
+      "type": "short",
+      "sc": "SC2",
+      "points": 2,
+      "prompt": "Using your measured dimensions, compute the volume of your solid. Show the formula you used.",
+      "answer": "e.g. V = Bh, V = πr²h, or V = (1/3)Bh depending on the solid — must show the substituted formula and cubic units.",
+      "explain": "Different solids use different volume formulas; the shape you chose decides which one applies."
+    },
+    {
+      "ref": "m3",
+      "type": "short",
+      "sc": "SC3",
+      "points": 2,
+      "prompt": "Compute the surface area of your solid using your measured dimensions (or your net), showing the formula.",
+      "answer": "Appropriate surface-area formula for the chosen solid, substituted with measured values, in square units.",
+      "explain": "Surface area is the total area of every face — a net makes this easy to see and add up."
+    },
+    {
+      "ref": "r1",
+      "type": "short",
+      "sc": "SC1",
+      "points": 2,
+      "prompt": "Reflect: which was trickier to build honestly — getting the volume right or the surface area right — and what tripped you up?"
+    }
+  ]
+}

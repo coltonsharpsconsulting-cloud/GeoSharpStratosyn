@@ -1,0 +1,178 @@
+{
+  "id": "LP-W12-S2",
+  "course": "geometry",
+  "duration_min": 60,
+  "teacher": "Colton",
+  "student": "Stephen Salas",
+  "week": 12,
+  "session": 2,
+  "session_type": "build",
+  "lesson": "Unit 01 Studio — Capstone Build (compass/CAD polygon)",
+  "unit": "u01",
+  "mode": "Build",
+  "banner": "Week 12 · Unit 01 Capstone — Build a Polygon You Can Prove",
+  "essential_question": "Can you build a polygon and then prove, with your own numbers, that it's right?",
+  "objective": "Design and construct — by compass-and-straightedge or CAD — a polygon of your choice, then verify its perimeter by measurement and its interior angle sum by both measuring and calculating.",
+  "standards": [
+    "G-MG.A.1",
+    "G-CO.C.9"
+  ],
+  "vocab": [
+    "polygon",
+    "perimeter",
+    "vertex",
+    "interior angle sum",
+    "compass-and-straightedge"
+  ],
+  "agenda": [
+    {
+      "phase": "brief",
+      "min": 6,
+      "title": "Brief — Today You Build & Prove a Polygon",
+      "board": "brief",
+      "content": {
+        "heading": "Unit 01 skills, one build",
+        "bullets": [
+          "Perimeter (L8) and area formulas (L9) — you'll only need perimeter today.",
+          "Classifying triangles + the triangle inequality (L10) — if you build a triangle, your side lengths must obey it.",
+          "Angle relationships (L3, L4, L6) — every interior angle you measure should make sense against what you already know.",
+          "The test: choose a polygon (triangle, quadrilateral, or pentagon+), construct it with a compass & straightedge (or CAD/drawing tool), then verify its perimeter AND its interior angle sum by measurement."
+        ]
+      }
+    },
+    {
+      "phase": "plan",
+      "min": 8,
+      "title": "Plan — Choose & Sketch",
+      "board": "plan",
+      "content": {
+        "heading": "Gather + plan",
+        "note": "Choose a 3-, 4-, or 5-sided polygon. If it's a triangle, pick side lengths that satisfy the triangle inequality before you build. Sketch a plan with every vertex labeled before you construct."
+      }
+    },
+    {
+      "phase": "build",
+      "min": 24,
+      "title": "Build — Construct the Polygon",
+      "board": "build",
+      "content": {
+        "heading": "Make it real",
+        "bullets": [
+          "Compass & straightedge: step off equal side lengths, swing arcs to find vertices.",
+          "Or CAD/drawing tool: draw with exact side lengths and angles, then print or export.",
+          "Label every vertex (A, B, C, …) and keep lines clean enough to measure later."
+        ]
+      }
+    },
+    {
+      "phase": "measure",
+      "min": 14,
+      "title": "Measure & Verify",
+      "board": "measure",
+      "content": {
+        "heading": "Get the numbers",
+        "figure": "grid-blank",
+        "items": [
+          "m1",
+          "m2",
+          "m3"
+        ]
+      }
+    },
+    {
+      "phase": "reflect",
+      "min": 8,
+      "title": "Reflect & Photograph",
+      "board": "reflect",
+      "content": {
+        "items": [
+          "r1"
+        ],
+        "preview": "Session 3: final mixed review, then MUS Unit Test I on your own."
+      }
+    }
+  ],
+  "success_criteria": [
+    {
+      "id": "SC1",
+      "text": "I can construct a polygon with a compass/straightedge (or CAD tool) and label its vertices"
+    },
+    {
+      "id": "SC2",
+      "text": "I can measure and sum a polygon's side lengths to verify its perimeter"
+    },
+    {
+      "id": "SC3",
+      "text": "I can measure a polygon's interior angles, sum them, and check that sum against the (n−2)·180° formula"
+    }
+  ],
+  "assets": {
+    "compass": {
+      "date": "",
+      "note": "Curriculum/Geometry/The Salas Compass/2026-W12 Unit 1 Studio.md"
+    }
+  },
+  "activity": {
+    "submit": {
+      "mode": "download",
+      "format": "pdf"
+    },
+    "sections": [
+      {
+        "phase": "measure",
+        "kind": "practice",
+        "title": "Build Log & Measurements",
+        "items": [
+          "m1",
+          "m2",
+          "m3"
+        ]
+      },
+      {
+        "phase": "reflect",
+        "kind": "exit",
+        "title": "Reflect",
+        "items": [
+          "r1"
+        ]
+      }
+    ]
+  },
+  "questions": [
+    {
+      "ref": "m1",
+      "type": "measure",
+      "sc": "SC2",
+      "points": 2,
+      "figure": "grid-blank",
+      "prompt": "Measure each side of your polygon and record the lengths, then add them for the perimeter.",
+      "answer": "Any consistent set of measured side lengths, with units, that sum to the reported perimeter.",
+      "explain": "Perimeter is just the sum of every side length — units must match."
+    },
+    {
+      "ref": "m2",
+      "type": "measure",
+      "sc": "SC3",
+      "points": 2,
+      "prompt": "Measure each interior angle with a protractor and record all of them.",
+      "answer": "Angle measures each between 0° and 180° whose sum is close to the theoretical total.",
+      "explain": "Every interior angle should read between 0° and 180°; small measurement error (a few degrees) is normal."
+    },
+    {
+      "ref": "m3",
+      "type": "short",
+      "sc": "SC3",
+      "points": 2,
+      "prompt": "Your polygon has n sides. Calculate the theoretical interior angle sum using (n−2)·180°, then compare it to your measured sum. How close were you?",
+      "answer": "Example: a pentagon (n=5) gives (5−2)·180° = 540°. Compare to your measured total and note the gap.",
+      "explain": "A small gap (a handful of degrees) is expected from real-world measuring; a huge gap points to a construction or measuring error."
+    },
+    {
+      "ref": "r1",
+      "type": "short",
+      "sc": "SC1",
+      "points": 2,
+      "prompt": "Reflect: what was harder to make honest — the perimeter (lengths) or the angle sum (angles) — and why?"
+    }
+  ]
+}

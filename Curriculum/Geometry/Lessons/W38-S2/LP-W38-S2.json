@@ -1,0 +1,36 @@
+{
+  "id": "LP-W38-S2", "course": "geometry", "week": 38, "session": 2,
+  "session_type": "prove", "lesson": "Year-End Final — MUS Final Exam",
+  "unit": "u03", "duration_min": 60, "mode": "Assess",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 38 · The MUS Final Exam",
+  "essential_question": "Can you show, independently, everything this year built?",
+  "objective": "Complete the cumulative Math-U-See Final Exam from the Test Booklet, independently and under real test conditions, with no help mid-test.",
+  "standards": ["G-CO.A.1", "G-SRT.C.8", "G-SRT.C.6"],
+  "vocab": ["independent assessment", "exam conditions", "cumulative", "flag"],
+  "agenda": [
+    {"phase":"brief","min":8,"title":"Brief — Today Is the Exam","board":"brief","content":{"heading":"Not a new lesson — the real thing","bullets":["Today's work is the MUS Final Exam, from the Test Booklet, cumulative across all 30 lessons.","It's completed independently: no notes, no help, no answer key, no AI tool while it's in progress.","If you truly get stuck, skip the problem and flag it — we debrief it next session, not now."]}},
+    {"phase":"check","min":10,"title":"Before You Begin","board":"check","content":{"heading":"Confirm the conditions","items":["c1","c2","c3"]}},
+    {"phase":"exam","min":32,"title":"Take the Final Exam","board":"exam","content":{"heading":"Independent work time","note":"Take the MUS Final Exam now, straight through, from the Test Booklet. This block may run longer than 32 minutes — that's fine; work at a steady, careful pace rather than watching the clock. When you finish, come back here for the exit questions."}},
+    {"phase":"exit","min":10,"title":"After the Exam","board":"exit","content":{"items":["x1"],"preview":"Next session: debrief the hard parts and celebrate the year."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can complete the Final Exam independently, following the materials and no-help rules exactly"}
+  ],
+  "assets": {
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W38 Year-End Final.md"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"check","kind":"check","title":"Before You Begin","items":["c1","c2","c3"]},
+      {"phase":"exit","kind":"exit","title":"After the Exam","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"c1","type":"short","sc":"SC1","points":1,"prompt":"Confirm you have your Test Booklet, a pencil, a ruler, and a protractor, and that you have a quiet block of uninterrupted time with no notes or help nearby."},
+    {"ref":"c2","type":"mc","sc":"SC1","points":1,"prompt":"Which of these is allowed during the Final Exam?","options":["asking Colton for a hint","checking an answer key","taking a short water break","using an AI tool"],"answer":"taking a short water break","explain":"The Final Exam is completed independently — no hints, answer keys, or AI tools — but a short break for water is fine."},
+    {"ref":"c3","type":"short","sc":"SC1","points":1,"prompt":"If you get stuck on a problem mid-exam, what's the rule?","answer":"Skip it and flag it for the debrief next session — don't look it up or ask for help.","explain":"Matches the course's assessment-integrity policy for the Final Exam."},
+    {"ref":"x1","type":"short","points":1,"prompt":"After finishing: which section(s) felt hardest? You'll debrief them next session."}
+  ]
+}

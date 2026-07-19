@@ -1,0 +1,38 @@
+{
+  "id": "LP-W36-S2", "course": "geometry", "week": 36, "session": 2,
+  "session_type": "concept", "lesson": "Catch-Up & Reteach — Reteach & Re-practice",
+  "unit": "u03", "duration_min": 60, "mode": "Review",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 36 · Catch-Up & Reteach — Reteach & Re-practice",
+  "essential_question": "What's actually different between how you first learned this and what you know now?",
+  "objective": "Reread the concept note and redo the Lesson Practice / Systematic Review pages for the one lesson (20–30) flagged as shaky, fixing the specific misconception rather than just the wrong answer.",
+  "standards": ["G-SRT.C.8", "G-CO.B.8", "G-SRT.A.3", "G-CO.A.2"],
+  "vocab": ["reteach", "misconception", "Lesson Practice", "Systematic Review", "postulate", "scale factor"],
+  "agenda": [
+    {"phase":"brief","min":8,"title":"Brief — From Diagnosis to Fix","board":"brief","content":{"heading":"Rebuilt, not re-rolled","bullets":["Yesterday you picked one lesson (20–30) to reteach.","Today: reread its concept note, then redo its Lesson Practice / Systematic Review pages.","The goal isn't a right answer — it's finding and fixing the actual misconception, before the Final."]}},
+    {"phase":"review","min":14,"title":"Reread the Concept Note","board":"review","content":{"heading":"Go back to the source","note":"Find your lesson's concept note: L20→W24-S1, L21→W25-S1, L22→W26-S1, L23→W27-S1, L24→W28-S1, L25→W29-S1, L26→W30-S1, L27→W31-S1, L28→W32-S1, L29→W33-S1, L30→W34-S1 (all under Curriculum/Geometry/Lessons/). Reread it slowly, and rewatch the matching Math-U-See DVD segment if the workbook alone isn't enough."}},
+    {"phase":"practice","min":28,"title":"Redo the Trouble Spots","board":"practice","content":{"heading":"Try the one matching your weak lesson — or all four for extra practice","items":["p1","p2","p3","p4"]}},
+    {"phase":"reflect","min":10,"title":"Reflect","board":"reflect","content":{"items":["r1"],"preview":"Session 3: reassess — a fresh mastery check across Lessons 20–30."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can redo practice problems from my weak lesson correctly, using the concept note to fix the specific gap"},
+    {"id":"SC2","text":"I can describe what changed between my first attempt and this reteach — not just that I got it right, but why"}
+  ],
+  "assets": {
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W36 Catch-Up & Reteach.md"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"practice","kind":"practice","title":"Redo the Trouble Spots","items":["p1","p2","p3","p4"]},
+      {"phase":"reflect","kind":"exit","title":"Reflect","items":["r1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"p1","type":"short","sc":"SC1","points":2,"prompt":"(L21 — 30-60-90) A 30-60-90 triangle has a short leg of 7. Find the long leg and hypotenuse.","answer":"Long leg = 7√3 ≈ 12.12; hypotenuse = 14.","explain":"Long leg = short leg×√3; hypotenuse = short leg×2."},
+    {"ref":"p2","type":"short","sc":"SC1","points":2,"prompt":"(L24 — Proofs) Two triangles share a side (reflexive), and two pairs of corresponding sides are marked congruent with no angle given. Which postulate applies — SSS, SAS, or neither?","answer":"SSS — three pairs of corresponding sides congruent (the two given pairs plus the shared reflexive side) is enough, no angle needed.","explain":"SSS only needs three side pairs; SAS needs an included angle between two given sides."},
+    {"ref":"p3","type":"mc","sc":"SC1","points":1,"prompt":"(L27 — Similarity) Two triangles have two pairs of congruent angles. By which similarity postulate are they similar?","options":["SSS similarity","SAS similarity","AA similarity"],"answer":"AA similarity","explain":"If two angles of one triangle are congruent to two angles of another, the triangles are similar — the third angle pair is automatically equal too."},
+    {"ref":"p4","type":"short","sc":"SC1","points":2,"prompt":"(L28 — Transformations) Reflect the point (3, -5) over the x-axis. What are the new coordinates?","answer":"(3, 5)","explain":"Reflecting over the x-axis keeps x the same and flips the sign of y."},
+    {"ref":"r1","type":"short","sc":"SC2","points":2,"prompt":"Reflect: which of the four redo problems matched your weak lesson? What's different this time versus when you first tried it?"}
+  ]
+}

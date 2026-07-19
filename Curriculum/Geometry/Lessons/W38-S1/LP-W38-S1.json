@@ -1,0 +1,41 @@
+{
+  "id": "LP-W38-S1", "course": "geometry", "week": 38, "session": 1,
+  "session_type": "concept", "lesson": "Year-End Final — Last Review & Exam Logistics",
+  "unit": "u03", "duration_min": 60, "mode": "Review",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 38 · Year-End Final — Last Review & Logistics",
+  "essential_question": "What's left to firm up, and what do you need in place before the exam?",
+  "objective": "Take one last mixed pass across all three units, then confirm the logistics — materials, timing, and the independent-work rule — for the MUS Final Exam.",
+  "standards": ["G-CO.A.1", "G-GMD.A.3", "G-SRT.C.6"],
+  "vocab": ["cumulative", "Final Exam", "independent work", "materials checklist"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Two Weeks of Review Behind You","board":"warmup","content":{"prompt":"You've reviewed all three units over the last two weeks. What's the one topic you still want to see one more example of before tomorrow's exam?"}},
+    {"phase":"practice","min":20,"title":"One Last Mixed Pass","board":"practice","content":{"heading":"A problem from each unit, plus a wildcard","items":["m1","m2","m3","m4"]}},
+    {"phase":"check","min":22,"title":"Exam-Day Checklist","board":"check","content":{"heading":"Materials and the independent-work rule","note":"The Final Exam is completed independently — no help from Colton, an answer key, or an AI tool while the test is in progress.","items":["l1","l2"]}},
+    {"phase":"exit","min":12,"title":"Exit Ticket","board":"exit","content":{"items":["x1"],"preview":"Next session: the MUS Final Exam itself — independent, no help."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can solve a mixed cumulative problem from any of the three units without help"},
+    {"id":"SC2","text":"I can confirm I have the materials and understand the independent-work rule for the Final Exam"}
+  ],
+  "assets": {
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W38 Year-End Final.md"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"practice","kind":"practice","title":"One Last Mixed Pass","items":["m1","m2","m3","m4"]},
+      {"phase":"check","kind":"check","title":"Exam-Day Checklist","items":["l1","l2"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"m1","type":"mc","sc":"SC1","points":1,"prompt":"A pair of supplementary angles sums to…","options":["90°","180°","360°"],"answer":"180°","explain":"Supplementary angles always sum to 180°."},
+    {"ref":"m2","type":"short","sc":"SC1","points":2,"prompt":"Find the area of a trapezoid with parallel sides 6 and 10 and height 4.","answer":"A=½(6+10)(4)=½(16)(4)=32 square units.","explain":"Area of a trapezoid = ½(b1+b2)(height)."},
+    {"ref":"m3","type":"short","sc":"SC1","points":2,"prompt":"A cone has radius 3 and height 8. Find its volume in terms of π.","answer":"V=⅓πr²h=⅓π(9)(8)=24π","explain":"Volume of a cone = ⅓ × π × r² × h."},
+    {"ref":"m4","type":"short","sc":"SC1","points":2,"prompt":"In a right triangle, the hypotenuse is 10 and one leg is 6. Find the tangent of the angle opposite the leg of length 6.","answer":"Other leg = 8 (a 6-8-10 triple); tan θ = 6/8 = 3/4.","explain":"Find the missing leg with the Pythagorean theorem first, then tangent = opposite/adjacent."},
+    {"ref":"l1","type":"short","sc":"SC2","points":1,"prompt":"List everything you need for the Final Exam — your Test Booklet, pencil, ruler, protractor, and anything else. Confirm you have each."},
+    {"ref":"l2","type":"short","sc":"SC2","points":1,"prompt":"The Final Exam is completed independently — no help from Colton, an answer key, or an AI tool. If you get stuck mid-test, what should you do?","answer":"Stop and flag it for the debrief next session — don't look it up or ask for help mid-test.","explain":"This mirrors the course's assessment-integrity rule for all Lesson Tests, Unit Tests, and the Final Exam."},
+    {"ref":"x1","type":"short","points":1,"prompt":"Exit: on a scale that's honest, not hopeful — how ready do you feel for the Final, and what's the one thing you'd still like explained?"}
+  ]
+}

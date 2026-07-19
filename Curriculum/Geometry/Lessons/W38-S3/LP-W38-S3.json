@@ -1,0 +1,39 @@
+{
+  "id": "LP-W38-S3", "course": "geometry", "week": 38, "session": 3,
+  "session_type": "prove", "lesson": "Year-End Final — Debrief & Celebrate",
+  "unit": "u03", "duration_min": 60, "mode": "Reflect",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 38 · Debrief & Celebrate the Year",
+  "essential_question": "Now that the Final is behind you — what does looking back tell you?",
+  "objective": "Debrief the Final Exam's hardest sections, reflect on growth across the year from Lesson 1 to now, and celebrate what got built.",
+  "standards": ["G-CO.A.1", "G-SRT.C.6"],
+  "vocab": ["debrief", "growth", "reflection", "mastery journey"],
+  "agenda": [
+    {"phase":"warmup","min":8,"title":"Warm-Up — Right After the Exam","board":"warmup","content":{"prompt":"The Final is done. Before anything else — how do you feel, honestly?"}},
+    {"phase":"review","min":18,"title":"Debrief the Hard Parts","board":"review","content":{"heading":"Fix it now, while it's fresh","items":["r1","r2"]}},
+    {"phase":"reflect","min":18,"title":"Week 1 vs. Now","board":"reflect","content":{"heading":"Look back across the whole year","items":["r3","r4"]}},
+    {"phase":"close","min":16,"title":"Celebrate & Close","board":"close","content":{"items":["x1"],"preview":"Next: Weeks 39–40 — the Capstone Build, then the Portfolio Show & Transcript Close."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can identify what specifically made the hardest exam section hard, and correct it"},
+    {"id":"SC2","text":"I can articulate concrete growth from Week 1 to the Final Exam"}
+  ],
+  "assets": {
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W38 Year-End Final.md"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"review","kind":"practice","title":"Debrief the Hard Parts","items":["r1","r2"]},
+      {"phase":"reflect","kind":"practice","title":"Week 1 vs. Now","items":["r3","r4"]},
+      {"phase":"close","kind":"exit","title":"Celebrate & Close","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"r1","type":"short","sc":"SC1","points":2,"prompt":"Which section of the Final Exam felt hardest, and why?"},
+    {"ref":"r2","type":"short","sc":"SC1","points":2,"prompt":"Pick one problem from the hardest section. Redo it now, correctly, and write what you understand about it now that you didn't mid-exam."},
+    {"ref":"r3","type":"short","sc":"SC2","points":2,"prompt":"Think back to Week 1 — you freehand-drew a point, ray, segment, and line. Compare that to a problem you solved on this Final. What's different about how you think now?"},
+    {"ref":"r4","type":"short","sc":"SC2","points":2,"prompt":"Name one lesson this year where something genuinely 'clicked.' Describe the moment."},
+    {"ref":"x1","type":"short","points":1,"prompt":"Exit: what's one geometry skill you want to keep sharp before your next math course?"}
+  ]
+}

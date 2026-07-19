@@ -1,0 +1,41 @@
+{
+  "id": "LP-W36-S1", "course": "geometry", "week": 36, "session": 1,
+  "session_type": "prove", "lesson": "Catch-Up & Reteach — Diagnose",
+  "unit": "u03", "duration_min": 60, "mode": "Assess",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 36 · Catch-Up & Reteach — Diagnose",
+  "essential_question": "Which of the last eleven lessons still feels shaky — and how do you know?",
+  "objective": "Self-assess confidence across Lessons 20–30 using real evidence, name one lesson to reteach, and set a concrete plan to close that gap before the Final.",
+  "standards": ["G-SRT.C.8", "G-CO.B.7", "G-SRT.C.6"],
+  "vocab": ["diagnostic", "self-assessment", "Emerging", "Proficient", "Mastered", "CPCTC"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — The Last Stretch","board":"warmup","content":{"prompt":"This is the last buffer before the Final. Unit 03 covered special right triangles, proofs, congruence, similarity, transformations, and trig. Which idea do you reach for confidently, and which one makes you pause?"}},
+    {"phase":"check","min":16,"title":"Three Quick Ones","board":"check","content":{"heading":"A fast spot-check across the unit","items":["n1","n2","n3"]}},
+    {"phase":"diagnose","min":26,"title":"Diagnose — Rate Every Lesson","board":"diagnose","content":{"heading":"Go lesson by lesson, honestly","note":"Lessons 20–30 map one-per-week to concept notes at Curriculum/Geometry/Lessons/W24-S1 through W34-S1, in order: L20→W24, L21→W25, L22→W26, L23→W27, L24→W28, L25→W29, L26→W30, L27→W31, L28→W32, L29→W33, L30→W34. For each lesson, rate yourself Emerging / Proficient / Mastered using your actual MUS Lesson Test score and how the S3 checkpoint felt.","items":["d1","d2"]}},
+    {"phase":"exit","min":12,"title":"Exit Ticket","board":"exit","content":{"items":["x1"],"preview":"Session 2: reteach the lesson you picked — reread its concept note and redo its practice."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can rate my confidence on each of Lessons 20–30 using real evidence, not a guess"},
+    {"id":"SC2","text":"I can name one lesson to reteach and describe specifically what isn't solid yet"},
+    {"id":"SC3","text":"I can answer quick spot-check questions across special right triangles, congruence, and trig without help"}
+  ],
+  "assets": {
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W36 Catch-Up & Reteach.md"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"check","kind":"check","title":"Three Quick Ones","items":["n1","n2","n3"]},
+      {"phase":"diagnose","kind":"practice","title":"Diagnose Your Eleven Lessons","items":["d1","d2"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"n1","type":"mc","sc":"SC3","points":1,"prompt":"(L20) A 45-45-90 triangle has a leg of 5. Its hypotenuse is…","options":["5√2","10","5√3","25"],"answer":"5√2","explain":"In a 45-45-90 triangle, hypotenuse = leg×√2."},
+    {"ref":"n2","type":"mc","sc":"SC3","points":1,"prompt":"If ΔABC≅ΔDEF, which conclusion follows from CPCTC?","options":["∠A ≅ ∠D","AB = 2×DE","the triangles are similar but not congruent","area of ABC > area of DEF"],"answer":"∠A ≅ ∠D","explain":"CPCTC (Corresponding Parts of Congruent Triangles are Congruent) means corresponding angles and sides are equal, not scaled."},
+    {"ref":"n3","type":"dropdown","sc":"SC3","points":1,"prompt":"In a right triangle, sine of an angle equals opposite over…","options":["adjacent","hypotenuse","opposite"],"answer":"hypotenuse","explain":"SOH: sine = opposite/hypotenuse."},
+    {"ref":"d1","type":"short","sc":"SC1","points":2,"prompt":"Go lesson by lesson, L20 through L30 (see the mapping above). Rate yourself Emerging, Proficient, or Mastered on each using real evidence — MUS Lesson Test scores and checkpoint results. List every lesson you marked Emerging or a shaky Proficient."},
+    {"ref":"d2","type":"short","sc":"SC2","points":2,"prompt":"From your list, pick ONE lesson to reteach next session. Name it and describe specifically what trips you up."},
+    {"ref":"x1","type":"short","sc":"SC2","points":1,"prompt":"Exit: what's your plan for Session 2, and how will you know the gap is actually closed before the Final?"}
+  ]
+}

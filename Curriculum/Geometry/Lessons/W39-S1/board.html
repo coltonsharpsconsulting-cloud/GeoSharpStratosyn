@@ -1,0 +1,670 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Capstone Build — Plan (Trig + Solid + Transformation) — Board</title>
+<style>/* =========================================================
+   board.css — Stratosyn dark projector stylesheet
+   Board: full-screen, button-navigated, no-scroll, 16:9
+   Financial Algebra · W1-D2 · Track the Money
+   ========================================================= */
+
+/* ----- Design Tokens ----- */
+:root {
+  --void:   #0d1322;
+  --ink:    #161d31;
+  --fog:    #28324a;
+  --mist:   #9aabd0;
+  --bone:   #e8ecf3;
+  --gold:   #f5c842;
+  --cyan:   #00e5ff;
+  --green:  #3effa0;
+  --border: #2a3142;
+  --accent:#8b5cf6;
+
+  --font-serif:   Fraunces, Georgia, serif;
+  --font-display: Inter, system-ui, sans-serif;
+  --font-mono:    "DM Mono", ui-monospace, monospace;
+}
+
+/* ----- Reset / Root ----- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #0d1322;
+  color: #e8ecf3;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+/* ----- Board Shell ----- */
+.board {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+.b-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.4vh 2vw;
+  border-bottom: 1px solid var(--border);
+  background: var(--ink);
+  gap: 1.6vw;
+  flex-shrink: 0;
+  font-variant: small-caps;
+}
+
+.b-title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(16px, 1.8vw, 24px);
+  color: var(--bone);
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.b-phase {
+  font-family: var(--font-mono);
+  font-size: clamp(12px, 1.2vw, 16px);
+  color: var(--mist);
+  white-space: nowrap;
+}
+
+.b-clock {
+  font-family: var(--font-mono);
+  font-size: clamp(12px, 1.2vw, 16px);
+  color: var(--mist);
+  white-space: nowrap;
+}
+
+.b-timer {
+  font-family: var(--font-mono);
+  font-size: clamp(22px, 2.6vw, 38px);
+  color: var(--gold);
+  font-weight: 600;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.b-timer.is-low {
+  color: #ff6b6b;
+}
+
+.b-vol {
+  font-family: var(--font-mono);
+  font-size: clamp(11px, 1.1vw, 14px);
+  color: var(--mist);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.3vh 0.9vw;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   STAGE
+   ========================================================= */
+.b-stage {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ----- Screen panels ----- */
+.screen {
+  position: absolute;
+  inset: 0;
+  padding: 3vh 4vw;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.4vh;
+  box-sizing: border-box;
+}
+
+.screen.is-active {
+  display: flex;
+}
+
+/* =========================================================
+   TYPOGRAPHY — Screen content
+   ========================================================= */
+
+/* Eyebrow label (mono, gold, allcaps) */
+.b-eyebrow {
+  font-family: "DM Mono", monospace;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-size: clamp(12px, 1.3vw, 16px);
+  line-height: 1.2;
+}
+
+/* Hero question — Fraunces italic, large */
+.b-hero-q {
+  font-family: Fraunces, Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(28px, 4.2vw, 52px);
+  line-height: 1.1;
+  color: #e8ecf3;
+}
+
+/* Standard heading */
+.b-h {
+  font-family: Fraunces, Georgia, serif;
+  font-size: clamp(24px, 3.4vw, 42px);
+  line-height: 1.15;
+  color: var(--bone);
+  margin: 0;
+}
+
+/* Body rule / paragraph */
+.b-rule {
+  font-size: clamp(18px, 2vw, 28px);
+  line-height: 1.4;
+  color: var(--bone);
+}
+
+/* Dim note */
+.b-note {
+  color: #9aabd0;
+  font-size: clamp(14px, 1.5vw, 20px);
+  line-height: 1.4;
+}
+
+/* ----- Label ----- */
+.b-lbl {
+  display: block;
+  font-family: "DM Mono", monospace;
+  font-size: clamp(11px, 1.1vw, 14px);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+/* ----- Objective / Success-Criteria cards ----- */
+.b-obj,
+.b-sc {
+  border-left: 3px solid var(--gold);
+  background: var(--ink);
+  padding: 1.2vh 1.4vw;
+  font-size: clamp(16px, 1.7vw, 22px);
+  line-height: 1.4;
+  border-radius: 0 6px 6px 0;
+}
+
+/* ----- Lists ----- */
+.b-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8vh;
+}
+
+.b-list li {
+  font-size: clamp(16px, 1.8vw, 24px);
+  line-height: 1.45;
+  padding-left: 1.2em;
+  position: relative;
+}
+
+.b-list li::before {
+  content: "·";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ----- Agenda (ordered) ----- */
+.b-agenda {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7vh;
+}
+
+.b-agenda li {
+  font-size: clamp(16px, 1.8vw, 24px);
+  line-height: 1.45;
+  display: flex;
+  align-items: baseline;
+  gap: 0.6em;
+}
+
+/* Inline time tag */
+.b-min {
+  font-family: var(--font-mono);
+  font-size: clamp(12px, 1.2vw, 16px);
+  color: var(--gold);
+  background: color-mix(in srgb, var(--gold) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--gold) 35%, transparent);
+  border-radius: 4px;
+  padding: 0.1em 0.45em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ----- Hero SVG container ----- */
+.b-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.b-hero svg {
+  max-height: 40vh;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.b-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.4vh 2vw;
+  border-top: 1px solid var(--border);
+  background: var(--ink);
+  flex-shrink: 0;
+  gap: 1.6vw;
+}
+
+/* Teacher cue strip */
+.b-cue {
+  font-family: var(--font-mono);
+  font-size: clamp(12px, 1.3vw, 17px);
+  color: var(--mist);
+}
+
+.b-cue b {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* Nav buttons */
+.b-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.8vw;
+}
+
+.b-nav button {
+  font-family: var(--font-mono);
+  font-size: clamp(12px, 1.2vw, 16px);
+  background: var(--ink);
+  color: var(--bone);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 1vh 1.6vw;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.b-nav button:hover {
+  background: var(--fog);
+  border-color: var(--mist);
+}
+
+.b-nav button:active {
+  background: var(--fog);
+}
+
+/* Running timer state */
+#timer-toggle.is-running {
+  border-color: #f5c842;
+  color: #f5c842;
+}
+
+/* Check before we practice — click-to-reveal answer + why */
+.b-check{list-style:none;padding:0;margin:1vh 0 0;display:flex;flex-direction:column;gap:1.8vh}
+.b-check li{display:flex;align-items:center;gap:1.2vw;flex-wrap:wrap;font-size:clamp(18px,2.1vw,28px)}
+.b-q{color:#e8ecf3}
+.b-reveal{font-family:"DM Mono",monospace;font-size:clamp(12px,1.2vw,15px);letter-spacing:.08em;text-transform:uppercase;background:#161d31;color:#9aabd0;border:1px solid #2a3142;border-radius:999px;padding:.5vh 1.1vw;cursor:pointer}
+.b-reveal:hover{border-color:var(--accent);color:var(--accent)}
+.b-ans{color:#3effa0;font-weight:600}
+.b-ans b{color:#f5c842}
+
+/* =========================================================
+   FINANCIAL-ALGEBRA ADD-ONS — ledger, steps, chips
+   ========================================================= */
+
+/* Two-column worked layout: log on the left, math on the right */
+.b-work{display:grid;grid-template-columns:1.05fr 1fr;gap:2.6vw;align-items:center}
+
+/* Spending-log table */
+.b-ledger{border-collapse:collapse;width:100%;font-size:clamp(14px,1.55vw,21px)}
+.b-ledger caption{caption-side:top;text-align:left;font-family:"DM Mono",monospace;font-size:clamp(11px,1.1vw,14px);letter-spacing:.12em;text-transform:uppercase;color:#f5c842;padding-bottom:.8vh}
+.b-ledger th,.b-ledger td{padding:.5vh .8vw;text-align:left;border-bottom:1px solid #2a3142;white-space:nowrap}
+.b-ledger thead th{font-family:"DM Mono",monospace;font-size:clamp(10px,1.05vw,13px);letter-spacing:.08em;text-transform:uppercase;color:#9aabd0;font-weight:500}
+.b-ledger td.day{font-family:"DM Mono",monospace;color:#9aabd0}
+.b-ledger td.amt,.b-ledger th.amt{text-align:right;font-family:"DM Mono",monospace;color:#e8ecf3}
+.b-ledger td.run,.b-ledger th.run{text-align:right;font-family:"DM Mono",monospace;color:#9aabd0}
+.b-ledger tfoot td{font-family:"DM Mono",monospace;font-weight:600;color:#f5c842;border-top:2px solid #3a4260;border-bottom:none;padding-top:.7vh}
+.b-ledger tfoot td.amt{color:#3effa0}
+
+/* Numbered computation steps */
+.b-steps{list-style:none;counter-reset:step;padding:0;display:flex;flex-direction:column;gap:1vh}
+.b-steps li{position:relative;padding-left:2.5em;font-size:clamp(15px,1.6vw,22px);line-height:1.35;color:#e8ecf3}
+.b-steps li::before{counter-increment:step;content:counter(step);position:absolute;left:0;top:.05em;width:1.7em;height:1.7em;display:grid;place-items:center;border-radius:8px;background:color-mix(in srgb,var(--accent) 14%,transparent);border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);color:var(--accent);font-family:"DM Mono",monospace;font-size:.8em}
+.b-steps b{color:#f5c842}
+.b-steps .g{color:#3effa0;font-weight:600}
+.b-steps code{font-family:"DM Mono",monospace;color:#00e5ff;font-size:.92em}
+
+/* Result-chip row (rounded squares) */
+.b-chips{display:flex;flex-wrap:wrap;gap:1vw;margin-top:.6vh}
+.b-chip{background:#161d31;border:1px solid #2a3142;border-radius:12px;padding:.9vh 1.1vw;min-width:6em;text-align:center}
+.b-chip .k{display:block;font-family:"DM Mono",monospace;font-size:clamp(10px,1vw,12px);letter-spacing:.08em;text-transform:uppercase;color:#9aabd0}
+.b-chip .v{display:block;font-family:Fraunces,Georgia,serif;font-size:clamp(19px,2.3vw,31px);color:#e8ecf3;line-height:1.1;margin-top:.25vh}
+.b-chip.hot .v{color:var(--accent)}
+.b-chip.good .v{color:#3effa0}
+.b-chip.warn{border-color:color-mix(in srgb,#ff6b6b 45%,transparent)}
+.b-chip.warn .v{color:#ff6b6b;font-size:clamp(14px,1.55vw,20px)}
+.b-chip.warn .k{color:#ff6b6b}
+
+/* Red-flag callout (over-estimate warning) */
+.b-callout{border-left:3px solid #ff6b6b;background:#161d31;border-radius:0 8px 8px 0;padding:1vh 1.2vw;font-size:clamp(14px,1.5vw,20px);line-height:1.35;color:#e8ecf3;margin-top:.4vh}
+.b-callout b{color:#ff6b6b}
+
+/* Practice problem list */
+.b-prob{list-style:none;padding:0;display:flex;flex-direction:column;gap:1vh}
+.b-prob li{font-size:clamp(15px,1.7vw,23px);line-height:1.38;padding-left:2.1em;position:relative;color:#e8ecf3}
+.b-prob li .p{position:absolute;left:0;top:.1em;font-family:"DM Mono",monospace;color:#f5c842;font-size:.82em;background:color-mix(in srgb,#f5c842 12%,transparent);border:1px solid color-mix(in srgb,#f5c842 35%,transparent);border-radius:5px;padding:.05em .35em}
+.b-prob li .tag{font-family:"DM Mono",monospace;font-size:.72em;color:#9aabd0}
+.b-prob b{color:#f5c842}
+</style></head><body><div class="board">
+<header class="b-head"><div class="b-title">Week 39 · Capstone Build — Plan Your Year in One Project</div>
+<div class="b-phase">Phase <span id="phase-num">1</span> / <span id="phase-total">6</span></div>
+<div class="b-clock" id="b-clock">—</div><div class="b-timer" id="b-timer">0:00</div>
+<div class="b-vol" id="b-vol">Plan</div></header>
+<main class="b-stage"><section class="screen" data-min="8"><div class="b-eyebrow">Launch — Design Your Capstone</div><h2 class="b-hero-q">Look back at Weeks 12, 22, and 35 — what did each Unit Studio teach you to build? Your year-end capstone borrows one piece from each: a trig measurement, a solid, and a transformation.</h2></section>
+<section class="screen" data-min="10"><div class="b-eyebrow">The Three-Part Build</div><h2 class="b-h">One capstone, three proofs</h2><ul class="b-list"><li>Part 1 — a real height or distance found by an angle of elevation/depression and right-triangle trig.</li><li>Part 2 — a 3D-printed or built solid with computed volume and surface area, verified by measurement.</li><li>Part 3 — a coordinate-plane transformation (or sequence of transformations) of a figure, with a short proof that it's rigid (or, if a dilation, a similarity).</li></ul></section>
+<section class="screen" data-min="10"><div class="b-eyebrow">Explore — Choose Your Three Pieces</div><h2 class="b-h">Brainstorm before you commit</h2></section>
+<section class="screen" data-min="18"><div class="b-eyebrow">Plan — Write Your Build Plan</div><h2 class="b-h">Put it in writing</h2></section>
+<section class="screen" data-min="8"><div class="b-eyebrow">Quick Check</div><h2 class="b-h">Match the tool to the task</h2></section>
+<section class="screen" data-min="6"><div class="b-eyebrow">Exit Ticket</div></section></main>
+<footer class="b-foot"><div class="b-cue">Capstone Build — Plan (Trig + Solid + Transformation)</div>
+<div class="b-nav"><button id="prev">‹ Prev</button><button id="timer-toggle">▶ Timer</button><button id="next">Next ›</button></div></footer>
+</div>
+<script type="module">// geo.js — geometry figure registry (browser + node). No external deps.
+// figure(name, opts) -> self-contained <svg> string. Static figures only;
+// interactive draggable primitives are built in a later task.
+const PRIMARY = '#8b5cf6';
+const escT = s => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+function lbl(theme){ return theme === 'light' ? '#181b22' : '#e8ecf3'; }
+function grid(theme){ return theme === 'light' ? '#cfd4df' : '#2a3142'; }
+const svg = (inner, vb = '0 0 560 220') =>
+  `<svg viewBox="${vb}" xmlns="http://www.w3.org/2000/svg" font-family="DM Mono, monospace">${inner}</svg>`;
+
+// A small arrowhead <path> pointing from (x,y) outward in `dir` (1 = right, -1 = left).
+function arrow(x, y, dir, color) {
+  const tip = x + dir * 14;
+  return `<path d="M${x} ${y - 8} L${tip} ${y} L${x} ${y + 8} Z" fill="${color}"/>`;
+}
+
+// Direction-vector arrowhead: base at (x,y), pointing along unit vector (ux,uy).
+// Same shape as arrow() when (ux,uy) = (dir,0); generalizes to diagonal rays.
+function arrowVec(x, y, ux, uy, color) {
+  const tipX = x + ux * 14, tipY = y + uy * 14;
+  const px = -uy * 8, py = ux * 8;
+  return `<path d="M${x + px} ${y + py} L${tipX} ${tipY} L${x - px} ${y - py} Z" fill="${color}"/>`;
+}
+
+function point({ label = 'P', theme } = {}) {
+  const c = lbl(theme);
+  return svg(
+    `<circle cx="280" cy="110" r="7" fill="${PRIMARY}"/>` +
+    `<text x="280" y="80" text-anchor="middle" font-size="22" fill="${c}">${escT(label)}</text>`
+  );
+}
+
+function line({ a = 'A', b = 'B', theme } = {}) {
+  const c = lbl(theme);
+  return svg(
+    `<line x1="100" y1="110" x2="460" y2="110" stroke="${PRIMARY}" stroke-width="4"/>` +
+    arrow(100, 110, -1, PRIMARY) + arrow(460, 110, 1, PRIMARY) +
+    `<circle cx="180" cy="110" r="6" fill="${PRIMARY}"/><circle cx="380" cy="110" r="6" fill="${PRIMARY}"/>` +
+    `<text x="180" y="90" text-anchor="middle" font-size="22" fill="${c}">${escT(a)}</text>` +
+    `<text x="380" y="90" text-anchor="middle" font-size="22" fill="${c}">${escT(b)}</text>`
+  );
+}
+
+function ray({ a = 'A', b = 'B', theme } = {}) {
+  const c = lbl(theme);
+  return svg(
+    `<line x1="120" y1="110" x2="440" y2="110" stroke="${PRIMARY}" stroke-width="4"/>` +
+    arrow(440, 110, 1, PRIMARY) +
+    `<circle cx="120" cy="110" r="6" fill="${PRIMARY}"/>` +
+    `<text x="120" y="90" text-anchor="middle" font-size="22" fill="${c}">${escT(a)}</text>` +
+    `<text x="380" y="90" text-anchor="middle" font-size="22" fill="${c}">${escT(b)}</text>`
+  );
+}
+
+function segment({ a = 'A', b = 'B', theme } = {}) {
+  const c = lbl(theme);
+  return svg(
+    `<line x1="120" y1="110" x2="440" y2="110" stroke="${PRIMARY}" stroke-width="4"/>` +
+    `<circle cx="120" cy="110" r="6" fill="${PRIMARY}"/><circle cx="440" cy="110" r="6" fill="${PRIMARY}"/>` +
+    `<text x="120" y="90" text-anchor="middle" font-size="22" fill="${c}">${escT(a)}</text>` +
+    `<text x="440" y="90" text-anchor="middle" font-size="22" fill="${c}">${escT(b)}</text>`
+  );
+}
+
+function fourBlocks({ theme } = {}) {
+  const c = lbl(theme);
+  const caption = (x, y, text) =>
+    `<text x="${x}" y="${y}" text-anchor="middle" font-size="14" fill="${c}">${text}</text>`;
+
+  // Quadrant 1 (top-left): point
+  const q1 =
+    `<circle cx="140" cy="45" r="6" fill="${PRIMARY}"/>` +
+    `<text x="140" y="25" text-anchor="middle" font-size="16" fill="${c}">P</text>` +
+    caption(140, 95, 'point');
+
+  // Quadrant 2 (top-right): line (both ends arrowed)
+  const q2 =
+    `<line x1="360" y1="45" x2="500" y2="45" stroke="${PRIMARY}" stroke-width="3"/>` +
+    arrow(360, 45, -1, PRIMARY) + arrow(500, 45, 1, PRIMARY) +
+    `<circle cx="390" cy="45" r="5" fill="${PRIMARY}"/><circle cx="470" cy="45" r="5" fill="${PRIMARY}"/>` +
+    `<text x="390" y="30" text-anchor="middle" font-size="14" fill="${c}">A</text>` +
+    `<text x="470" y="30" text-anchor="middle" font-size="14" fill="${c}">B</text>` +
+    caption(430, 95, 'line');
+
+  // Quadrant 3 (bottom-left): ray (one end arrowed)
+  const q3 =
+    `<line x1="80" y1="165" x2="220" y2="165" stroke="${PRIMARY}" stroke-width="3"/>` +
+    arrow(220, 165, 1, PRIMARY) +
+    `<circle cx="80" cy="165" r="5" fill="${PRIMARY}"/>` +
+    `<text x="80" y="150" text-anchor="middle" font-size="14" fill="${c}">C</text>` +
+    `<text x="190" y="150" text-anchor="middle" font-size="14" fill="${c}">D</text>` +
+    caption(150, 205, 'ray');
+
+  // Quadrant 4 (bottom-right): segment
+  const q4 =
+    `<line x1="360" y1="165" x2="500" y2="165" stroke="${PRIMARY}" stroke-width="3"/>` +
+    `<circle cx="360" cy="165" r="5" fill="${PRIMARY}"/><circle cx="500" cy="165" r="5" fill="${PRIMARY}"/>` +
+    `<text x="360" y="150" text-anchor="middle" font-size="14" fill="${c}">E</text>` +
+    `<text x="500" y="150" text-anchor="middle" font-size="14" fill="${c}">F</text>` +
+    caption(430, 205, 'segment');
+
+  return svg(q1 + q2 + q3 + q4);
+}
+
+function anglePair({ vertex = 'V', a = 'A', b = 'B', theme } = {}) {
+  const c = lbl(theme);
+  const vx = 160, vy = 180;
+  const ax = 420, ay = 60;   // ray to A (diagonal)
+  const bx = 420, by = 180;  // ray to B (horizontal)
+
+  const dA = { x: ax - vx, y: ay - vy }, dB = { x: bx - vx, y: by - vy };
+  const lenA = Math.hypot(dA.x, dA.y), lenB = Math.hypot(dB.x, dB.y);
+  const uA = { x: dA.x / lenA, y: dA.y / lenA };
+  const uB = { x: dB.x / lenB, y: dB.y / lenB };
+
+  const r = 40;
+  const arcStart = { x: vx + uB.x * r, y: vy + uB.y * r };
+  const arcEnd = { x: vx + uA.x * r, y: vy + uA.y * r };
+  const sweepFlag = (uB.x * uA.y - uB.y * uA.x) > 0 ? 1 : 0;
+
+  return svg(
+    `<line x1="${vx}" y1="${vy}" x2="${ax}" y2="${ay}" stroke="${PRIMARY}" stroke-width="4"/>` +
+    arrowVec(ax, ay, uA.x, uA.y, PRIMARY) +
+    `<line x1="${vx}" y1="${vy}" x2="${bx}" y2="${by}" stroke="${PRIMARY}" stroke-width="4"/>` +
+    arrowVec(bx, by, uB.x, uB.y, PRIMARY) +
+    `<circle cx="${vx}" cy="${vy}" r="6" fill="${PRIMARY}"/>` +
+    `<path d="M ${arcStart.x} ${arcStart.y} A ${r} ${r} 0 0 ${sweepFlag} ${arcEnd.x} ${arcEnd.y}" fill="none" stroke="${PRIMARY}" stroke-width="2"/>` +
+    `<text x="${vx - 20}" y="${vy + 20}" text-anchor="middle" font-size="20" fill="${c}">${escT(vertex)}</text>` +
+    `<text x="${ax + 10}" y="${ay - 6}" text-anchor="middle" font-size="20" fill="${c}">${escT(a)}</text>` +
+    `<text x="${bx + 20}" y="${by + 6}" text-anchor="middle" font-size="20" fill="${c}">${escT(b)}</text>` +
+    `<text x="${vx + r + 15}" y="${vy - 14}" text-anchor="middle" font-size="14" fill="${c}">°</text>`
+  );
+}
+
+function plane({ p1 = 'M', p2 = 'N', p3 = 'Q', label = 'P', theme } = {}) {
+  const c = lbl(theme);
+  const pts = [
+    [140, 170], [420, 170], [480, 60], [200, 60],
+  ];
+  const poly = pts.map(p => p.join(',')).join(' ');
+  return svg(
+    `<polygon points="${poly}" fill="${PRIMARY}22" stroke="${PRIMARY}" stroke-width="3"/>` +
+    `<circle cx="200" cy="120" r="6" fill="${PRIMARY}"/>` +
+    `<circle cx="320" cy="150" r="6" fill="${PRIMARY}"/>` +
+    `<circle cx="380" cy="90" r="6" fill="${PRIMARY}"/>` +
+    `<text x="200" y="100" text-anchor="middle" font-size="20" fill="${c}">${escT(p1)}</text>` +
+    `<text x="320" y="175" text-anchor="middle" font-size="20" fill="${c}">${escT(p2)}</text>` +
+    `<text x="380" y="70" text-anchor="middle" font-size="20" fill="${c}">${escT(p3)}</text>` +
+    `<text x="280" y="205" text-anchor="middle" font-size="16" fill="${c}">plane ${escT(label)}</text>`
+  );
+}
+
+function gridBlank({ theme } = {}) {
+  const g = grid(theme);
+  let lines = '';
+  for (let x = 0; x <= 560; x += 28) lines += `<line x1="${x}" y1="0" x2="${x}" y2="360" stroke="${g}" stroke-width="1"/>`;
+  for (let y = 0; y <= 360; y += 28) lines += `<line x1="0" y1="${y}" x2="560" y2="${y}" stroke="${g}" stroke-width="1"/>`;
+  return svg(lines, '0 0 560 360');
+}
+
+export const FIGURES = {
+  point,
+  line,
+  ray,
+  segment,
+  'four-blocks': fourBlocks,
+  'angle-pair': anglePair,
+  plane,
+  'grid-blank': gridBlank,
+};
+
+export function figure(name, opts = {}) {
+  const b = FIGURES[name];
+  if (!b) throw new Error(`unknown figure: ${name}`);
+  return b(opts);
+}
+
+// Interactive: spec = { points:[{id,x,y,label}], segments:[[id,id]], angles:[[id,id,id]], readout:true }
+export function mountInteractive(el, spec) {
+  const NS = 'http://www.w3.org/2000/svg';
+  const s = document.createElementNS(NS, 'svg');
+  s.setAttribute('viewBox', '0 0 560 360'); s.setAttribute('width', '100%');
+  const P = new Map(spec.points.map(p => [p.id, { ...p }]));
+  const layer = { seg: [], ang: [], dot: [], txt: [] };
+  function dist(a, b){ return Math.hypot(P.get(a).x - P.get(b).x, P.get(a).y - P.get(b).y); }
+  function angle(a, v, b){
+    const A = P.get(a), V = P.get(v), B = P.get(b);
+    const d = (Math.atan2(A.y-V.y, A.x-V.x) - Math.atan2(B.y-V.y, B.x-V.x)) * 180/Math.PI;
+    return Math.abs(((d + 540) % 360) - 180);
+  }
+  function draw() {
+    layer.seg.forEach((ln, i) => { const [a,b] = spec.segments[i];
+      ln.setAttribute('x1',P.get(a).x); ln.setAttribute('y1',P.get(a).y);
+      ln.setAttribute('x2',P.get(b).x); ln.setAttribute('y2',P.get(b).y); });
+    spec.points.forEach(p => { const c = P.get(p.id);
+      layer.dot[spec.points.indexOf(p)].setAttribute('cx',c.x);
+      layer.dot[spec.points.indexOf(p)].setAttribute('cy',c.y);
+      const t = layer.txt[spec.points.indexOf(p)]; t.setAttribute('x',c.x); t.setAttribute('y',c.y-14); });
+    if (spec.readout) el.querySelector('.geo-readout').textContent =
+      (spec.segments||[]).map(([a,b]) => `${a}${b}=${dist(a,b).toFixed(0)}`).join('  ') + '  ' +
+      (spec.angles||[]).map(([a,v,b]) => `∠${a}${v}${b}=${angle(a,v,b).toFixed(0)}°`).join('  ');
+  }
+  (spec.segments||[]).forEach(() => { const ln = document.createElementNS(NS,'line');
+    ln.setAttribute('stroke', PRIMARY); ln.setAttribute('stroke-width','4'); s.appendChild(ln); layer.seg.push(ln); });
+  spec.points.forEach(p => { const c = document.createElementNS(NS,'circle');
+    c.setAttribute('r','9'); c.setAttribute('fill', PRIMARY); c.style.cursor='grab'; c.dataset.id=p.id; s.appendChild(c); layer.dot.push(c);
+    const t = document.createElementNS(NS,'text'); t.setAttribute('font-size','20'); t.setAttribute('fill','#e8ecf3');
+    t.setAttribute('text-anchor','middle'); t.textContent=p.label||p.id; s.appendChild(t); layer.txt.push(t); });
+  el.innerHTML = ''; el.appendChild(s);
+  if (spec.readout){ const r=document.createElement('div'); r.className='geo-readout'; el.appendChild(r); }
+  let drag=null;
+  const pt = e => { const m=s.getScreenCTM().inverse(); const q=new DOMPoint(e.clientX,e.clientY).matrixTransform(m); return q; };
+  s.addEventListener('pointerdown', e => { if (e.target.dataset && e.target.dataset.id){ drag=e.target.dataset.id; e.target.setPointerCapture(e.pointerId);} });
+  s.addEventListener('pointermove', e => { if(!drag) return; const q=pt(e); const c=P.get(drag); c.x=Math.max(10,Math.min(550,q.x)); c.y=Math.max(10,Math.min(350,q.y)); draw(); });
+  s.addEventListener('pointerup', () => drag=null);
+  draw();
+  return { measure:{ dist, angle } };
+}
+</script>
+<script>(() => {
+  const screens = [...document.querySelectorAll('.screen')];
+  const phaseEl = document.getElementById('phase-num');
+  const totalEl = document.getElementById('phase-total');
+  const timerEl = document.getElementById('b-timer');
+  const clockEl = document.getElementById('b-clock');
+  let i = 0, remaining = 0, running = false;
+  if (totalEl) totalEl.textContent = screens.length;
+  function fmt(s){ const m=Math.floor(s/60), ss=s%60; return m + ':' + String(ss).padStart(2,'0'); }
+  function setTimerFromScreen(){
+    const min = parseInt(screens[i].dataset.min || '0', 10);
+    remaining = min*60; running=false; timerEl.textContent=fmt(remaining);
+    timerEl.classList.remove('is-low');
+    document.getElementById('timer-toggle')?.classList.remove('is-running');
+  }
+  function show(n){
+    i = Math.max(0, Math.min(screens.length-1, n));
+    screens.forEach((s,k)=>s.classList.toggle('is-active', k===i));
+    if (phaseEl) phaseEl.textContent = i+1;
+    setTimerFromScreen();
+  }
+  document.getElementById('next')?.addEventListener('click',()=>show(i+1));
+  document.getElementById('prev')?.addEventListener('click',()=>show(i-1));
+  document.addEventListener('keydown', e=>{
+    if (e.key==='ArrowRight'||e.key==='PageDown') show(i+1);
+    if (e.key==='ArrowLeft'||e.key==='PageUp') show(i-1);
+    if (e.key===' '){ e.preventDefault(); toggleTimer(); }
+  });
+  function toggleTimer(){ running=!running; document.getElementById('timer-toggle')?.classList.toggle('is-running', running); }
+  document.getElementById('timer-toggle')?.addEventListener('click', toggleTimer);
+  document.addEventListener('click', e=>{
+    if (e.target.classList && e.target.classList.contains('b-reveal')){
+      const ans = e.target.parentElement?.querySelector('.b-ans');
+      if (ans) ans.hidden=false;
+      e.target.style.display='none';
+    }
+  });
+  setInterval(()=>{
+    if (clockEl){ const d=new Date(); clockEl.textContent=d.toLocaleTimeString([],{hour:'numeric',minute:'2-digit'}); }
+    if (running && remaining>0){ remaining--; timerEl.textContent=fmt(remaining); if (remaining<=30) timerEl.classList.add('is-low'); }
+  }, 1000);
+  show(0);
+})();</script></body></html>

@@ -1,0 +1,177 @@
+{
+  "id": "LP-W35-S2",
+  "course": "geometry",
+  "duration_min": 60,
+  "teacher": "Colton",
+  "student": "Stephen Salas",
+  "week": 35,
+  "session": 2,
+  "session_type": "build",
+  "lesson": "Unit 03 Studio — Capstone Build (trig measurement + transformation design)",
+  "unit": "u03",
+  "mode": "Build",
+  "banner": "Week 35 · Unit 03 Capstone — Measure the Real World, Then Transform It",
+  "essential_question": "Can you find a height you can't reach, and move a shape you can prove?",
+  "objective": "Take a real-world height or distance measurement using an angle of elevation/depression and right-triangle trig, then design and carry out a transformation (translation, reflection, or rotation) of a figure on the coordinate plane.",
+  "standards": [
+    "G-SRT.C.6",
+    "G-CO.A.2"
+  ],
+  "vocab": [
+    "angle of elevation",
+    "tangent",
+    "transformation",
+    "translation",
+    "reflection",
+    "rotation"
+  ],
+  "agenda": [
+    {
+      "phase": "brief",
+      "min": 6,
+      "title": "Brief — Today's Two-Part Capstone",
+      "board": "brief",
+      "content": {
+        "heading": "Trig in the yard, transformations on paper",
+        "bullets": [
+          "Part A: measure something tall or far away that you can't reach directly, using an angle and right-triangle trig.",
+          "Part B: design a transformation of a figure on the coordinate plane and defend whether it's rigid (preserves length & angle) or not.",
+          "Both parts get written up and proven — numbers alone aren't enough."
+        ]
+      }
+    },
+    {
+      "phase": "plan",
+      "min": 8,
+      "title": "Plan — Pick Your Target & Your Figure",
+      "board": "plan",
+      "content": {
+        "heading": "Gather + plan",
+        "note": "Choose a real object (a tree, a flagpole, a roofline, a distance across the yard) to measure by angle. Separately, choose a polygon on graph paper or a coordinate app to translate, reflect, or rotate."
+      }
+    },
+    {
+      "phase": "build",
+      "min": 24,
+      "title": "Build — Measure & Transform",
+      "board": "build",
+      "content": {
+        "heading": "Make both parts real",
+        "bullets": [
+          "Measure the angle of elevation with a protractor or inclinometer app, and the baseline distance.",
+          "Compute the height or distance using the correct trig ratio — show your work.",
+          "Plot your original figure and its image after the transformation, labeling every coordinate."
+        ]
+      }
+    },
+    {
+      "phase": "measure",
+      "min": 14,
+      "title": "Measure & Record",
+      "board": "measure",
+      "content": {
+        "heading": "Get the numbers",
+        "figure": "grid-blank",
+        "items": [
+          "m1",
+          "m2",
+          "m3"
+        ]
+      }
+    },
+    {
+      "phase": "reflect",
+      "min": 8,
+      "title": "Reflect & Photograph",
+      "board": "reflect",
+      "content": {
+        "items": [
+          "r1"
+        ],
+        "preview": "Session 3: final mixed review, then MUS Unit Test III on your own."
+      }
+    }
+  ],
+  "success_criteria": [
+    {
+      "id": "SC1",
+      "text": "I can measure an angle of elevation/depression and a baseline distance, and use trig to find an inaccessible height or distance"
+    },
+    {
+      "id": "SC2",
+      "text": "I can perform a translation, reflection, or rotation of a figure on the coordinate plane and record before/after coordinates"
+    },
+    {
+      "id": "SC3",
+      "text": "I can verify whether my transformation preserved side lengths and angles, and explain why"
+    }
+  ],
+  "assets": {
+    "compass": {
+      "date": "",
+      "note": "Curriculum/Geometry/The Salas Compass/2026-W35 Unit 3 Studio.md"
+    }
+  },
+  "activity": {
+    "submit": {
+      "mode": "download",
+      "format": "pdf"
+    },
+    "sections": [
+      {
+        "phase": "measure",
+        "kind": "practice",
+        "title": "Build Log & Measurements",
+        "items": [
+          "m1",
+          "m2",
+          "m3"
+        ]
+      },
+      {
+        "phase": "reflect",
+        "kind": "exit",
+        "title": "Reflect",
+        "items": [
+          "r1"
+        ]
+      }
+    ]
+  },
+  "questions": [
+    {
+      "ref": "m1",
+      "type": "measure",
+      "sc": "SC1",
+      "points": 2,
+      "prompt": "Record your angle of elevation and baseline distance to the object you measured.",
+      "answer": "Any consistent measured angle (degrees) plus a baseline distance with units.",
+      "explain": "Both numbers feed directly into the trig ratio you'll use to find the height or distance."
+    },
+    {
+      "ref": "m2",
+      "type": "short",
+      "sc": "SC1",
+      "points": 2,
+      "prompt": "Using tan(angle) = height/baseline (plus your eye height, if applicable), compute the height or distance of your object. Show your work.",
+      "answer": "height = baseline · tan(angle), plus eye height if measuring from eye level; must show substitution and units.",
+      "explain": "Tangent connects the angle of elevation to the ratio of opposite (height) over adjacent (baseline)."
+    },
+    {
+      "ref": "m3",
+      "type": "short",
+      "sc": "SC2",
+      "points": 2,
+      "prompt": "List the coordinates of your original figure's vertices and its image after your chosen transformation.",
+      "answer": "Any consistent set of before/after coordinate pairs matching the transformation rule used, e.g. (x,y) → (x,−y) for a reflection over the x-axis.",
+      "explain": "Each transformation has a coordinate rule — translations add/subtract, reflections flip a sign, rotations swap and/or negate coordinates."
+    },
+    {
+      "ref": "r1",
+      "type": "short",
+      "sc": "SC3",
+      "points": 2,
+      "prompt": "Reflect: did your transformation preserve every side length and angle? How do you know — what did you check?"
+    }
+  ]
+}

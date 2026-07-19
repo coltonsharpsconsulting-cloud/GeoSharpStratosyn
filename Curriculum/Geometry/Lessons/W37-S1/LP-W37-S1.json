@@ -1,0 +1,42 @@
+{
+  "id": "LP-W37-S1", "course": "geometry", "week": 37, "session": 1,
+  "session_type": "concept", "lesson": "Year-End Final — Review Unit 01",
+  "unit": "u03", "duration_min": 60, "mode": "Review",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 37 · Year-End Final — Review Unit 01",
+  "essential_question": "Of everything from Lessons 1–10, what still has to be automatic before the Final?",
+  "objective": "Review Unit 01's foundations — points, lines, and planes; angle types and pairs; polygons and perimeter; area; and triangle classification — through mixed cumulative practice.",
+  "standards": ["G-CO.A.1", "G-CO.C.9", "G-MG.A.1", "G-CO.C.10"],
+  "vocab": ["collinear", "coplanar", "complementary", "supplementary", "perimeter", "area", "isosceles"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — The Start of the Year","board":"warmup","content":{"prompt":"Unit 01 was Lessons 1–10 — the vocabulary and toolkit of the whole course. Without checking anything, what's the first idea from those ten lessons that comes to mind?"}},
+    {"phase":"review","min":14,"title":"Unit 01 in Five Ideas","board":"review","content":{"heading":"Foundations, angles, polygons, area, triangles","bullets":["Points, lines, rays, segments, and planes — named by endpoints, and how planes intersect.","Angle types (acute/right/obtuse/straight) and angle pairs (complementary/supplementary/vertical).","Parallel lines, transversals, and the angle relationships they create.","Polygons, quadrilaterals, and perimeter; area of parallelograms, triangles, and trapezoids.","Classifying triangles by sides (scalene/isosceles/equilateral) and by angles."]}},
+    {"phase":"practice","min":30,"title":"Mixed Cumulative Practice — Lessons 1–10","board":"practice","content":{"heading":"One from each big idea","items":["q1","q2","q3","q4","q5","q6"]}},
+    {"phase":"exit","min":10,"title":"Exit Ticket","board":"exit","content":{"items":["x1"],"preview":"Session 2: Unit 02 — circles, solids, radicals, and the Pythagorean theorem."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can identify points, lines, and planes and how they intersect"},
+    {"id":"SC2","text":"I can classify angles and angle pairs (complementary, supplementary) correctly"},
+    {"id":"SC3","text":"I can compute perimeter and area for basic figures"},
+    {"id":"SC4","text":"I can classify triangles by their sides"}
+  ],
+  "assets": {
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W37 Year-End Final Review.md"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"practice","kind":"practice","title":"Mixed Cumulative Practice","items":["q1","q2","q3","q4","q5","q6"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"q1","type":"dropdown","sc":"SC1","points":1,"prompt":"Two distinct planes that intersect meet in exactly a…","options":["point","line","segment"],"answer":"line","explain":"Two planes can't meet at just a point or a piece of a line — where they intersect is a full line."},
+    {"ref":"q2","type":"mc","sc":"SC2","points":1,"prompt":"An angle measuring 130° is…","options":["acute","right","obtuse","straight"],"answer":"obtuse","explain":"Obtuse angles measure more than 90° and less than 180°."},
+    {"ref":"q3","type":"dropdown","sc":"SC2","points":1,"prompt":"Two angles that sum to exactly 90° are…","options":["complementary","supplementary","vertical"],"answer":"complementary","explain":"Complementary angles sum to 90°; supplementary angles sum to 180°."},
+    {"ref":"q4","type":"short","sc":"SC3","points":2,"prompt":"Find the perimeter of a rectangle with length 12 and width 5.","answer":"P=2(12+5)=2(17)=34 units.","explain":"Perimeter of a rectangle = 2(length+width)."},
+    {"ref":"q5","type":"short","sc":"SC3","points":2,"prompt":"Find the area of a triangle with base 10 and height 6.","answer":"A=½(10)(6)=30 square units.","explain":"Area of a triangle = ½ × base × height."},
+    {"ref":"q6","type":"mc","sc":"SC4","points":1,"prompt":"A triangle with sides 5, 5, and 8 is classified as…","options":["scalene","isosceles","equilateral"],"answer":"isosceles","explain":"Two sides (the two 5s) are congruent, which makes it isosceles."},
+    {"ref":"x1","type":"short","points":1,"prompt":"Exit: which Unit 01 idea from today's mix would you want one more example of before the Final?"}
+  ]
+}

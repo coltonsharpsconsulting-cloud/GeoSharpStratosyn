@@ -1,0 +1,39 @@
+{
+  "id": "LP-W36-S3", "course": "geometry", "week": 36, "session": 3,
+  "session_type": "prove", "lesson": "Catch-Up & Reteach — Reassess",
+  "unit": "u03", "duration_min": 60, "mode": "Assess",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 36 · Catch-Up & Reteach — Reassess",
+  "essential_question": "Now that you've retaught the weak spot — does it actually hold under a fresh check, this close to the Final?",
+  "objective": "Retake a fresh mastery check across Lessons 20–30, confirm the reteach worked, and honestly gauge readiness for the Final Exam.",
+  "standards": ["G-CO.C.9", "G-CO.B.8", "G-SRT.B.5", "G-SRT.C.6", "G-SRT.C.8"],
+  "vocab": ["mastery check", "reassessment", "CPCTC", "HL", "cosecant"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Name the Fix","board":"warmup","content":{"prompt":"Before we check anything — what specifically did you fix since Session 2? Say it in one sentence."}},
+    {"phase":"review","min":10,"title":"One More Pass","board":"review","content":{"heading":"Reread before you retest","note":"Skim your corrected Session 2 work one more time. Then close it — the next problems are fresh, not a repeat."}},
+    {"phase":"checkpoint","min":28,"title":"Fresh Mastery Check — Lessons 20–30","board":"checkpoint","content":{"heading":"Show it holds","items":["c1","c2","c3","c4","c5"]}},
+    {"phase":"close","min":16,"title":"Close & Reset Mastery","board":"close","content":{"items":["x1"],"preview":"Next: the Year-End Final — review weeks, then the MUS Final Exam."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can correctly solve fresh problems across Lessons 20–30 without help"},
+    {"id":"SC2","text":"I can honestly reset my mastery rating and gauge my Final-Exam readiness using today's evidence"}
+  ],
+  "assets": {
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W36 Catch-Up & Reteach.md"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"checkpoint","kind":"check","title":"Fresh Mastery Check","items":["c1","c2","c3","c4","c5"]},
+      {"phase":"close","kind":"exit","title":"Set Your Mastery","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"c1","type":"mc","sc":"SC1","points":1,"prompt":"(L22) Two angles that are vertical angles are always…","options":["complementary","supplementary","congruent"],"answer":"congruent","explain":"Vertical angles, formed by two intersecting lines, are always congruent."},
+    {"ref":"c2","type":"dropdown","sc":"SC1","points":1,"prompt":"Two triangles share one full side (included) and have two pairs of congruent angles adjacent to it. Which proof shortcut applies?","options":["SSS","ASA","HL"],"answer":"ASA","explain":"Two angles and the INCLUDED side between them congruent = ASA."},
+    {"ref":"c3","type":"mc","sc":"SC1","points":1,"prompt":"(L26) For two right triangles, which pair alone is enough to prove congruence by HL?","options":["hypotenuse and one leg","two legs only","one leg and one acute angle"],"answer":"hypotenuse and one leg","explain":"HL (Hypotenuse-Leg) is the special right-triangle shortcut: a congruent hypotenuse plus a congruent leg is enough."},
+    {"ref":"c4","type":"short","sc":"SC1","points":2,"prompt":"(L30) If sin θ = 3/5, what is csc θ?","answer":"csc θ = 5/3","explain":"Cosecant is the reciprocal of sine."},
+    {"ref":"c5","type":"short","sc":"SC1","points":2,"prompt":"(L20/21) A 45-45-90 triangle has hypotenuse 10. Find each leg, simplifying any radical.","answer":"Each leg = 10/√2 = 5√2.","explain":"leg = hypotenuse/√2, rationalized to 5√2."},
+    {"ref":"x1","type":"short","sc":"SC2","points":1,"prompt":"Exit: rate your mastery on the lesson you reteached and say what evidence from today backs that up. You're one buffer week from the Final — what's your honest confidence level?"}
+  ]
+}

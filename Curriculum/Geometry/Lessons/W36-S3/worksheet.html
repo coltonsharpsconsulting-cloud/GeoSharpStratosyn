@@ -1,0 +1,232 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Catch-Up &amp; Reteach — Reassess — Worksheet</title>
+<style>/* ws.css — student-facing worksheet, light theme, US-Letter print */
+:root{
+  --ink:#181b22; --mist:#5a606c; --line:#cfd4df; --line2:#e4e8f0;
+  --gold:#5b3fb0; --cyan:#0a6373; --ok:#1c7a45; --no:#b00020;
+  --money:#137a45; --money-bg:#eaf6ee;
+  --bg-page:#eef1f6; --bg-sheet:#fff; --bg-soft:#f6f8fc;
+  --radius:8px;
+}
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+body{
+  font-family:-apple-system,Inter,system-ui,sans-serif;
+  font-size:15px; color:var(--ink); background:var(--bg-page);
+  margin:0; padding:28px 16px 56px; line-height:1.5;
+}
+
+/* Page container */
+.ws{max-width:780px; margin:0 auto; background:var(--bg-sheet);
+  border:1px solid var(--line); border-radius:10px; padding:30px 34px 40px;}
+
+/* ── Tools (screen only) ── */
+.tools{max-width:780px; margin:0 auto 12px; display:flex; gap:8px; justify-content:flex-end;}
+.tools button{font:600 13px/1 inherit; border:1px solid var(--line); background:#fff;
+  color:var(--ink); border-radius:7px; padding:9px 14px; cursor:pointer;}
+.tools button:hover{background:var(--bg-soft);}
+.tools .primary{background:var(--ink); color:#fff; border-color:var(--ink);}
+.tools .primary:hover{background:#000;}
+
+/* ── Header ── */
+.ws-head{margin-bottom:22px;}
+.eyebrow{font:600 11px/1 ui-monospace,monospace; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--gold); margin-bottom:9px;}
+.ws-head h1{font-size:24px; font-weight:800; margin:0 0 4px; letter-spacing:-.01em;}
+.sub{font-size:13px; color:var(--mist); margin-bottom:16px;}
+.ws-id{display:flex; gap:12px; flex-wrap:wrap;}
+.ws-id input{flex:1; min-width:110px;}
+
+/* ── Objective / EQ bar ── */
+.brief{border:1px solid var(--line2); background:var(--bg-soft);
+  border-radius:var(--radius); padding:14px 16px; margin-top:6px;}
+.brief p{margin:0 0 7px;}
+.brief p:last-child{margin-bottom:0;}
+.brief .lab{font:600 10.5px/1 ui-monospace,monospace; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--cyan); margin-right:7px;}
+.sc{margin:9px 0 0; padding:0; list-style:none; font-size:13px; color:var(--mist);}
+.sc li{margin:2px 0; padding-left:18px; position:relative;}
+.sc li::before{content:"▢"; position:absolute; left:0; color:var(--cyan);}
+.vocab{margin-top:11px; display:flex; flex-wrap:wrap; gap:6px;}
+.vocab .lab{display:block; width:100%; margin-bottom:2px;}
+.chip{font:600 12px/1 inherit; border:1px solid var(--line); background:#fff;
+  color:var(--ink); border-radius:20px; padding:5px 11px;}
+
+/* ── Sections ── */
+.ws-sec{border-top:2px solid var(--line); margin-top:26px; padding-top:18px;}
+.ws-sec h2{font-size:13px; font-weight:800; letter-spacing:.09em; text-transform:uppercase;
+  color:var(--cyan); margin:0 0 4px;}
+.ws-sec .lede{font-size:13px; color:var(--mist); margin:0 0 14px;}
+.tag{display:inline-block; font:600 10px/1 ui-monospace,monospace; letter-spacing:.1em;
+  text-transform:uppercase; color:#fff; background:var(--cyan); border-radius:4px;
+  padding:3px 6px; margin-left:8px; vertical-align:2px;}
+.tag.warm{background:var(--gold);} .tag.exit{background:var(--money);}
+
+/* ── Question blocks ── */
+.q{margin-bottom:18px;}
+.q-prompt{font-weight:600; font-size:14px; margin:0 0 9px; color:var(--ink);}
+.q-prompt .pn{color:var(--cyan); font-weight:800; margin-right:6px;}
+.hint{font-size:12px; color:var(--mist); font-weight:400;}
+
+/* ── Inputs ── */
+input,select,textarea{width:100%; font:inherit; font-size:14px; padding:8px 10px;
+  border:1px solid var(--line); border-radius:6px; background:#fbfcfe; color:var(--ink);
+  transition:border-color .15s;}
+input:focus,select:focus,textarea:focus{outline:none; border-color:var(--cyan);}
+textarea{min-height:70px; resize:vertical;}
+.inline-in{display:inline-block; width:150px; padding:4px 8px;}
+.inline-in.sm{width:92px;}
+
+/* answer blank */
+.ans{display:flex; align-items:center; gap:9px; margin-top:10px;
+  background:var(--money-bg); border:1px solid #cfe6d6; border-radius:6px; padding:9px 12px;}
+.ans .lab{font:800 11px/1 ui-monospace,monospace; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--money); white-space:nowrap;}
+.ans input{background:#fff; border-color:#bcd9c6;}
+.ans .unit{font-size:12.5px; color:var(--mist); white-space:nowrap;}
+
+/* work space */
+.work{margin-top:10px; border:1px dashed var(--line); border-radius:6px;
+  background:repeating-linear-gradient(#fff,#fff 27px,var(--line2) 27px,var(--line2) 28px);
+  min-height:88px; padding:6px 12px 4px;}
+.work .wlab{font:600 10px/1 ui-monospace,monospace; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--mist);}
+.work.tall{min-height:120px;}
+
+/* choose-one option lists */
+.q-opts{display:flex; flex-direction:column; gap:7px; margin-top:2px;}
+.q-opts label{display:flex; align-items:center; gap:9px; font-weight:400; font-size:14px; cursor:pointer;}
+.q-opts input[type=radio]{width:auto; flex-shrink:0; accent-color:var(--cyan);}
+
+/* ── Tables (spending logs) ── */
+.tbl-wrap{overflow-x:auto; margin:12px 0;}
+table.log{width:100%; border-collapse:collapse; font-size:14px;}
+table.log th,table.log td{border:1px solid var(--line); padding:8px 10px; text-align:left;}
+table.log th{background:var(--bg-soft); font-size:11px; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--mist); font-weight:700;}
+table.log td.amt,table.log th.amt,table.log td.run,table.log th.run{text-align:right;
+  font-variant-numeric:tabular-nums;}
+table.log .fill{color:#b9bfca; font-style:italic;}
+table.log tr.tot td{border-top:2px solid var(--ink); font-weight:800; background:var(--money-bg);}
+table.log td.run{color:var(--money); font-weight:700;}
+
+/* worked-step list */
+ol.steps{margin:12px 0 4px; padding-left:22px;}
+ol.steps li{margin:7px 0;}
+ol.steps b{color:var(--money);}
+.callout{border-left:3px solid var(--cyan); background:#eef7f9; border-radius:0 6px 6px 0;
+  padding:10px 13px; margin:12px 0; font-size:13.5px;}
+.callout b{color:var(--cyan);}
+.result{display:flex; flex-wrap:wrap; gap:8px 20px; margin:12px 0 2px; padding:11px 14px;
+  background:var(--money-bg); border:1px solid #cfe6d6; border-radius:6px;}
+.result .r{font-size:13px;} .result .r b{color:var(--money); font-size:15px;}
+
+.example{border:1px solid var(--line2); border-radius:var(--radius); padding:14px 16px; margin-top:4px;}
+.example + .example{margin-top:16px;}
+.example h3{font-size:14px; margin:0 0 2px;}
+.example .who{font:600 10.5px/1 ui-monospace,monospace; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--gold); margin-bottom:8px;}
+
+/* ── Teacher Answer Key ── */
+#teacherKey{display:none;}
+body.show-key #teacherKey{display:block;}
+.key{page-break-before:always; break-before:page; border-top:none; margin-top:34px;}
+.key-banner{background:var(--ink); color:#fff; border-radius:8px; padding:12px 16px; margin-bottom:16px;}
+.key-banner h2{color:#fff; font-size:15px; margin:0 0 2px; letter-spacing:.04em;}
+.key-banner p{margin:0; font-size:12px; color:#c7ccd6;}
+.key .kq{margin-bottom:13px; padding-bottom:11px; border-bottom:1px solid var(--line2);}
+.key .kref{font:800 12px/1 ui-monospace,monospace; color:var(--cyan); margin-right:8px;}
+.key .kans{color:var(--money); font-weight:800;}
+.key .kwhy{display:block; font-size:12.5px; color:var(--mist); margin-top:4px;}
+.key .kpts{float:right; font:700 11px/1 ui-monospace,monospace; color:var(--mist);}
+
+.foot{margin-top:26px; padding-top:14px; border-top:1px solid var(--line); font-size:12px; color:var(--mist);}
+
+/* ── Print (US-Letter) ── */
+@page{size:letter; margin:.5in;}
+@media print{
+  body{background:#fff; padding:0; font-size:12.5px;}
+  .ws{max-width:100%; border:none; border-radius:0; padding:0;}
+  .tools{display:none;}
+  .ws-sec{break-inside:auto;}
+  .q,.example,.tbl-wrap,.result,.callout,.ans{break-inside:avoid;}
+  input,select,textarea{border:none; border-bottom:1px solid #888; border-radius:0;
+    background:transparent; padding:3px 2px;}
+  .inline-in{border-bottom:1px solid #666;}
+  .work{background:#fff; border:1px solid #bbb;}
+  .ans{background:#f4faf5;}
+  /* Teacher key always prints, on its own page */
+  #teacherKey{display:block !important;}
+}
+
+.ws-fig{margin:10px 0;text-align:center}.ws-fig svg{max-width:100%;height:auto;max-height:260px}
+#teacherKey:not([hidden]){display:block}</style></head><body>
+<div class="tools"><button id="keyBtn">Show Teacher Key</button><button id="printBtn" class="primary">Print / Save PDF</button></div>
+<div class="ws"><header class="ws-head"><div class="eyebrow">The Salas Compass · Worksheet</div>
+<h1>Catch-Up &amp; Reteach — Reassess</h1><div class="sub">Week 36 · Catch-Up &amp; Reteach — Reassess</div>
+<div class="ws-id"><input placeholder="Stephen Salas"><input placeholder="Date"></div></header>
+<div class="brief"><p><span class="lab">Objective</span>Retake a fresh mastery check across Lessons 20–30, confirm the reteach worked, and honestly gauge readiness for the Final Exam.</p></div>
+<section class="ws-sec"><h2>Fresh Mastery Check</h2><div class="q" data-ref="c1"><p class="q-prompt"><span class="pn">C1.</span>(L22) Two angles that are vertical angles are always…</p><div class="q-opts"><label><input type="radio" name="c1"> complementary</label><label><input type="radio" name="c1"> supplementary</label><label><input type="radio" name="c1"> congruent</label></div></div><div class="q" data-ref="c2"><p class="q-prompt"><span class="pn">C2.</span>Two triangles share one full side (included) and have two pairs of congruent angles adjacent to it. Which proof shortcut applies?</p><div class="q-opts"><label><input type="radio" name="c2"> SSS</label><label><input type="radio" name="c2"> ASA</label><label><input type="radio" name="c2"> HL</label></div></div><div class="q" data-ref="c3"><p class="q-prompt"><span class="pn">C3.</span>(L26) For two right triangles, which pair alone is enough to prove congruence by HL?</p><div class="q-opts"><label><input type="radio" name="c3"> hypotenuse and one leg</label><label><input type="radio" name="c3"> two legs only</label><label><input type="radio" name="c3"> one leg and one acute angle</label></div></div><div class="q" data-ref="c4"><p class="q-prompt"><span class="pn">C4.</span>(L30) If sin θ = 3/5, what is csc θ?</p><div class="work"><span class="wlab">work</span></div><div class="ans"><span class="lab">Answer</span><input></div></div><div class="q" data-ref="c5"><p class="q-prompt"><span class="pn">C5.</span>(L20/21) A 45-45-90 triangle has hypotenuse 10. Find each leg, simplifying any radical.</p><div class="work"><span class="wlab">work</span></div><div class="ans"><span class="lab">Answer</span><input></div></div></section><section class="ws-sec"><h2>Set Your Mastery</h2><div class="q" data-ref="x1"><p class="q-prompt"><span class="pn">X1.</span>Exit: rate your mastery on the lesson you reteached and say what evidence from today backs that up. You're one buffer week from the Final — what's your honest confidence level?</p><div class="work"><span class="wlab">work</span></div><div class="ans"><span class="lab">Answer</span><input></div></div></section>
+<section id="teacherKey" class="ws-sec key" hidden data-key-blob="tT8NfnK2YROkQL+PP6rZdRk+U6fGyLAxY3bCHh2GnWqIEHoP22u9MsxBt5p3rMc0KyMd8sjf6VdkboyS+GCfJNULO0FRgVlh/QmxmGus0ShFJVy7kYKtdXcpkBQRgp832Bk7QgTRU2O6GuqKb6jbNAkhD/bekOt3c3LKUkaXjmibCzhQV80YLutUt5c/qtl1GT5Tp8bMp28jKc8fFpPNIdEWPA0WgEhz9hr2xWy51HpKLgLk3t70PmpgxAlayukxxgwhUlifGHP2Q7qcbOWVcgU/A+DJjatlIWPbH1id0SDRCjtUWodRfP8EupBxrMY4Siwc4I3MpWtgbt9QG5vRM8YNLV9N3QQ961S3lyH1mnADO1C5ycS/PGJ7zQMLyZ0/xVp2DUqDWXy4R7qYbLqINgE/C+OPk6ouPTjfABmagXSICzhQV9NbfvlXpcQ9otR6GW9QxP7s9TNyZ80eRtSDJ8QZJhFan1lh6xn0kmihzDZUGRnqjcyne21y31AZmtt0wBAtEXC9e17NYJO9P7rccA9tDODZ2qx5bzfYGB2ZnzfbFi9DTJZWZrgZ9rhMiJsoRT4e5MOT9TNlftpORJDWIpQbJFBKgAUw81X0xyO6xXUEbQ3pzN66ISN83hUe1oE3h0RnQkmSViy4GKWJfqeVdwYsHfaQj6J9b2SOThCNzzvAHSZESpYYc/ZA9pZxrJV4DypSqt7dqHI/N5ADCJXRdNcUKUJKzhp570yv2yGB+TRCBRf1wtmscnRkyV00kdh9lBE7EU2bXTLrVLOadqjZNBgkCe3ZgL1uaHbCFxSRnyfcFzpFWoZMKLhF9ppwp9JmHygA8Y3FsGxuY8keDYfadMQUPUIZkhhx90qxi2qs22BKIQvijcS6PGR5wwUfnJFomws4UFfNBD38TaDHI63cYkouAuTe3vQ+amaOTkSHzzXaWCtdWIBLL7pPpJx564t3XnFB9t3MpyIhK98AGZqfN9gZO0IE0VNz9lf0x3y61jSk9U64jZjmLz043wAZmoF0iAs4UFfTW375V6XEPaLCfBNvUMbC3qx/YHnYUBGHnyDcHWhDXJBRYupLtZhz6dpySj4H68iD9TNyZ80eRsiQMN0Odg1dmk4y+0i3imz0l38bb1C53t2ociF0wBELh4J23wotVxvNWyekC6WJfqeLNFY+HuTDjapwYGTfTVqf3jrHWnZ0WJBQMvRBsdki6YQkRa/mH5+N9Dw09STqStqDe8cIKV8H0wRh6EW42Xyl1GcZcEzu2sWwPj97yRdYyZ88zQgnRVydTWH9CzRxhfuZNBgsGuzCw6hwaG3JFFiA0HSBmsCrC90EPetUt5ch9ZpwAztQucnEvzxie80DC8mdP8Vadg1Kg1l8uEe6mGy6iDYBPwvjj5OxLT043wAZmoF0iAs4UFfTW375V6XEPaLUehlvUK3C3axyIWXJAwib0SfRWKqxrdNKZ/pWv5o29ZpnGiwAu42RumxgeYwTFJXMJ4laI0ZRihospAuliX6niyhFKQfzkw=="></section>
+</div>
+<script>// key-lock.js — "phony" passphrase gate for teacher answer keys.
+// Obfuscation only: the passphrase is derivable from the shipped JS, by design.
+const enc = new TextEncoder();
+const dec = new TextDecoder();
+// Sentinel prepended before XOR so a wrong passphrase is rejected reliably
+// (a right decode always begins with MAGIC; garbage from a wrong key won't).
+const MAGIC = 'GEOKEY';
+
+async function keystream(pass, len) {
+  const digest = new Uint8Array(await crypto.subtle.digest('SHA-256', enc.encode(pass)));
+  const out = new Uint8Array(len);
+  for (let i = 0; i < len; i++) out[i] = digest[i % digest.length];
+  return out;
+}
+function b64encode(bytes) {
+  let s = ''; for (const b of bytes) s += String.fromCharCode(b);
+  return (typeof btoa === 'function') ? btoa(s) : Buffer.from(s, 'binary').toString('base64');
+}
+function b64decode(str) {
+  const s = (typeof atob === 'function') ? atob(str) : Buffer.from(str, 'base64').toString('binary');
+  const out = new Uint8Array(s.length);
+  for (let i = 0; i < s.length; i++) out[i] = s.charCodeAt(i);
+  return out;
+}
+
+async function encodeKey(html, pass) {
+  const data = enc.encode(MAGIC + html);
+  const ks = await keystream(pass, data.length);
+  const x = new Uint8Array(data.length);
+  for (let i = 0; i < data.length; i++) x[i] = data[i] ^ ks[i];
+  return b64encode(x);
+}
+// Returns the decoded HTML on the right passphrase, or null on a wrong one.
+async function decodeKey(blob, pass) {
+  const data = b64decode(blob);
+  const ks = await keystream(pass, data.length);
+  const x = new Uint8Array(data.length);
+  for (let i = 0; i < data.length; i++) x[i] = data[i] ^ ks[i];
+  const text = dec.decode(x);
+  return text.startsWith(MAGIC) ? text.slice(MAGIC.length) : null;
+}
+
+// Browser wiring: call from a worksheet. buttonEl toggles a prompt; on correct
+// passphrase, decoded HTML is injected into targetEl. Returns nothing.
+function wireKeyGate({ button, target, blob }) {
+  if (!button || !target) return;
+  button.addEventListener('click', async () => {
+    if (target.dataset.open === '1') { target.hidden = true; target.dataset.open = '0'; button.textContent = 'Show Teacher Key'; return; }
+    const pass = window.prompt('Parent passphrase to reveal the answer key:');
+    if (pass == null) return;
+    const html = await decodeKey(blob, pass);
+    // decodeKey returns null unless the sentinel decoded — a reliable wrong-pass reject.
+    if (html == null) { window.alert('That passphrase does not match.'); return; }
+    target.innerHTML = html; target.hidden = false; target.dataset.open = '1';
+    button.textContent = 'Hide Teacher Key';
+  });
+}
+
+document.getElementById('printBtn').addEventListener('click',()=>window.print());
+const _kt=document.getElementById('teacherKey');
+wireKeyGate({button:document.getElementById('keyBtn'),target:_kt,blob:_kt.dataset.keyBlob});</script></body></html>

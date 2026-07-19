@@ -1,0 +1,37 @@
+{
+  "id": "LP-W40-S2", "course": "geometry", "week": 40, "session": 2,
+  "session_type": "build", "lesson": "Portfolio Show & Transcript Close — Showcase",
+  "unit": "u03", "duration_min": 60, "mode": "Build",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 40 · Showcase — Present Your Year",
+  "essential_question": "Can you explain, out loud, what you built and why it works?",
+  "objective": "Prepare and deliver a short walkthrough of the year's strongest builds, explaining the math behind each.",
+  "standards": ["G-MG.A.1", "G-GMD.A.3", "G-SRT.C.6"],
+  "vocab": ["walkthrough", "presentation", "showcase"],
+  "agenda": [
+    {"phase":"brief","min":8,"title":"Brief — The Format","board":"brief","content":{"heading":"Five minutes, three builds","bullets":["Pick your three strongest builds from yesterday's portfolio pass.","For each: what it is, what math it proves, and how you made it — one sentence each.","Then present it out loud, like showing someone who wasn't there all year."]}},
+    {"phase":"build","min":20,"title":"Prep the Walkthrough","board":"build","content":{"heading":"Write it before you say it","items":["s1"]}},
+    {"phase":"build","min":24,"title":"Present","board":"build","content":{"heading":"Show what you built","items":["s2","s3"]}},
+    {"phase":"exit","min":8,"title":"Exit Ticket","board":"exit","content":{"items":["x1"],"preview":"Session 3: Transcript Close — mastery review across all 30 lessons."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can prepare a clear, math-grounded explanation of my best builds"},
+    {"id":"SC2","text":"I can present my work out loud and respond to a question about it"}
+  ],
+  "assets": {
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W40 Portfolio Show & Transcript Close.md"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"build","kind":"practice","title":"Prep & Present","items":["s1","s2","s3"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"s1","type":"short","sc":"SC1","points":2,"prompt":"Prepare a short walkthrough of your best 3 builds. For each, write one sentence: what it is, what math it proves, and how you made it."},
+    {"ref":"s2","type":"short","sc":"SC2","points":2,"prompt":"Present your walkthrough out loud — to a parent, sibling, or on video. Note who you presented to and how it went."},
+    {"ref":"s3","type":"short","sc":"SC2","points":2,"prompt":"What question did your audience ask that you hadn't thought about? How did you answer it?"},
+    {"ref":"x1","type":"short","points":1,"prompt":"Exit: which build are you proudest of, and why?"}
+  ]
+}

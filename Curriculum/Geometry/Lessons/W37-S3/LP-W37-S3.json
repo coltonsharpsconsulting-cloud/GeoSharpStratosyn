@@ -1,0 +1,43 @@
+{
+  "id": "LP-W37-S3", "course": "geometry", "week": 37, "session": 3,
+  "session_type": "concept", "lesson": "Year-End Final — Review Unit 03",
+  "unit": "u03", "duration_min": 60, "mode": "Review",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 37 · Year-End Final — Review Unit 03",
+  "essential_question": "Of everything from Lessons 20–30, what still has to be automatic before the Final?",
+  "objective": "Review Unit 03 — special right triangles, two-column proofs, congruence and similarity, transformations, and right-triangle trigonometry — through mixed cumulative practice.",
+  "standards": ["G-SRT.C.8", "G-CO.B.8", "G-SRT.A.3", "G-CO.A.2", "G-SRT.C.6"],
+  "vocab": ["45-45-90", "30-60-90", "two-column proof", "AA similarity", "reflection", "tangent"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — The Home Stretch","board":"warmup","content":{"prompt":"Unit 03 was Lessons 20–30 — special right triangles, proofs, similarity, transformations, and trig. Without checking anything, which of those topics feels most automatic right now?"}},
+    {"phase":"review","min":14,"title":"Unit 03 in Five Ideas","board":"review","content":{"heading":"Special triangles, proofs, similarity, transformations, trig","bullets":["45-45-90 and 30-60-90 special right triangles and their fixed side ratios.","Postulates, theorems, and two-column proofs (SSS, SAS, ASA, AAS, HL).","Congruent versus similar triangles — CPCTC and AA similarity.","Transformations — translations, reflections, rotations.","Right-triangle trigonometry — sine, cosine, tangent, and their reciprocals."]}},
+    {"phase":"practice","min":30,"title":"Mixed Cumulative Practice — Lessons 20–30","board":"practice","content":{"heading":"One from each big idea","items":["q1","q2","q3","q4","q5","q6"]}},
+    {"phase":"exit","min":10,"title":"Exit Ticket","board":"exit","content":{"items":["x1"],"preview":"Next week: the MUS Final Exam."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can solve for a missing side in a special right triangle"},
+    {"id":"SC2","text":"I can name the correct proof shortcut (SSS, SAS, ASA, AAS, HL) for a given pair of triangles"},
+    {"id":"SC3","text":"I can determine whether two triangles are similar using AA similarity"},
+    {"id":"SC4","text":"I can apply a transformation (reflection, rotation) to a point"},
+    {"id":"SC5","text":"I can compute a trig ratio (sine, cosine, tangent) from given side lengths"}
+  ],
+  "assets": {
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W37 Year-End Final Review.md"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"practice","kind":"practice","title":"Mixed Cumulative Practice","items":["q1","q2","q3","q4","q5","q6"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"q1","type":"short","sc":"SC1","points":2,"prompt":"A 45-45-90 triangle has a leg of 6. Find the hypotenuse.","answer":"6√2","explain":"hypotenuse = leg×√2."},
+    {"ref":"q2","type":"short","sc":"SC1","points":2,"prompt":"A 30-60-90 triangle has a hypotenuse of 20. Find the short leg.","answer":"10","explain":"short leg = hypotenuse÷2 = 20÷2=10."},
+    {"ref":"q3","type":"dropdown","sc":"SC2","points":1,"prompt":"Two triangles share an included angle between two pairs of congruent sides. Which proof shortcut applies?","options":["SSS","SAS","AAA"],"answer":"SAS","explain":"Two sides and the INCLUDED angle between them congruent = SAS."},
+    {"ref":"q4","type":"mc","sc":"SC3","points":1,"prompt":"Two triangles have two pairs of congruent angles. They must be…","options":["congruent","similar","neither"],"answer":"similar","explain":"AA similarity: two congruent angle pairs guarantee similar (not necessarily congruent) triangles."},
+    {"ref":"q5","type":"short","sc":"SC4","points":2,"prompt":"Rotate the point (4, 2) 90° counterclockwise about the origin. What are the new coordinates?","answer":"(-2, 4)","explain":"The rule for a 90° CCW rotation about the origin is (x,y)→(-y,x)."},
+    {"ref":"q6","type":"short","sc":"SC5","points":2,"prompt":"In a right triangle, the side opposite a given angle is 6 and the side adjacent to it is 8. Find the tangent of that angle.","answer":"tan θ = 6/8 = 3/4","explain":"Tangent = opposite/adjacent."},
+    {"ref":"x1","type":"short","points":1,"prompt":"Exit: which Unit 03 idea from today's mix would you want one more example of before the Final?"}
+  ]
+}
