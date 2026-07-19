@@ -1,0 +1,47 @@
+{
+  "id": "LP-W04-S1", "course": "geometry", "week": 4, "session": 1,
+  "session_type": "concept", "lesson": "L03 — Angles: Measuring & Drawing",
+  "unit": "u01", "duration_min": 60, "mode": "Concept",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 4 · Angles — Measuring & Drawing",
+  "essential_question": "How do you put one exact number on how far apart two rays have turned from the same starting point?",
+  "objective": "Name an angle by its vertex and sides (∠ABC, ∠B, ∠1), and use a protractor to measure and draw angles to the nearest whole degree.",
+  "standards": ["G-CO.A.1"],
+  "vocab": ["angle", "vertex", "sides", "degree", "protractor", "straight angle"],
+  "agenda": [
+    {"phase":"launch","min":6,"title":"Launch — Two Fingers, One Vertex","board":"launch","content":{"prompt":"Hold up two fingers like an open pair of scissors, both starting from the same base — that base is a vertex. Without a ruler, how could you put one exact number on how far open they are? And what would you actually be measuring — the fingers' length, or something else?"}},
+    {"phase":"i_do","min":12,"title":"I do — Vertex, Sides & Degree","board":"i_do","content":{"heading":"Two rays, one shared endpoint, one number for the turn","figure":"angle-pair","bullets":["An angle is formed by two rays that share a common endpoint — the vertex.","Name it three ways: ∠ABC with the vertex letter in the middle, ∠B alone (only if B is the vertex of just one angle in the figure), or ∠1 as a numbered label.","m∠ABC is read 'the measure of angle ABC' — the number of degrees in the angle's opening, from 0° to 360°.","The two rays are the angle's sides; the point where they meet is its vertex.","Two opposite rays (forming one straight line) make a straight angle, measuring exactly 180° — and a quarter of that turn, a right angle, measures exactly 90°."]}},
+    {"phase":"explore","min":8,"title":"Explore — Drag the Ray, Read the Degree","board":"explore","content":{"heading":"Turn the ray; watch the degree change","note":"On the sim, drag the gold handle around vertex V. Watch m∠AVB update live as you turn ray VB. Stop exactly at 90° — what do you notice? Then try 180°. Switch to 'Draw to Target' mode and try to land within a couple degrees of a random target.","figure":"angle-pair"}},
+    {"phase":"check","min":5,"title":"Check for Understanding","board":"check","content":{"heading":"Name that part","items":["n1","n2"]}},
+    {"phase":"you_do","min":12,"title":"You do — Measure & Draw","board":"you_do","content":{"heading":"Your turn on the worksheet","items":["p1","p2","p3","p4"]}},
+    {"phase":"exit","min":5,"title":"Exit Ticket","board":"exit","content":{"items":["x1"],"preview":"Build session: hunt real-world angles and draw a set of exact target angles with a real protractor."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can name an angle by its vertex and sides, using ∠ABC, ∠B, or ∠1 correctly"},
+    {"id":"SC2","text":"I can measure an angle with a protractor to the nearest whole degree"},
+    {"id":"SC3","text":"I can draw an angle of a given measure using a protractor"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W04-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W04 Angles.md"},
+    "mus": {"practice":"MUS/L03 — Lesson Practice.pdf","review":"MUS/L03 — Systematic Review.pdf","test":"MUS/L03 — Lesson Test.pdf"},
+    "interactive": {"slug":"protractor","note":"Curriculum/Geometry/Lessons/W04-S1/sims/protractor.html"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"check","kind":"check","title":"Name That Part","items":["n1","n2"]},
+      {"phase":"practice","kind":"practice","title":"Measure & Draw","items":["p1","p2","p3","p4"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"n1","type":"dropdown","sc":"SC1","points":1,"prompt":"The shared endpoint of the two rays that form an angle is called the…","options":["side","vertex","degree","protractor"],"answer":"vertex","explain":"The vertex is the single point where both rays of an angle begin."},
+    {"ref":"n2","type":"mc","sc":"SC1","points":1,"prompt":"m∠ABC is read as…","options":["angle ABC's vertex","the sides of angle ABC","the measure of angle ABC","segment ABC"],"answer":"the measure of angle ABC","explain":"'m∠' always means 'the measure of' the angle that follows — a number of degrees, not the angle figure itself."},
+    {"ref":"p1","type":"measure","sc":"SC2","points":2,"figure":"angle-pair","prompt":"The figure shows ∠AVB. Use a real protractor on this printed page to measure it to the nearest whole degree. Write m∠AVB.","answer":"m∠AVB ≈ 25°","explain":"Rubric: center the protractor on V, align 0° with ray VB (or VA), and read where the other ray crosses the scale — accept 23°-27° for print/measurement tolerance."},
+    {"ref":"p2","type":"construct","sc":"SC3","points":2,"figure":"grid-blank","prompt":"On the grid, use a protractor to draw ∠XYZ with m∠XYZ = 50°. Label the vertex Y and mark both rays X and Z.","answer":"Two rays from a labeled vertex Y opening to 50°, with points X and Z marked on the rays.","explain":"Rubric: a vertex Y with two rays drawn from it (1 pt) + the opening between the rays measuring 50° when checked with a protractor (1 pt)."},
+    {"ref":"p3","type":"short","sc":"SC1","points":2,"prompt":"Write two correct names for an angle whose vertex is point B, with sides passing through A and C.","answer":"∠ABC or ∠CBA (the vertex letter always goes in the middle); ∠B is also correct if B is the vertex of only one angle in the figure.","explain":"Any three-letter name works as long as the vertex sits in the middle; the single-letter form only works when there's no ambiguity about which angle at B is meant."},
+    {"ref":"p4","type":"dropdown","sc":"SC1","points":1,"prompt":"Two opposite rays sharing an endpoint form a ___ angle, measuring exactly 180°.","options":["right","straight","obtuse"],"answer":"straight","explain":"Opposite rays rebuild one unbroken straight line, so the angle between them is a straight angle — 180°."},
+    {"ref":"x1","type":"short","sc":"SC2","points":2,"prompt":"Exit: find one angle around you right now (a laptop screen, a door, a corner) and estimate its measure in degrees. Is it closer to a small slice of a circle or a big one?"}
+  ]
+}

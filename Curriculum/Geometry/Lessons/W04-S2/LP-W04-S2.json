@@ -1,0 +1,42 @@
+{
+  "id": "LP-W04-S2", "course": "geometry", "week": 4, "session": 2,
+  "session_type": "build", "lesson": "L03 — Angles: Measuring & Drawing",
+  "unit": "u01", "duration_min": 60, "mode": "Build",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 4 · Angle Hunt & Build",
+  "essential_question": "Can you measure a real angle in the world, and then draw one yourself to an exact degree?",
+  "objective": "Measure real-world angles with a protractor to the nearest whole degree, and draw and label a set of target angles (30°, 90°, 135°) accurately.",
+  "standards": ["G-CO.A.1"],
+  "vocab": ["angle", "vertex", "sides", "degree", "protractor", "straight angle"],
+  "agenda": [
+    {"phase":"brief","min":6,"title":"Brief — From Protractor Basics to Real Angles","board":"brief","content":{"heading":"From reading a scale to owning it","bullets":["Yesterday: named angles by vertex & sides, and learned to read a protractor.","Today: hunt three real angles in your world, measure them, then draw a set of exact target angles.","The test: can you measure to the nearest degree — and hit a target angle within a couple degrees when you draw?"]}},
+    {"phase":"plan","min":8,"title":"Plan — Read the Build Card","board":"plan","content":{"heading":"Gather + plan","note":"Open the project card. Gather your protractor, ruler, pencil, and paper. Decide which three real angles you'll hunt (a door ajar, a clock's hands, a ramp, a laptop screen, open scissors) before you start measuring."}},
+    {"phase":"build","min":25,"title":"Build — Hunt & Draw","board":"build","content":{"heading":"Measure the world, then draw to spec","bullets":["Angle Hunt — find and measure three real angles; record what each object was and its measured degree.","Target Draw — using your protractor, draw and label three angles at exactly 30°, 90°, and 135°.","For each drawn angle, mark the vertex, both rays, and write m∠ = its value beside it.","Re-check every drawn angle with the protractor before you call it done."]}},
+    {"phase":"measure","min":12,"title":"Record Your Hunt & Your Draws","board":"measure","content":{"heading":"Get the numbers down","figure":"angle-pair","items":["m1","m2","m3"]}},
+    {"phase":"reflect","min":9,"title":"Reflect & Photograph","board":"reflect","content":{"items":["r1"],"preview":"Session 3: defend why an angle's measure never depends on how long you draw its rays, then the checkpoint."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can measure a real-world angle with a protractor to the nearest whole degree"},
+    {"id":"SC2","text":"I can draw an angle of a given measure accurately using a protractor"},
+    {"id":"SC3","text":"I can label a drawn angle's vertex and rays and write its measure correctly, and check my own accuracy"}
+  ],
+  "assets": {
+    "project": {"note":"Curriculum/Geometry/Lessons/W04-S2/project-card.md"},
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W04-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W04 Angles.md"},
+    "mus": {"practice":"MUS/L03 — Lesson Practice.pdf","review":"MUS/L03 — Systematic Review.pdf","test":"MUS/L03 — Lesson Test.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"measure","kind":"practice","title":"Hunt Log & Target Draws","items":["m1","m2","m3"]},
+      {"phase":"reflect","kind":"exit","title":"Reflect","items":["r1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"m1","type":"measure","sc":"SC1","points":2,"prompt":"List the three real-world angles you hunted (what each object was, and which two rays you measured) and the degree you measured for each, to the nearest whole degree.","answer":"Any three honest, plausible real objects with degree measures, e.g. door ajar ≈ 62°, clock hands at 3:00 = 90°, ramp ≈ 15°.","explain":"Rubric: three named real objects with their vertex/sides described (1 pt) + three degree measures each to the nearest whole degree (1 pt)."},
+    {"ref":"m2","type":"construct","sc":"SC2","points":2,"figure":"grid-blank","prompt":"On the grid, use a protractor to draw and label three separate angles at exactly m∠ = 30°, 90°, and 135°, marking each vertex.","answer":"Three angles drawn from labeled vertices, each opening to its target measure (30°, 90°, 135°), each labeled with its m∠ value.","explain":"Rubric: all three vertices and both rays clearly drawn (1 pt) + all three measures within a degree or two of target when checked with a protractor (1 pt)."},
+    {"ref":"m3","type":"short","sc":"SC3","points":1,"prompt":"Pick one of your drawn angles and explain how you checked it was accurate — what exactly did you do with the protractor after drawing it?","answer":"Laid the protractor's center back on the vertex, aligned 0° with one ray, and read where the other ray crossed the scale to confirm it landed within a degree or two of the target.","explain":"Full credit: describes re-aligning the protractor on the vertex and baseline ray, then reading the second ray's position on the correct scale."},
+    {"ref":"r1","type":"short","sc":"SC3","points":2,"prompt":"Reflect: which was harder — measuring a real angle in the world, or drawing one to an exact degree? What did the hands-on hunt and draw teach you that the definitions alone didn't?"}
+  ]
+}
