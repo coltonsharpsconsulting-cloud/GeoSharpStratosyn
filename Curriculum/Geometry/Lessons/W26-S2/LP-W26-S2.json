@@ -1,0 +1,42 @@
+{
+  "id": "LP-W26-S2", "course": "geometry", "week": 26, "session": 2,
+  "session_type": "build", "lesson": "L22 — Postulates, Theorems & Angle Relationships",
+  "unit": "u03", "duration_min": 60, "mode": "Build",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 26 · Theorem Card Wall",
+  "essential_question": "Can you build a reference wall that sorts every angle rule you know into what's assumed and what's proven — and hold your own in a shuffle-and-match test?",
+  "objective": "Build a six-card reference wall naming the Linear Pair Postulate, Vertical Angles Theorem, Corresponding Angles Postulate, Alternate Interior/Exterior Angles Theorems, and the Properties of Equality, each with its own diagram, then test recall with a shuffle-and-match round.",
+  "standards": ["G-CO.C.9"],
+  "vocab": ["postulate", "theorem", "corollary", "linear pair postulate", "vertical angles theorem", "corresponding angles postulate", "alternate interior angles theorem", "alternate exterior angles theorem", "reflexive property", "symmetric property", "transitive property"],
+  "agenda": [
+    {"phase":"brief","min":6,"title":"Brief — From Naming to Building","board":"brief","content":{"heading":"From definitions to a permanent reference","bullets":["Yesterday: defined postulate, theorem, and corollary, and named the specific rules behind vertical angles, linear pairs, and corresponding/alternate angles.","Today: build a six-card reference wall — one card per rule, each with its own small diagram — then test it with a shuffle-and-match round.","This wall becomes your 'reasons' column reference for the two-column proofs you write starting next unit."]}},
+    {"phase":"plan","min":8,"title":"Plan — Read the Build Card","board":"plan","content":{"heading":"Gather + plan","note":"Open the project card. Gather six index cards or cardstock rectangles, a ruler, and two marker colors — one for postulates, one for theorems. Decide where the finished wall will live (a corkboard, a taped strip on your wall, or a binder page) before you start drawing."}},
+    {"phase":"build","min":25,"title":"Build — Six Cards, One Wall","board":"build","content":{"heading":"One rule, one card, one diagram","bullets":["Card 1 — Linear Pair Postulate: statement + a small diagram of two adjacent angles forming a straight line. Postulate color.","Card 2 — Vertical Angles Theorem: statement + an X diagram with the vertical pair arc-marked, plus the note 'proven from the Linear Pair Postulate.' Theorem color.","Card 3 — Corresponding Angles Postulate: statement + a parallel-lines-and-transversal diagram with one corresponding pair marked. Postulate color.","Card 4 — Alternate Interior Angles Theorem: statement + the same diagram with one alternate interior pair marked, plus the proof chain noted (Vertical Angles Theorem + Corresponding Angles Postulate). Theorem color.","Card 5 — Alternate Exterior Angles Theorem: statement + one alternate exterior pair marked, same proof-chain note. Theorem color.","Card 6 — Properties of Equality/Congruence: one card, three rows — Reflexive (A≅A), Symmetric (A≅B → B≅A), Transitive (A≅B and B≅C → A≅C).","Mount all six on your wall or board, postulates and theorems visibly color-coded, so you can tell assumed from proven at a glance."]}},
+    {"phase":"play","min":12,"title":"Shuffle & Match","board":"play","content":{"heading":"Test your own wall","figure":"angle-pair","items":["m1","m2","m3"]}},
+    {"phase":"reflect","min":9,"title":"Reflect & Photograph","board":"reflect","content":{"items":["r1"],"preview":"Session 3: argue why the Vertical Angles Theorem must be a theorem, not a postulate; review MUS Lesson Practice 22A/22B; take the checkpoint."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can build six clearly labeled reference cards for the Linear Pair Postulate, Vertical Angles Theorem, Corresponding Angles Postulate, Alternate Interior/Exterior Angles Theorems, and the Properties of Equality"},
+    {"id":"SC2","text":"I can sort my own cards into postulate (assumed) versus theorem (proven) at a glance, by color"},
+    {"id":"SC3","text":"I can win a shuffle-and-match round pairing each angle-relationship statement to the specific postulate or theorem that names it"}
+  ],
+  "assets": {
+    "project": {"note":"Curriculum/Geometry/Lessons/W26-S2/project-card.md"},
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W26-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W26 Postulates & Theorems.md"},
+    "mus": {"practice":"MUS/L22 — Lesson Practice.pdf","review":"MUS/L22 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"play","kind":"practice","title":"Shuffle & Match Log","items":["m1","m2","m3"]},
+      {"phase":"reflect","kind":"exit","title":"Reflect","items":["r1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"m1","type":"short","sc":"SC1","points":2,"prompt":"List the six cards you built, in order, and mark each one P (postulate) or T (theorem) — or 'reference' for the properties card.","answer":"1. Linear Pair Postulate (P). 2. Vertical Angles Theorem (T). 3. Corresponding Angles Postulate (P). 4. Alternate Interior Angles Theorem (T). 5. Alternate Exterior Angles Theorem (T). 6. Properties of Equality/Congruence (reference card — reflexive, symmetric, transitive).","explain":"Only two of the six are postulates; three are theorems built from them, and the sixth is a reference tool, not a claim about angles at all."},
+    {"ref":"m2","type":"construct","sc":"SC1","points":2,"figure":"grid-blank","prompt":"On the grid, sketch the diagram you drew for your Vertical Angles Theorem card — two lines crossing at a point with the vertical pair arc-marked.","answer":"Two lines crossing at a point with the two vertical angles marked with matching arcs, labeled congruent.","explain":"Rubric: a clearly crossing pair of lines (1 pt) + the correct vertical pair marked with matching arc marks (1 pt)."},
+    {"ref":"m3","type":"short","sc":"SC3","points":2,"prompt":"Shuffle your six statement cards away from your six name/reason cards, then re-match them. Record how many tries it took (or your time), and name the ONE pair that tricked you most — which two rules are easiest to mix up, and why?","answer":"Answers vary; a common trick pair is the Alternate Interior vs. Alternate Exterior Angles Theorem, since both require 'opposite sides of the transversal' — the only difference is interior vs. exterior position.","explain":"Rubric: an honest count/time recorded (1 pt) + a specific, correctly reasoned trick pair named (1 pt)."},
+    {"ref":"r1","type":"short","sc":"SC2","points":2,"prompt":"Reflect: which is harder to keep straight — telling a postulate from a theorem, or telling the different NAMES of the angle theorems apart? What's your trick for remembering which is which?"}
+  ]
+}

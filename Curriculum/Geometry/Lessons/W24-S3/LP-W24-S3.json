@@ -1,0 +1,44 @@
+{
+  "id": "LP-W24-S3", "course": "geometry", "week": 24, "session": 3,
+  "session_type": "prove", "lesson": "L20 — Special Right Triangles: 45-45-90",
+  "unit": "u03", "duration_min": 60, "mode": "Prove",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 24 · Prove It — 45-45-90 Triangles",
+  "essential_question": "Why does hyp = leg√2 have to be true for every 45-45-90 triangle, straight from the Pythagorean theorem?",
+  "objective": "Derive hyp = leg√2 from the Pythagorean theorem, justify why the 1:1:√2 ratio never changes, review the week's Math-U-See practice, and pass the mastery checkpoint on 45-45-90 triangles.",
+  "standards": ["G-SRT.C.8"],
+  "vocab": ["45-45-90 triangle", "isosceles right triangle", "leg", "hypotenuse", "ratio"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Redraw From Memory","board":"warmup","content":{"prompt":"Without looking, draw a 45-45-90 triangle, label both legs and the hypotenuse, and write the rule hyp = leg√2 from memory. Then explain out loud, in your own words, why the two legs MUST be congruent."}},
+    {"phase":"review","min":12,"title":"Review — Your Math-U-See Work","board":"review","content":{"heading":"Go over Lesson Practice 20A & 20B together","note":"Bring your completed MUS Lesson Practice 20A/20B. We check the tricky ones: rationalizing the denominator when the hypotenuse is given as a plain number with no radical in sight, simplifying a hypotenuse like (3√2)(√2) down to a whole number, and recognizing a square's diagonal as the hypotenuse of two hidden 45-45-90 triangles."}},
+    {"phase":"prove","min":16,"title":"Prove It — Reason Out Loud","board":"prove","content":{"heading":"Defend three claims","figure":"grid-blank","bullets":["Claim 1: hyp = leg√2 is true for every 45-45-90 triangle. Derive it from the Pythagorean theorem — start from leg² + leg² = hyp², factor, and solve for hyp. What forces the √2 to appear?","Claim 2: the ratio leg : leg : hypotenuse = 1 : 1 : √2 never changes, no matter how large or small the triangle is. Argue why scaling a 45-45-90 triangle up or down can't break this ratio.","Claim 3: to find a leg from a hypotenuse of 10, you can't stop at leg = 10/√2 — you have to rationalize. Argue why a radical is never left in a denominator, and show the rationalized form."]}},
+    {"phase":"checkpoint","min":18,"title":"Mastery Checkpoint","board":"checkpoint","content":{"heading":"Show what you own","items":["c1","c2","c3","c4","c5","c6"]}},
+    {"phase":"close","min":8,"title":"Close & Set Mastery","board":"close","content":{"items":["x1"],"preview":"Next week, Lesson 21 — Special Right Triangles: 30-60-90 — where a different pair of angles hands you a different, but just as fixed, ratio of sides."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can derive hyp = leg√2 from the Pythagorean theorem and explain why the 1:1:√2 ratio never changes"},
+    {"id":"SC2","text":"I can find the hypotenuse of a 45-45-90 triangle given a leg, simplifying radicals completely"},
+    {"id":"SC3","text":"I can find a leg of a 45-45-90 triangle given the hypotenuse, rationalizing the denominator without help"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W24-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W24 45-45-90 Triangles.md"},
+    "mus": {"practice":"MUS/L20 — Lesson Practice.pdf","review":"MUS/L20 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"checkpoint","kind":"check","title":"Mastery Checkpoint","items":["c1","c2","c3","c4","c5","c6"]},
+      {"phase":"close","kind":"exit","title":"Set Your Mastery","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"c1","type":"mc","sc":"SC1","points":1,"prompt":"A 45-45-90 triangle is also called an…","options":["equilateral triangle","isosceles right triangle","scalene right triangle"],"answer":"isosceles right triangle","explain":"Its two 45° angles face two congruent legs, making it isosceles as well as right."},
+    {"ref":"c2","type":"dropdown","sc":"SC1","points":1,"prompt":"Starting from leg² + leg² = hyp² and simplifying, the hypotenuse of a 45-45-90 triangle equals…","options":["leg × 2","leg × √2","leg² × 2","leg ÷ √2"],"answer":"leg × √2","explain":"2·leg² = hyp² → hyp = √(2·leg²) = leg√2 — the √2 appears because you're taking the square root of a doubled square."},
+    {"ref":"c3","type":"short","sc":"SC2","points":2,"prompt":"A 45-45-90 triangle has a leg of length 9. Find the length of the hypotenuse.","answer":"9√2","explain":"hyp = leg × √2 = 9√2."},
+    {"ref":"c4","type":"short","sc":"SC2","points":2,"prompt":"A 45-45-90 triangle has a leg of length 4√3. Find the hypotenuse, simplifying completely.","answer":"4√6","explain":"hyp = (4√3)(√2) = 4√6 — √6 has no perfect-square factor, so 4√6 is fully simplified."},
+    {"ref":"c5","type":"measure","sc":"SC3","points":2,"figure":"grid-blank","prompt":"The figure shows a 45-45-90 triangle with legs of 4 units marked on the grid. Use a ruler to measure the hypotenuse directly on the page, then check: does your measurement match hyp = 4√2 ≈ 5.66?","answer":"≈5.7 units, matching the computed hyp = 4√2 ≈ 5.66","explain":"Rubric: accept any ruler measurement within about half a unit of 5.66 — this confirms hyp = leg√2 is a real, checkable length, not just algebra."},
+    {"ref":"c6","type":"short","sc":"SC3","points":2,"prompt":"A 45-45-90 triangle has a hypotenuse of 20. Find the length of each leg, showing the rationalized form.","answer":"10√2","explain":"leg = 20/√2 = (20/√2)(√2/√2) = 20√2/2 = 10√2 — the denominator must be rationalized, never left as 20/√2."},
+    {"ref":"x1","type":"short","sc":"SC1","points":1,"prompt":"Close: rate yourself on Lesson 20 (Emerging / Proficient / Mastered) and name the one idea you'd want to revisit."}
+  ]
+}

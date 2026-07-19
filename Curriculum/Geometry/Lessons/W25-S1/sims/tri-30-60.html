@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Special Right Triangles: 30-60-90 — Sim</title>
+<style>
+  :root{--void:#0d1322;--ink:#161d31;--bone:#e8ecf3;--mist:#9aabd0;--accent:#8b5cf6;--gold:#f5c842;--border:#2a3142;--good:#7ee081}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--void);color:var(--bone);font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;min-height:100%}
+  header{padding:2vh 4vw;border-bottom:1px solid var(--border);background:var(--ink)}
+  .eyebrow{font-family:"DM Mono",ui-monospace,monospace;letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--accent)}
+  h1{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(20px,3vw,30px);margin-top:.3rem}
+  main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.6vh;padding:3vh 4vw}
+  .stage{width:100%;max-width:720px;aspect-ratio:4/3;background:var(--ink);border:1px solid var(--border);border-radius:16px;touch-action:none}
+  svg{width:100%;height:100%;display:block}
+  .controls{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
+  button{font-family:"DM Mono",ui-monospace,monospace;font-size:14px;background:var(--ink);color:var(--bone);border:1px solid var(--border);border-radius:999px;padding:.6rem 1.2rem;cursor:pointer}
+  button.on{border-color:var(--accent);color:var(--accent)}
+  .readout{font-family:"DM Mono",ui-monospace,monospace;font-size:clamp(13px,1.9vw,17px);color:var(--mist);text-align:center;min-height:5.2em;line-height:1.6}
+  .readout b{color:var(--gold)}
+  .readout .good{color:var(--good);font-weight:bold}
+  .hint{color:var(--mist);font-size:14px;max-width:62ch;text-align:center}
+</style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Geometry · Lesson 21 · sim</div>
+    <h1>Drag the short leg. Watch the ratio hold.</h1>
+  </header>
+  <main>
+    <div class="controls" id="actions">
+      <button id="resetBtn">Reset (short = 5)</button>
+      <button id="bigBtn">Try short = 8</button>
+      <button id="randomBtn">Randomize</button>
+    </div>
+    <div class="stage"><svg viewBox="0 0 640 480" id="svg"></svg></div>
+    <div class="readout" id="readout"></div>
+    <p class="hint">Drag the gold handle at the top of the vertical leg (the short leg, opposite the 30° angle) up or down. The 30°, 60°, and 90° angles never change — only the size of the whole triangle does — so the long leg and hypotenuse always update to keep the exact same ratio.</p>
+  </main>
+<script>
+(() => {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  const readout = document.getElementById('readout');
+  const W = 640, H = 480, S = 24;        // px per grid unit
+  const C = { x: 170, y: 360 };          // right-angle vertex (fixed)
+  const MIN_S = 2, MAX_S = 9, STEP = 0.5;
+  const SQRT3 = Math.sqrt(3);
+
+  function make(tag, attrs){ const n = document.createElementNS(NS, tag); for (const k in attrs) n.setAttribute(k, attrs[k]); svg.appendChild(n); return n; }
+  const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+  const fmt = n => Number.isInteger(n) ? String(n) : n.toFixed(1);
+
+  // ---- faint background grid ----
+  for (let x = 0; x <= W; x += S) make('line', { x1:x, y1:0, x2:x, y2:H, stroke:'#1a2136', 'stroke-width':1 });
+  for (let y = 0; y <= H; y += S) make('line', { x1:0, y1:y, x2:W, y2:y, stroke:'#1a2136', 'stroke-width':1 });
+
+  let s = 5; // current short-leg length, in grid units
+
+  // ---- triangle ----
+  const tri = make('polygon', { fill:'rgba(139,92,246,0.18)', stroke:'#8b5cf6', 'stroke-width':4, 'stroke-linejoin':'round' });
+  const rightMark = make('path', { fill:'none', stroke:'#e8ecf3', 'stroke-width':2 });
+  const arcA = make('path', { fill:'none', stroke:'#f5c842', 'stroke-width':2 });
+  const arcB = make('path', { fill:'none', stroke:'#7ee081', 'stroke-width':2 });
+  const vC = make('circle', { r:6, fill:'#e8ecf3' });
+  const vA = make('circle', { r:6, fill:'#e8ecf3' });
+  const vB = make('circle', { r:6, fill:'#e8ecf3' });
+
+  // ---- vertex + angle labels ----
+  const lblVA = make('text', { 'font-size':16, 'font-family':'DM Mono, monospace', 'text-anchor':'middle', fill:'#e8ecf3' }); lblVA.textContent = 'A';
+  const lblVB = make('text', { 'font-size':16, 'font-family':'DM Mono, monospace', 'text-anchor':'middle', fill:'#e8ecf3' }); lblVB.textContent = 'B';
+  const lblVC = make('text', { 'font-size':16, 'font-family':'DM Mono, monospace', 'text-anchor':'middle', fill:'#e8ecf3' }); lblVC.textContent = 'C';
+  const lblAngA = make('text', { 'font-size':15, 'font-family':'DM Mono, monospace', 'text-anchor':'middle', fill:'#f5c842' }); lblAngA.textContent = '60°';
+  const lblAngB = make('text', { 'font-size':15, 'font-family':'DM Mono, monospace', 'text-anchor':'middle', fill:'#7ee081' }); lblAngB.textContent = '30°';
+  const lblAngC = make('text', { 'font-size':13, 'font-family':'DM Mono, monospace', 'text-anchor':'middle', fill:'#9aabd0' }); lblAngC.textContent = '90°';
+
+  // ---- side labels ----
+  const lblShort = make('text', { 'font-size':17, 'font-family':'DM Mono, monospace', 'text-anchor':'middle', fill:'#e8ecf3' });
+  const lblLong = make('text', { 'font-size':17, 'font-family':'DM Mono, monospace', 'text-anchor':'middle', fill:'#e8ecf3' });
+  const lblHyp = make('text', { 'font-size':17, 'font-family':'DM Mono, monospace', 'text-anchor':'middle', fill:'#e8ecf3' });
+
+  // ---- draggable handle: controls the short leg (vertical, A) ----
+  const handleA = make('circle', { r:12, fill:'#f5c842' });
+  const hitA = make('circle', { r:26, fill:'transparent', cursor:'grab' });
+
+  function angleArcPath(vx, vy, p1, p2, r){
+    const d1 = { x: p1.x - vx, y: p1.y - vy }, d2 = { x: p2.x - vx, y: p2.y - vy };
+    const len1 = Math.hypot(d1.x, d1.y), len2 = Math.hypot(d2.x, d2.y);
+    const u1 = { x: d1.x / len1, y: d1.y / len1 }, u2 = { x: d2.x / len2, y: d2.y / len2 };
+    const start = { x: vx + u2.x * r, y: vy + u2.y * r };
+    const end = { x: vx + u1.x * r, y: vy + u1.y * r };
+    const sweep = (u2.x * u1.y - u2.y * u1.x) > 0 ? 1 : 0;
+    return `M ${start.x} ${start.y} A ${r} ${r} 0 0 ${sweep} ${end.x} ${end.y}`;
+  }
+
+  function draw(){
+    const longLeg = s * SQRT3;
+    const hyp = 2 * s;
+    const A = { x: C.x, y: C.y - s * S };
+    const B = { x: C.x + longLeg * S, y: C.y };
+
+    tri.setAttribute('points', `${A.x},${A.y} ${B.x},${B.y} ${C.x},${C.y}`);
+
+    // right-angle corner mark at C
+    rightMark.setAttribute('d', `M${C.x + 14},${C.y} L${C.x + 14},${C.y - 14} L${C.x},${C.y - 14}`);
+
+    // angle arcs at A (60°, between leg AC and hypotenuse AB) and B (30°, between leg BC and hypotenuse BA)
+    arcA.setAttribute('d', angleArcPath(A.x, A.y, C, B, 28));
+    arcB.setAttribute('d', angleArcPath(B.x, B.y, A, C, 28));
+
+    vC.setAttribute('cx', C.x); vC.setAttribute('cy', C.y);
+    vA.setAttribute('cx', A.x); vA.setAttribute('cy', A.y);
+    vB.setAttribute('cx', B.x); vB.setAttribute('cy', B.y);
+
+    lblVA.setAttribute('x', A.x - 16); lblVA.setAttribute('y', A.y - 10);
+    lblVC.setAttribute('x', C.x - 16); lblVC.setAttribute('y', C.y + 20);
+    lblVB.setAttribute('x', B.x + 16); lblVB.setAttribute('y', B.y + 20);
+
+    lblAngA.setAttribute('x', A.x + 20); lblAngA.setAttribute('y', A.y + 34);
+    lblAngB.setAttribute('x', B.x - 34); lblAngB.setAttribute('y', B.y - 12);
+    lblAngC.setAttribute('x', C.x + 20); lblAngC.setAttribute('y', C.y - 20);
+
+    lblShort.setAttribute('x', C.x - 26); lblShort.setAttribute('y', (C.y + A.y) / 2 + 5);
+    lblShort.textContent = `${fmt(s)}`;
+    lblLong.setAttribute('x', (C.x + B.x) / 2); lblLong.setAttribute('y', C.y + 24);
+    lblLong.textContent = `${fmt(s)}√3`;
+    lblHyp.setAttribute('x', (A.x + B.x) / 2 + 18); lblHyp.setAttribute('y', (A.y + B.y) / 2 - 6);
+    lblHyp.textContent = `${fmt(hyp)}`;
+
+    handleA.setAttribute('cx', A.x); handleA.setAttribute('cy', A.y);
+    hitA.setAttribute('cx', A.x); hitA.setAttribute('cy', A.y);
+
+    const longDecimal = longLeg.toFixed(2);
+    const hypDecimal = hyp.toFixed(2);
+    readout.innerHTML =
+      `short leg (opposite 30°) = <b>${fmt(s)}</b><br>` +
+      `long leg (opposite 60°) = <span class="good">${fmt(s)}√3</span> &asymp; ${longDecimal}<br>` +
+      `hypotenuse (opposite 90°) = <span class="good">${fmt(hyp)}</span> &asymp; ${hypDecimal}<br>` +
+      `Check: long &divide; short = &radic;3 &asymp; 1.732 (always) &middot; hyp &divide; short = 2 (always)`;
+  }
+
+  // ---- drag handling ----
+  function toLocal(e){
+    const r = svg.getBoundingClientRect();
+    const cx = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+    const cy = (e.touches ? e.touches[0].clientY : e.clientY) - r.top;
+    return { x: cx / r.width * W, y: cy / r.height * H };
+  }
+  let dragging = false;
+  function down(e){ dragging = true; move(e); e.preventDefault(); }
+  function move(e){
+    if (!dragging) return;
+    const p = toLocal(e);
+    const raw = (C.y - p.y) / S;
+    s = clamp(Math.round(raw / STEP) * STEP, MIN_S, MAX_S);
+    draw();
+    e.preventDefault();
+  }
+  function up(){ dragging = false; }
+
+  hitA.addEventListener('pointerdown', down);
+  window.addEventListener('pointermove', move);
+  window.addEventListener('pointerup', up);
+  hitA.addEventListener('touchstart', down, { passive:false });
+  window.addEventListener('touchmove', move, { passive:false });
+  window.addEventListener('touchend', up);
+
+  document.getElementById('resetBtn').addEventListener('click', () => { s = 5; draw(); });
+  document.getElementById('bigBtn').addEventListener('click', () => { s = 8; draw(); });
+  document.getElementById('randomBtn').addEventListener('click', () => {
+    const steps = Math.round((MAX_S - MIN_S) / STEP);
+    s = MIN_S + STEP * Math.floor(Math.random() * (steps + 1));
+    draw();
+  });
+
+  draw();
+})();
+</script>
+</body>
+</html>

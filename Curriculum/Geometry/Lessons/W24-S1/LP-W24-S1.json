@@ -1,0 +1,47 @@
+{
+  "id": "LP-W24-S1", "course": "geometry", "week": 24, "session": 1,
+  "session_type": "concept", "lesson": "L20 — Special Right Triangles: 45-45-90",
+  "unit": "u03", "duration_min": 60, "mode": "Concept",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 24 · Special Right Triangles — 45-45-90 & hyp = leg√2",
+  "essential_question": "If a right triangle's two legs are exactly equal, is there a single multiplication — not a full Pythagorean computation — that gives you the hypotenuse every time?",
+  "objective": "Identify a 45-45-90 (isosceles right) triangle and its constant 1:1:√2 side ratio, find the hypotenuse given a leg using hyp = leg√2, and find a leg given the hypotenuse by dividing by √2 and rationalizing the denominator.",
+  "standards": ["G-SRT.C.8"],
+  "vocab": ["45-45-90 triangle", "isosceles right triangle", "leg", "hypotenuse", "ratio"],
+  "agenda": [
+    {"phase":"launch","min":6,"title":"Launch — The Square Tile Problem","board":"launch","content":{"prompt":"A square patio tile has a side of 6 ft. Without measuring it directly, can you find the length of its diagonal? You already know the two triangles a diagonal cuts a square into are right triangles — what's special about THESE right triangles that a generic one doesn't have?"}},
+    {"phase":"i_do","min":12,"title":"I do — One Ratio, Every 45-45-90 Triangle","board":"i_do","content":{"heading":"hyp = leg × √2, in both directions","figure":"grid-blank","bullets":["A 45-45-90 triangle has one right angle and two 45° angles — since the angles opposite the legs are equal, the legs themselves are congruent, making it an isosceles right triangle.","Every 45-45-90 triangle shares the same ratio of sides: leg : leg : hypotenuse = 1 : 1 : √2, no matter how big or small the triangle is.","The rule comes straight from the Pythagorean theorem: leg² + leg² = hyp² → 2·leg² = hyp² → hyp = leg√2.","Given a leg, multiply by √2 to get the hypotenuse — one multiplication, no separate squaring/adding/rooting.","Given the hypotenuse, divide by √2 to get the leg, then rationalize the denominator (Lesson 19's skill): leg = hyp/√2 = (hyp√2)/2."]}},
+    {"phase":"explore","min":8,"title":"Explore — Drag the Leg, Watch the Hypotenuse","board":"explore","content":{"heading":"One handle, both legs, one ratio","note":"On the sim, drag the gold handle at the top of the vertical leg. Because both non-right angles stay fixed at 45°, dragging it changes BOTH legs together, keeping them congruent — watch the readout update the leg, the equal leg, and the hypotenuse as an exact radical AND a decimal. Try to land on a leg of exactly 1, then a leg of exactly 5 — does the hypotenuse always land on leg√2?","figure":"grid-blank"}},
+    {"phase":"check","min":5,"title":"Check for Understanding","board":"check","content":{"heading":"Name that part","items":["n1","n2"]}},
+    {"phase":"you_do","min":12,"title":"You do — Find the Missing Sides","board":"you_do","content":{"heading":"Your turn on the worksheet","items":["p1","p2","p3","p4"]}},
+    {"phase":"exit","min":5,"title":"Exit Ticket","board":"exit","content":{"items":["x1"],"preview":"Build session: fold a square along its diagonal and measure a real 45-45-90 set-square to confirm hyp = leg√2 against reality."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can identify a 45-45-90 (isosceles right) triangle and state its constant 1:1:√2 side ratio"},
+    {"id":"SC2","text":"I can find the hypotenuse of a 45-45-90 triangle given a leg, using hyp = leg√2"},
+    {"id":"SC3","text":"I can find a leg of a 45-45-90 triangle given the hypotenuse, rationalizing the denominator"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W24-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W24 45-45-90 Triangles.md"},
+    "mus": {"practice":"MUS/L20 — Lesson Practice.pdf","review":"MUS/L20 — Systematic Review.pdf"},
+    "interactive": {"slug":"tri-45","note":"Curriculum/Geometry/Lessons/W24-S1/sims/tri-45.html"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"check","kind":"check","title":"Name That Part","items":["n1","n2"]},
+      {"phase":"practice","kind":"practice","title":"Find the Missing Sides","items":["p1","p2","p3","p4"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"n1","type":"dropdown","sc":"SC1","points":1,"prompt":"In a 45-45-90 triangle, the two sides that meet at the right angle (the legs) are always…","options":["different lengths","congruent (equal in length)","perpendicular only, length doesn't matter","impossible to compare without a protractor"],"answer":"congruent (equal in length)","explain":"Both non-right angles measure 45°, and equal angles face equal sides — so the two legs opposite them must be congruent. That's why it's also called an isosceles right triangle."},
+    {"ref":"n2","type":"mc","sc":"SC1","points":1,"prompt":"The ratio of leg : leg : hypotenuse in every 45-45-90 triangle is…","options":["1 : 1 : 2","1 : 1 : √2","1 : √2 : 2"],"answer":"1 : 1 : √2","explain":"leg² + leg² = hyp² gives hyp = leg√2, so the hypotenuse is always √2 times a leg — the ratio 1 : 1 : √2 never changes, no matter the triangle's size."},
+    {"ref":"p1","type":"short","sc":"SC2","points":2,"prompt":"A 45-45-90 triangle has a leg of length 7. Find the length of the other leg and the hypotenuse.","answer":"other leg = 7, hypotenuse = 7√2","explain":"The legs of a 45-45-90 triangle are always congruent, so the other leg is also 7; hyp = leg × √2 = 7√2."},
+    {"ref":"p2","type":"construct","sc":"SC2","points":2,"figure":"grid-blank","prompt":"On the grid, draw a 45-45-90 triangle with legs of 4 units each, mark both 45° angles and the right angle, and label the hypotenuse using hyp = leg√2.","answer":"An isosceles right triangle with legs 4 and 4, the right angle marked, both 45° angles marked, and the hypotenuse labeled 4√2.","explain":"Rubric: a right triangle with two congruent legs of 4 and all three angles marked (1 pt) + the hypotenuse correctly computed and labeled 4√2 (1 pt)."},
+    {"ref":"p3","type":"short","sc":"SC2","points":2,"prompt":"A 45-45-90 triangle has a leg of length 3√2. Find the other leg and the hypotenuse, simplifying your answer completely.","answer":"other leg = 3√2, hypotenuse = 6","explain":"hyp = (3√2)(√2) = 3 × 2 = 6 — the radical disappears completely because √2 × √2 = 2 exactly."},
+    {"ref":"p4","type":"short","sc":"SC3","points":2,"prompt":"A 45-45-90 triangle has a hypotenuse of length 10. Find the length of each leg, rationalizing the denominator.","answer":"leg = 5√2","explain":"leg = 10/√2 = (10/√2)(√2/√2) = 10√2/2 = 5√2 — the denominator has to be rationalized, not left as 10/√2."},
+    {"ref":"x1","type":"short","sc":"SC2","points":2,"prompt":"Exit: a square tile has a side of 6 inches. Without doing a full Pythagorean computation, find the length of its diagonal, and name the rule you used.","answer":"6√2 inches — using hyp = leg√2, since the diagonal of a square splits it into two 45-45-90 triangles with legs equal to the square's side.","explain":"The square's diagonal is the hypotenuse of a 45-45-90 triangle whose legs are the square's sides, so diagonal = side × √2 = 6√2."}
+  ]
+}

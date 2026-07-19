@@ -1,0 +1,47 @@
+{
+  "id": "LP-W26-S1", "course": "geometry", "week": 26, "session": 1,
+  "session_type": "concept", "lesson": "L22 — Postulates, Theorems & Angle Relationships",
+  "unit": "u03", "duration_min": 60, "mode": "Concept",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 26 · Postulates, Theorems & the Angle Relationships Behind Them",
+  "essential_question": "Every angle rule you've used all year has always been true — but which ones are simply assumed, and which ones can actually be PROVEN from the others?",
+  "objective": "Distinguish a postulate (assumed) from a theorem (proven) and a corollary, and name the specific postulate or theorem that justifies vertical angles, linear pairs, and corresponding/alternate angles on parallel lines.",
+  "standards": ["G-CO.C.9"],
+  "vocab": ["postulate", "axiom", "theorem", "corollary", "converse", "linear pair postulate", "vertical angles theorem", "corresponding angles postulate", "alternate interior angles theorem", "alternate exterior angles theorem"],
+  "agenda": [
+    {"phase":"launch","min":6,"title":"Launch — Assumed or Proven?","board":"launch","content":{"prompt":"Vertical angles are congruent — you've used that fact since Lesson 6. But is it a RULE we just agreed to, or something we could actually prove using an even simpler rule? Before today's lesson, guess: is 'vertical angles are congruent' a postulate or a theorem — and why?"}},
+    {"phase":"i_do","min":12,"title":"I do — Postulate, Theorem, Corollary","board":"i_do","content":{"heading":"Sorted by how we know they're true","figure":"angle-pair","bullets":["A postulate (or axiom) is a statement we accept as true without proof — a starting rule of the system.","A theorem is a statement PROVEN true using postulates, definitions, and earlier theorems.","A corollary is a statement that follows almost immediately from a theorem, needing little extra proof.","The Linear Pair Postulate: a linear pair is always supplementary. We accept this — it's what a straight angle IS.","The Vertical Angles Theorem: vertical angles are congruent. This is PROVEN from the Linear Pair Postulate, not assumed — two angles supplementary to the SAME angle must be equal.","The Corresponding Angles Postulate (parallel lines cut by a transversal) is accepted; the Alternate Interior and Alternate Exterior Angles Theorems are then PROVEN from it."]}},
+    {"phase":"explore","min":8,"title":"Explore — Which Rule Justifies It?","board":"explore","content":{"heading":"Drag the figure; watch the justifying rule light up","note":"On the sim, switch between 'Two Crossing Lines' and 'Parallel Lines + Transversal.' Drag the gold handle and read which NAMED postulate or theorem justifies each equal or supplementary pair. Which rules are postulates (assumed)? Which are theorems (proven) — and proven from what?","figure":"angle-pair"}},
+    {"phase":"check","min":5,"title":"Check for Understanding","board":"check","content":{"heading":"Postulate or theorem?","items":["n1","n2"]}},
+    {"phase":"you_do","min":12,"title":"You do — Name the Rule","board":"you_do","content":{"heading":"Your turn on the worksheet","items":["p1","p2","p3","p4"]}},
+    {"phase":"exit","min":5,"title":"Exit Ticket","board":"exit","content":{"items":["x1"],"preview":"Build session: build a theorem-card reference wall and test it with a shuffle-and-match round."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can define postulate, theorem, and corollary, and give an example of each from this course"},
+    {"id":"SC2","text":"I can name the specific postulate or theorem that justifies a given angle relationship — linear pair, vertical angles, corresponding angles, alternate interior/exterior angles"},
+    {"id":"SC3","text":"I can write the converse of a postulate or theorem and state whether it is also guaranteed true"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W26-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W26 Postulates & Theorems.md"},
+    "mus": {"practice":"MUS/L22 — Lesson Practice.pdf","review":"MUS/L22 — Systematic Review.pdf"},
+    "interactive": {"slug":"angle-theorems","note":"Curriculum/Geometry/Lessons/W26-S1/sims/angle-theorems.html"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"check","kind":"check","title":"Postulate or Theorem?","items":["n1","n2"]},
+      {"phase":"practice","kind":"practice","title":"Name the Rule","items":["p1","p2","p3","p4"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"n1","type":"dropdown","sc":"SC1","points":1,"prompt":"A statement accepted as true without proof is called a ___.","options":["theorem","postulate","corollary","converse"],"answer":"postulate","explain":"A postulate (or axiom) is one of the starting rules we simply agree to accept — no proof required."},
+    {"ref":"n2","type":"mc","sc":"SC1","points":1,"prompt":"Which of these is PROVEN using a postulate, rather than simply assumed?","options":["the Linear Pair Postulate","the Vertical Angles Theorem","the definition of a right angle"],"answer":"the Vertical Angles Theorem","explain":"A theorem must be proven from postulates, definitions, and earlier theorems — the Vertical Angles Theorem is proven from the Linear Pair Postulate."},
+    {"ref":"p1","type":"short","sc":"SC1","points":2,"prompt":"In your own words, explain the difference between a postulate and a theorem, and give one example of each from this course.","answer":"A postulate is accepted as true without proof (e.g., the Linear Pair Postulate: a linear pair is always supplementary). A theorem must be proven using postulates and other theorems (e.g., the Vertical Angles Theorem, proven from the Linear Pair Postulate).","explain":"Postulates are where the logical chain starts; theorems are what gets built from that starting point."},
+    {"ref":"p2","type":"construct","sc":"SC2","points":2,"figure":"grid-blank","prompt":"On the grid, draw two lines crossing at a point H, forming ∠1, ∠2, ∠3, ∠4 in order around H. Mark one linear pair and label it with the postulate that makes it supplementary; mark the ∠1 & ∠3 vertical pair and label it with the theorem that makes it congruent.","answer":"Two crossing lines at H with four labeled angles; one adjacent pair marked 'Linear Pair Postulate — supplementary' and the ∠1/∠3 pair marked 'Vertical Angles Theorem — congruent'.","explain":"Rubric: correctly drawn and labeled crossing figure (1 pt) + both pairs correctly matched to their rule's actual name (1 pt)."},
+    {"ref":"p3","type":"dropdown","sc":"SC2","points":1,"prompt":"'If two parallel lines are cut by a transversal, corresponding angles are congruent' — in this course, is that statement a postulate or a theorem?","options":["postulate","theorem"],"answer":"postulate","explain":"The Corresponding Angles Postulate is accepted outright as a defining property of parallel lines; the alternate interior and alternate exterior congruences are then PROVEN from it — they're theorems."},
+    {"ref":"p4","type":"short","sc":"SC2","points":2,"prompt":"Alternate interior angles are congruent when two parallel lines are cut by a transversal. Is this a postulate or a theorem in this course — and what two rules would you chain together to prove it?","answer":"It's a theorem. Chain the Vertical Angles Theorem (∠4 ≅ ∠1, same crossing) with the Corresponding Angles Postulate (∠1 ≅ ∠5) to get ∠4 ≅ ∠5 — an alternate interior pair, proven, not assumed.","explain":"This is exactly the chained argument from Lesson 7's concept note, now with both links named."},
+    {"ref":"x1","type":"short","sc":"SC1","points":2,"prompt":"Exit: name one geometry fact you've used all year (vertical angles congruent, a linear pair sums to 180°, corresponding angles congruent, etc.) and say whether you now think it's a postulate or a theorem — and why."}
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "LP-W25-S3", "course": "geometry", "week": 25, "session": 3,
+  "session_type": "prove", "lesson": "L21 — Special Right Triangles: 30-60-90",
+  "unit": "u03", "duration_min": 60, "mode": "Prove",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 25 · Prove It — 30-60-90 Triangles",
+  "essential_question": "Why does cutting an equilateral triangle in half always force the ratio 1 : √3 : 2, and how does the Pythagorean theorem pin down the long leg's exact value?",
+  "objective": "Derive the 30-60-90 ratio 1 : √3 : 2 by splitting an equilateral triangle in half and applying the Pythagorean theorem, review MUS Lesson Practice 21A/21B, and pass the mastery checkpoint on 30-60-90 triangles.",
+  "standards": ["G-SRT.C.8"],
+  "vocab": ["equilateral triangle", "altitude", "angle bisector", "30-60-90 triangle", "short leg", "long leg", "hypotenuse", "Pythagorean theorem"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Redraw From Memory","board":"warmup","content":{"prompt":"Without looking, draw an equilateral triangle, then draw its altitude from one vertex to the midpoint of the opposite side. Label the two angles the altitude creates at the apex, and the angle it creates at the base. Then explain out loud, in your own words, why that split has to produce a right angle."}},
+    {"phase":"review","min":12,"title":"Review — Your Math-U-See Work","board":"review","content":{"heading":"Go over Lesson Practice 21A & 21B together","note":"Bring your completed MUS Lesson Practice 21A/21B. We check the tricky ones: the long leg is √3 times the short leg — NOT √2 (that's 45-45-90); the hypotenuse is opposite the 90° angle, not the 30° angle; and the divide-by-2-then-multiply-by-√3 routine for working backward from a known hypotenuse. Fix any you missed and note WHY."}},
+    {"phase":"prove","min":16,"title":"Prove It — Reason Out Loud","board":"prove","content":{"heading":"Defend three claims","figure":"grid-blank","bullets":["Claim 1: splitting an equilateral triangle exactly in half always produces a 30-60-90 triangle. Argue it: the altitude bisects the 60° apex angle into two 30° angles, and by symmetry it must meet the base at a right angle and bisect the base — leaving 60° at the base vertex (angles sum to 180°).","Claim 2: the ratio 1 : √3 : 2 is forced, not a coincidence. Let the original equilateral side be 2s. The half-triangle's hypotenuse is 2s and its short leg (half the base) is s. Apply the Pythagorean theorem: (2s)² = s² + (long leg)², so (long leg)² = 4s² − s² = 3s², and long leg = s√3. That is exactly short leg × √3, for ANY value of s.","Claim 3: because that derivation never assumed a particular size, the ratio short : long : hypotenuse = 1 : √3 : 2 holds for every 30-60-90 triangle, no matter how big or small — which is why knowing just one side is always enough to find the other two."]}},
+    {"phase":"checkpoint","min":18,"title":"Mastery Checkpoint","board":"checkpoint","content":{"heading":"Show what you own","items":["c1","c2","c3","c4","c5","c6"]}},
+    {"phase":"close","min":8,"title":"Close & Set Mastery","board":"close","content":{"items":["x1"],"preview":"Next week, Lesson 22 — Postulates, Theorems & Angle Relationships — where you start building the two-column proofs this derivation was your first taste of."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can identify the short leg, long leg, and hypotenuse of a 30-60-90 triangle and state the ratio 1:√3:2 without help"},
+    {"id":"SC2","text":"I can find a missing side of a 30-60-90 triangle given any one side, keeping radical answers in simplest form"},
+    {"id":"SC3","text":"I can derive the 1:√3:2 ratio by splitting an equilateral triangle in half and applying the Pythagorean theorem"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W25-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W25 30-60-90 Triangles.md"},
+    "mus": {"practice":"MUS/L21 — Lesson Practice.pdf","review":"MUS/L21 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"checkpoint","kind":"check","title":"Mastery Checkpoint","items":["c1","c2","c3","c4","c5","c6"]},
+      {"phase":"close","kind":"exit","title":"Set Your Mastery","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"c1","type":"mc","sc":"SC1","points":1,"prompt":"In a 30-60-90 triangle, which side is always the longest?","options":["short leg","long leg","hypotenuse"],"answer":"hypotenuse","explain":"The hypotenuse is opposite the 90° angle and is always exactly twice the short leg — the longest side every time."},
+    {"ref":"c2","type":"dropdown","sc":"SC1","points":1,"prompt":"The long leg of a 30-60-90 triangle equals the short leg times ___.","options":["2","√2","√3","3"],"answer":"√3","explain":"Splitting an equilateral triangle in half and applying the Pythagorean theorem gives long leg = short leg × √3 — not √2, which belongs to the 45-45-90 triangle instead."},
+    {"ref":"c3","type":"short","sc":"SC2","points":2,"prompt":"A 30-60-90 triangle has a short leg of 9. Find the long leg and the hypotenuse, simplifying any radical.","answer":"Long leg = 9√3 ≈ 15.59; hypotenuse = 18.","explain":"Long leg = short leg × √3 = 9√3. Hypotenuse = short leg × 2 = 18."},
+    {"ref":"c4","type":"short","sc":"SC2","points":2,"prompt":"A 30-60-90 triangle has a hypotenuse of 22. Find the short leg and the long leg, simplifying any radical.","answer":"Short leg = 11; long leg = 11√3 ≈ 19.05.","explain":"Divide the hypotenuse by 2 to get the short leg: 22 ÷ 2 = 11. Then multiply that by √3 for the long leg: 11√3."},
+    {"ref":"c5","type":"measure","sc":"SC2","points":2,"figure":"grid-blank","prompt":"The figure shows a 30-60-90 triangle with a short leg of 6 units marked on the grid. Use a ruler to measure the hypotenuse directly on the page, then check: does your measurement match hypotenuse = 2 × 6 = 12?","answer":"≈12 units, matching the computed hypotenuse = 12.","explain":"Rubric: accept any ruler measurement within about half a unit of 12 — this confirms the 1:√3:2 ratio is a real, checkable length, not just algebra."},
+    {"ref":"c6","type":"short","sc":"SC3","points":2,"prompt":"In your own words, explain why cutting an equilateral triangle exactly in half (apex to the midpoint of the base) always produces a 30-60-90 triangle, and how the Pythagorean theorem gives the exact value of the long leg.","answer":"The altitude bisects the 60° apex angle into 30° + 30°, is perpendicular to the base (creating the 90° angle), and bisects the base — leaving 60° at the base vertex. Its hypotenuse is the original side, its short leg is half the base, and the Pythagorean theorem gives long leg = √(hypotenuse² − short leg²) = short leg × √3.","explain":"Full credit names the altitude's three effects (bisects the apex angle, is perpendicular to the base, bisects the base) and uses the Pythagorean theorem to derive long leg = short leg × √3."},
+    {"ref":"x1","type":"short","sc":"SC1","points":1,"prompt":"Close: rate yourself on Lesson 21 (Emerging / Proficient / Mastered) and name the one idea you'd want to revisit."}
+  ]
+}

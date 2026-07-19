@@ -1,0 +1,47 @@
+{
+  "id": "LP-W25-S1", "course": "geometry", "week": 25, "session": 1,
+  "session_type": "concept", "lesson": "L21 — Special Right Triangles: 30-60-90",
+  "unit": "u03", "duration_min": 60, "mode": "Concept",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 25 · Special Right Triangles — 30-60-90",
+  "essential_question": "If you know just one side of a 30-60-90 triangle, can you find the other two exactly — without ever measuring them?",
+  "objective": "Identify the short leg, long leg, and hypotenuse of a 30-60-90 triangle by the angle each is opposite, state the ratio short : long : hypotenuse = 1 : √3 : 2, and use it to find missing sides given any one side, keeping radical answers in simplest form.",
+  "standards": ["G-SRT.C.8"],
+  "vocab": ["30-60-90 triangle", "short leg", "long leg", "hypotenuse", "ratio", "radical", "scalene"],
+  "agenda": [
+    {"phase":"launch","min":6,"title":"Launch — Cut the Equilateral in Half","board":"launch","content":{"prompt":"Picture an equilateral triangle — all sides equal, all angles 60°. Slice it exactly in half, straight down from the top point to the middle of the base. What are the three angles of each half now? And is there any reason the two new legs should come out in some fixed, predictable ratio to each other?"}},
+    {"phase":"i_do","min":12,"title":"I do — Short Leg, Long Leg & the 1:√3:2 Ratio","board":"i_do","content":{"heading":"One ratio, every 30-60-90 triangle","figure":"grid-blank","bullets":["A 30-60-90 triangle is a right triangle with acute angles of 30° and 60° — its three sides all have different lengths, so it's also a scalene triangle.","The short leg is opposite the 30° angle and is always the shortest side.","The long leg is opposite the 60° angle: long leg = short leg × √3.","The hypotenuse is opposite the 90° angle and is always the longest side: hypotenuse = short leg × 2.","Given the hypotenuse instead: divide by 2 to get the short leg, then multiply that answer by √3 to get the long leg."]}},
+    {"phase":"explore","min":8,"title":"Explore — Drag the Short Leg","board":"explore","content":{"heading":"Resize the triangle; watch the ratio hold","note":"On the sim, drag the gold handle to stretch or shrink the short leg. Watch the long leg and hypotenuse update live, both as exact radicals and as decimals, while the 30°, 60°, and 90° angles stay fixed. Confirm: does long leg ÷ short leg always land on √3 ≈ 1.732? Does hypotenuse ÷ short leg always land on exactly 2?","figure":"grid-blank"}},
+    {"phase":"check","min":5,"title":"Check for Understanding","board":"check","content":{"heading":"Name that side","items":["n1","n2"]}},
+    {"phase":"you_do","min":12,"title":"You do — Find the Missing Sides","board":"you_do","content":{"heading":"Your turn on the worksheet","items":["p1","p2","p3","p4"]}},
+    {"phase":"exit","min":5,"title":"Exit Ticket","board":"exit","content":{"items":["x1"],"preview":"Build session: cut an equilateral triangle exactly in half (or measure a real 30-60-90 set-square or ramp) and test the 1:√3:2 ratio against your own measurements."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can identify the short leg, long leg, and hypotenuse of a 30-60-90 triangle by the angle each is opposite"},
+    {"id":"SC2","text":"I can find the missing sides of a 30-60-90 triangle given any one side, keeping radical answers in simplest form"},
+    {"id":"SC3","text":"I can explain why a 30-60-90 triangle's sides always come out in the ratio 1 : √3 : 2"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W25-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W25 30-60-90 Triangles.md"},
+    "mus": {"practice":"MUS/L21 — Lesson Practice.pdf","review":"MUS/L21 — Systematic Review.pdf"},
+    "interactive": {"slug":"tri-30-60","note":"Curriculum/Geometry/Lessons/W25-S1/sims/tri-30-60.html"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"check","kind":"check","title":"Name That Side","items":["n1","n2"]},
+      {"phase":"practice","kind":"practice","title":"Find the Missing Sides","items":["p1","p2","p3","p4"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"n1","type":"dropdown","sc":"SC1","points":1,"prompt":"In a 30-60-90 triangle, the side opposite the 30° angle is called the…","options":["hypotenuse","long leg","short leg","vertex"],"answer":"short leg","explain":"The short leg sits opposite the smallest angle (30°) and is always the shortest of the three sides."},
+    {"ref":"n2","type":"mc","sc":"SC1","points":1,"prompt":"Which side of a 30-60-90 triangle is always the longest?","options":["short leg","long leg","hypotenuse"],"answer":"hypotenuse","explain":"The hypotenuse is opposite the 90° angle and is always exactly twice the short leg — the longest side every time."},
+    {"ref":"p1","type":"short","sc":"SC2","points":2,"prompt":"A 30-60-90 triangle has a short leg of 7. Find the long leg and the hypotenuse, simplifying any radical.","answer":"Long leg = 7√3 ≈ 12.12; hypotenuse = 14.","explain":"Long leg = short leg × √3 = 7√3. Hypotenuse = short leg × 2 = 14."},
+    {"ref":"p2","type":"construct","sc":"SC1","points":2,"figure":"grid-blank","prompt":"On the grid, draw a 30-60-90 triangle with a short leg of 4 units. Mark all three angles (30°, 60°, 90°) and label the long leg and hypotenuse with their exact lengths.","answer":"A right triangle with the 30°, 60°, and 90° angles marked, short leg 4, long leg labeled 4√3, hypotenuse labeled 8.","explain":"Rubric: a right triangle with all three angles correctly marked and the short leg drawn at 4 units (1 pt) + the long leg (4√3) and hypotenuse (8) both correctly computed and labeled (1 pt)."},
+    {"ref":"p3","type":"short","sc":"SC2","points":2,"prompt":"A 30-60-90 triangle has a hypotenuse of 18. Find the short leg and the long leg, simplifying any radical.","answer":"Short leg = 9; long leg = 9√3 ≈ 15.59.","explain":"Divide the hypotenuse by 2 to get the short leg: 18 ÷ 2 = 9. Then multiply that by √3 for the long leg: 9√3."},
+    {"ref":"p4","type":"short","sc":"SC2","points":2,"prompt":"A 30-60-90 triangle has a long leg of 8√3. Find the short leg and the hypotenuse.","answer":"Short leg = 8; hypotenuse = 16.","explain":"The long leg is short leg × √3, so dividing 8√3 by √3 gives short leg = 8. Hypotenuse = short leg × 2 = 16."},
+    {"ref":"x1","type":"short","sc":"SC3","points":2,"prompt":"Exit: without doing any algebra, guess — if you cut an equilateral triangle in half, which of the two new legs (the half-base, or the altitude) do you think will be shorter, and why?"}
+  ]
+}

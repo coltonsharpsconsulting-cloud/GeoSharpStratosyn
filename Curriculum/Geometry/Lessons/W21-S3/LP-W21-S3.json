@@ -1,0 +1,44 @@
+{
+  "id": "LP-W21-S3", "course": "geometry", "week": 21, "session": 3,
+  "session_type": "prove", "lesson": "L19 — Rationalizing Denominators",
+  "unit": "u02", "duration_min": 60, "mode": "Prove",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 21 · Prove It — Rationalizing Denominators",
+  "essential_question": "Why is multiplying by √2/√2 always legal, and why does it always clear the denominator?",
+  "objective": "Justify why multiplying a fraction by √n/√n never changes its value, justify why the radical always cancels from the denominator, review the week's Math-U-See practice, and pass the mastery checkpoint.",
+  "standards": ["N-RN.A.2"],
+  "vocab": ["rationalize", "radicand", "conjugate", "common denominator", "identity"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Rationalize From Memory","board":"warmup","content":{"prompt":"Without looking anything up, rationalize 5/√3 and 8/√2 from scratch. Then check your work against your concept note and your measurement log from Session 2."}},
+    {"phase":"review","min":12,"title":"Review — Your Math-U-See Work","board":"review","content":{"heading":"Go over Lesson Practice 19A & 19B together","note":"Bring your completed MUS Lesson Practice 19A/19B. We check the tricky ones: sums like 4/√5 + 2/√6 where each term must be rationalized BEFORE finding a common denominator, subtraction problems like 5/√10 − 3/√8 where √8 simplifies further, and the fill-in-the-blank vocabulary (radicals shouldn't be left in the denominator; multiplying numerator and denominator by the same number is really multiplying by one; find the common denominator before adding). Fix any you missed and note WHY."}},
+    {"phase":"prove","min":16,"title":"Prove It — Reason Out Loud","board":"prove","content":{"heading":"Defend three claims","figure":"grid-blank","bullets":["Claim 1: multiplying 1/√2 by √2/√2 never changes its value. Argue it from the fact that √2/√2 equals 1, and multiplying any number by 1 leaves it unchanged.","Claim 2: multiplying a single-term radical denominator by itself ALWAYS produces a whole number, no exceptions. Argue it from the identity √n × √n = n.","Claim 3: 3/√2 and 5/√8 can be combined into one term, but 3/√2 and 5/√7 can never be combined, no matter how each is rationalized. Argue it from what happens to each radicand after rationalizing."]}},
+    {"phase":"checkpoint","min":18,"title":"Mastery Checkpoint","board":"checkpoint","content":{"heading":"Show what you own","items":["c1","c2","c3","c4","c5","c6"]}},
+    {"phase":"close","min":8,"title":"Close & Set Mastery","board":"close","content":{"items":["x1"],"preview":"Next week, Lesson 20 — Special Right Triangles — where 45-45-90 and 30-60-90 triangles hand you fractions like 10/√2 constantly, and rationalizing turns them into clean, exact answers."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can justify why multiplying by √n/√n never changes a fraction's value and always clears the denominator"},
+    {"id":"SC2","text":"I can rationalize any single-radical denominator and simplify the result completely"},
+    {"id":"SC3","text":"I can justify when two rationalized fractions can combine and when they cannot"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W21-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W21 Rationalizing Denominators.md"},
+    "mus": {"practice":"MUS/L19 — Lesson Practice.pdf","review":"MUS/L19 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"checkpoint","kind":"check","title":"Mastery Checkpoint","items":["c1","c2","c3","c4","c5","c6"]},
+      {"phase":"close","kind":"exit","title":"Set Your Mastery","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"c1","type":"mc","sc":"SC2","points":1,"prompt":"6/√2 rationalized and simplified is…","options":["3√2","6√2/2","3√2/2","6√2"],"answer":"3√2","explain":"6/√2 = 6√2/2, and 6 and 2 share a factor of 2, reducing to 3√2."},
+    {"ref":"c2","type":"dropdown","sc":"SC1","points":1,"prompt":"Fill in the blank (straight from this week's Math-U-See practice): radicals should not be left in the ___ of a fraction.","options":["numerator","denominator","radicand","exponent"],"answer":"denominator","explain":"A fraction is only fully simplified once the denominator is a whole number — the radical has to move to the numerator, or vanish, before the answer counts as finished."},
+    {"ref":"c3","type":"short","sc":"SC3","points":2,"prompt":"Combine: 4/√5 + 2/√20. Rationalize each term first, then find the common denominator.","answer":"4/√5 + 2/√20 = 4√5/5 + √5/5 = 5√5/5 = √5","explain":"√20 simplifies to 2√5, so 2/√20 rationalizes and reduces all the way to √5/5. Both terms now share denominator 5 and radicand 5, combining to 5√5/5 = √5."},
+    {"ref":"c4","type":"short","sc":"SC3","points":2,"prompt":"Rationalize 3/√8 first, then decide: can 3/√8 and 5/√2 be combined? If so, combine them.","answer":"3/√8 = 3√2/4; since 3√2/4 and 5/√2 = 5√2/2 share the radicand 2, rewrite 5√2/2 as 10√2/4, giving 3√2/4 + 10√2/4 = 13√2/4.","explain":"3/√8 looks unlike 5/√2 until you rationalize and simplify it — √8 reduces to 2√2, revealing the shared radicand 2 that lets the two fractions combine over a common denominator of 4."},
+    {"ref":"c5","type":"mc","sc":"SC1","points":1,"prompt":"Which fact explains why multiplying 7/√3 by √3/√3 doesn't change its value?","options":["√3/√3 = 1","√3 × √3 = 3","7 ÷ 3 is exact","3 is a perfect square"],"answer":"√3/√3 = 1","explain":"Any nonzero number divided by itself equals 1, and multiplying by 1 never changes a number's value — that's the whole reason rationalizing is legal."},
+    {"ref":"c6","type":"short","sc":"SC1","points":2,"prompt":"In your own words, explain why multiplying the numerator and denominator of a fraction by √n over √n ALWAYS clears the radical from the denominator, no matter what whole number n is.","answer":"Because √n × √n = n for every whole number n — the two identical radicals multiply together to give a whole number every single time, while √n/√n = 1 guarantees the fraction's value never changes; the move is really just relabeling the same number, not changing it.","explain":"Full credit connects BOTH ideas: the identity √n × √n = n (why the radical disappears) and √n/√n = 1 (why the value stays the same)."},
+    {"ref":"x1","type":"short","sc":"SC1","points":1,"prompt":"Close: rate yourself on Lesson 19 (Emerging / Proficient / Mastered) and name the one idea you'd want to revisit."}
+  ]
+}

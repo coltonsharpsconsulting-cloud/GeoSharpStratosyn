@@ -1,0 +1,44 @@
+{
+  "id": "LP-W26-S3", "course": "geometry", "week": 26, "session": 3,
+  "session_type": "prove", "lesson": "L22 — Postulates, Theorems & Angle Relationships",
+  "unit": "u03", "duration_min": 60, "mode": "Prove",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 26 · Prove It — Why a Theorem Isn't a Postulate",
+  "essential_question": "Why must the Vertical Angles Theorem be PROVABLE from the Linear Pair Postulate, rather than standing as its own separate postulate?",
+  "objective": "Justify why the Vertical Angles Theorem is a theorem (proven from the Linear Pair Postulate) rather than its own postulate, complete a short statements-reasons proof chain, review the week's Math-U-See practice, and pass the mastery checkpoint on postulates, theorems, corollaries, converses, and the named angle rules.",
+  "standards": ["G-CO.C.9"],
+  "vocab": ["postulate", "theorem", "corollary", "converse", "linear pair postulate", "vertical angles theorem", "corresponding angles postulate", "reflexive property", "symmetric property", "transitive property"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Redraw From Memory","board":"warmup","content":{"prompt":"Without looking, sketch two lines crossing, label ∠1–∠4, and state from memory the Linear Pair Postulate and the Vertical Angles Theorem. Then sketch parallel lines cut by a transversal and name one corresponding pair and one alternate interior pair."}},
+    {"phase":"review","min":12,"title":"Review — Your Math-U-See Work","board":"review","content":{"heading":"Go over Lesson Practice 22A & 22B together","note":"Bring your completed MUS Lesson Practice 22A/22B. We check the tricky ones: postulate vs. theorem in the fill-in-the-blanks, all five converse-writing problems, and the reflexive/symmetric/transitive properties from the last three items on each page. Fix any you missed and note WHY."}},
+    {"phase":"prove","min":16,"title":"Prove It — Reason Out Loud","board":"prove","content":{"heading":"Defend three claims","figure":"angle-pair","bullets":["Claim 1: the Vertical Angles Theorem is a THEOREM, not a postulate. Argue it — ∠1 and ∠2 are a linear pair (Linear Pair Postulate), so m∠1 = 180° − m∠2; ∠2 and ∠3 are ALSO a linear pair, so m∠3 = 180° − m∠2 too; both equal the same expression, so m∠1 = m∠3.","Claim 2: the Alternate Interior Angles Theorem is provable by chaining TWO earlier results together. Argue it — ∠4 ≅ ∠1 (Vertical Angles Theorem, same crossing), and ∠1 ≅ ∠5 (Corresponding Angles Postulate), so ∠4 ≅ ∠5 by the Transitive Property.","Claim 3: a postulate cannot itself be proven from something more basic within this course. Argue why that has to be true — if every statement needed a proof, you'd need an infinite chain of proofs before you could prove anything at all. Postulates are where the chain has to start."]}},
+    {"phase":"checkpoint","min":18,"title":"Mastery Checkpoint","board":"checkpoint","content":{"heading":"Show what you own","items":["c1","c2","c3","c4","c5","c6"]}},
+    {"phase":"close","min":8,"title":"Close & Set Mastery","board":"close","content":{"items":["x1"],"preview":"Next unit: two-column proofs — you'll write your first formal proof using exactly the postulates, theorems, and properties you named this week as your 'reasons' column."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can state whether a given angle relationship is a postulate or a theorem, and name it correctly"},
+    {"id":"SC2","text":"I can justify why the Vertical Angles Theorem must be provable from the Linear Pair Postulate rather than being its own separate postulate"},
+    {"id":"SC3","text":"I can write the converse of a postulate or theorem, apply the Reflexive/Symmetric/Transitive properties, and complete a short statements-reasons proof chain"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W26-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W26 Postulates & Theorems.md"},
+    "mus": {"practice":"MUS/L22 — Lesson Practice.pdf","review":"MUS/L22 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"checkpoint","kind":"check","title":"Mastery Checkpoint","items":["c1","c2","c3","c4","c5","c6"]},
+      {"phase":"close","kind":"exit","title":"Set Your Mastery","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"c1","type":"mc","sc":"SC1","points":1,"prompt":"The statement 'a linear pair is supplementary' is treated in this course as a…","options":["theorem","postulate","corollary"],"answer":"postulate","explain":"The Linear Pair Postulate is accepted outright — it's what a straight angle IS, not something proven from an earlier fact."},
+    {"ref":"c2","type":"dropdown","sc":"SC1","points":1,"prompt":"'Vertical angles are congruent' is a ___, because it is proven from the Linear Pair Postulate rather than assumed outright.","options":["postulate","theorem","converse"],"answer":"theorem","explain":"A theorem is proven from postulates and earlier theorems — the Vertical Angles Theorem is built entirely from the Linear Pair Postulate."},
+    {"ref":"c3","type":"short","sc":"SC2","points":2,"prompt":"Prove it: use the Linear Pair Postulate to explain why m∠1 = m∠3 whenever two lines cross at a point, forming ∠1, ∠2, ∠3, ∠4 in order.","answer":"∠1 and ∠2 are a linear pair, so m∠1 + m∠2 = 180°, meaning m∠1 = 180° − m∠2. ∠2 and ∠3 are also a linear pair, so m∠3 = 180° − m∠2 too. Since both equal the same expression, m∠1 = m∠3.","explain":"Both angles are shown equal to '180° minus m∠2' — the Transitive Property then forces them equal to each other."},
+    {"ref":"c4","type":"proof","sc":"SC3","points":3,"prompt":"Complete the proof. Given: ∠1 and ∠2 form a linear pair; ∠2 and ∠3 form a linear pair. Prove: ∠1 ≅ ∠3. Statements: (1) ∠1 & ∠2 are a linear pair, ∠2 & ∠3 are a linear pair. (2) m∠1 + m∠2 = 180°, m∠2 + m∠3 = 180°. (3) m∠1 + m∠2 = m∠2 + m∠3. (4) m∠1 = m∠3. (5) ∠1 ≅ ∠3. Fill in the REASON for each of the five statements above.","answer":"(1) Given. (2) Linear Pair Postulate. (3) Substitution — both sums equal 180°. (4) Subtraction Property of Equality — subtract m∠2 from both sides. (5) Definition of congruent angles. This chain is exactly the proof of the Vertical Angles Theorem.","explain":"This IS the Vertical Angles Theorem, proven — not assumed — using only the Linear Pair Postulate and basic properties of equality."},
+    {"ref":"c5","type":"short","sc":"SC3","points":2,"prompt":"Write the CONVERSE of: 'If two parallel lines are cut by a transversal, then corresponding angles are congruent.' Is the converse also true in this course?","answer":"Converse: if corresponding angles are congruent, then the two lines cut by the transversal are parallel. Yes — this converse is also true; it's how surveyors and framers prove two lines are parallel just by measuring one pair of corresponding angles.","explain":"Swap the hypothesis and conclusion to form the converse; MUS flags this specific list of statements as having true converses, which isn't guaranteed for statements in general."},
+    {"ref":"c6","type":"short","sc":"SC3","points":2,"prompt":"Name the property of equality/congruence that justifies each: (a) ∠A ≅ ∠A. (b) If ∠A ≅ ∠B, then ∠B ≅ ∠A. (c) If ∠A ≅ ∠B and ∠B ≅ ∠C, then ∠A ≅ ∠C.","answer":"(a) Reflexive Property. (b) Symmetric Property. (c) Transitive Property.","explain":"Reflexive = itself; Symmetric = flip the order; Transitive = chain through a shared middle term."},
+    {"ref":"x1","type":"short","sc":"SC1","points":1,"prompt":"Close: rate yourself on Lesson 22 (Emerging / Proficient / Mastered) and name the one postulate or theorem name you'd want to drill more before starting two-column proofs next."}
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "LP-W21-S2", "course": "geometry", "week": 21, "session": 2,
+  "session_type": "build", "lesson": "L19 — Rationalizing Denominators",
+  "unit": "u02", "duration_min": 60, "mode": "Build",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 21 · Rationalize Card-Sort & Diagonal-Measure Lab",
+  "essential_question": "Can you PROVE, by measuring, that 1/√2 and √2/2 really are the same length?",
+  "objective": "Match un-rationalized fractions to their rationalized forms in a card sort, and physically measure a unit square's diagonal to confirm that 1/√2 and √2/2 land on the exact same mark.",
+  "standards": ["N-RN.A.2"],
+  "vocab": ["rationalize", "radicand", "diagonal", "hypotenuse", "simplify"],
+  "agenda": [
+    {"phase":"brief","min":6,"title":"Brief — From Formula to a Real Length","board":"brief","content":{"heading":"From yesterday's rule to a real ruler","bullets":["Yesterday: rationalized denominators on paper by multiplying by √n/√n.","Today: build a real diagonal with a ruler and PROVE two fraction forms measure the exact same length.","The test: does dividing 1 by the measured diagonal land on the same tick mark as half the diagonal's length — BEFORE you trust the algebra?"]}},
+    {"phase":"plan","min":8,"title":"Plan — Read the Build Card","board":"plan","content":{"heading":"Gather + plan","note":"Open the project card. Gather graph paper (or a printed 1-inch grid), a ruler, scissors, a calculator, index cards for the sort, and a marker. Decide which square size you'll draw first."}},
+    {"phase":"build","min":25,"title":"Build — Square It, Measure It, Sort It","board":"build","content":{"heading":"A length you can hold","bullets":["Draw a 1-unit (or 1-inch) square on graph paper and draw its diagonal corner to corner. By the Pythagorean theorem (Lesson 18), 1² + 1² = 2, so that diagonal is exactly √2 units.","Measure the diagonal with your ruler as precisely as you can (it should read close to 1.41). Mark and measure its exact HALF — record both readings.","On a calculator, compute 1 ÷ (your measured diagonal). Compare that decimal to your half-diagonal measurement from the step before — they should be the same number, confirming 1/√2 = √2/2 with a ruler instead of algebra.","Card sort: match each un-rationalized fraction card (like 5/√2, 8/√5, 6/√3) to its rationalized-form card (5√2/2, 8√5/5, 2√3…), naming the radical you'd multiply by for each."]}},
+    {"phase":"measure","min":12,"title":"Record Your Measurements & Sort","board":"measure","content":{"heading":"Get the numbers down","figure":"grid-blank","items":["m1","m2","m3"]}},
+    {"phase":"reflect","min":9,"title":"Reflect & Photograph","board":"reflect","content":{"items":["r1"],"preview":"Session 3: defend why multiplying by √2/√2 is legal and always clears the denominator, then the checkpoint."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can construct a unit square's diagonal and use the Pythagorean theorem to identify its exact length as √2"},
+    {"id":"SC2","text":"I can measure to confirm that 1/√2 and √2/2 are the same physical length"},
+    {"id":"SC3","text":"I can match un-rationalized fractions to their rationalized forms and name the radical used in each"}
+  ],
+  "assets": {
+    "project": {"note":"Curriculum/Geometry/Lessons/W21-S2/project-card.md"},
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W21-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W21 Rationalizing Denominators.md"},
+    "mus": {"practice":"MUS/L19 — Lesson Practice.pdf","review":"MUS/L19 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"measure","kind":"practice","title":"Measurement Log & Card Sort","items":["m1","m2","m3"]},
+      {"phase":"reflect","kind":"exit","title":"Reflect","items":["r1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"m1","type":"measure","sc":"SC1","points":2,"prompt":"Draw a 1-unit square on graph paper, draw its diagonal, and use the Pythagorean theorem to show the diagonal's exact length. Record your work.","answer":"1² + 1² = 2, so the diagonal = √2 units (≈1.41).","explain":"Rubric: square and diagonal drawn (1 pt) + √2 correctly derived from the Pythagorean theorem (1 pt)."},
+    {"ref":"m2","type":"short","sc":"SC2","points":2,"prompt":"Measure your diagonal with a ruler, then measure exactly HALF of it. Compute 1 ÷ (your measured diagonal) on a calculator. Record all three numbers and say whether the half-diagonal measurement and the calculator result match.","answer":"Example: diagonal ≈ 1.41, half-diagonal ≈ 0.71, 1 ÷ 1.41 ≈ 0.71 — they match, confirming 1/√2 = √2/2.","explain":"Rubric: diagonal and half-diagonal both measured and recorded (1 pt) + 1 ÷ diagonal computed and confirmed to match the half-diagonal (1 pt)."},
+    {"ref":"m3","type":"short","sc":"SC3","points":2,"prompt":"From your card sort, list three fraction/rationalized-form pairs you matched and name the radical you multiplied by for each.","answer":"Example: 5/√2 → 5√2/2 (multiplied by √2/√2); 8/√5 → 8√5/5 (√5/√5); 6/√3 → 2√3 (√3/√3, then reduced).","explain":"Rubric: three correct pairs (1 pt) + the correct radical named for each (1 pt)."},
+    {"ref":"r1","type":"short","sc":"SC2","points":2,"prompt":"Reflect: how close did your measured half-diagonal come to the calculator's 1 ÷ √2 value, and what does that closeness tell you about why rationalizing doesn't change a fraction's value?"}
+  ]
+}

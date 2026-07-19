@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rationalizing Denominators — Sim</title>
+<style>
+  :root{--void:#0d1322;--ink:#161d31;--bone:#e8ecf3;--mist:#9aabd0;--accent:#8b5cf6;--gold:#f5c842;--border:#2a3142;--good:#7ee081;--warn:#f2665a}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--void);color:var(--bone);font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;min-height:100%}
+  header{padding:2vh 4vw;border-bottom:1px solid var(--border);background:var(--ink)}
+  .eyebrow{font-family:"DM Mono",ui-monospace,monospace;letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--accent)}
+  h1{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(20px,3vw,30px);margin-top:.3rem}
+  main{flex:1;display:flex;flex-direction:column;align-items:center;gap:1.6vh;padding:3vh 4vw 5vh}
+  section{width:100%;max-width:760px;display:flex;flex-direction:column;align-items:center;gap:1.4vh}
+  .controls{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;align-items:center}
+  button{font-family:"DM Mono",ui-monospace,monospace;font-size:14px;background:var(--ink);color:var(--bone);border:1px solid var(--border);border-radius:999px;padding:.6rem 1.2rem;cursor:pointer}
+  button.on{border-color:var(--accent);color:var(--accent)}
+  button:hover{border-color:var(--mist)}
+  input[type=number]{font-family:"DM Mono",ui-monospace,monospace;font-size:16px;background:var(--ink);color:var(--bone);border:1px solid var(--border);border-radius:8px;padding:.5rem .6rem;width:6em}
+  .frac-input{display:flex;align-items:center;gap:.5rem;font-family:"DM Mono",monospace;font-size:18px;color:var(--mist)}
+  .frac-input .stack{display:flex;flex-direction:column;align-items:center;gap:.15rem}
+  .frac-input .bar{width:100%;height:1px;background:var(--mist)}
+  .stage{width:100%;background:var(--ink);border:1px solid var(--border);border-radius:16px;padding:3vh 3vw;display:flex;flex-direction:column;align-items:center;gap:1.2vh;min-height:14vh;justify-content:center}
+  .tree-row{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;justify-content:center}
+  .tree-box{font-family:"DM Mono",ui-monospace,monospace;font-size:clamp(16px,2.4vw,22px);background:var(--void);border:1px solid var(--border);border-radius:10px;padding:.5rem .9rem}
+  .tree-box .num{display:block;text-align:center}
+  .tree-box .bar{display:block;height:1px;background:currentColor;margin:.2rem 0}
+  .tree-box .den{display:block;text-align:center}
+  .tree-box.step2{border-color:var(--gold);color:var(--gold)}
+  .tree-box.final-box{border-color:var(--good);color:var(--good);font-size:clamp(19px,2.8vw,26px)}
+  .tree-arrow,.tree-op{font-family:"DM Mono",monospace;font-size:18px;color:var(--mist)}
+  .note-line{font-family:"DM Mono",ui-monospace,monospace;font-size:14px;color:var(--mist);text-align:center;max-width:62ch}
+  .hint{color:var(--mist);font-size:14px;max-width:62ch;text-align:center}
+  .check-yourself{width:100%;border-top:1px dashed var(--border);padding-top:1.6vh;display:flex;flex-direction:column;align-items:center;gap:.8rem}
+  .check-row{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;justify-content:center;font-family:"DM Mono",monospace;font-size:17px;color:var(--mist)}
+  .check-row input{width:4.6em}
+  .feedback{font-family:"DM Mono",ui-monospace,monospace;font-size:14px;text-align:center;max-width:58ch;min-height:1.4em}
+  .feedback.good{color:var(--good)}
+  .feedback.warn{color:var(--warn)}
+  .feedback.mid{color:var(--gold)}
+  .lookahead{width:100%;border-top:1px dashed var(--border);padding-top:1.4vh;display:flex;flex-direction:column;align-items:center;gap:.4rem}
+  .lookahead p{color:var(--mist);font-size:13px;max-width:64ch;text-align:center}
+  .lookahead b{color:var(--accent)}
+  .combine-stage{flex-direction:row;gap:1.2rem}
+  .term{font-family:"DM Mono",ui-monospace,monospace;font-size:clamp(20px,3.2vw,30px);background:var(--void);border:1px solid var(--border);border-radius:12px;padding:.8rem 1.2rem;color:var(--accent)}
+  .plusop{font-family:"DM Mono",monospace;font-size:24px;color:var(--mist)}
+  .readout{font-family:"DM Mono",ui-monospace,monospace;font-size:clamp(14px,2vw,16px);color:var(--mist);text-align:center;line-height:1.7;max-width:62ch}
+  .readout .good{color:var(--good);font-weight:bold}
+  .readout .warn{color:var(--warn);font-weight:bold}
+</style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Geometry · Lesson 19 · sim</div>
+    <h1>Multiply by √n over √n. Watch the radical leave the denominator.</h1>
+  </header>
+  <main>
+    <div class="controls" id="modes">
+      <button data-mode="rationalize" class="on">Rationalize</button>
+      <button data-mode="combine">Combine</button>
+    </div>
+
+    <section id="rationalizePanel">
+      <div class="controls">
+        <button id="prevBtn">‹ Prev</button>
+        <div class="frac-input">
+          <input id="numInput" type="number" min="1" max="99" step="1" value="1">
+          <div class="stack">/&radic;<input id="radInput" type="number" min="2" max="99" step="1" value="2"></div>
+        </div>
+        <button id="goBtn">Go</button>
+        <button id="nextBtn">Next ›</button>
+        <button id="randomBtn">Random</button>
+      </div>
+      <div class="stage" id="tree"></div>
+      <p class="hint" id="rationalizeHint">Step through the presets with Prev / Next, type your own numerator and radicand and hit Go, or hit Random. Watch √n/√n (which equals 1) get multiplied in, then watch the fraction reduce.</p>
+
+      <div class="check-yourself">
+        <p class="hint">Check yourself — write your own rationalized form for <b id="checkFracLabel">1/&radic;2</b>:</p>
+        <div class="check-row">
+          <input id="coeffInput" type="number" placeholder="coeff" step="1">
+          <span>&radic;</span>
+          <input id="remInput" type="number" placeholder="radicand" step="1">
+          <span>/</span>
+          <input id="denomInput" type="number" placeholder="denom" step="1">
+          <button id="checkBtn">Check</button>
+        </div>
+        <div class="feedback" id="checkFeedback"></div>
+      </div>
+
+      <div class="lookahead">
+        <p><b>Look ahead (not tested this week):</b> every fraction here has ONE term under the radical in the denominator. If a denominator ever has TWO terms, like 1 + &radic;2, you multiply by its <b>conjugate</b> instead (1 − &radic;2) — same idea, different partner.</p>
+      </div>
+    </section>
+
+    <section id="combinePanel" hidden>
+      <div class="stage combine-stage">
+        <div class="term" id="termA"></div>
+        <div class="plusop" id="opSign">+</div>
+        <div class="term" id="termB"></div>
+      </div>
+      <div class="controls">
+        <button id="revealBtn">Reveal</button>
+        <button id="newPairBtn">New Pair</button>
+      </div>
+      <div class="readout" id="combineReadout"></div>
+      <p class="hint">Rationalize BOTH fractions first. Only then can you tell whether they share a radicand and can combine into one term.</p>
+    </section>
+  </main>
+
+<script>
+(() => {
+  // ---------------- shared math ----------------
+  function gcd(a, b){ a = Math.abs(a); b = Math.abs(b); while (b){ [a, b] = [b, a % b]; } return a || 1; }
+  function largestSquareFactor(n){
+    let best = 1;
+    for (let k = 2; k*k <= n; k++){
+      if (n % (k*k) === 0) best = k*k;
+    }
+    return best;
+  }
+  // Rationalize num/√r : multiply top+bottom by √r, then simplify the
+  // leftover radicand and reduce the numeric fraction.
+  function rationalize(num, r){
+    const sq = largestSquareFactor(r);
+    const c = Math.sqrt(sq);
+    const rem = r / sq;               // fully-simplified radicand
+    const rawCoeff = num * c;         // numerator before reducing
+    const rawDenom = r;                // denominator after √r × √r = r
+    const g = gcd(rawCoeff, rawDenom);
+    return { coeff: rawCoeff / g, rem, denom: rawDenom / g };
+  }
+  function fmtRationalized(coeff, rem, denom){
+    const top = rem === 1 ? String(coeff) : (coeff === 1 ? '√' + rem : coeff + '√' + rem);
+    return denom === 1 ? top : top + '/' + denom;
+  }
+
+  const PRESETS = [ [1,2], [3,5], [9,2], [10,5], [6,3], [8,3], [15,5], [9,3], [12,6], [7,3], [5,12], [3,8] ];
+
+  // ---------------- mode switching ----------------
+  const rationalizePanel = document.getElementById('rationalizePanel');
+  const combinePanel = document.getElementById('combinePanel');
+  document.getElementById('modes').addEventListener('click', e => {
+    const m = e.target.dataset.mode;
+    if (!m) return;
+    [...document.querySelectorAll('#modes button')].forEach(b => b.classList.toggle('on', b.dataset.mode === m));
+    rationalizePanel.hidden = m !== 'rationalize';
+    combinePanel.hidden = m !== 'combine';
+  });
+
+  // ---------------- Rationalize panel ----------------
+  const numInput = document.getElementById('numInput');
+  const radInput = document.getElementById('radInput');
+  const tree = document.getElementById('tree');
+  const rationalizeHint = document.getElementById('rationalizeHint');
+  const checkFracLabel = document.getElementById('checkFracLabel');
+  const coeffInput = document.getElementById('coeffInput');
+  const remInput = document.getElementById('remInput');
+  const denomInput = document.getElementById('denomInput');
+  const checkFeedback = document.getElementById('checkFeedback');
+
+  let presetIndex = 0;
+  let currentNum = 1, currentR = 2;
+
+  function clampInt(v, lo, hi){
+    v = Math.round(Number(v));
+    if (!Number.isFinite(v)) return null;
+    return Math.max(lo, Math.min(hi, v));
+  }
+
+  function renderTree(num, r){
+    const { coeff, rem, denom } = rationalize(num, r);
+    const sq = largestSquareFactor(r);
+    const needsRadicalSimplify = sq > 1 && r / sq !== r;
+    tree.innerHTML =
+      '<div class="tree-row">' +
+        '<div class="tree-box"><span class="num">' + num + '</span><span class="bar"></span><span class="den">&radic;' + r + '</span></div>' +
+        '<div class="tree-op">&times;</div>' +
+        '<div class="tree-box"><span class="num">&radic;' + r + '</span><span class="bar"></span><span class="den">&radic;' + r + '</span></div>' +
+        '<div class="tree-arrow">=</div>' +
+        '<div class="tree-box step2"><span class="num">' + num + '&radic;' + r + '</span><span class="bar"></span><span class="den">' + r + '</span></div>' +
+      '</div>' +
+      '<div class="tree-row"><div class="tree-arrow">=</div><div class="tree-box final-box">' + fmtRationalized(coeff, rem, denom) + '</div></div>' +
+      '<p class="note-line">' +
+        'Multiplying by &radic;' + r + '/&radic;' + r + ' (which equals 1) turns the denominator into &radic;' + r + '&times;&radic;' + r + ' = ' + r + ', a whole number.' +
+        (needsRadicalSimplify ? ' &radic;' + r + ' itself simplifies to ' + (Math.sqrt(sq) === 1 ? '' : Math.sqrt(sq)) + '&radic;' + (r / sq) + ' first, then the fraction reduces.' : (gcd(num, r) > 1 ? ' The resulting numbers then reduce by a common factor.' : '')) +
+      '</p>';
+  }
+
+  function render(num, r){
+    currentNum = num; currentR = r;
+    numInput.value = num; radInput.value = r;
+    checkFracLabel.innerHTML = num + '/&radic;' + r;
+    coeffInput.value = ''; remInput.value = ''; denomInput.value = '';
+    checkFeedback.textContent = '';
+    checkFeedback.className = 'feedback';
+    renderTree(num, r);
+  }
+
+  document.getElementById('prevBtn').addEventListener('click', () => {
+    presetIndex = (presetIndex - 1 + PRESETS.length) % PRESETS.length;
+    render(...PRESETS[presetIndex]);
+  });
+  document.getElementById('nextBtn').addEventListener('click', () => {
+    presetIndex = (presetIndex + 1) % PRESETS.length;
+    render(...PRESETS[presetIndex]);
+  });
+  document.getElementById('goBtn').addEventListener('click', () => {
+    const n = clampInt(numInput.value, 1, 999);
+    const r = clampInt(radInput.value, 2, 999);
+    if (n === null || r === null) { rationalizeHint.textContent = 'Enter a whole-number numerator and a whole-number radicand (2 or more).'; return; }
+    rationalizeHint.textContent = 'Step through the presets with Prev / Next, type your own numerator and radicand and hit Go, or hit Random. Watch √n/√n (which equals 1) get multiplied in, then watch the fraction reduce.';
+    render(n, r);
+  });
+  document.getElementById('randomBtn').addEventListener('click', () => {
+    render(1 + Math.floor(Math.random() * 20), 2 + Math.floor(Math.random() * 20));
+  });
+  [numInput, radInput].forEach(el => el.addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('goBtn').click(); }));
+
+  document.getElementById('checkBtn').addEventListener('click', () => {
+    const num = currentNum, r = currentR;
+    const cRaw = coeffInput.value.trim();
+    const rRaw = remInput.value.trim();
+    const dRaw = denomInput.value.trim();
+    const c = cRaw === '' ? 1 : Number(cRaw);
+    const rem = rRaw === '' ? NaN : Number(rRaw);
+    const denom = dRaw === '' ? 1 : Number(dRaw);
+    if (!Number.isInteger(c) || !Number.isInteger(rem) || !Number.isInteger(denom) || c <= 0 || rem <= 0 || denom <= 0){
+      checkFeedback.textContent = 'Enter positive whole numbers — a coefficient, a radicand, and a denominator (leave denominator blank for 1).';
+      checkFeedback.className = 'feedback warn';
+      return;
+    }
+    // Equivalence check (cross-multiplied, no floats): (num/√r)^2 should equal (c√rem/denom)^2
+    // i.e. num^2 / r  ==  (c^2 * rem) / denom^2   =>   num^2 * denom^2  ==  c^2 * rem * r
+    const lhs = num * num * denom * denom;
+    const rhs = c * c * rem * r;
+    if (lhs !== rhs){
+      checkFeedback.textContent = 'Not equivalent to ' + num + '/√' + r + ' — check your arithmetic (squaring both sides should give matching values).';
+      checkFeedback.className = 'feedback warn';
+      return;
+    }
+    const remFactor = largestSquareFactor(rem);
+    if (remFactor > 1){
+      checkFeedback.textContent = 'Correct value, but not fully simplified — ' + rem + ' still has a perfect-square factor (' + remFactor + ') hiding under the radical.';
+      checkFeedback.className = 'feedback mid';
+      return;
+    }
+    if (gcd(c, denom) > 1){
+      checkFeedback.textContent = 'Correct value, but not fully reduced — ' + c + ' and ' + denom + ' still share a common factor.';
+      checkFeedback.className = 'feedback mid';
+      return;
+    }
+    checkFeedback.textContent = 'Correct! ' + num + '/√' + r + ' = ' + fmtRationalized(c, rem, denom) + ' — rationalized and fully simplified.';
+    checkFeedback.className = 'feedback good';
+  });
+
+  render(1, 2);
+
+  // ---------------- Combine panel ----------------
+  const PAIRS = [
+    [3, 2, 5, 8, '+'], [4, 5, 2, 6, '+'], [4, 2, 9, 5, '+'], [5, 10, 3, 8, '−'],
+    [5, 7, 6, 2, '+'], [9, 3, 6, 5, '−'], [3, 2, 7, 2, '+'], [11, 12, 5, 3, '−']
+  ];
+
+  const termAEl = document.getElementById('termA');
+  const termBEl = document.getElementById('termB');
+  const opSignEl = document.getElementById('opSign');
+  const combineReadout = document.getElementById('combineReadout');
+
+  let pairIdx = -1;
+  let pairA, pairB, opSym;
+
+  function fmtOriginal(num, r){ return num + '/√' + r; }
+
+  function newPair(){
+    pairIdx = (pairIdx + 1) % PAIRS.length;
+    const [nA, rA, nB, rB, op] = PAIRS[pairIdx];
+    pairA = { num: nA, r: rA };
+    pairB = { num: nB, r: rB };
+    opSym = op;
+    opSignEl.textContent = opSym;
+    termAEl.textContent = fmtOriginal(pairA.num, pairA.r);
+    termBEl.textContent = fmtOriginal(pairB.num, pairB.r);
+    combineReadout.innerHTML = '';
+  }
+
+  document.getElementById('newPairBtn').addEventListener('click', newPair);
+  document.getElementById('revealBtn').addEventListener('click', () => {
+    const a = rationalize(pairA.num, pairA.r);
+    const b = rationalize(pairB.num, pairB.r);
+    const stepA = fmtOriginal(pairA.num, pairA.r) + ' = ' + fmtRationalized(a.coeff, a.rem, a.denom);
+    const stepB = fmtOriginal(pairB.num, pairB.r) + ' = ' + fmtRationalized(b.coeff, b.rem, b.denom);
+    let html = '<div>' + stepA + '</div><div>' + stepB + '</div>';
+    if (a.rem === b.rem){
+      const lcd = (a.denom * b.denom) / gcd(a.denom, b.denom);
+      const scaledA = a.coeff * (lcd / a.denom);
+      const scaledB = b.coeff * (lcd / b.denom);
+      const combinedCoeff = opSym === '+' ? scaledA + scaledB : scaledA - scaledB;
+      const g = gcd(Math.abs(combinedCoeff), lcd);
+      const finalCoeff = combinedCoeff / g, finalDenom = lcd / g;
+      html += '<div class="good">Same radicand (' + a.rem + ') after rationalizing → LIKE radical fractions. Common denominator ' + lcd + ': ' +
+              fmtRationalized(scaledA, a.rem, lcd) + ' ' + opSym + ' ' + fmtRationalized(scaledB, b.rem, lcd) +
+              ' = <b>' + fmtRationalized(finalCoeff, a.rem, finalDenom) + '</b></div>';
+    } else {
+      html += '<div class="warn">Different radicands after rationalizing (' + a.rem + ' vs ' + b.rem + ') → these can never combine into one term. The answer stays ' +
+              fmtRationalized(a.coeff, a.rem, a.denom) + ' ' + opSym + ' ' + fmtRationalized(b.coeff, b.rem, b.denom) + '.</div>';
+    }
+    combineReadout.innerHTML = html;
+  });
+
+  newPair();
+})();
+</script>
+</body>
+</html>

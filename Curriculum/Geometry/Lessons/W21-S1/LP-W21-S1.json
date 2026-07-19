@@ -1,0 +1,47 @@
+{
+  "id": "LP-W21-S1", "course": "geometry", "week": 21, "session": 1,
+  "session_type": "concept", "lesson": "L19 — Rationalizing Denominators",
+  "unit": "u02", "duration_min": 60, "mode": "Concept",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 21 · Rationalizing Denominators",
+  "essential_question": "Why can't a fraction be left with √2 in the denominator — and what fixes it without changing its value?",
+  "objective": "Rationalize a denominator containing a single radical by multiplying numerator and denominator by that radical, simplify the leftover radicand when needed, and combine two rationalized fractions using a common denominator.",
+  "standards": ["N-RN.A.2"],
+  "vocab": ["rationalize", "radicand", "conjugate", "common denominator", "simplify"],
+  "agenda": [
+    {"phase":"launch","min":6,"title":"Launch — Get Rid Of It","board":"launch","content":{"prompt":"A calculator says 1/√2 ≈ 0.7071. Multiply 1/√2 by √2/√2 — which equals 1 — by hand or on a calculator. What happens to the denominator? Does the decimal value change at all?"}},
+    {"phase":"i_do","min":12,"title":"I do — Multiply by √n Over √n","board":"i_do","content":{"heading":"The radical always leaves the bottom","figure":"grid-blank","bullets":["Rationalizing a denominator means rewriting a fraction so NO radical sign is left on the bottom — multiply top and bottom by the SAME radical that's in the denominator.","Since √n/√n = 1, you're only ever multiplying by 1 — the value never changes: 1/√2 = (1×√2)/(√2×√2) = √2/2.","The radical always cancels because √n × √n = n, a whole number every time: 9/√2 = 9√2/2; 10/√5 = 10√5/5 = 2√5 (check whether it reduces!).","Sometimes the leftover radicand STILL has a perfect-square factor hiding inside — simplify that too: 3/√8 = 3√8/8 = 3(2√2)/8 = 6√2/8 = 3√2/4.","To add or subtract two radical fractions, rationalize EACH one first, THEN find a common denominator — never the other way around: 3/√2 + 5/√8 = 3√2/2 + 5√2/4 = 11√2/4."]}},
+    {"phase":"explore","min":8,"title":"Explore — Rationalize It, Check It","board":"explore","content":{"heading":"Step through fractions and watch the denominator clear","note":"On the sim, step through the preset fractions (or type your own numerator and radicand) and watch the multiply-by-√n/√n step build to the rationalized, simplified result. Then use Check Yourself to type your own rationalized fraction and see if it's fully reduced. Switch to Combine mode and rationalize both fractions before deciding whether they can combine.","figure":"grid-blank"}},
+    {"phase":"check","min":5,"title":"Check for Understanding","board":"check","content":{"heading":"Name that multiplier","items":["n1","n2"]}},
+    {"phase":"you_do","min":12,"title":"You do — Rationalize & Combine","board":"you_do","content":{"heading":"Your turn on the worksheet","items":["p1","p2","p3","p4"]}},
+    {"phase":"exit","min":5,"title":"Exit Ticket","board":"exit","content":{"items":["x1"],"preview":"Build session: card-sort un-rationalized fractions to their clean forms, and measure why 1/√2 and √2/2 land on the exact same mark."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can rationalize a fraction with a single radical in the denominator by multiplying by that radical over itself"},
+    {"id":"SC2","text":"I can combine two radical fractions by rationalizing each one first, then finding a common denominator"},
+    {"id":"SC3","text":"I can recognize when the leftover radicand still needs simplifying, and finish simplifying it"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W21-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W21 Rationalizing Denominators.md"},
+    "mus": {"practice":"MUS/L19 — Lesson Practice.pdf","review":"MUS/L19 — Systematic Review.pdf"},
+    "interactive": {"slug":"rationalize","note":"Curriculum/Geometry/Lessons/W21-S1/sims/rationalize.html"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"check","kind":"check","title":"Name That Multiplier","items":["n1","n2"]},
+      {"phase":"practice","kind":"practice","title":"Rationalize & Combine","items":["p1","p2","p3","p4"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"n1","type":"dropdown","sc":"SC1","points":1,"prompt":"To rationalize the denominator of 7/√5, you multiply the numerator and denominator by…","options":["5","√5","7","√7"],"answer":"√5","explain":"Multiplying top and bottom by √5 turns the denominator into √5 × √5 = 5, a whole number — and since √5/√5 = 1, the fraction's value never changes."},
+    {"ref":"n2","type":"mc","sc":"SC1","points":1,"prompt":"Which fraction below still needs its denominator rationalized?","options":["5√6/6","5/√6","2√7/7"],"answer":"5/√6","explain":"5/√6 still has a radical sitting in the denominator; the other two already show a whole number on the bottom."},
+    {"ref":"p1","type":"short","sc":"SC1","points":2,"prompt":"Rationalize and simplify: 8/√2.","answer":"8/√2 = 8√2/2 = 4√2","explain":"Multiply top and bottom by √2: (8 × √2)/(√2 × √2) = 8√2/2, and 8 and 2 share a factor of 2, reducing to 4√2."},
+    {"ref":"p2","type":"short","sc":"SC3","points":2,"prompt":"Rationalize and simplify: 5/√12. (Careful — the radicand isn't done simplifying after you rationalize.)","answer":"5/√12 = 5√12/12 = 5(2√3)/12 = 10√3/12 = 5√3/6","explain":"√12 simplifies to 2√3 before the fraction reduces further; 10 and 12 share a factor of 2, giving the fully simplified 5√3/6."},
+    {"ref":"p3","type":"short","sc":"SC2","points":2,"prompt":"Combine: 3/√2 + 5/√8. Rationalize each term first, then find the common denominator.","answer":"3/√2 + 5/√8 = 3√2/2 + 5√2/4 = 6√2/4 + 5√2/4 = 11√2/4","explain":"√8 simplifies to 2√2, so 5/√8 rationalizes to 5√2/4. Both terms now share the radicand 2, so a common denominator of 4 lets them combine."},
+    {"ref":"p4","type":"short","sc":"SC1","points":2,"prompt":"A Lesson 20 leg length comes out to 10/√2 before it's rationalized. Rationalize it to its exact, simplified form.","answer":"10/√2 = 10√2/2 = 5√2","explain":"Multiply top and bottom by √2: 10√2/2, and 10 ÷ 2 = 5, giving the clean exact leg length 5√2 — no fraction left at all."},
+    {"ref":"x1","type":"short","sc":"SC1","points":2,"prompt":"Exit: rationalize 6/√3 and simplify."}
+  ]
+}

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Special Right Triangles: 45-45-90 — Sim</title>
+<style>
+  :root{--void:#0d1322;--ink:#161d31;--bone:#e8ecf3;--mist:#9aabd0;--accent:#8b5cf6;--gold:#f5c842;--border:#2a3142;--good:#7ee081;--warn:#f2665a}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--void);color:var(--bone);font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;min-height:100%}
+  header{padding:2vh 4vw;border-bottom:1px solid var(--border);background:var(--ink)}
+  .eyebrow{font-family:"DM Mono",ui-monospace,monospace;letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--accent)}
+  h1{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(20px,3vw,30px);margin-top:.3rem}
+  main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.6vh;padding:3vh 4vw}
+  .stage{width:100%;max-width:720px;aspect-ratio:4/3;background:var(--ink);border:1px solid var(--border);border-radius:16px;touch-action:none}
+  svg{width:100%;height:100%;display:block}
+  .controls{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
+  button{font-family:"DM Mono",ui-monospace,monospace;font-size:14px;background:var(--ink);color:var(--bone);border:1px solid var(--border);border-radius:999px;padding:.6rem 1.2rem;cursor:pointer}
+  button.on{border-color:var(--accent);color:var(--accent)}
+  .readout{font-family:"DM Mono",ui-monospace,monospace;font-size:clamp(13px,1.9vw,17px);color:var(--mist);text-align:center;min-height:4.4em;line-height:1.6}
+  .readout b{color:var(--gold)}
+  .readout .good{color:var(--good);font-weight:bold}
+  .hint{color:var(--mist);font-size:14px;max-width:62ch;text-align:center}
+</style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Geometry · Lesson 20 · sim</div>
+    <h1>Drag the leg. Watch the hypotenuse.</h1>
+  </header>
+  <main>
+    <div class="controls" id="actions">
+      <button id="resetBtn">Reset (leg 5)</button>
+      <button id="unitBtn">Try leg 1</button>
+      <button id="randomBtn">Randomize</button>
+    </div>
+    <div class="stage"><svg viewBox="0 0 640 480" id="svg"></svg></div>
+    <div class="readout" id="readout"></div>
+    <p class="hint">Drag the gold handle at the top of the vertical leg. Because both non-right angles stay fixed at 45°, dragging it changes <b>both</b> legs together, keeping them congruent — this is an isosceles right triangle, so one drag sets every side.</p>
+  </main>
+<script>
+(() => {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  const readout = document.getElementById('readout');
+  const W = 640, H = 480, S = 24;       // px per grid unit
+  const C = { x: 190, y: 340 };         // right-angle vertex (fixed)
+  const MIN_U = 1, MAX_U = 8;
+  const SQRT2 = Math.SQRT2;
+
+  function make(tag, attrs){ const n = document.createElementNS(NS, tag); for (const k in attrs) n.setAttribute(k, attrs[k]); svg.appendChild(n); return n; }
+  const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+
+  // ---- faint background grid ----
+  for (let x = 0; x <= W; x += S) make('line', { x1:x, y1:0, x2:x, y2:H, stroke:'#1a2136', 'stroke-width':1 });
+  for (let y = 0; y <= H; y += S) make('line', { x1:0, y1:y, x2:W, y2:y, stroke:'#1a2136', 'stroke-width':1 });
+
+  let a = 5; // current leg length, in grid units (both legs share this value)
+
+  // ---- triangle body ----
+  const tri = make('polygon', { fill:'rgba(139,92,246,0.18)', stroke:'#8b5cf6', 'stroke-width':4, 'stroke-linejoin':'round' });
+  const rightMark = make('path', { fill:'none', stroke:'#e8ecf3', 'stroke-width':2 });
+  const arcA = make('path', { fill:'none', stroke:'#f5c842', 'stroke-width':2 });
+  const arcB = make('path', { fill:'none', stroke:'#f5c842', 'stroke-width':2 });
+  const vC = make('circle', { r:6, fill:'#e8ecf3' });
+
+  // ---- angle labels ----
+  const lbl45A = make('text', { 'font-size':15, 'font-family':'DM Mono, monospace', 'text-anchor':'middle', fill:'#f5c842' }); lbl45A.textContent = '45°';
+  const lbl45B = make('text', { 'font-size':15, 'font-family':'DM Mono, monospace', 'text-anchor':'middle', fill:'#f5c842' }); lbl45B.textContent = '45°';
+  const lbl90 = make('text', { 'font-size':13, 'font-family':'DM Mono, monospace', 'text-anchor':'middle', fill:'#9aabd0' }); lbl90.textContent = '90°';
+
+  // ---- side labels ----
+  const lblLegA = make('text', { 'font-size':18, 'font-family':'DM Mono, monospace', 'text-anchor':'middle', fill:'#e8ecf3' });
+  const lblLegB = make('text', { 'font-size':18, 'font-family':'DM Mono, monospace', 'text-anchor':'middle', fill:'#e8ecf3' });
+  const lblHyp  = make('text', { 'font-size':18, 'font-family':'DM Mono, monospace', 'text-anchor':'middle', fill:'#7ee081' });
+
+  // ---- single draggable handle: top of the vertical leg (A) ----
+  const handleA = make('circle', { r:12, fill:'#f5c842' });
+  const hitA = make('circle', { r:26, fill:'transparent', cursor:'grab' });
+
+  function arcPath(cx, cy, r, fromDeg, toDeg){
+    const steps = Math.max(2, Math.round(Math.abs(toDeg - fromDeg) / 3));
+    const pts = [];
+    for (let i = 0; i <= steps; i++){
+      const d = fromDeg + (toDeg - fromDeg) * i / steps;
+      const rad = d * Math.PI / 180;
+      const x = cx + r * Math.cos(rad), y = cy - r * Math.sin(rad);
+      pts.push(`${i === 0 ? 'M' : 'L'}${x} ${y}`);
+    }
+    return pts.join(' ');
+  }
+
+  function draw(){
+    const B = { x: C.x + a * S, y: C.y };   // horizontal leg endpoint
+    const A = { x: C.x, y: C.y - a * S };   // vertical leg endpoint
+
+    vC.setAttribute('cx', C.x); vC.setAttribute('cy', C.y);
+    tri.setAttribute('points', `${A.x},${A.y} ${B.x},${B.y} ${C.x},${C.y}`);
+
+    // right-angle corner mark at C
+    rightMark.setAttribute('d', `M${C.x + 14},${C.y} L${C.x + 14},${C.y - 14} L${C.x},${C.y - 14}`);
+    lbl90.setAttribute('x', C.x + 22); lbl90.setAttribute('y', C.y - 18);
+
+    // 45° arc at A (between leg CA, pointing down, and hypotenuse AB)
+    arcA.setAttribute('d', arcPath(A.x, A.y, 22, -90, -45));
+    lbl45A.setAttribute('x', A.x + 26); lbl45A.setAttribute('y', A.y + 26);
+
+    // 45° arc at B (between leg CB, pointing left, and hypotenuse BA)
+    arcB.setAttribute('d', arcPath(B.x, B.y, 22, 180, 135));
+    lbl45B.setAttribute('x', B.x - 26); lbl45B.setAttribute('y', B.y - 18);
+
+    // side labels
+    lblLegA.setAttribute('x', C.x - 26); lblLegA.setAttribute('y', (C.y + A.y) / 2 + 5);
+    lblLegA.textContent = `leg = ${a}`;
+    lblLegB.setAttribute('x', (C.x + B.x) / 2); lblLegB.setAttribute('y', C.y + 24);
+    lblLegB.textContent = `leg = ${a}`;
+    lblHyp.setAttribute('x', (A.x + B.x) / 2 + 14); lblHyp.setAttribute('y', (A.y + B.y) / 2 - 10);
+    lblHyp.textContent = `hyp = ${a}√2`;
+
+    // handle
+    handleA.setAttribute('cx', A.x); handleA.setAttribute('cy', A.y);
+    hitA.setAttribute('cx', A.x); hitA.setAttribute('cy', A.y);
+
+    const exactHyp = a === 1 ? '√2' : `${a}√2`;
+    const decimal = (a * SQRT2).toFixed(2);
+    readout.innerHTML =
+      `leg = <b>${a}</b>, equal leg = <b>${a}</b> (always congruent — that's what makes it isosceles)<br>` +
+      `hypotenuse = leg &times; &radic;2 = <span class="good">${exactHyp}</span> &asymp; ${decimal}<br>` +
+      `Ratio check: ${a} : ${a} : ${exactHyp} always reduces to 1 : 1 : &radic;2, no matter the size.`;
+  }
+
+  // ---- drag handling (vertical only — mirrors onto both legs) ----
+  function toLocal(e){
+    const r = svg.getBoundingClientRect();
+    const cy = (e.touches ? e.touches[0].clientY : e.clientY) - r.top;
+    return { y: cy / r.height * H };
+  }
+  let dragging = false;
+  function down(e){ dragging = true; move(e); e.preventDefault(); }
+  function move(e){
+    if (!dragging) return;
+    const p = toLocal(e);
+    a = clamp(Math.round((C.y - p.y) / S), MIN_U, MAX_U);
+    draw();
+    e.preventDefault();
+  }
+  function up(){ dragging = false; }
+
+  hitA.addEventListener('pointerdown', down);
+  hitA.addEventListener('touchstart', down, { passive:false });
+  window.addEventListener('pointermove', move);
+  window.addEventListener('pointerup', up);
+  window.addEventListener('touchmove', move, { passive:false });
+  window.addEventListener('touchend', up);
+
+  document.getElementById('resetBtn').addEventListener('click', () => { a = 5; draw(); });
+  document.getElementById('unitBtn').addEventListener('click', () => { a = 1; draw(); });
+  document.getElementById('randomBtn').addEventListener('click', () => {
+    a = MIN_U + Math.floor(Math.random() * (MAX_U - MIN_U + 1));
+    draw();
+  });
+
+  draw();
+})();
+</script>
+</body>
+</html>
