@@ -20,16 +20,16 @@ Build the vocabulary and toolkit of geometry — points, lines, angles, triangle
 | L01 | Points, Lines, Rays & Segments | G-CO.A.1 |
 | L02 | Planes & Sets (Union & Intersection) | G-CO.A.1 |
 | L03 | Angles & Angle Measure | G-CO.A.1 |
-| L04 | Angle Pairs & Bisectors | G-CO.C.9 |
-| L05 | Parallel & Perpendicular Lines; Transversals | G-CO.C.9 |
-| L06 | Triangles & the Angle-Sum Theorem | G-CO.C.10 |
-| L07 | Polygons & Interior/Exterior Angles | G-CO.C.11 |
-| L08 | Congruent Triangles (SSS, SAS, ASA) | G-SRT.B.5 |
-| L09 | Quadrilaterals & Their Properties | G-CO.C.11 |
-| L10 | Perimeter | G-MG.A.1 |
+| L04 | Types of Angles | G-CO.A.1 |
+| L05 | Parallel & Perpendicular Lines; Bisectors | G-CO.D.12 |
+| L06 | Supplementary, Complementary & Vertical Angles | G-CO.C.9 |
+| L07 | Transversals & Parallel Lines | G-CO.C.9 |
+| L08 | Polygons, Quadrilaterals & Perimeter | G-MG.A.1 |
+| L09 | Area of Parallelograms, Triangles & Trapezoids | G-MG.A.1 |
+| L10 | Classifying Triangles | G-CO.C.10 |
 
 ## Vocabulary
-point · line · ray · segment · collinear · plane · set · union · intersection · coplanar · angle · vertex · degree · protractor · acute · obtuse · complementary · supplementary · vertical angles · bisector · parallel · perpendicular · transversal · corresponding angles · alternate interior · triangle · angle sum · scalene · isosceles · equilateral · polygon · interior angle · exterior angle · regular polygon · diagonal · congruent · SSS · SAS · ASA · corresponding parts · quadrilateral · parallelogram · rhombus · trapezoid · kite · perimeter · side length · composite figure
+point · line · ray · segment · collinear · plane · set · union · intersection · coplanar · angle · vertex · degree · protractor · acute · obtuse · right angle · straight angle · reflex angle · parallel · perpendicular · bisector · perpendicular bisector · midpoint · supplementary · complementary · vertical angles · adjacent angles · transversal · corresponding angles · alternate interior · alternate exterior · converse · polygon · quadrilateral · parallelogram · trapezoid · perimeter · area · base · height · scalene · isosceles · equilateral · acute triangle · obtuse triangle · triangle inequality
 
 ## Capstone build
 a compass/CAD-built polygon with verified perimeter & angle sums

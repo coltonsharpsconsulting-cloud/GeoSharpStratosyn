@@ -14,10 +14,10 @@ date: 2026-09-28
 endDate: 2026-10-04
 allDay: true
 title: "W09"
-topic: "Congruent Triangles (SSS, SAS, ASA)"
+topic: "Polygons, Quadrilaterals & Perimeter"
 ---
 <span class="nl-eyebrow">curriculum · week 9 · Q1</span>
-# Week 09 — Congruent Triangles (SSS, SAS, ASA)
+# Week 09 — Polygons, Quadrilaterals & Perimeter
 
 [[Curriculum/Geometry/Unit 01|Unit 01 — Foundations & Plane Figures]]  ·  **Week 09**  →  [[Curriculum/Geometry/Week 10|Week 10]]
 
@@ -33,4 +33,4 @@ Lesson Practice **L08** A/B · Systematic Review C/D · **Lesson Test 8**
 - [[MUS/L08 — Lesson Practice.pdf|Lesson Practice]] · [[MUS/L08 — Systematic Review.pdf|Systematic Review]] · [[MUS/L08 — Lesson Test.pdf|Lesson Test]]
 
 ## Planning notes
-Focus: Congruent Triangles (SSS, SAS, ASA).
+Focus: Polygons, Quadrilaterals & Perimeter.

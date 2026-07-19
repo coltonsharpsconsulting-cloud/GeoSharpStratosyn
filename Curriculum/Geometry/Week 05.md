@@ -14,10 +14,10 @@ date: 2026-08-31
 endDate: 2026-09-06
 allDay: true
 title: "W05"
-topic: "Angle Pairs & Bisectors"
+topic: "Types of Angles"
 ---
 <span class="nl-eyebrow">curriculum · week 5 · Q1</span>
-# Week 05 — Angle Pairs & Bisectors
+# Week 05 — Types of Angles
 
 [[Curriculum/Geometry/Unit 01|Unit 01 — Foundations & Plane Figures]]  ·  **Week 05**  →  [[Curriculum/Geometry/Week 06|Week 06]]
 
@@ -33,4 +33,4 @@ Lesson Practice **L04** A/B · Systematic Review C/D · **Lesson Test 4**
 - [[MUS/L04 — Lesson Practice.pdf|Lesson Practice]] · [[MUS/L04 — Systematic Review.pdf|Systematic Review]] · [[MUS/L04 — Lesson Test.pdf|Lesson Test]]
 
 ## Planning notes
-Focus: Angle Pairs & Bisectors.
+Focus: Types of Angles.

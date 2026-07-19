@@ -14,10 +14,10 @@ date: 2026-09-07
 endDate: 2026-09-13
 allDay: true
 title: "W06"
-topic: "Parallel & Perpendicular Lines; Transversals"
+topic: "Parallel & Perpendicular Lines; Bisectors"
 ---
 <span class="nl-eyebrow">curriculum · week 6 · Q1</span>
-# Week 06 — Parallel & Perpendicular Lines; Transversals
+# Week 06 — Parallel & Perpendicular Lines; Bisectors
 
 [[Curriculum/Geometry/Unit 01|Unit 01 — Foundations & Plane Figures]]  ·  **Week 06**  →  [[Curriculum/Geometry/Week 07|Week 07]]
 
@@ -33,4 +33,4 @@ Lesson Practice **L05** A/B · Systematic Review C/D · **Lesson Test 5**
 - [[MUS/L05 — Lesson Practice.pdf|Lesson Practice]] · [[MUS/L05 — Systematic Review.pdf|Systematic Review]] · [[MUS/L05 — Lesson Test.pdf|Lesson Test]]
 
 ## Planning notes
-Focus: Parallel & Perpendicular Lines; Transversals.
+Focus: Parallel & Perpendicular Lines; Bisectors.

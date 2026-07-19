@@ -14,10 +14,10 @@ date: 2026-10-05
 endDate: 2026-10-11
 allDay: true
 title: "W10"
-topic: "Quadrilaterals & Their Properties"
+topic: "Area of Parallelograms, Triangles & Trapezoids"
 ---
 <span class="nl-eyebrow">curriculum · week 10 · Q1</span>
-# Week 10 — Quadrilaterals & Their Properties
+# Week 10 — Area of Parallelograms, Triangles & Trapezoids
 
 [[Curriculum/Geometry/Unit 01|Unit 01 — Foundations & Plane Figures]]  ·  **Week 10**  →  [[Curriculum/Geometry/Week 11|Week 11]]
 
@@ -33,4 +33,4 @@ Lesson Practice **L09** A/B · Systematic Review C/D · **Lesson Test 9**
 - [[MUS/L09 — Lesson Practice.pdf|Lesson Practice]] · [[MUS/L09 — Systematic Review.pdf|Systematic Review]] · [[MUS/L09 — Lesson Test.pdf|Lesson Test]]
 
 ## Planning notes
-Focus: Quadrilaterals & Their Properties.
+Focus: Area of Parallelograms, Triangles & Trapezoids.

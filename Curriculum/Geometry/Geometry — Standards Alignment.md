@@ -16,13 +16,13 @@ Math-U-See Geometry mapped to Common Core (CCSS-M) high-school Geometry clusters
 | L01 | Points, Lines, Rays & Segments | G-CO.A.1 |
 | L02 | Planes & Sets (Union & Intersection) | G-CO.A.1 |
 | L03 | Angles & Angle Measure | G-CO.A.1 |
-| L04 | Angle Pairs & Bisectors | G-CO.C.9 |
-| L05 | Parallel & Perpendicular Lines; Transversals | G-CO.C.9 |
-| L06 | Triangles & the Angle-Sum Theorem | G-CO.C.10 |
-| L07 | Polygons & Interior/Exterior Angles | G-CO.C.11 |
-| L08 | Congruent Triangles (SSS, SAS, ASA) | G-SRT.B.5 |
-| L09 | Quadrilaterals & Their Properties | G-CO.C.11 |
-| L10 | Perimeter | G-MG.A.1 |
+| L04 | Types of Angles | G-CO.A.1 |
+| L05 | Parallel & Perpendicular Lines; Bisectors | G-CO.D.12 |
+| L06 | Supplementary, Complementary & Vertical Angles | G-CO.C.9 |
+| L07 | Transversals & Parallel Lines | G-CO.C.9 |
+| L08 | Polygons, Quadrilaterals & Perimeter | G-MG.A.1 |
+| L09 | Area of Parallelograms, Triangles & Trapezoids | G-MG.A.1 |
+| L10 | Classifying Triangles | G-CO.C.10 |
 
 ## Unit 02 — Area, the Pythagorean Theorem & Similarity
 

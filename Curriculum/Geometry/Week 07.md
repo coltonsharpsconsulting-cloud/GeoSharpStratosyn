@@ -14,10 +14,10 @@ date: 2026-09-14
 endDate: 2026-09-20
 allDay: true
 title: "W07"
-topic: "Triangles & the Angle-Sum Theorem"
+topic: "Supplementary, Complementary & Vertical Angles"
 ---
 <span class="nl-eyebrow">curriculum · week 7 · Q1</span>
-# Week 07 — Triangles & the Angle-Sum Theorem
+# Week 07 — Supplementary, Complementary & Vertical Angles
 
 [[Curriculum/Geometry/Unit 01|Unit 01 — Foundations & Plane Figures]]  ·  **Week 07**  →  [[Curriculum/Geometry/Week 08|Week 08]]
 
@@ -33,4 +33,4 @@ Lesson Practice **L06** A/B · Systematic Review C/D · **Lesson Test 6**
 - [[MUS/L06 — Lesson Practice.pdf|Lesson Practice]] · [[MUS/L06 — Systematic Review.pdf|Systematic Review]] · [[MUS/L06 — Lesson Test.pdf|Lesson Test]]
 
 ## Planning notes
-Focus: Triangles & the Angle-Sum Theorem.
+Focus: Supplementary, Complementary & Vertical Angles.

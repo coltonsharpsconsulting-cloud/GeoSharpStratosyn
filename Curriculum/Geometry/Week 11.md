@@ -14,10 +14,10 @@ date: 2026-10-12
 endDate: 2026-10-18
 allDay: true
 title: "W11"
-topic: "Perimeter"
+topic: "Classifying Triangles"
 ---
 <span class="nl-eyebrow">curriculum · week 11 · Q2</span>
-# Week 11 — Perimeter
+# Week 11 — Classifying Triangles
 
 [[Curriculum/Geometry/Unit 01|Unit 01 — Foundations & Plane Figures]]  ·  **Week 11**  →  [[Curriculum/Geometry/Week 12|Week 12]]
 
@@ -33,4 +33,4 @@ Lesson Practice **L10** A/B · Systematic Review C/D · **Lesson Test 10**
 - [[MUS/L10 — Lesson Practice.pdf|Lesson Practice]] · [[MUS/L10 — Systematic Review.pdf|Systematic Review]] · [[MUS/L10 — Lesson Test.pdf|Lesson Test]]
 
 ## Planning notes
-Focus: Perimeter.
+Focus: Classifying Triangles.
