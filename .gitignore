@@ -1,0 +1,18 @@
+# ── Copyrighted source — LOCAL ONLY, never published ──
+# Math-U-See Geometry Workbook + Test scans and any per-lesson slices.
+Scan Of Documents/
+MUS/
+
+# ── OS / editor cruft ──
+.DS_Store
+._*
+.AppleDouble
+.Spotlight-V100
+.Trashes
+Thumbs.db
+
+# ── Obsidian per-machine state (shared config + snippets stay tracked) ──
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+.trash/
