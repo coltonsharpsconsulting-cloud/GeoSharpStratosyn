@@ -24,35 +24,35 @@ Math-U-See Geometry mapped to Common Core (CCSS-M) high-school Geometry clusters
 | L09 | Area of Parallelograms, Triangles & Trapezoids | G-MG.A.1 |
 | L10 | Classifying Triangles | G-CO.C.10 |
 
-## Unit 02 — Area, the Pythagorean Theorem & Similarity
+## Unit 02 — Circles, Solids & the Pythagorean Theorem
 
 | Lesson | Title | CCSS-M |
 |---|---|---|
-| L11 | Area of Rectangles & Parallelograms | G-MG.A.1 |
-| L12 | Area of Triangles & Trapezoids | G-MG.A.1 |
-| L13 | Circles: Circumference & Area (π) | G-GMD.A.1 |
-| L14 | The Pythagorean Theorem | G-SRT.C.8 |
-| L15 | The Distance Formula & Coordinate Basics | G-GPE.B.7 |
-| L16 | Simplifying Radicals | N-RN.A.2 |
-| L17 | Special Right Triangles (45-45-90, 30-60-90) | G-SRT.C.8 |
-| L18 | Ratio, Proportion & Similar Polygons | G-SRT.A.2 |
-| L19 | Similar Triangles & Proportional Parts | G-SRT.B.5 |
+| L11 | Polygons: Angles, Diagonals & Regular Polygons | G-CO.C.11 |
+| L12 | Circles: Parts & Vocabulary | G-C.A.2 |
+| L13 | Circumference & Area of Circles | G-GMD.A.1 |
+| L14 | Volume of Rectangular Solids & Cylinders | G-GMD.A.3 |
+| L15 | Volume of Pyramids, Cones, Prisms & Spheres | G-GMD.A.3 |
+| L16 | Surface Area of Solids | G-GMD.A.3 |
+| L17 | Simplifying Radicals | N-RN.A.2 |
+| L18 | The Pythagorean Theorem | G-SRT.C.8 |
+| L19 | Rationalizing Denominators | N-RN.A.2 |
 
-## Unit 03 — Trigonometry, Solids & Coordinate Geometry
+## Unit 03 — Right Triangles, Proof & Trigonometry
 
 | Lesson | Title | CCSS-M |
 |---|---|---|
-| L20 | Right-Triangle Trigonometry (sin, cos, tan) | G-SRT.C.6 |
-| L21 | Solving Right Triangles & Inverse Trig | G-SRT.C.8 |
-| L22 | Angles of Elevation & Depression | G-SRT.C.8 |
-| L23 | Surface Area of Prisms, Cylinders, Pyramids & Cones | G-GMD.A.3 |
-| L24 | Volume of Prisms & Cylinders | G-GMD.A.3 |
-| L25 | Volume of Pyramids & Cones | G-GMD.A.3 |
-| L26 | Spheres: Surface Area & Volume | G-GMD.A.3 |
-| L27 | Two-Column Proof & Geometric Reasoning | G-CO.C.9 |
-| L28 | Circles: Chords, Tangents, Arcs & Inscribed Angles | G-C.A.2 |
-| L29 | Coordinate Geometry: Midpoint, Distance & Slope | G-GPE.B.4 |
-| L30 | Transformations & Symmetry | G-CO.A.2 |
+| L20 | Special Right Triangles: 45-45-90 | G-SRT.C.8 |
+| L21 | Special Right Triangles: 30-60-90 | G-SRT.C.8 |
+| L22 | Postulates, Theorems & Angle Relationships | G-CO.C.9 |
+| L23 | Congruent Triangles & Corresponding Parts | G-CO.B.7 |
+| L24 | Two-Column Proofs: SSS & SAS | G-CO.B.8 |
+| L25 | Two-Column Proofs: ASA & AAS | G-CO.B.8 |
+| L26 | Right-Triangle Congruence: HL, LL, HA, LA | G-SRT.B.5 |
+| L27 | Similar Triangles & AA Similarity | G-SRT.A.3 |
+| L28 | Transformations: Translations, Reflections & Rotations | G-CO.A.2 |
+| L29 | Right-Triangle Trigonometry: Sine, Cosine & Tangent | G-SRT.C.6 |
+| L30 | The Six Trigonometric Ratios | G-SRT.C.6 |
 
 ## Domains covered
-G-C · G-CO · G-GMD · G-GPE · G-MG · G-SRT · N-RN
+G-C · G-CO · G-GMD · G-MG · G-SRT · N-RN

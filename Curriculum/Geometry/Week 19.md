@@ -14,12 +14,12 @@ date: 2026-12-07
 endDate: 2026-12-13
 allDay: true
 title: "W19"
-topic: "Special Right Triangles (45-45-90, 30-60-90)"
+topic: "Simplifying Radicals"
 ---
 <span class="nl-eyebrow">curriculum · week 19 · Q2</span>
-# Week 19 — Special Right Triangles (45-45-90, 30-60-90)
+# Week 19 — Simplifying Radicals
 
-[[Curriculum/Geometry/Unit 02|Unit 02 — Area, the Pythagorean Theorem & Similarity]]  ·  **Week 19**  →  [[Curriculum/Geometry/Week 20|Week 20]]
+[[Curriculum/Geometry/Unit 02|Unit 02 — Circles, Solids & the Pythagorean Theorem]]  ·  **Week 19**  →  [[Curriculum/Geometry/Week 20|Week 20]]
 
 ## Sessions
 | # | Session | Focus |
@@ -33,4 +33,4 @@ Lesson Practice **L17** A/B · Systematic Review C/D · **Lesson Test 17**
 - [[MUS/L17 — Lesson Practice.pdf|Lesson Practice]] · [[MUS/L17 — Systematic Review.pdf|Systematic Review]] · [[MUS/L17 — Lesson Test.pdf|Lesson Test]]
 
 ## Planning notes
-Focus: Special Right Triangles (45-45-90, 30-60-90).
+Focus: Simplifying Radicals.

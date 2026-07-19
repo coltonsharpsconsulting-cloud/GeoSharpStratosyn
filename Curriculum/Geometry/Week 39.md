@@ -19,7 +19,7 @@ topic: "Capstone Build"
 <span class="nl-eyebrow">curriculum · week 39 · Q4</span>
 # Week 39 — Capstone Build
 
-[[Curriculum/Geometry/Unit 03|Unit 03 — Trigonometry, Solids & Coordinate Geometry]]  ·  **Week 39**  →  [[Curriculum/Geometry/Week 40|Week 40]]
+[[Curriculum/Geometry/Unit 03|Unit 03 — Right Triangles, Proof & Trigonometry]]  ·  **Week 39**  →  [[Curriculum/Geometry/Week 40|Week 40]]
 
 ## Sessions
 | # | Session | Focus |

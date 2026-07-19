@@ -14,12 +14,12 @@ date: 2027-03-15
 endDate: 2027-03-21
 allDay: true
 title: "W33"
-topic: "Coordinate Geometry: Midpoint, Distance & Slope"
+topic: "Right-Triangle Trigonometry: Sine, Cosine & Tangent"
 ---
 <span class="nl-eyebrow">curriculum · week 33 · Q4</span>
-# Week 33 — Coordinate Geometry: Midpoint, Distance & Slope
+# Week 33 — Right-Triangle Trigonometry: Sine, Cosine & Tangent
 
-[[Curriculum/Geometry/Unit 03|Unit 03 — Trigonometry, Solids & Coordinate Geometry]]  ·  **Week 33**  →  [[Curriculum/Geometry/Week 34|Week 34]]
+[[Curriculum/Geometry/Unit 03|Unit 03 — Right Triangles, Proof & Trigonometry]]  ·  **Week 33**  →  [[Curriculum/Geometry/Week 34|Week 34]]
 
 ## Sessions
 | # | Session | Focus |
@@ -33,4 +33,4 @@ Lesson Practice **L29** A/B · Systematic Review C/D · **Lesson Test 29**
 - [[MUS/L29 — Lesson Practice.pdf|Lesson Practice]] · [[MUS/L29 — Systematic Review.pdf|Systematic Review]] · [[MUS/L29 — Lesson Test.pdf|Lesson Test]]
 
 ## Planning notes
-Focus: Coordinate Geometry: Midpoint, Distance & Slope.
+Focus: Right-Triangle Trigonometry: Sine, Cosine & Tangent.

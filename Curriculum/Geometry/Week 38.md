@@ -19,7 +19,7 @@ topic: "Year-End Final (review + MUS Final Exam)"
 <span class="nl-eyebrow">curriculum · week 38 · Q4</span>
 # Week 38 — Year-End Final (review + MUS Final Exam)
 
-[[Curriculum/Geometry/Unit 03|Unit 03 — Trigonometry, Solids & Coordinate Geometry]]  ·  **Week 38**  →  [[Curriculum/Geometry/Week 39|Week 39]]
+[[Curriculum/Geometry/Unit 03|Unit 03 — Right Triangles, Proof & Trigonometry]]  ·  **Week 38**  →  [[Curriculum/Geometry/Week 39|Week 39]]
 
 ## Sessions
 | # | Session | Focus |

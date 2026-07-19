@@ -19,7 +19,7 @@ topic: "Unit 02 Studio, Review & MUS Unit Test II"
 <span class="nl-eyebrow">curriculum · week 22 · Q3</span>
 # Week 22 — Unit 02 Studio, Review & MUS Unit Test II
 
-[[Curriculum/Geometry/Unit 02|Unit 02 — Area, the Pythagorean Theorem & Similarity]]  ·  **Week 22**  →  [[Curriculum/Geometry/Week 23|Week 23]]
+[[Curriculum/Geometry/Unit 02|Unit 02 — Circles, Solids & the Pythagorean Theorem]]  ·  **Week 22**  →  [[Curriculum/Geometry/Week 23|Week 23]]
 
 ## Sessions
 | # | Session | Focus |

@@ -14,12 +14,12 @@ date: 2027-02-15
 endDate: 2027-02-21
 allDay: true
 title: "W29"
-topic: "Volume of Pyramids & Cones"
+topic: "Two-Column Proofs: ASA & AAS"
 ---
 <span class="nl-eyebrow">curriculum · week 29 · Q3</span>
-# Week 29 — Volume of Pyramids & Cones
+# Week 29 — Two-Column Proofs: ASA & AAS
 
-[[Curriculum/Geometry/Unit 03|Unit 03 — Trigonometry, Solids & Coordinate Geometry]]  ·  **Week 29**  →  [[Curriculum/Geometry/Week 30|Week 30]]
+[[Curriculum/Geometry/Unit 03|Unit 03 — Right Triangles, Proof & Trigonometry]]  ·  **Week 29**  →  [[Curriculum/Geometry/Week 30|Week 30]]
 
 ## Sessions
 | # | Session | Focus |
@@ -33,4 +33,4 @@ Lesson Practice **L25** A/B · Systematic Review C/D · **Lesson Test 25**
 - [[MUS/L25 — Lesson Practice.pdf|Lesson Practice]] · [[MUS/L25 — Systematic Review.pdf|Systematic Review]] · [[MUS/L25 — Lesson Test.pdf|Lesson Test]]
 
 ## Planning notes
-Focus: Volume of Pyramids & Cones.
+Focus: Two-Column Proofs: ASA & AAS.

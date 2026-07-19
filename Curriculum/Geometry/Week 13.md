@@ -14,12 +14,12 @@ date: 2026-10-26
 endDate: 2026-11-01
 allDay: true
 title: "W13"
-topic: "Area of Rectangles & Parallelograms"
+topic: "Polygons: Angles, Diagonals & Regular Polygons"
 ---
 <span class="nl-eyebrow">curriculum · week 13 · Q2</span>
-# Week 13 — Area of Rectangles & Parallelograms
+# Week 13 — Polygons: Angles, Diagonals & Regular Polygons
 
-[[Curriculum/Geometry/Unit 02|Unit 02 — Area, the Pythagorean Theorem & Similarity]]  ·  **Week 13**  →  [[Curriculum/Geometry/Week 14|Week 14]]
+[[Curriculum/Geometry/Unit 02|Unit 02 — Circles, Solids & the Pythagorean Theorem]]  ·  **Week 13**  →  [[Curriculum/Geometry/Week 14|Week 14]]
 
 ## Sessions
 | # | Session | Focus |
@@ -33,4 +33,4 @@ Lesson Practice **L11** A/B · Systematic Review C/D · **Lesson Test 11**
 - [[MUS/L11 — Lesson Practice.pdf|Lesson Practice]] · [[MUS/L11 — Systematic Review.pdf|Systematic Review]] · [[MUS/L11 — Lesson Test.pdf|Lesson Test]]
 
 ## Planning notes
-Focus: Area of Rectangles & Parallelograms.
+Focus: Polygons: Angles, Diagonals & Regular Polygons.

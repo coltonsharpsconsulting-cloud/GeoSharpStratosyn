@@ -8,30 +8,30 @@ tags:
 kind: unit
 ---
 <span class="nl-eyebrow">curriculum · unit · u02</span>
-# Unit 02 — Area, the Pythagorean Theorem & Similarity
+# Unit 02 — Circles, Solids & the Pythagorean Theorem
 
 [[Curriculum/Geometry/Geometry|Geometry]]  ·  weeks 13–23
 
-Move from measuring boundaries to measuring space, then use the Pythagorean theorem, radicals, and similarity to relate figures to one another.
+Measure round and three-dimensional figures — polygons, circles, volume, and surface area — then pick up the radicals and the Pythagorean theorem that power right-triangle work.
 
 ## Lessons
 | Lesson | Title | CCSS-M |
 |---|---|---|
-| L11 | Area of Rectangles & Parallelograms | G-MG.A.1 |
-| L12 | Area of Triangles & Trapezoids | G-MG.A.1 |
-| L13 | Circles: Circumference & Area (π) | G-GMD.A.1 |
-| L14 | The Pythagorean Theorem | G-SRT.C.8 |
-| L15 | The Distance Formula & Coordinate Basics | G-GPE.B.7 |
-| L16 | Simplifying Radicals | N-RN.A.2 |
-| L17 | Special Right Triangles (45-45-90, 30-60-90) | G-SRT.C.8 |
-| L18 | Ratio, Proportion & Similar Polygons | G-SRT.A.2 |
-| L19 | Similar Triangles & Proportional Parts | G-SRT.B.5 |
+| L11 | Polygons: Angles, Diagonals & Regular Polygons | G-CO.C.11 |
+| L12 | Circles: Parts & Vocabulary | G-C.A.2 |
+| L13 | Circumference & Area of Circles | G-GMD.A.1 |
+| L14 | Volume of Rectangular Solids & Cylinders | G-GMD.A.3 |
+| L15 | Volume of Pyramids, Cones, Prisms & Spheres | G-GMD.A.3 |
+| L16 | Surface Area of Solids | G-GMD.A.3 |
+| L17 | Simplifying Radicals | N-RN.A.2 |
+| L18 | The Pythagorean Theorem | G-SRT.C.8 |
+| L19 | Rationalizing Denominators | N-RN.A.2 |
 
 ## Vocabulary
-area · base · height · rectangle · parallelogram · triangle · trapezoid · median height · circle · radius · diameter · circumference · pi · hypotenuse · leg · right triangle · Pythagorean theorem · coordinate plane · ordered pair · distance formula · origin · radical · square root · perfect square · simplest radical form · 45-45-90 triangle · 30-60-90 triangle · leg ratio · hypotenuse ratio · ratio · proportion · similar polygons · scale factor · similar triangles · AA similarity · proportional sides · cross product
+polygon · diagonal · interior angle · exterior angle · regular polygon · circle · radius · diameter · chord · arc · sector · circumference · area · pi · ellipse · volume · rectangular solid · cylinder · base · cubic units · pyramid · cone · sphere · slant height · surface area · lateral area · net · prism · radical · square root · perfect square · like radicals · simplest form · right triangle · leg · hypotenuse · Pythagorean theorem · converse · denominator · rationalize · conjugate
 
 ## Capstone build
-a scale model that proves an area and a Pythagorean/similarity relationship by measurement
+a built or 3D-printed solid with computed volume and surface area, verified by measurement
 
 ## Weeks
 - [[Curriculum/Geometry/Week 13|Week 13]]

@@ -19,7 +19,7 @@ topic: "Portfolio Show & Transcript Close"
 <span class="nl-eyebrow">curriculum · week 40 · Q4</span>
 # Week 40 — Portfolio Show & Transcript Close
 
-[[Curriculum/Geometry/Unit 03|Unit 03 — Trigonometry, Solids & Coordinate Geometry]]  ·  **Week 40**
+[[Curriculum/Geometry/Unit 03|Unit 03 — Right Triangles, Proof & Trigonometry]]  ·  **Week 40**
 
 ## Sessions
 | # | Session | Focus |

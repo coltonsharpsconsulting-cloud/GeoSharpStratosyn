@@ -14,12 +14,12 @@ date: 2027-02-08
 endDate: 2027-02-14
 allDay: true
 title: "W28"
-topic: "Volume of Prisms & Cylinders"
+topic: "Two-Column Proofs: SSS & SAS"
 ---
 <span class="nl-eyebrow">curriculum · week 28 · Q3</span>
-# Week 28 — Volume of Prisms & Cylinders
+# Week 28 — Two-Column Proofs: SSS & SAS
 
-[[Curriculum/Geometry/Unit 03|Unit 03 — Trigonometry, Solids & Coordinate Geometry]]  ·  **Week 28**  →  [[Curriculum/Geometry/Week 29|Week 29]]
+[[Curriculum/Geometry/Unit 03|Unit 03 — Right Triangles, Proof & Trigonometry]]  ·  **Week 28**  →  [[Curriculum/Geometry/Week 29|Week 29]]
 
 ## Sessions
 | # | Session | Focus |
@@ -33,4 +33,4 @@ Lesson Practice **L24** A/B · Systematic Review C/D · **Lesson Test 24**
 - [[MUS/L24 — Lesson Practice.pdf|Lesson Practice]] · [[MUS/L24 — Systematic Review.pdf|Systematic Review]] · [[MUS/L24 — Lesson Test.pdf|Lesson Test]]
 
 ## Planning notes
-Focus: Volume of Prisms & Cylinders.
+Focus: Two-Column Proofs: SSS & SAS.

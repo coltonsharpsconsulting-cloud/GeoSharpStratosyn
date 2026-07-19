@@ -14,12 +14,12 @@ date: 2027-03-22
 endDate: 2027-03-28
 allDay: true
 title: "W34"
-topic: "Transformations & Symmetry"
+topic: "The Six Trigonometric Ratios"
 ---
 <span class="nl-eyebrow">curriculum · week 34 · Q4</span>
-# Week 34 — Transformations & Symmetry
+# Week 34 — The Six Trigonometric Ratios
 
-[[Curriculum/Geometry/Unit 03|Unit 03 — Trigonometry, Solids & Coordinate Geometry]]  ·  **Week 34**  →  [[Curriculum/Geometry/Week 35|Week 35]]
+[[Curriculum/Geometry/Unit 03|Unit 03 — Right Triangles, Proof & Trigonometry]]  ·  **Week 34**  →  [[Curriculum/Geometry/Week 35|Week 35]]
 
 ## Sessions
 | # | Session | Focus |
@@ -33,4 +33,4 @@ Lesson Practice **L30** A/B · Systematic Review C/D · **Lesson Test 30**
 - [[MUS/L30 — Lesson Practice.pdf|Lesson Practice]] · [[MUS/L30 — Systematic Review.pdf|Systematic Review]] · [[MUS/L30 — Lesson Test.pdf|Lesson Test]]
 
 ## Planning notes
-Focus: Transformations & Symmetry.
+Focus: The Six Trigonometric Ratios.

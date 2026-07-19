@@ -14,12 +14,12 @@ date: 2027-03-08
 endDate: 2027-03-14
 allDay: true
 title: "W32"
-topic: "Circles: Chords, Tangents, Arcs & Inscribed Angles"
+topic: "Transformations: Translations, Reflections & Rotations"
 ---
 <span class="nl-eyebrow">curriculum · week 32 · Q4</span>
-# Week 32 — Circles: Chords, Tangents, Arcs & Inscribed Angles
+# Week 32 — Transformations: Translations, Reflections & Rotations
 
-[[Curriculum/Geometry/Unit 03|Unit 03 — Trigonometry, Solids & Coordinate Geometry]]  ·  **Week 32**  →  [[Curriculum/Geometry/Week 33|Week 33]]
+[[Curriculum/Geometry/Unit 03|Unit 03 — Right Triangles, Proof & Trigonometry]]  ·  **Week 32**  →  [[Curriculum/Geometry/Week 33|Week 33]]
 
 ## Sessions
 | # | Session | Focus |
@@ -33,4 +33,4 @@ Lesson Practice **L28** A/B · Systematic Review C/D · **Lesson Test 28**
 - [[MUS/L28 — Lesson Practice.pdf|Lesson Practice]] · [[MUS/L28 — Systematic Review.pdf|Systematic Review]] · [[MUS/L28 — Lesson Test.pdf|Lesson Test]]
 
 ## Planning notes
-Focus: Circles: Chords, Tangents, Arcs & Inscribed Angles.
+Focus: Transformations: Translations, Reflections & Rotations.

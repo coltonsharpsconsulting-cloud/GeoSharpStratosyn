@@ -19,7 +19,7 @@ topic: "Catch-Up & Reteach"
 <span class="nl-eyebrow">curriculum · week 23 · Q3</span>
 # Week 23 — Catch-Up & Reteach
 
-[[Curriculum/Geometry/Unit 02|Unit 02 — Area, the Pythagorean Theorem & Similarity]]  ·  **Week 23**  →  [[Curriculum/Geometry/Week 24|Week 24]]
+[[Curriculum/Geometry/Unit 02|Unit 02 — Circles, Solids & the Pythagorean Theorem]]  ·  **Week 23**  →  [[Curriculum/Geometry/Week 24|Week 24]]
 
 ## Sessions
 | # | Session | Focus |

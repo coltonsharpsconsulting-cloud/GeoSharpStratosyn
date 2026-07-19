@@ -19,7 +19,7 @@ topic: "Catch-Up & Reteach"
 <span class="nl-eyebrow">curriculum · week 36 · Q4</span>
 # Week 36 — Catch-Up & Reteach
 
-[[Curriculum/Geometry/Unit 03|Unit 03 — Trigonometry, Solids & Coordinate Geometry]]  ·  **Week 36**  →  [[Curriculum/Geometry/Week 37|Week 37]]
+[[Curriculum/Geometry/Unit 03|Unit 03 — Right Triangles, Proof & Trigonometry]]  ·  **Week 36**  →  [[Curriculum/Geometry/Week 37|Week 37]]
 
 ## Sessions
 | # | Session | Focus |

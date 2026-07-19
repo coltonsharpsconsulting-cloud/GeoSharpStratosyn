@@ -14,12 +14,12 @@ date: 2026-12-21
 endDate: 2026-12-27
 allDay: true
 title: "W21"
-topic: "Similar Triangles & Proportional Parts"
+topic: "Rationalizing Denominators"
 ---
 <span class="nl-eyebrow">curriculum · week 21 · Q3</span>
-# Week 21 — Similar Triangles & Proportional Parts
+# Week 21 — Rationalizing Denominators
 
-[[Curriculum/Geometry/Unit 02|Unit 02 — Area, the Pythagorean Theorem & Similarity]]  ·  **Week 21**  →  [[Curriculum/Geometry/Week 22|Week 22]]
+[[Curriculum/Geometry/Unit 02|Unit 02 — Circles, Solids & the Pythagorean Theorem]]  ·  **Week 21**  →  [[Curriculum/Geometry/Week 22|Week 22]]
 
 ## Sessions
 | # | Session | Focus |
@@ -33,4 +33,4 @@ Lesson Practice **L19** A/B · Systematic Review C/D · **Lesson Test 19**
 - [[MUS/L19 — Lesson Practice.pdf|Lesson Practice]] · [[MUS/L19 — Systematic Review.pdf|Systematic Review]] · [[MUS/L19 — Lesson Test.pdf|Lesson Test]]
 
 ## Planning notes
-Focus: Similar Triangles & Proportional Parts.
+Focus: Rationalizing Denominators.

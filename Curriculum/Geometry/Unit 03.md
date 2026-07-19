@@ -8,32 +8,32 @@ tags:
 kind: unit
 ---
 <span class="nl-eyebrow">curriculum · unit · u03</span>
-# Unit 03 — Trigonometry, Solids & Coordinate Geometry
+# Unit 03 — Right Triangles, Proof & Trigonometry
 
 [[Curriculum/Geometry/Geometry|Geometry]]  ·  weeks 24–40
 
-Extend right-triangle trigonometry into three dimensions and the coordinate plane, closing the year with solids, circles, and transformations.
+Master the special right triangles, prove triangles congruent and similar with two-column proofs, and close the year with transformations and right-triangle trigonometry.
 
 ## Lessons
 | Lesson | Title | CCSS-M |
 |---|---|---|
-| L20 | Right-Triangle Trigonometry (sin, cos, tan) | G-SRT.C.6 |
-| L21 | Solving Right Triangles & Inverse Trig | G-SRT.C.8 |
-| L22 | Angles of Elevation & Depression | G-SRT.C.8 |
-| L23 | Surface Area of Prisms, Cylinders, Pyramids & Cones | G-GMD.A.3 |
-| L24 | Volume of Prisms & Cylinders | G-GMD.A.3 |
-| L25 | Volume of Pyramids & Cones | G-GMD.A.3 |
-| L26 | Spheres: Surface Area & Volume | G-GMD.A.3 |
-| L27 | Two-Column Proof & Geometric Reasoning | G-CO.C.9 |
-| L28 | Circles: Chords, Tangents, Arcs & Inscribed Angles | G-C.A.2 |
-| L29 | Coordinate Geometry: Midpoint, Distance & Slope | G-GPE.B.4 |
-| L30 | Transformations & Symmetry | G-CO.A.2 |
+| L20 | Special Right Triangles: 45-45-90 | G-SRT.C.8 |
+| L21 | Special Right Triangles: 30-60-90 | G-SRT.C.8 |
+| L22 | Postulates, Theorems & Angle Relationships | G-CO.C.9 |
+| L23 | Congruent Triangles & Corresponding Parts | G-CO.B.7 |
+| L24 | Two-Column Proofs: SSS & SAS | G-CO.B.8 |
+| L25 | Two-Column Proofs: ASA & AAS | G-CO.B.8 |
+| L26 | Right-Triangle Congruence: HL, LL, HA, LA | G-SRT.B.5 |
+| L27 | Similar Triangles & AA Similarity | G-SRT.A.3 |
+| L28 | Transformations: Translations, Reflections & Rotations | G-CO.A.2 |
+| L29 | Right-Triangle Trigonometry: Sine, Cosine & Tangent | G-SRT.C.6 |
+| L30 | The Six Trigonometric Ratios | G-SRT.C.6 |
 
 ## Vocabulary
-sine · cosine · tangent · opposite · adjacent · hypotenuse · inverse sine · inverse cosine · inverse tangent · solve a triangle · angle of elevation · angle of depression · line of sight · surface area · prism · cylinder · pyramid · cone · net · volume · cross-section · slant height · sphere · great circle · two-column proof · statement · reason · postulate · theorem · chord · arc · inscribed angle · central angle · midpoint · distance formula · slope · coordinate proof · translation · reflection · rotation · symmetry
+45-45-90 · isosceles right triangle · leg · hypotenuse · ratio · 30-60-90 · short leg · long leg · postulate · theorem · corollary · vertical angles · converse · congruent · corresponding parts · CPCTC · correspondence · two-column proof · SSS · SAS · statement · reason · ASA · AAS · reflexive property · included side · given · HL · LL · HA · LA · hypotenuse-leg · similar · AA similarity · proportional · scale factor · translation · reflection · rotation · x-axis · y-axis · sine · cosine · tangent · opposite · adjacent · cosecant · secant · cotangent
 
 ## Capstone build
-a 3D-printed solid sized with trig, plus a coordinate/transformation design
+a real-world trig measurement (a height or distance found by angle) plus a transformation design, written up with a proof
 
 ## Weeks
 - [[Curriculum/Geometry/Week 24|Week 24]]

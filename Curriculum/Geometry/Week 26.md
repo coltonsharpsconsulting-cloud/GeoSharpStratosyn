@@ -14,12 +14,12 @@ date: 2027-01-25
 endDate: 2027-01-31
 allDay: true
 title: "W26"
-topic: "Angles of Elevation & Depression"
+topic: "Postulates, Theorems & Angle Relationships"
 ---
 <span class="nl-eyebrow">curriculum · week 26 · Q3</span>
-# Week 26 — Angles of Elevation & Depression
+# Week 26 — Postulates, Theorems & Angle Relationships
 
-[[Curriculum/Geometry/Unit 03|Unit 03 — Trigonometry, Solids & Coordinate Geometry]]  ·  **Week 26**  →  [[Curriculum/Geometry/Week 27|Week 27]]
+[[Curriculum/Geometry/Unit 03|Unit 03 — Right Triangles, Proof & Trigonometry]]  ·  **Week 26**  →  [[Curriculum/Geometry/Week 27|Week 27]]
 
 ## Sessions
 | # | Session | Focus |
@@ -33,4 +33,4 @@ Lesson Practice **L22** A/B · Systematic Review C/D · **Lesson Test 22**
 - [[MUS/L22 — Lesson Practice.pdf|Lesson Practice]] · [[MUS/L22 — Systematic Review.pdf|Systematic Review]] · [[MUS/L22 — Lesson Test.pdf|Lesson Test]]
 
 ## Planning notes
-Focus: Angles of Elevation & Depression.
+Focus: Postulates, Theorems & Angle Relationships.

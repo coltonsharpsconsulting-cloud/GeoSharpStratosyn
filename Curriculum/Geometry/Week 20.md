@@ -14,12 +14,12 @@ date: 2026-12-14
 endDate: 2026-12-20
 allDay: true
 title: "W20"
-topic: "Ratio, Proportion & Similar Polygons"
+topic: "The Pythagorean Theorem"
 ---
 <span class="nl-eyebrow">curriculum · week 20 · Q2</span>
-# Week 20 — Ratio, Proportion & Similar Polygons
+# Week 20 — The Pythagorean Theorem
 
-[[Curriculum/Geometry/Unit 02|Unit 02 — Area, the Pythagorean Theorem & Similarity]]  ·  **Week 20**  →  [[Curriculum/Geometry/Week 21|Week 21]]
+[[Curriculum/Geometry/Unit 02|Unit 02 — Circles, Solids & the Pythagorean Theorem]]  ·  **Week 20**  →  [[Curriculum/Geometry/Week 21|Week 21]]
 
 ## Sessions
 | # | Session | Focus |
@@ -33,4 +33,4 @@ Lesson Practice **L18** A/B · Systematic Review C/D · **Lesson Test 18**
 - [[MUS/L18 — Lesson Practice.pdf|Lesson Practice]] · [[MUS/L18 — Systematic Review.pdf|Systematic Review]] · [[MUS/L18 — Lesson Test.pdf|Lesson Test]]
 
 ## Planning notes
-Focus: Ratio, Proportion & Similar Polygons.
+Focus: The Pythagorean Theorem.

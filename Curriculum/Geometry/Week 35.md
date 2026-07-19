@@ -19,7 +19,7 @@ topic: "Unit 03 Studio, Review & MUS Unit Test III"
 <span class="nl-eyebrow">curriculum · week 35 · Q4</span>
 # Week 35 — Unit 03 Studio, Review & MUS Unit Test III
 
-[[Curriculum/Geometry/Unit 03|Unit 03 — Trigonometry, Solids & Coordinate Geometry]]  ·  **Week 35**  →  [[Curriculum/Geometry/Week 36|Week 36]]
+[[Curriculum/Geometry/Unit 03|Unit 03 — Right Triangles, Proof & Trigonometry]]  ·  **Week 35**  →  [[Curriculum/Geometry/Week 36|Week 36]]
 
 ## Sessions
 | # | Session | Focus |

@@ -14,12 +14,12 @@ date: 2026-11-30
 endDate: 2026-12-06
 allDay: true
 title: "W18"
-topic: "Simplifying Radicals"
+topic: "Surface Area of Solids"
 ---
 <span class="nl-eyebrow">curriculum · week 18 · Q2</span>
-# Week 18 — Simplifying Radicals
+# Week 18 — Surface Area of Solids
 
-[[Curriculum/Geometry/Unit 02|Unit 02 — Area, the Pythagorean Theorem & Similarity]]  ·  **Week 18**  →  [[Curriculum/Geometry/Week 19|Week 19]]
+[[Curriculum/Geometry/Unit 02|Unit 02 — Circles, Solids & the Pythagorean Theorem]]  ·  **Week 18**  →  [[Curriculum/Geometry/Week 19|Week 19]]
 
 ## Sessions
 | # | Session | Focus |
@@ -33,4 +33,4 @@ Lesson Practice **L16** A/B · Systematic Review C/D · **Lesson Test 16**
 - [[MUS/L16 — Lesson Practice.pdf|Lesson Practice]] · [[MUS/L16 — Systematic Review.pdf|Systematic Review]] · [[MUS/L16 — Lesson Test.pdf|Lesson Test]]
 
 ## Planning notes
-Focus: Simplifying Radicals.
+Focus: Surface Area of Solids.
