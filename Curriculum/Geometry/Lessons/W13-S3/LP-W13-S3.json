@@ -1,0 +1,44 @@
+{
+  "id": "LP-W13-S3", "course": "geometry", "week": 13, "session": 3,
+  "session_type": "prove", "lesson": "L11 — Polygons: Angles, Diagonals & Regular Polygons",
+  "unit": "u02", "duration_min": 60, "mode": "Prove",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 13 · Prove It — Polygon Angle Sums",
+  "essential_question": "Why does the interior angle sum of ANY polygon come out to exactly (n-2)×180° — and why do a regular polygon's exterior angles always total 360°, no matter how many sides it has?",
+  "objective": "Justify why an n-sided polygon's interior angles sum to (n-2)×180° using triangulation from one vertex, justify why a regular polygon's exterior angles always sum to 360° regardless of n, review the week's Math-U-See practice, and pass the mastery checkpoint on polygon names, diagonals, and angle sums.",
+  "standards": ["G-CO.C.11"],
+  "vocab": ["polygon", "diagonal", "interior angle", "exterior angle", "regular polygon", "n-gon"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Redraw From Memory","board":"warmup","content":{"prompt":"Without looking anything up, sketch a hexagon and draw every diagonal from ONE vertex. How many triangles did you make, and how many degrees is that in total? Say out loud why you didn't need a protractor to know the answer."}},
+    {"phase":"review","min":12,"title":"Review — Your Math-U-See Work","board":"review","content":{"heading":"Go over Lesson Practice 11A & 11B together","note":"Bring your completed MUS Lesson Practice 11A/11B. We check the tricky ones: matching polygon names to side counts (octagon vs. decagon vs. dodecagon), computing diagonals-from-one-vertex and triangle count for a regular octagon, using a given exterior angle to work BACKWARD to a polygon's name, and reconciling an interior angle two ways — from the (n-2)×180° formula AND by checking 180° minus the exterior angle. Fix any you missed and note WHY."}},
+    {"phase":"prove","min":16,"title":"Prove It — Reason Out Loud","board":"prove","content":{"heading":"Defend three claims","figure":"grid-blank","bullets":["Claim 1: any convex polygon's interior angles sum to (n-2)×180°. Argue it from triangulation — why does drawing every diagonal from ONE vertex always create exactly n-2 triangles, and why does that pin down the total?","Claim 2: a regular polygon's exterior angles always add up to 360°, no matter how many sides it has. Argue it — imagine walking all the way around the polygon's edge, turning by the exterior angle at each corner. How many full turns have you made by the time you're back where you started?","Claim 3: a regular polygon's each interior angle gets closer and closer to 180° as n grows larger. Argue it from the formula (n-2)×180°÷n — what happens to that fraction as n gets very large?"]}},
+    {"phase":"checkpoint","min":18,"title":"Mastery Checkpoint","board":"checkpoint","content":{"heading":"Show what you own","items":["c1","c2","c3","c4","c5","c6"]}},
+    {"phase":"close","min":8,"title":"Close & Set Mastery","board":"close","content":{"items":["x1"],"preview":"Next week, Lesson 12 — Circles: Parts & Vocabulary — where closed straight-sided shapes give way to the one closed shape with no corners at all."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can name a polygon by its number of sides and find its diagonals-from-one-vertex and triangle count without help"},
+    {"id":"SC2","text":"I can apply (n-2)×180° to find a polygon's interior angle sum and each interior/exterior angle of a regular polygon"},
+    {"id":"SC3","text":"I can justify why the interior-angle formula works and why a regular polygon's exterior angles always total 360°"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W13-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W13 Polygons.md"},
+    "mus": {"practice":"MUS/L11 — Lesson Practice.pdf","review":"MUS/L11 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"checkpoint","kind":"check","title":"Mastery Checkpoint","items":["c1","c2","c3","c4","c5","c6"]},
+      {"phase":"close","kind":"exit","title":"Set Your Mastery","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"c1","type":"mc","sc":"SC1","points":1,"prompt":"A 12-sided polygon is called a…","options":["decagon","undecagon","dodecagon"],"answer":"dodecagon","explain":"12 sides = dodecagon (deca- = 10, dodeca- = 12)."},
+    {"ref":"c2","type":"dropdown","sc":"SC1","points":1,"prompt":"Drawing every diagonal from ONE vertex of a 10-sided polygon (a decagon) splits it into how many triangles?","options":["7","8","9","10"],"answer":"8","explain":"n-2 = 10-2 = 8 triangles (and n-3 = 7 diagonals from that one vertex)."},
+    {"ref":"c3","type":"short","sc":"SC2","points":2,"prompt":"Find the sum of the interior angles of a 15-sided polygon, and the measure of each interior angle if the polygon is regular.","answer":"(15-2)×180° = 13×180° = 2340° total; each interior angle = 2340°÷15 = 156°.","explain":"The sum uses (n-2)×180° with n=15; dividing by 15 gives each angle since all interior angles of a regular polygon are congruent."},
+    {"ref":"c4","type":"mc","sc":"SC3","points":1,"prompt":"A regular polygon has an exterior angle of 24° at each vertex. How many sides does it have?","options":["12","15","18"],"answer":"15","explain":"360°÷24°=15 sides — every regular polygon's exterior angles sum to 360°, so dividing 360° by one exterior angle gives the number of sides."},
+    {"ref":"c5","type":"construct","sc":"SC1","points":2,"figure":"grid-blank","prompt":"On the grid, sketch a regular hexagon and draw every diagonal from ONE vertex. Label how many diagonals you drew and how many triangles they created.","answer":"A closed 6-sided figure with 3 diagonals drawn from one vertex (6-3=3), creating 4 triangles (6-2=4).","explain":"Rubric: a closed 6-sided figure (1 pt) + exactly 3 diagonals from one vertex correctly splitting it into 4 triangles (1 pt)."},
+    {"ref":"c6","type":"short","sc":"SC3","points":2,"prompt":"In your own words, explain why a regular polygon's exterior angles always add up to exactly 360°, no matter how many sides it has.","answer":"Walking around the outside of any convex polygon and turning by the exterior angle at each corner brings you back to face your starting direction after exactly one full turn — 360° — regardless of how many corners (sides) you turned through along the way.","explain":"Full credit connects the exterior angle to a 'turning' argument that totals one full revolution (360°), independent of the number of sides."},
+    {"ref":"x1","type":"short","sc":"SC1","points":1,"prompt":"Close: rate yourself on Lesson 11 (Emerging / Proficient / Mastered) and name the one idea you'd want to revisit."}
+  ]
+}

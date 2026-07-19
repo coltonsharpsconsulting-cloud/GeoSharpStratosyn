@@ -1,0 +1,44 @@
+{
+  "id": "LP-W14-S3", "course": "geometry", "week": 14, "session": 3,
+  "session_type": "prove", "lesson": "L12 — Circles: Parts & Vocabulary",
+  "unit": "u02", "duration_min": 60, "mode": "Prove",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 14 · Prove It — Circles: Parts & Vocabulary",
+  "essential_question": "Why must the diameter be the longest possible chord in a circle, and why are all radii of the same circle congruent?",
+  "objective": "Justify why the diameter is the longest chord in a circle and why every radius of a circle is congruent, review the week's Math-U-See practice, and pass the mastery checkpoint on circle vocabulary and relationships.",
+  "standards": ["G-C.A.2"],
+  "vocab": ["circle", "center", "radius", "diameter", "chord", "arc", "sector", "secant", "tangent", "semicircle", "circumference", "sphere"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Redraw From Memory","board":"warmup","content":{"prompt":"Without looking, sketch a circle from memory. Mark its center, then draw and label one radius, one diameter, and one chord that is not the diameter. Then explain out loud, in your own words, why the diameter always comes out exactly twice as long as the radius."}},
+    {"phase":"review","min":12,"title":"Review — Your Math-U-See Work","board":"review","content":{"heading":"Go over Lesson Practice 12A & 12B together","note":"Bring your completed MUS Lesson Practice 12A/12B. We check the tricky ones: telling a secant from a tangent from a chord, minor and major arcs adding to 360°, an inscribed angle being half the central angle, and the sphere/ellipse fill-ins. Fix any you missed and note WHY."}},
+    {"phase":"prove","min":16,"title":"Prove It — Reason Out Loud","board":"prove","content":{"heading":"Defend three claims","figure":"grid-blank","bullets":["Claim 1: every radius of the same circle is congruent, no matter which point on the circle you draw it to. Argue it from the very definition of a circle — what does 'the same distance from the center' actually guarantee?","Claim 2: the diameter is the longest possible chord a circle can have. Argue why a chord that misses the center — together with the two radii to its endpoints — can never reach as far as one that runs straight through the center.","Claim 3: a tangent line can only ever touch a circle at exactly one point, while a secant always touches at two. Argue why a line that met the radius at anything other than a right angle would have to cross the circle a second time."]}},
+    {"phase":"checkpoint","min":18,"title":"Mastery Checkpoint","board":"checkpoint","content":{"heading":"Show what you own","items":["c1","c2","c3","c4","c5","c6"]}},
+    {"phase":"close","min":8,"title":"Close & Set Mastery","board":"close","content":{"items":["x1"],"preview":"Next week, Lesson 13 — Circumference & Area of Circles — where these same parts get formulas: C = 2πr and Area = πr²."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can identify and label the parts of a circle without help: center, radius, diameter, chord, arc, sector, secant, and tangent"},
+    {"id":"SC2","text":"I can apply d = 2r and the fact that minor and major arcs of a circle always add to 360°"},
+    {"id":"SC3","text":"I can justify why the diameter is the longest chord in a circle and why every radius of a circle is congruent"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W14-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W14 Circle Parts.md"},
+    "mus": {"practice":"MUS/L12 — Lesson Practice.pdf","review":"MUS/L12 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"checkpoint","kind":"check","title":"Mastery Checkpoint","items":["c1","c2","c3","c4","c5","c6"]},
+      {"phase":"close","kind":"exit","title":"Set Your Mastery","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"c1","type":"mc","sc":"SC2","points":1,"prompt":"In a circle, the diameter is equal to…","options":["the radius","half the radius","two times the radius","the circumference"],"answer":"two times the radius","explain":"A diameter is a chord through the center, made of two radii laid end to end — so d = 2r."},
+    {"ref":"c2","type":"dropdown","sc":"SC1","points":1,"prompt":"A segment with both endpoints on the circle that does NOT pass through the center is called a…","options":["radius","diameter","chord","tangent"],"answer":"chord","explain":"Any segment with both ends on the circle is a chord; it only earns the extra name 'diameter' if it also passes through the center."},
+    {"ref":"c3","type":"mc","sc":"SC1","points":1,"prompt":"A line that intersects a circle's circumference at exactly one point is called a…","options":["secant","chord","tangent","diameter"],"answer":"tangent","explain":"A tangent touches the circle at exactly one point and is perpendicular to the radius there; a secant, by contrast, always crosses at two points."},
+    {"ref":"c4","type":"short","sc":"SC2","points":2,"prompt":"A central angle cuts off a minor arc measuring 115°. What is the measure of the major arc, and how do you know?","answer":"245°; minor and major arcs of the same circle always add up to 360°, so 360° − 115° = 245°.","explain":"The minor arc and major arc between the same two points always complete the full 360° of the circle."},
+    {"ref":"c5","type":"construct","sc":"SC1","points":2,"figure":"grid-blank","prompt":"On the grid, draw a circle. Mark its center, and label one radius, one diameter, and one sector.","answer":"A circle with its center marked, a segment from the center to the rim labeled as the radius, a segment through the center labeled as the diameter, and a shaded pie-slice region between two radii and the arc connecting them labeled as the sector.","explain":"Rubric: center and a correctly labeled radius and diameter (1 pt) + a correctly shaded and labeled sector (1 pt)."},
+    {"ref":"c6","type":"short","sc":"SC3","points":2,"prompt":"In your own words, explain why the diameter must be the longest chord a circle can have.","answer":"Every chord's endpoints connect to the center by two radii, each of length r. If the chord doesn't pass through the center, those two radii and the chord form a triangle, and the triangle inequality says the chord (the third side) must be shorter than the sum of the two radii, 2r. Only when the chord passes straight through the center do the two radii and the chord line up in one straight line — no triangle at all — making the chord exactly 2r. So no non-diameter chord can ever reach 2r; the diameter is always the longest.","explain":"Full credit: connects back to the triangle inequality (Lesson 10) — a chord not through the center forms a triangle with the two radii, and a triangle's third side is always shorter than the sum of the other two, capping every non-diameter chord below 2r."},
+    {"ref":"x1","type":"short","sc":"SC1","points":1,"prompt":"Close: rate yourself on Lesson 12 (Emerging / Proficient / Mastered) and name the one idea you'd want to revisit."}
+  ]
+}

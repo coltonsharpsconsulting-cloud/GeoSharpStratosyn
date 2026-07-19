@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Volume of Rectangular Solids &amp; Cylinders — Sim</title>
+<style>
+  :root{--void:#0d1322;--ink:#161d31;--bone:#e8ecf3;--mist:#9aabd0;--accent:#8b5cf6;--gold:#f5c842;--cyan:#00e5ff;--border:#2a3142;--good:#7ee081}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--void);color:var(--bone);font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;min-height:100%}
+  header{padding:2vh 4vw;border-bottom:1px solid var(--border);background:var(--ink)}
+  .eyebrow{font-family:"DM Mono",ui-monospace,monospace;letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--accent)}
+  h1{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(20px,3vw,30px);margin-top:.3rem}
+  main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.6vh;padding:3vh 4vw}
+  .stage{width:100%;max-width:720px;aspect-ratio:16/11;background:var(--ink);border:1px solid var(--border);border-radius:16px;touch-action:none;overflow:hidden}
+  svg{width:100%;height:100%;display:block}
+  .controls{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
+  button{font-family:"DM Mono",ui-monospace,monospace;font-size:14px;background:var(--ink);color:var(--bone);border:1px solid var(--border);border-radius:999px;padding:.6rem 1.2rem;cursor:pointer}
+  button.on{border-color:var(--accent);color:var(--accent)}
+  .sliders{width:100%;max-width:560px;display:flex;flex-direction:column;gap:.7rem}
+  .slider-row{display:flex;align-items:center;gap:.8rem}
+  .slider-row label{font-family:"DM Mono",ui-monospace,monospace;font-size:13px;color:var(--mist);width:150px;flex-shrink:0}
+  .slider-row label b{color:var(--gold)}
+  .slider-row.cyan label b{color:var(--cyan)}
+  input[type=range]{flex:1;accent-color:var(--gold)}
+  .slider-row.cyan input[type=range]{accent-color:var(--cyan)}
+  .readout{font-family:"DM Mono",ui-monospace,monospace;font-size:clamp(14px,2.1vw,19px);color:var(--mist);text-align:center;min-height:3em;line-height:1.5}
+  .readout b{color:var(--gold);font-size:1.1em}
+  .hint{color:var(--mist);font-size:14px;max-width:60ch;text-align:center}
+</style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Geometry · Lesson 14 · sim</div>
+    <h1>Drag the dimensions. Watch the volume fill in.</h1>
+  </header>
+  <main>
+    <div class="controls" id="modes">
+      <button data-mode="box" class="on">Box</button>
+      <button data-mode="cylinder">Cylinder</button>
+    </div>
+    <div class="stage"><svg viewBox="0 0 640 400" id="svg"></svg></div>
+    <div class="sliders" id="boxSliders">
+      <div class="slider-row"><label>length ℓ = <b id="lVal">5</b></label><input type="range" id="lRange" min="1" max="10" step="1" value="5"></div>
+      <div class="slider-row"><label>width w = <b id="wVal">3</b></label><input type="range" id="wRange" min="1" max="10" step="1" value="3"></div>
+      <div class="slider-row cyan"><label>height h = <b id="hVal">4</b></label><input type="range" id="hRange" min="1" max="10" step="1" value="4"></div>
+    </div>
+    <div class="sliders" id="cylSliders" hidden>
+      <div class="slider-row"><label>radius r = <b id="rVal">3</b></label><input type="range" id="rRange" min="1" max="6" step="1" value="3"></div>
+      <div class="slider-row cyan"><label>height h = <b id="chVal">5</b></label><input type="range" id="chRange" min="1" max="10" step="1" value="5"></div>
+    </div>
+    <div class="readout" id="readout"></div>
+    <p class="hint" id="hint"></p>
+  </main>
+<script>
+(() => {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  const readout = document.getElementById('readout');
+  const hint = document.getElementById('hint');
+  const boxSliders = document.getElementById('boxSliders');
+  const cylSliders = document.getElementById('cylSliders');
+
+  function make(tag, attrs){ const n=document.createElementNS(NS,tag); for(const k in attrs) n.setAttribute(k,attrs[k]); svg.appendChild(n); return n; }
+  function clear(){ while (svg.firstChild) svg.removeChild(svg.firstChild); }
+  function fmt(n){ return (Math.round(n*100)/100).toString().replace(/\.?0+$/,'').replace(/^$/,'0'); }
+
+  const UNIT = 26;                 // px per unit
+  const ORIGIN = { x: 200, y: 300 }; // front-bottom-left reference corner
+  const DEPTH_ANGLE = 35 * Math.PI / 180; // oblique depth angle
+  const DEPTH_SCALE = 0.62;         // foreshorten the depth axis (cabinet-style projection)
+
+  let mode = 'box';
+  let L = 5, W = 3, H = 4;   // box dimensions (units)
+  let R = 3, CH = 5;          // cylinder radius + height (units)
+
+  // ---- static grid backdrop ----
+  function drawGrid(){
+    const g = make('g', {});
+    for (let x = 0; x <= 640; x += 20){
+      const ln = document.createElementNS(NS,'line');
+      ln.setAttribute('x1',x); ln.setAttribute('y1',0); ln.setAttribute('x2',x); ln.setAttribute('y2',400);
+      ln.setAttribute('stroke','#1c2338'); ln.setAttribute('stroke-width', x % 100 === 0 ? 1.2 : 0.6);
+      g.appendChild(ln);
+    }
+    for (let y = 0; y <= 400; y += 20){
+      const ln = document.createElementNS(NS,'line');
+      ln.setAttribute('x1',0); ln.setAttribute('y1',y); ln.setAttribute('x2',640); ln.setAttribute('y2',y);
+      ln.setAttribute('stroke','#1c2338'); ln.setAttribute('stroke-width', y % 100 === 0 ? 1.2 : 0.6);
+      g.appendChild(ln);
+    }
+  }
+
+  function poly(pts, fill, stroke, dash){
+    const attrs = { points: pts.map(p => `${p.x},${p.y}`).join(' '), fill, stroke, 'stroke-width': 2.5, 'stroke-linejoin':'round' };
+    if (dash) attrs['stroke-dasharray'] = dash;
+    return make('polygon', attrs);
+  }
+
+  function lineSeg(a, b, stroke, width, dash){
+    const attrs = { x1:a.x, y1:a.y, x2:b.x, y2:b.y, stroke, 'stroke-width': width || 2 };
+    if (dash) attrs['stroke-dasharray'] = dash;
+    return make('line', attrs);
+  }
+
+  function label(x, y, text, opts){
+    const t = make('text', Object.assign({ x, y, 'text-anchor':'middle', 'font-family':'DM Mono, monospace', 'font-size':16, fill:'#e8ecf3' }, opts||{}));
+    t.textContent = text;
+    return t;
+  }
+
+  function drawBox(){
+    const A  = { x: ORIGIN.x, y: ORIGIN.y };
+    const B  = { x: ORIGIN.x + L*UNIT, y: ORIGIN.y };
+    const Ap = { x: ORIGIN.x, y: ORIGIN.y - H*UNIT };
+    const Bp = { x: ORIGIN.x + L*UNIT, y: ORIGIN.y - H*UNIT };
+    const dx = W*UNIT*DEPTH_SCALE*Math.cos(DEPTH_ANGLE);
+    const dy = -W*UNIT*DEPTH_SCALE*Math.sin(DEPTH_ANGLE);
+    const A2  = { x: A.x + dx, y: A.y + dy };
+    const B2  = { x: B.x + dx, y: B.y + dy };
+    const A2p = { x: Ap.x + dx, y: Ap.y + dy };
+    const B2p = { x: Bp.x + dx, y: Bp.y + dy };
+
+    // hidden back edges (dashed) first, so visible faces draw over them
+    lineSeg(A2, A2p, '#3a4258', 1.5, '4 4');
+    lineSeg(A2, B2, '#3a4258', 1.5, '4 4');
+    lineSeg(A2, A, '#3a4258', 1.5, '4 4');
+
+    // top face
+    poly([Ap, Bp, B2p, A2p], '#8b5cf655', '#8b5cf6');
+    // right side face
+    poly([B, Bp, B2p, B2], '#8b5cf633', '#8b5cf6');
+    // front face
+    poly([A, B, Bp, Ap], '#8b5cf680', '#8b5cf6');
+
+    // visible top-right and bottom-right depth edges already drawn by poly(); add crisp corner verts
+    [A, B, Ap, Bp, B2, B2p].forEach(p => make('circle', { cx:p.x, cy:p.y, r:4, fill:'#f5c842' }));
+
+    // dimension labels
+    label((A.x + B.x)/2, A.y + 26, `ℓ = ${fmt(L)}`, { fill:'#f5c842' });
+    label(A.x - 22, (A.y + Ap.y)/2, `h = ${fmt(H)}`, { fill:'#00e5ff', 'text-anchor':'end' });
+    label((A.x + A2.x)/2 - 6, (A.y + A2.y)/2 - 8, `w = ${fmt(W)}`, { fill:'#f5c842' });
+
+    const base = L * W, vol = base * H;
+    readout.innerHTML = `Rectangular solid &middot; ℓ = <b>${fmt(L)}</b> &middot; w = <b>${fmt(W)}</b> &middot; h = <b>${fmt(H)}</b><br>` +
+      `base area = ℓ&middot;w = ${fmt(L)} &times; ${fmt(W)} = ${fmt(base)} sq units<br>` +
+      `V = ℓ&middot;w&middot;h = ${fmt(L)} &times; ${fmt(W)} &times; ${fmt(H)} = <b>${fmt(vol)}</b> cubic units`;
+  }
+
+  function drawCylinder(){
+    const cx = 320;
+    const rx = R*UNIT, ry = R*UNIT*0.4;
+    const topY = 90, botY = topY + CH*UNIT;
+
+    // back (hidden) half of bottom ellipse, dashed
+    const bottomBack = make('path', { d:`M ${cx-rx} ${botY} A ${rx} ${ry} 0 0 1 ${cx+rx} ${botY}`, fill:'none', stroke:'#3a4258', 'stroke-width':1.5, 'stroke-dasharray':'4 4' });
+
+    // side walls
+    poly([{x:cx-rx,y:topY},{x:cx+rx,y:topY},{x:cx+rx,y:botY},{x:cx-rx,y:botY}], '#8b5cf655', '#8b5cf6');
+
+    // bottom front (visible) arc
+    make('path', { d:`M ${cx-rx} ${botY} A ${rx} ${ry} 0 0 0 ${cx+rx} ${botY}`, fill:'#8b5cf655', stroke:'#8b5cf6', 'stroke-width':2.5 });
+
+    // top ellipse (full, visible from above)
+    make('ellipse', { cx, cy:topY, rx, ry, fill:'#8b5cf680', stroke:'#8b5cf6', 'stroke-width':2.5 });
+
+    // radius handle line + height line
+    lineSeg({x:cx,y:topY}, {x:cx+rx,y:topY}, '#f5c842', 3);
+    make('circle', { cx:cx+rx, cy:topY, r:5, fill:'#f5c842' });
+    make('circle', { cx, cy:topY, r:4, fill:'#f5c842' });
+    lineSeg({x:cx-rx-18,y:topY}, {x:cx-rx-18,y:botY}, '#00e5ff', 2, '6 5');
+
+    label(cx + rx/2, topY - 10, `r = ${fmt(R)}`, { fill:'#f5c842' });
+    label(cx-rx-30, (topY+botY)/2, `h = ${fmt(CH)}`, { fill:'#00e5ff', 'text-anchor':'end' });
+
+    const base = Math.PI * R * R, vol = base * CH;
+    readout.innerHTML = `Cylinder &middot; r = <b>${fmt(R)}</b> &middot; h = <b>${fmt(CH)}</b><br>` +
+      `base area = &pi;r&sup2; = &pi; &times; ${fmt(R)}&sup2; = ${fmt(R*R)}&pi; &asymp; ${fmt(base)} sq units<br>` +
+      `V = &pi;r&sup2;&middot;h = ${fmt(R*R)}&pi; &times; ${fmt(CH)} = ${fmt(R*R*CH)}&pi; &asymp; <b>${fmt(vol)}</b> cubic units`;
+  }
+
+  function draw(){
+    clear();
+    drawGrid();
+    if (mode === 'box') drawBox(); else drawCylinder();
+  }
+
+  function setMode(m){
+    mode = m;
+    [...document.querySelectorAll('#modes button')].forEach(b => b.classList.toggle('on', b.dataset.mode === m));
+    boxSliders.hidden = m !== 'box';
+    cylSliders.hidden = m !== 'cylinder';
+    hint.textContent = m === 'box'
+      ? 'Drag the length, width, and height sliders. Watch the base area (length × width) get computed first, then multiplied by the height — exactly the "area of the base × height" rule from the concept note.'
+      : 'Drag the radius and height sliders. The base is a circle, so its area is πr² — watch the radius get squared before it ever multiplies by the height.';
+    draw();
+  }
+
+  document.getElementById('lRange').addEventListener('input', e => { L = +e.target.value; document.getElementById('lVal').textContent = fmt(L); draw(); });
+  document.getElementById('wRange').addEventListener('input', e => { W = +e.target.value; document.getElementById('wVal').textContent = fmt(W); draw(); });
+  document.getElementById('hRange').addEventListener('input', e => { H = +e.target.value; document.getElementById('hVal').textContent = fmt(H); draw(); });
+  document.getElementById('rRange').addEventListener('input', e => { R = +e.target.value; document.getElementById('rVal').textContent = fmt(R); draw(); });
+  document.getElementById('chRange').addEventListener('input', e => { CH = +e.target.value; document.getElementById('chVal').textContent = fmt(CH); draw(); });
+
+  document.getElementById('modes').addEventListener('click', e => { const m = e.target.dataset.mode; if (m) setMode(m); });
+
+  setMode('box');
+})();
+</script>
+</body>
+</html>

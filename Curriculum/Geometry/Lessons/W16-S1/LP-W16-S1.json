@@ -1,0 +1,47 @@
+{
+  "id": "LP-W16-S1", "course": "geometry", "week": 16, "session": 1,
+  "session_type": "concept", "lesson": "L14 — Volume of Rectangular Solids & Cylinders",
+  "unit": "u02", "duration_min": 60, "mode": "Concept",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 16 · Volume — Rectangular Solids & Cylinders",
+  "essential_question": "If area covers a flat shape with one number, what carries that same idea into three dimensions to fill a solid?",
+  "objective": "State that volume = area of the base × height, apply it to find the volume of a rectangular solid (V = l·w·h) and a cylinder (V = πr²·h), identify a solid's faces, edges, and vertices, and express volume in cubic units.",
+  "standards": ["G-GMD.A.3"],
+  "vocab": ["volume", "rectangular solid", "cylinder", "base", "cubic units", "face", "edge", "vertex"],
+  "agenda": [
+    {"phase":"launch","min":6,"title":"Launch — Filling the Box","board":"launch","content":{"prompt":"Picture a cereal box or a soup can sitting in front of you. Area told you how much surface a flat shape covers — but a box like this has empty space *inside* it. Without measuring anything, what do you think you'd need to know to say exactly how many little cubes it would take to fill it completely?"}},
+    {"phase":"i_do","min":12,"title":"I do — Base Area × Height","board":"i_do","content":{"heading":"One rule builds every volume formula in this lesson","figure":"grid-blank","bullets":["Volume is the amount of space a solid fills, measured in CUBIC units (in³, ft³, cm³) — never square or linear units.","The master rule: Volume = area of the base × height — Math-U-See's own words, and it works for any solid with a flat base and straight, perpendicular sides.","A rectangular solid's base is a rectangle (area = l·w), so V = l·w·h. A cube is a rectangular solid where l = w = h, so V = s³.","A cylinder's base is a circle (area = πr²), so V = πr²·h — the curved side runs perpendicular to the base, same as a box's upright sides.","A rectangular solid has 6 flat faces, 12 edges (where two faces meet), and 8 vertices (where edges meet)."]}},
+    {"phase":"explore","min":8,"title":"Explore — Drag the Dimensions","board":"explore","content":{"heading":"Change the solid; watch the volume fill in","figure":"grid-blank","note":"On the sim, choose Box or Cylinder. Drag the length, width, and height sliders (or the radius and height sliders for the cylinder) and watch the readout update live with the base area, the height, and the formula plugged in with real numbers. Predict the volume before you drag, then check."}},
+    {"phase":"check","min":5,"title":"Check for Understanding","board":"check","content":{"heading":"Solid Check","items":["n1","n2"]}},
+    {"phase":"you_do","min":12,"title":"You do — Compute the Volume","board":"you_do","content":{"heading":"Your turn on the worksheet","items":["p1","p2","p3","p4"]}},
+    {"phase":"exit","min":5,"title":"Exit Ticket","board":"exit","content":{"items":["x1"],"preview":"Build session: measure and compute the volume of real boxes and cylinders — or 3D-print/CAD-model a solid and verify it by water displacement or unit cubes."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can state that volume = area of the base × height and identify a solid's faces, edges, and vertices"},
+    {"id":"SC2","text":"I can find the volume of a rectangular solid using V = l·w·h"},
+    {"id":"SC3","text":"I can find the volume of a cylinder using V = πr²·h, and explain why volume is measured in cubic units"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W16-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W16 Volume of Solids.md"},
+    "mus": {"practice":"MUS/L14 — Lesson Practice.pdf","review":"MUS/L14 — Systematic Review.pdf"},
+    "interactive": {"slug":"volume-box","note":"Curriculum/Geometry/Lessons/W16-S1/sims/volume-box.html"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"check","kind":"check","title":"Solid Check","items":["n1","n2"]},
+      {"phase":"practice","kind":"practice","title":"Compute the Volume","items":["p1","p2","p3","p4"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"n1","type":"dropdown","sc":"SC1","points":1,"prompt":"The master formula for the volume of a solid is area of the ___ times the height.","options":["perimeter","base","diagonal","circumference"],"answer":"base","explain":"Math-U-See's own rule: volume = area of the base × the height — not the perimeter, a diagonal, or the circumference."},
+    {"ref":"n2","type":"mc","sc":"SC1","points":1,"prompt":"The lines where the faces of a rectangular solid meet are called its…","options":["vertices","edges","bases"],"answer":"edges","explain":"Edges are the segments where two faces meet; the points where edges meet are vertices."},
+    {"ref":"p1","type":"short","sc":"SC2","points":2,"prompt":"A rectangular solid has length 8 cm, width 5 cm, and height 6 cm. Find its volume.","answer":"240 cm³","explain":"V = l·w·h = 8 × 5 × 6 = 240 cm³."},
+    {"ref":"p2","type":"short","sc":"SC2","points":2,"prompt":"A cube has edges 3 in long. Find its volume.","answer":"27 in³","explain":"A cube's volume is edge³: 3 × 3 × 3 = 27 in³ (the same as V = l·w·h with l = w = h = 3)."},
+    {"ref":"p3","type":"short","sc":"SC3","points":2,"prompt":"A cylinder has a radius of 4 ft and a height of 10 ft. Find its volume in terms of π, then estimate it as a decimal (use π ≈ 3.14).","answer":"V = π(4)²(10) = 160π ft³ ≈ 502.4 ft³","explain":"V = πr²·h = π × 16 × 10 = 160π ft³; 160 × 3.14 ≈ 502.4 ft³."},
+    {"ref":"p4","type":"construct","sc":"SC1","points":2,"figure":"grid-blank","prompt":"On the grid, sketch a rectangular solid (an oblique box) and label its length, width, and height. Then mark and label one face, one edge, and one vertex on your drawing.","answer":"A labeled 3-D box with l, w, h marked, plus one face, one edge, and one vertex each clearly identified.","explain":"Rubric: a recognizable 3-D box with all three dimensions labeled (1 pt) + a face, an edge, and a vertex each correctly identified (1 pt)."},
+    {"ref":"x1","type":"short","sc":"SC3","points":2,"prompt":"Exit: name one container from your day (a cereal box, a soup can, a moving box, a water bottle) and say whether it's closer to a rectangular solid or a cylinder — and which measurements (length/width/height, or radius/height) you'd need to find its volume."}
+  ]
+}

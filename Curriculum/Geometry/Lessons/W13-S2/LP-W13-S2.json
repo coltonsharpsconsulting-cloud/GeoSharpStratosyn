@@ -1,0 +1,42 @@
+{
+  "id": "LP-W13-S2", "course": "geometry", "week": 13, "session": 2,
+  "session_type": "build", "lesson": "L11 — Polygons: Angles, Diagonals & Regular Polygons",
+  "unit": "u02", "duration_min": 60, "mode": "Build",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 13 · Regular Polygon Hunt & Angle-Sum Lab",
+  "essential_question": "Can you predict a regular polygon's diagonal count and interior angle sum BEFORE you count or measure it?",
+  "objective": "Find or build at least four real regular polygons, predict each one's diagonal count and interior angle sum using the polygon formulas before measuring, verify with a protractor, and construct a regular hexagon using only a compass and a straightedge.",
+  "standards": ["G-CO.C.11"],
+  "vocab": ["polygon", "diagonal", "interior angle", "exterior angle", "regular polygon", "construction"],
+  "agenda": [
+    {"phase":"brief","min":6,"title":"Brief — From Formula to the Real Thing","board":"brief","content":{"heading":"From yesterday's formulas to real objects","bullets":["Yesterday: named polygons, counted diagonals, and used (n-2)×180° and 360°÷n on paper and on the sim.","Today: hunt down or build real regular polygons and test those formulas against a ruler and a protractor.","The test: can you predict a polygon's diagonal count and interior angle sum BEFORE you count or measure it?"]}},
+    {"phase":"plan","min":8,"title":"Plan — Read the Build Card","board":"plan","content":{"heading":"Gather + plan","note":"Open the project card. Gather your objects (a stop sign photo or drawing, a hex nut or bolt head, a floor or ceiling tile, a pentagon-shaped object), a ruler, a protractor, a compass and straightedge, and a camera. Decide which polygon you'll test first."}},
+    {"phase":"build","min":25,"title":"Build — Hunt, Predict, Verify","board":"build","content":{"heading":"Test the formulas against reality","bullets":["Find or build at least FOUR real regular (or near-regular) polygons — a stop sign, a hex nut/bolt head, a square tile, a pentagon-shaped object, a soccer-ball panel, or similar.","For EACH one, BEFORE measuring: predict the diagonals from one vertex (n-3), the interior angle sum ((n-2)×180°), and each interior angle (sum÷n).","Verify: count actual sides/diagonals where visible, and measure at least one interior angle with a protractor to check your prediction.","Compass Construction — using only a compass and a straightedge, construct a regular hexagon by stepping the circle's own radius around it six times, then connecting the six points."]}},
+    {"phase":"measure","min":12,"title":"Record Your Hunt & Your Construction","board":"measure","content":{"heading":"Get the numbers down","figure":"grid-blank","items":["m1","m2","m3"]}},
+    {"phase":"reflect","min":9,"title":"Reflect & Photograph","board":"reflect","content":{"items":["r1"],"preview":"Session 3: defend why the interior-angle formula and the 360° exterior-angle rule always hold, then the checkpoint."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can predict a real polygon's diagonals-from-one-vertex and interior angle sum before measuring it"},
+    {"id":"SC2","text":"I can verify a predicted interior angle by measuring a real regular polygon with a protractor"},
+    {"id":"SC3","text":"I can construct a regular hexagon using only a compass and a straightedge"}
+  ],
+  "assets": {
+    "project": {"note":"Curriculum/Geometry/Lessons/W13-S2/project-card.md"},
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W13-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W13 Polygons.md"},
+    "mus": {"practice":"MUS/L11 — Lesson Practice.pdf","review":"MUS/L11 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"measure","kind":"practice","title":"Hunt Log & Construction","items":["m1","m2","m3"]},
+      {"phase":"reflect","kind":"exit","title":"Reflect","items":["r1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"m1","type":"measure","sc":"SC1","points":2,"prompt":"List at least four real regular (or near-regular) polygons you found or built. For each, record its name, number of sides (n), and your PREDICTED diagonals-from-one-vertex (n-3) and interior angle sum ((n-2)×180°) — made BEFORE measuring.","answer":"Example: stop sign (octagon, n=8, 5 diagonals, sum 1080°); hex nut (hexagon, n=6, 3 diagonals, sum 720°); square tile (n=4, 1 diagonal, sum 360°); pentagon object (n=5, 2 diagonals, sum 540°).","explain":"Rubric: four polygons named with n (1 pt) + correct predicted diagonals and sum for each, made before measuring (1 pt)."},
+    {"ref":"m2","type":"short","sc":"SC2","points":2,"prompt":"Pick ONE polygon from your list. Measure one of its interior angles with a protractor and compare it to your predicted each-interior-angle (sum÷n). How close was it?","answer":"Example: the hex nut's predicted each-interior-angle is 720°÷6=120°; the protractor read about 118°-122°, matching within measurement tolerance.","explain":"Full credit compares a measured angle to the correct predicted value and notes whether they matched within reasonable protractor tolerance."},
+    {"ref":"m3","type":"short","sc":"SC3","points":2,"prompt":"Describe the compass-and-straightedge steps you used to construct your regular hexagon, and report whether a ruler/protractor check confirmed all sides and angles congruent.","answer":"Drew a circle with the compass, then without changing the compass width, stepped the point around the circle marking six points (the radius steps around a circle exactly six times), then connected the six points in order with the straightedge; a ruler check confirmed all six sides equaled the radius, and a protractor check confirmed each interior angle was about 120°.","explain":"Rubric: correct construction method described (radius stepped six times around the circle to mark the vertices, then connected) plus an honest ruler/protractor check result."},
+    {"ref":"r1","type":"short","sc":"SC1","points":2,"prompt":"Reflect: which polygon's measured angle matched your predicted angle most closely, and which was furthest off? What real-world factor (imperfect regularity, protractor reading error, worn edges) explains the gap?"}
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "LP-W15-S2", "course": "geometry", "week": 15, "session": 2,
+  "session_type": "build", "lesson": "L13 — Circumference & Area of Circles",
+  "unit": "u02", "duration_min": 60, "mode": "Build",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 15 · Circle Hunt & the π Experiment",
+  "essential_question": "Can you measure a real circle's diameter and circumference and discover, for yourself, that C ÷ d lands on the same constant — π — no matter the circle's size?",
+  "objective": "Measure the diameter (with a ruler) and circumference (by wrapping a string) of at least three real circular objects of different sizes, compute C ÷ d for each and confirm it approximates π (≈3.14), then use the diameter to compute each object's circumference and area with the standard formulas.",
+  "standards": ["G-GMD.A.1"],
+  "vocab": ["circle", "radius", "diameter", "circumference", "pi (π)", "area", "ellipse", "latitude", "longitude"],
+  "agenda": [
+    {"phase":"brief","min":6,"title":"Brief — From Formulas to a Real Experiment","board":"brief","content":{"heading":"From formulas on paper to π you discover yourself","bullets":["Yesterday: learned C = πd = 2πr and A = πr², and that π is the same constant no matter a circle's size.","Today: hunt down three real circles of different sizes — a can lid, a bike wheel, a plate (or similar) — measure each one's diameter and circumference, and divide to see π appear for yourself.","The test: does your C ÷ d land close to 3.14 for a small circle AND a big one? That's the proof that π is truly constant."]}},
+    {"phase":"plan","min":8,"title":"Plan — Read the Build Card","board":"plan","content":{"heading":"Gather + choose your objects","note":"Open the project card. Gather a tape measure or ruler, a length of string, scissors, and a calculator. Pick three real circular objects of clearly different sizes before you start measuring — the bigger the size range, the more convincing your π discovery will be."}},
+    {"phase":"build","min":25,"title":"Build — Wrap, Measure, Divide","board":"build","content":{"heading":"Measure the world, then compute","bullets":["For each object: measure the diameter straight across the center with a ruler or tape measure.","Then wrap the string once around the object's widest point (its circumference), mark where it meets itself, and measure that length of string with the ruler — that's your circumference.","Divide circumference by diameter (C ÷ d) for each object. Record the result — it should land close to 3.14 every time.","Using your measured radius (half the diameter), compute each object's circumference and area with the standard formulas, and compare your formula answer to your measured circumference.","Composite bonus: if you have time, measure one elliptical object (an oval mirror, an egg-shaped platter) — its long and short axis — and compute its area with A = π·a·b."]}},
+    {"phase":"measure","min":12,"title":"Record Your Measurements","board":"measure","content":{"heading":"Get the numbers down","figure":"grid-blank","items":["m1","m2","m3"]}},
+    {"phase":"reflect","min":9,"title":"Reflect & Photograph","board":"reflect","content":{"items":["r1"],"preview":"Session 3: defend why C ÷ d is always the same constant, review MUS Lesson Practice 13A/13B, and take the checkpoint."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can measure a real circle's diameter and its circumference (by wrapping and measuring a string)"},
+    {"id":"SC2","text":"I can compute a circle's circumference and area from its measured radius or diameter"},
+    {"id":"SC3","text":"I can compute C ÷ d for several circles and explain what the result shows about π"}
+  ],
+  "assets": {
+    "project": {"note":"Curriculum/Geometry/Lessons/W15-S2/project-card.md"},
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W15-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W15 Circles: Circumference & Area.md"},
+    "mus": {"practice":"MUS/L13 — Lesson Practice.pdf","review":"MUS/L13 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"measure","kind":"practice","title":"Record Your Measurements","items":["m1","m2","m3"]},
+      {"phase":"reflect","kind":"exit","title":"Reflect","items":["r1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"m1","type":"measure","sc":"SC1","points":2,"prompt":"List the three circular objects you measured (e.g., a can lid, a bike wheel, a plate) and record each one's diameter (straight across the center) and circumference (wrapped string, then measured), with units.","answer":"Any three honest, plausible measurements of clearly different sizes, e.g. can lid: d=8 cm, C=25 cm; plate: d=23 cm, C=72 cm; bike wheel: d=66 cm, C=207 cm.","explain":"Rubric: three named objects with both diameter and circumference recorded and units given (1 pt) + objects of visibly different sizes (1 pt)."},
+    {"ref":"m2","type":"short","sc":"SC3","points":2,"prompt":"For each object, compute C ÷ d. What number do you keep landing close to, no matter the object's size?","answer":"Each object's C ÷ d should land close to 3.14 (π), regardless of whether the object is small or large.","explain":"Rubric: C ÷ d correctly computed for all three objects (1 pt) + the answer names 3.14 / π as the constant they all approximate (1 pt)."},
+    {"ref":"m3","type":"short","sc":"SC2","points":2,"prompt":"Using your measured diameter (or its half, the radius) for at least one object, compute its area with A = πr², showing the formula and the numbers plugged in. Compare: does your measured circumference roughly match C = πd for that same object?","answer":"Any correctly computed A = πr² using the student's own measured radius, with a comparison noting whether the measured circumference matched (or was close to) the computed πd.","explain":"Rubric: area formula correctly applied with the student's own numbers (1 pt) + an honest comparison to the measured circumference (1 pt)."},
+    {"ref":"r1","type":"short","sc":"SC1","points":2,"prompt":"Reflect: which was harder to measure precisely — the diameter with a ruler, or the circumference by wrapping a string? What would make your π estimate more accurate next time?"}
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": "LP-W15-S1", "course": "geometry", "week": 15, "session": 1,
+  "session_type": "concept", "lesson": "L13 — Circumference & Area of Circles",
+  "unit": "u02", "duration_min": 60, "mode": "Concept",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 15 · Circumference & Area of Circles",
+  "essential_question": "Every circle has a distance around it and a distance across it — divide the first by the second and you always get the same constant. What is that constant, and how does it unlock both the circumference and the area of a circle?",
+  "objective": "State and apply the circumference and area formulas for a circle (C = πd = 2πr, A = πr²) using π ≈ 3.14 or the fraction 22/7, find the area of an ellipse (A = π·a·b, using half the long and short axes), and describe how lines of latitude and longitude on a globe relate to circles.",
+  "standards": ["G-GMD.A.1"],
+  "vocab": ["circle", "radius", "diameter", "circumference", "pi (π)", "area", "ellipse", "latitude", "longitude"],
+  "agenda": [
+    {"phase":"launch","min":6,"title":"Launch — String, Lid, Guess","board":"launch","content":{"prompt":"Picture wrapping a string once around a can lid, then laying that same string along the lid's diameter. Roughly how many diameters long was the string — two? three? a little more than three? Say a guess out loud — today we find the exact constant hiding in every circle, no matter its size."}},
+    {"phase":"i_do","min":12,"title":"I do — Radius, Diameter, π & Two Formulas","board":"i_do","content":{"heading":"One constant, two formulas","figure":"grid-blank","bullets":["The radius (r) runs from the center to the edge; the diameter (d) runs straight across through the center, and is always twice the radius: d = 2r.","π is the constant ratio of any circle's circumference to its diameter (π = C ÷ d) — the same number for a coin and for a bike wheel. Math-U-See uses π ≈ 3.14 as a decimal, and π ≈ 22/7 as a fraction when the radius or diameter is a multiple of 7.","Circumference (the distance around) is C = πd = 2πr — both forms are the same formula, since d = 2r.","Area (the space inside) is A = πr² — notice r is squared, because area measures a surface, not a length.","An ellipse's area is A = π·a·b, where a and b are half the long axis and half the short axis — and it collapses into the plain circle formula A = πr² when a = b = r."]}},
+    {"phase":"explore","min":8,"title":"Explore — Drag the Radius, Watch Both Formulas","board":"explore","content":{"heading":"Change the radius; watch circumference and area update live","figure":"grid-blank","note":"On the sim, drag the gold handle out from the center. Watch the readout update live with the radius, the diameter, and both the circumference and area formulas plugged in with real numbers. Predict what happens to the area if you double the radius — then check: does the area double too, or something else?"}},
+    {"phase":"check","min":5,"title":"Check for Understanding","board":"check","content":{"heading":"Formula Check","items":["n1","n2"]}},
+    {"phase":"you_do","min":12,"title":"You do — Compute Circumference & Area","board":"you_do","content":{"heading":"Your turn on the worksheet","items":["p1","p2","p3","p4"]}},
+    {"phase":"exit","min":5,"title":"Exit Ticket","board":"exit","content":{"items":["x1"],"preview":"Build session: measure the diameter and circumference of real circles — a can lid, a bike wheel, a plate — and discover π for yourself by wrapping a string."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can find the circumference of a circle using C = πd or C = 2πr"},
+    {"id":"SC2","text":"I can find the area of a circle using A = πr², and the area of an ellipse using A = π·(½ long axis)·(½ short axis)"},
+    {"id":"SC3","text":"I can describe how lines of latitude and longitude on a globe relate to circles, and what each one measures"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W15-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W15 Circles: Circumference & Area.md"},
+    "mus": {"practice":"MUS/L13 — Lesson Practice.pdf","review":"MUS/L13 — Systematic Review.pdf"},
+    "interactive": {"slug":"circle-measure","note":"Curriculum/Geometry/Lessons/W15-S1/sims/circle-measure.html"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"check","kind":"check","title":"Formula Check","items":["n1","n2"]},
+      {"phase":"practice","kind":"practice","title":"Compute Circumference & Area","items":["p1","p2","p3","p4"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"n1","type":"dropdown","sc":"SC1","points":1,"prompt":"The distance around a circle is called its ___.","options":["diameter","circumference","radius"],"answer":"circumference","explain":"Circumference is the perimeter of a circle — the distance around its curved edge."},
+    {"ref":"n2","type":"mc","sc":"SC1","points":1,"prompt":"Since a circle's diameter is always twice its radius (d = 2r), the formulas C = πd and C = 2πr are…","options":["different formulas that rarely agree","the same formula written two ways","only true for large circles"],"answer":"the same formula written two ways","explain":"Substituting d = 2r into C = πd gives C = π(2r) = 2πr — identical formulas, just written with different variables."},
+    {"ref":"p1","type":"short","sc":"SC1","points":2,"prompt":"A circular manhole cover has a diameter of 14 in. Find its circumference. (Use π ≈ 22/7.)","answer":"44 in","explain":"C = πd = 22/7 × 14 = 44 in. The diameter is a multiple of 7, so the fraction divides out evenly."},
+    {"ref":"p2","type":"short","sc":"SC2","points":2,"prompt":"A circular rug has a radius of 5 ft. Find its area. (Use π ≈ 3.14.)","answer":"78.5 ft²","explain":"A = πr² = 3.14 × 5² = 3.14 × 25 = 78.5 ft²."},
+    {"ref":"p3","type":"short","sc":"SC2","points":2,"prompt":"An elliptical rug has a long axis of 12 ft and a short axis of 8 ft. Find its area. (Use π ≈ 3.14.)","answer":"75.36 ft²","explain":"Half the long axis is 6 ft, half the short axis is 4 ft: A = π·a·b = 3.14 × 6 × 4 = 75.36 ft²."},
+    {"ref":"p4","type":"construct","sc":"SC1","points":2,"figure":"grid-blank","prompt":"On the grid, sketch a circle with a radius of 4 units. Label the center and the radius. Then find its circumference and area, showing each formula with the numbers plugged in. (Use π ≈ 3.14.)","answer":"C = 2πr = 2 × 3.14 × 4 = 25.12 units; A = πr² = 3.14 × 4² = 50.24 sq units.","explain":"Rubric: a circle with center and radius clearly labeled (1 pt) + both formulas correctly plugged in with matching answers (1 pt)."},
+    {"ref":"x1","type":"short","sc":"SC3","points":2,"prompt":"Exit: a globe shows lines of latitude (parallel to the equator) and lines of longitude (through the poles, from the prime meridian at Greenwich, England) — both are circles wrapped around a sphere. In your own words, what does a location's latitude tell you, and what does its longitude tell you?"}
+  ]
+}

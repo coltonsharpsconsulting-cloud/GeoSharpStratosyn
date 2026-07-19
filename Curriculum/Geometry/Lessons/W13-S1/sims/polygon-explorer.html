@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Polygons: Angles, Diagonals & Regular Polygons — Sim</title>
+<style>
+  :root{--void:#0d1322;--ink:#161d31;--bone:#e8ecf3;--mist:#9aabd0;--accent:#8b5cf6;--gold:#f5c842;--border:#2a3142;--good:#7ee081}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--void);color:var(--bone);font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;min-height:100%}
+  header{padding:2vh 4vw;border-bottom:1px solid var(--border);background:var(--ink)}
+  .eyebrow{font-family:"DM Mono",ui-monospace,monospace;letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--accent)}
+  h1{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(20px,3vw,30px);margin-top:.3rem}
+  main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.6vh;padding:3vh 4vw}
+  .stage{width:100%;max-width:720px;aspect-ratio:16/11;background:var(--ink);border:1px solid var(--border);border-radius:16px;touch-action:none}
+  svg{width:100%;height:100%;display:block}
+  .controls{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;align-items:center}
+  button{font-family:"DM Mono",ui-monospace,monospace;font-size:14px;background:var(--ink);color:var(--bone);border:1px solid var(--border);border-radius:999px;padding:.6rem 1.2rem;cursor:pointer}
+  button.round{padding:.6rem .9rem}
+  button:hover{border-color:var(--accent)}
+  input[type=range]{width:min(320px,60vw);accent-color:var(--accent)}
+  .badge{font-family:"DM Mono",ui-monospace,monospace;font-size:clamp(14px,2vw,18px);color:var(--gold);border:1px solid var(--border);border-radius:999px;padding:.4rem 1rem;min-width:11em;text-align:center}
+  .readout{font-family:"DM Mono",ui-monospace,monospace;font-size:clamp(13px,1.9vw,17px);color:var(--mist);text-align:center;min-height:4.2em;line-height:1.6}
+  .readout b{color:var(--gold)}
+  .readout .good{color:var(--good);font-weight:bold}
+  .hint{color:var(--mist);font-size:14px;max-width:62ch;text-align:center}
+</style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Geometry · Lesson 11 · sim</div>
+    <h1>Slide the sides. Watch the angles add up.</h1>
+  </header>
+  <main>
+    <div class="controls">
+      <button class="round" id="decBtn" aria-label="Fewer sides">&minus;</button>
+      <input type="range" id="sidesSlider" min="3" max="12" step="1" value="6">
+      <button class="round" id="incBtn" aria-label="More sides">&plus;</button>
+      <span class="badge" id="badge">n = 6 &rarr; Hexagon</span>
+    </div>
+    <div class="stage"><svg viewBox="0 0 640 400" id="svg"></svg></div>
+    <div class="readout" id="readout"></div>
+    <p class="hint">Drag the slider (or tap &minus; / &plus;) to change the number of sides from 3 to 12. The gold lines are every diagonal in the polygon; the violet outline is the regular polygon itself. Watch the diagonal count, the interior angle sum, and each interior angle update live — and notice each interior angle creeping toward 180° as the side count climbs.</p>
+  </main>
+<script>
+(() => {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  const readout = document.getElementById('readout');
+  const badge = document.getElementById('badge');
+  const slider = document.getElementById('sidesSlider');
+
+  const cx = 320, cy = 215, R = 150;
+
+  const NAMES = {
+    3:'Triangle', 4:'Quadrilateral (Square)', 5:'Pentagon', 6:'Hexagon',
+    7:'Heptagon', 8:'Octagon', 9:'Nonagon', 10:'Decagon', 11:'Undecagon', 12:'Dodecagon'
+  };
+  const NOTES = {
+    3: 'The simplest polygon — no diagonals exist at all (n &minus; 3 = 0).',
+    4: 'A square — every interior angle is a right angle (90&deg;).',
+    6: 'A regular hexagon — the classic nut or bolt-head shape.',
+    8: 'A regular octagon — think stop sign.',
+    10: 'A regular decagon — matches the MUS Systematic Review example.',
+    12: 'A regular dodecagon — each interior angle is already 150&deg;, getting close to a flat 180&deg; line.'
+  };
+
+  function make(tag, attrs){ const n=document.createElementNS(NS,tag); for(const k in attrs) n.setAttribute(k,attrs[k]); svg.appendChild(n); return n; }
+  const rad = d => d * Math.PI / 180;
+
+  // Vertex i sits at compass bearing a0 + i*spacing (0 = up, clockwise),
+  // with a0 chosen so one edge always sits flat along the bottom.
+  function vertices(n){
+    const spacing = 360 / n;
+    const a0 = 180 - 180 / n;
+    const pts = [];
+    for (let i = 0; i < n; i++){
+      const bearing = a0 + i * spacing;
+      pts.push({ x: cx + R * Math.sin(rad(bearing)), y: cy - R * Math.cos(rad(bearing)) });
+    }
+    return pts;
+  }
+
+  const diagLayer = make('g', {});
+  const polyLayer = make('g', {});
+  const dotLayer = make('g', {});
+
+  function clear(g){ while (g.firstChild) g.removeChild(g.firstChild); }
+
+  function draw(n){
+    clear(diagLayer); clear(polyLayer); clear(dotLayer);
+    const pts = vertices(n);
+
+    let diagCount = 0;
+    for (let i = 0; i < n; i++){
+      for (let j = i + 1; j < n; j++){
+        const adjacent = (j === i + 1) || (i === 0 && j === n - 1);
+        if (adjacent) continue;
+        diagCount++;
+        const p1 = pts[i], p2 = pts[j];
+        const line = document.createElementNS(NS, 'line');
+        line.setAttribute('x1', p1.x); line.setAttribute('y1', p1.y);
+        line.setAttribute('x2', p2.x); line.setAttribute('y2', p2.y);
+        line.setAttribute('stroke', '#f5c842');
+        line.setAttribute('stroke-width', 1.2);
+        line.setAttribute('opacity', 0.35);
+        diagLayer.appendChild(line);
+      }
+    }
+
+    const poly = document.createElementNS(NS, 'polygon');
+    poly.setAttribute('points', pts.map(p => `${p.x.toFixed(2)},${p.y.toFixed(2)}`).join(' '));
+    poly.setAttribute('fill', 'rgba(139,92,246,0.12)');
+    poly.setAttribute('stroke', '#8b5cf6');
+    poly.setAttribute('stroke-width', 4);
+    poly.setAttribute('stroke-linejoin', 'round');
+    polyLayer.appendChild(poly);
+
+    pts.forEach(p => {
+      const c = document.createElementNS(NS, 'circle');
+      c.setAttribute('cx', p.x); c.setAttribute('cy', p.y); c.setAttribute('r', 5);
+      c.setAttribute('fill', '#f5c842');
+      dotLayer.appendChild(c);
+    });
+
+    const name = NAMES[n] || `${n}-gon`;
+    const sum = (n - 2) * 180;
+    const each = sum / n;
+    const ext = 360 / n;
+    const diagFromVertex = n - 3;
+    const diagTotal = n * (n - 3) / 2;
+
+    badge.innerHTML = `n = ${n} &rarr; ${name}`;
+
+    const eachStr = Number.isInteger(each) ? `${each}&deg;` : `&asymp; ${each.toFixed(1)}&deg;`;
+    const extStr = Number.isInteger(ext) ? `${ext}&deg;` : `&asymp; ${ext.toFixed(1)}&deg;`;
+
+    let html = `Diagonals &mdash; from one vertex <b>${diagFromVertex}</b> &middot; total in the polygon <b>${diagTotal}</b><br>`;
+    html += `Interior angle sum &mdash; (n&minus;2)&times;180&deg; = <b>${sum}&deg;</b><br>`;
+    html += `Each interior angle &mdash; ${sum}&deg;&divide;${n} = <b>${eachStr}</b> &middot; each exterior angle &mdash; 360&deg;&divide;${n} = <b>${extStr}</b>`;
+
+    const note = NOTES[n];
+    readout.innerHTML = html + (note ? `<br><span class="good">${note}</span>` : '');
+  }
+
+  function setN(n){
+    n = Math.max(3, Math.min(12, n));
+    slider.value = n;
+    draw(n);
+  }
+
+  document.getElementById('decBtn').addEventListener('click', () => setN(parseInt(slider.value, 10) - 1));
+  document.getElementById('incBtn').addEventListener('click', () => setN(parseInt(slider.value, 10) + 1));
+  slider.addEventListener('input', () => draw(parseInt(slider.value, 10)));
+
+  setN(6);
+})();
+</script>
+</body>
+</html>

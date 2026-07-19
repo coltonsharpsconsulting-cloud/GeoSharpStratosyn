@@ -1,0 +1,44 @@
+{
+  "id": "LP-W15-S3", "course": "geometry", "week": 15, "session": 3,
+  "session_type": "prove", "lesson": "L13 — Circumference & Area of Circles",
+  "unit": "u02", "duration_min": 60, "mode": "Prove",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 15 · Prove It — Circumference & Area of Circles",
+  "essential_question": "Why is C ÷ d the same constant, π, for every circle no matter its size — and how does that one constant unlock both the circumference and the area formula?",
+  "objective": "Justify why C ÷ d is a constant (π) for every circle regardless of size, review the week's Math-U-See practice (Lesson Practice 13A & 13B), and pass the mastery checkpoint on circumference, area, and ellipse area.",
+  "standards": ["G-GMD.A.1"],
+  "vocab": ["circle", "radius", "diameter", "circumference", "pi (π)", "area", "ellipse", "latitude", "longitude"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Redraw From Memory","board":"warmup","content":{"prompt":"Without looking, sketch two circles side by side — one tiny, one huge. Mark a believable radius and diameter on each. If you measured each circle's circumference and divided it by its diameter, would the tiny circle's ratio be smaller, larger, or exactly the same as the huge circle's? Say your prediction out loud — we prove the real answer today."}},
+    {"phase":"review","min":12,"title":"Review — Your Math-U-See Work","board":"review","content":{"heading":"Go over Lesson Practice 13A & 13B together","note":"Bring your completed MUS Lesson Practice 13A/13B. We check the tricky ones: telling radius apart from diameter, remembering which formula uses π once (circumference) and which squares the radius (area), the ellipse's 'half of each axis' step, and the latitude/longitude fill-in-the-blanks. If you tried the optional map-lookup problems (finding real coordinates and distances), share what you found."}},
+    {"phase":"prove","min":16,"title":"Prove It — Reason Out Loud","board":"prove","content":{"heading":"Defend three claims","figure":"grid-blank","bullets":["Claim 1: C ÷ d is the same constant, π, for EVERY circle — a coin and a Ferris wheel included. Argue it: if you scale a circle up to twice its size, its circumference and its diameter both double too — so why does their ratio never change?","Claim 2: the area formula A = πr² can be reasoned out, not just memorized. Argue it: picture slicing a circle into many thin pie wedges and laying them out alternating point-up, point-down — they rebuild a shape that's almost a rectangle, with a base of about half the circumference (πr) and a height of about r. What does that rectangle's area (base × height) become, and how does it match A = πr²?","Claim 3: an ellipse's area formula, A = π·a·b, becomes the plain circle formula A = πr² exactly when a = b = r. Argue it: why does that make sense, given what a circle actually is compared to an ellipse?"]}},
+    {"phase":"checkpoint","min":18,"title":"Mastery Checkpoint","board":"checkpoint","content":{"heading":"Show what you own","items":["c1","c2","c3","c4","c5","c6"]}},
+    {"phase":"close","min":8,"title":"Close & Set Mastery","board":"close","content":{"items":["x1"],"preview":"Next week, Lesson 14 — Volume of Rectangular Solids & Cylinders — where flat circumference and area get stacked into three-dimensional volume."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can state and use the circumference and area formulas for a circle and the area formula for an ellipse without help"},
+    {"id":"SC2","text":"I can justify why C ÷ d is the same constant (π) for every circle, regardless of its size"},
+    {"id":"SC3","text":"I can compute the circumference and area of a real or given circle"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W15-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W15 Circles: Circumference & Area.md"},
+    "mus": {"practice":"MUS/L13 — Lesson Practice.pdf","review":"MUS/L13 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"checkpoint","kind":"check","title":"Mastery Checkpoint","items":["c1","c2","c3","c4","c5","c6"]},
+      {"phase":"close","kind":"exit","title":"Set Your Mastery","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"c1","type":"mc","sc":"SC3","points":1,"prompt":"A circle has a diameter of 20 cm. Its circumference (using π ≈ 3.14) is…","options":["31.4 cm","62.8 cm","314 cm"],"answer":"62.8 cm","explain":"C = πd = 3.14 × 20 = 62.8 cm."},
+    {"ref":"c2","type":"dropdown","sc":"SC1","points":1,"prompt":"Half the diameter of a circle is the ___.","options":["radius","chord","circumference"],"answer":"radius","explain":"The radius runs from the center to the edge — exactly half of the diameter, which runs all the way across through the center."},
+    {"ref":"c3","type":"short","sc":"SC1","points":2,"prompt":"An elliptical mirror has a long axis of 14 in and a short axis of 8 in. Find its area. (Use the fractional value of π, 22/7.)","answer":"88 in²","explain":"Half the long axis is 7 in, half the short axis is 4 in: A = π·a·b = 22/7 × 7 × 4 = 22 × 4 = 88 in². The axes are multiples of 7, so the fraction divides out clean."},
+    {"ref":"c4","type":"measure","sc":"SC3","points":2,"prompt":"Measure the diameter of a real circular object near you right now (a mug rim, a coin, a clock face) and compute its circumference and area. (Use π ≈ 3.14.)","answer":"Any honest measured diameter with units and correctly computed C = πd and A = πr² (with r = half the measured diameter), e.g. a mug rim d = 9 cm → r = 4.5 cm → C = 3.14 × 9 = 28.26 cm, A = 3.14 × 4.5² = 63.585 cm².","explain":"Rubric: diameter measured and recorded with units (1 pt) + both circumference and area correctly computed from it (1 pt)."},
+    {"ref":"c5","type":"construct","sc":"SC3","points":2,"figure":"grid-blank","prompt":"On the grid, draw a circle with a radius of 5 units, mark the center and the radius, and compute its circumference and area, showing each formula with the numbers plugged in.","answer":"C = 2πr = 2 × 3.14 × 5 = 31.4 units; A = πr² = 3.14 × 5² = 78.5 sq units.","explain":"Rubric: a circle with center and radius clearly labeled (1 pt) + both formulas correctly plugged in with matching answers (1 pt)."},
+    {"ref":"c6","type":"short","sc":"SC2","points":2,"prompt":"In your own words, explain why C ÷ d gives the same constant, π, whether the circle is tiny (like a coin) or huge (like a bike wheel). What happens to both the circumference and the diameter when a circle is scaled bigger, and why does their ratio never change?","answer":"Scaling a circle up or down multiplies both its circumference and its diameter by the exact same factor (enlarging a circle by, say, 3× makes both C and d three times as long). Since C ÷ d = (k·C₀) ÷ (k·d₀), the scale factor k cancels out, leaving the same ratio no matter the circle's size.","explain":"Full credit connects the scaling argument (both measurements scale by the same factor) directly to why the ratio itself is unaffected by that factor — not just a restatement that 'it's always 3.14'."},
+    {"ref":"x1","type":"short","sc":"SC1","points":1,"prompt":"Close: rate yourself on Lesson 13 (Emerging / Proficient / Mastered) and name the one idea you'd want to revisit — π itself, the ellipse formula, or latitude & longitude."}
+  ]
+}

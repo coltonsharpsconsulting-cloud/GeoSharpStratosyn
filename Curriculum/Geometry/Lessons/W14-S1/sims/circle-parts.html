@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Circles: Parts & Vocabulary — Sim</title>
+<style>
+  :root{--void:#0d1322;--ink:#161d31;--bone:#e8ecf3;--mist:#9aabd0;--accent:#8b5cf6;--gold:#f5c842;--border:#2a3142;--good:#7ee081}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--void);color:var(--bone);font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;min-height:100%}
+  header{padding:2vh 4vw;border-bottom:1px solid var(--border);background:var(--ink)}
+  .eyebrow{font-family:"DM Mono",ui-monospace,monospace;letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--accent)}
+  h1{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(20px,3vw,30px);margin-top:.3rem}
+  main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.6vh;padding:3vh 4vw}
+  .stage{width:100%;max-width:720px;aspect-ratio:16/11;background:var(--ink);border:1px solid var(--border);border-radius:16px;touch-action:none}
+  svg{width:100%;height:100%;display:block}
+  .controls{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
+  button{font-family:"DM Mono",ui-monospace,monospace;font-size:14px;background:var(--ink);color:var(--bone);border:1px solid var(--border);border-radius:999px;padding:.6rem 1.2rem;cursor:pointer}
+  button.on{border-color:var(--accent);color:var(--accent)}
+  .readout{font-family:"DM Mono",ui-monospace,monospace;font-size:clamp(14px,2vw,18px);color:var(--mist);text-align:center;min-height:2.4em}
+  .readout b{color:var(--gold)}
+  .readout .match{color:var(--good);font-weight:bold}
+  .hint{color:var(--mist);font-size:14px;max-width:60ch;text-align:center}
+</style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Geometry · Lesson 12 · sim</div>
+    <h1>Drag the points. Build every part of a circle.</h1>
+  </header>
+  <main>
+    <div class="controls" id="modes">
+      <button data-mode="radius" class="on">Radius</button>
+      <button data-mode="diameter">Diameter</button>
+      <button data-mode="chord">Chord</button>
+      <button data-mode="arc">Arc</button>
+      <button data-mode="sector">Sector</button>
+      <button data-mode="tangent">Tangent</button>
+      <button data-mode="secant">Secant</button>
+    </div>
+    <div class="stage"><svg viewBox="0 0 640 400" id="svg"></svg></div>
+    <div class="readout" id="readout"></div>
+    <p class="hint" id="hint"></p>
+  </main>
+<script>
+(() => {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  const readout = document.getElementById('readout');
+  const hint = document.getElementById('hint');
+
+  const C = { x: 320, y: 200 };   // center
+  const R = 160;                  // circle radius, px
+  const SCALE = 40;                // px per "unit" — R/SCALE = 4.0 units, diameter = 8.0 units
+
+  function make(tag, attrs){ const n=document.createElementNS(NS,tag); for(const k in attrs) n.setAttribute(k,attrs[k]); svg.appendChild(n); return n; }
+  const rad = d => d * Math.PI / 180;
+  const dist = (P,Q) => Math.hypot(Q.x-P.x, Q.y-P.y);
+  const at = (deg, r) => ({ x: C.x + r*Math.cos(rad(deg)), y: C.y - r*Math.sin(rad(deg)) });
+  // shortest signed angular delta from a to b, in the range (-180, 180]
+  const shortDelta = (a,b) => ((b - a + 540) % 360) - 180;
+
+  function show(el, on){ el.setAttribute('opacity', on ? 1 : 0); }
+
+  // ---- static circle + center ----
+  make('circle', { cx:C.x, cy:C.y, r:R, fill:'rgba(139,92,246,0.06)', stroke:'#8b5cf6', 'stroke-width':3 });
+  make('circle', { cx:C.x, cy:C.y, r:5, fill:'#e8ecf3' });
+  const centerLbl = make('text', { x:C.x+14, y:C.y-10, 'font-size':18, fill:'#e8ecf3', 'font-family':'DM Mono, monospace' });
+  centerLbl.textContent = 'C';
+
+  // ---- radius mode: segment C-A ----
+  const radiusSeg = make('line', { stroke:'#8b5cf6', 'stroke-width':5, 'stroke-linecap':'round' });
+  const radiusLbl = make('text', { 'font-size':14, fill:'#9aabd0', 'font-family':'DM Mono, monospace', 'text-anchor':'middle' });
+
+  // ---- diameter mode: segment A-A2, through center ----
+  const diameterSeg = make('line', { stroke:'#8b5cf6', 'stroke-width':5, 'stroke-linecap':'round' });
+  const handleA2 = make('circle', { r:8, fill:'#9aabd0' });
+  const labelA2 = make('text', { 'font-size':18, fill:'#e8ecf3', 'font-family':'DM Mono, monospace' }); labelA2.textContent = 'B';
+
+  // ---- chord mode: segment A-B ----
+  const chordSeg = make('line', { stroke:'#8b5cf6', 'stroke-width':5, 'stroke-linecap':'round' });
+
+  // ---- arc / sector: radii CA, CB + minor-arc highlight + sector fill ----
+  const sectorFill = make('path', { fill:'rgba(245,200,66,0.18)', stroke:'none' });
+  const radiusCA = make('line', { stroke:'#9aabd0', 'stroke-width':2 });
+  const radiusCB = make('line', { stroke:'#9aabd0', 'stroke-width':2 });
+  const arcHighlight = make('path', { fill:'none', stroke:'#f5c842', 'stroke-width':5, 'stroke-linecap':'round' });
+  const centralLbl = make('text', { 'font-size':14, fill:'#f5c842', 'font-family':'DM Mono, monospace', 'text-anchor':'middle' });
+
+  // ---- tangent mode ----
+  const tangentRadius = make('line', { stroke:'#9aabd0', 'stroke-width':2, 'stroke-dasharray':'5 5' });
+  const tangentLine = make('line', { stroke:'#8b5cf6', 'stroke-width':5, 'stroke-linecap':'round' });
+  const rightAngleMark = make('path', { fill:'none', stroke:'#f5c842', 'stroke-width':2.5 });
+  const handleT = make('circle', { r:11, fill:'#f5c842' });
+  const hitT = make('circle', { r:26, fill:'transparent', cursor:'grab' });
+  const labelT = make('text', { 'font-size':18, fill:'#e8ecf3', 'font-family':'DM Mono, monospace' }); labelT.textContent = 'T';
+
+  // ---- secant mode: line through A, B, extended beyond the circle ----
+  const secantLine = make('line', { stroke:'#8b5cf6', 'stroke-width':4, 'stroke-linecap':'round' });
+
+  // ---- draggable points A and B (shared across radius / diameter / chord / arc / sector / secant) ----
+  const handleA = make('circle', { r:11, fill:'#f5c842' });
+  const hitA = make('circle', { r:26, fill:'transparent', cursor:'grab' });
+  const labelA = make('text', { 'font-size':18, fill:'#e8ecf3', 'font-family':'DM Mono, monospace' }); labelA.textContent = 'A';
+
+  const handleB = make('circle', { r:11, fill:'#f5c842' });
+  const hitB = make('circle', { r:26, fill:'transparent', cursor:'grab' });
+  const labelB = make('text', { 'font-size':18, fill:'#e8ecf3', 'font-family':'DM Mono, monospace' }); labelB.textContent = 'B';
+
+  let angleA = 35, angleB = 165, angleT = 250;
+  let mode = 'radius';
+
+  const ACTIVE = {
+    radius: ['A'], diameter: ['A'], chord: ['A','B'], arc: ['A','B'],
+    sector: ['A','B'], tangent: ['T'], secant: ['A','B']
+  };
+
+  function labelOffset(deg){ return { x: 20*Math.cos(rad(deg)), y: -20*Math.sin(rad(deg)) }; }
+
+  function draw(){
+    const A = at(angleA, R), B = at(angleB, R), T = at(angleT, R), A2 = at(angleA + 180, R);
+
+    // position every draggable/derived point every frame (cheap, and keeps mode switches instant)
+    handleA.setAttribute('cx', A.x); handleA.setAttribute('cy', A.y);
+    hitA.setAttribute('cx', A.x); hitA.setAttribute('cy', A.y);
+    let off = labelOffset(angleA);
+    labelA.setAttribute('x', A.x + off.x); labelA.setAttribute('y', A.y + off.y);
+
+    handleB.setAttribute('cx', B.x); handleB.setAttribute('cy', B.y);
+    hitB.setAttribute('cx', B.x); hitB.setAttribute('cy', B.y);
+    off = labelOffset(angleB);
+    labelB.setAttribute('x', B.x + off.x); labelB.setAttribute('y', B.y + off.y);
+
+    handleT.setAttribute('cx', T.x); handleT.setAttribute('cy', T.y);
+    hitT.setAttribute('cx', T.x); hitT.setAttribute('cy', T.y);
+    off = labelOffset(angleT);
+    labelT.setAttribute('x', T.x + off.x); labelT.setAttribute('y', T.y + off.y);
+
+    handleA2.setAttribute('cx', A2.x); handleA2.setAttribute('cy', A2.y);
+    off = labelOffset(angleA + 180);
+    labelA2.setAttribute('x', A2.x + off.x); labelA2.setAttribute('y', A2.y + off.y);
+
+    // ---- hide everything mode-specific, then show only what's needed ----
+    show(radiusSeg, false); show(radiusLbl, false);
+    show(diameterSeg, false); show(handleA2, false); show(labelA2, false);
+    show(chordSeg, false);
+    show(sectorFill, false); show(radiusCA, false); show(radiusCB, false); show(arcHighlight, false); show(centralLbl, false);
+    show(tangentRadius, false); show(tangentLine, false); show(rightAngleMark, false); show(handleT, false); show(hitT, false); show(labelT, false);
+    show(secantLine, false);
+    show(handleA, false); show(hitA, false); show(labelA, false);
+    show(handleB, false); show(hitB, false); show(labelB, false);
+
+    const active = ACTIVE[mode];
+    if (active.includes('A')) { show(handleA, true); show(hitA, true); show(labelA, true); }
+    if (active.includes('B')) { show(handleB, true); show(hitB, true); show(labelB, true); }
+    if (active.includes('T')) { show(handleT, true); show(hitT, true); show(labelT, true); }
+
+    const rUnits = (R / SCALE).toFixed(1);
+    let html = '';
+
+    if (mode === 'radius') {
+      radiusSeg.setAttribute('x1', C.x); radiusSeg.setAttribute('y1', C.y);
+      radiusSeg.setAttribute('x2', A.x); radiusSeg.setAttribute('y2', A.y);
+      show(radiusSeg, true); show(radiusLbl, true);
+      radiusLbl.setAttribute('x', (C.x+A.x)/2 + 10); radiusLbl.setAttribute('y', (C.y+A.y)/2 - 10);
+      radiusLbl.textContent = 'radius';
+      const len = (dist(C, A) / SCALE).toFixed(1);
+      html = `radius <b>CA = ${len}</b> units — drag A anywhere on the rim and this length never changes. Every radius of the same circle is congruent.`;
+
+    } else if (mode === 'diameter') {
+      diameterSeg.setAttribute('x1', A.x); diameterSeg.setAttribute('y1', A.y);
+      diameterSeg.setAttribute('x2', A2.x); diameterSeg.setAttribute('y2', A2.y);
+      show(diameterSeg, true); show(handleA2, true); show(labelA2, true);
+      const len = (dist(A, A2) / SCALE).toFixed(1);
+      html = `diameter <b>AB = ${len}</b> units = 2 &times; radius (${rUnits}) — a chord that runs straight through center C. Drag A; B always stays locked directly opposite.`;
+
+    } else if (mode === 'chord') {
+      chordSeg.setAttribute('x1', A.x); chordSeg.setAttribute('y1', A.y);
+      chordSeg.setAttribute('x2', B.x); chordSeg.setAttribute('y2', B.y);
+      show(chordSeg, true);
+      const len = (dist(A, B) / SCALE).toFixed(1);
+      const minorDeg = Math.abs(shortDelta(angleA, angleB));
+      if (minorDeg > 174) {
+        html = `<span class="match">chord AB &asymp; ${len} units — swung through the center! This chord IS (essentially) the diameter, the longest one possible.</span>`;
+      } else {
+        html = `chord <b>AB = ${len}</b> units (max possible = the diameter, ${(2*R/SCALE).toFixed(1)}). Drag A and B — swing AB through the center and watch it become the longest chord there is.`;
+      }
+
+    } else if (mode === 'arc' || mode === 'sector') {
+      radiusCA.setAttribute('x1', C.x); radiusCA.setAttribute('y1', C.y);
+      radiusCA.setAttribute('x2', A.x); radiusCA.setAttribute('y2', A.y);
+      radiusCB.setAttribute('x1', C.x); radiusCB.setAttribute('y1', C.y);
+      radiusCB.setAttribute('x2', B.x); radiusCB.setAttribute('y2', B.y);
+      show(radiusCA, true); show(radiusCB, true);
+
+      const delta = shortDelta(angleA, angleB);
+      const steps = Math.max(2, Math.round(Math.abs(delta) / 3));
+      const pts = [];
+      for (let i = 0; i <= steps; i++) { const d = angleA + delta * i / steps; pts.push(at(d, R)); }
+      const pathPts = pts.map(p => `${p.x.toFixed(2)},${p.y.toFixed(2)}`).join(' L ');
+      arcHighlight.setAttribute('d', `M ${pathPts}`);
+      show(arcHighlight, true);
+
+      const minorDeg = Math.abs(delta);
+      const majorDeg = 360 - minorDeg;
+      const midDeg = angleA + delta / 2;
+      const lp = at(midDeg, R * 0.34);
+      centralLbl.setAttribute('x', lp.x); centralLbl.setAttribute('y', lp.y);
+      centralLbl.textContent = `${Math.round(minorDeg)}°`;
+      show(centralLbl, true);
+
+      const semicircleNote = Math.abs(minorDeg - 180) < 3 ? ' — exactly half the circle: a semicircle!' : '';
+
+      if (mode === 'arc') {
+        html = `minor arc AB = <b>${Math.round(minorDeg)}&deg;</b> &middot; major arc AB = <b>${Math.round(majorDeg)}&deg;</b>${semicircleNote} — every arc pair on a circle totals 360&deg;.`;
+      } else {
+        const sectorPathPts = pts.map(p => `${p.x.toFixed(2)},${p.y.toFixed(2)}`).join(' L ');
+        sectorFill.setAttribute('d', `M ${C.x},${C.y} L ${sectorPathPts} Z`);
+        show(sectorFill, true);
+        const pct = (minorDeg / 360 * 100).toFixed(1);
+        html = `sector CAB — the pie-slice boxed in by radii CA, CB and arc AB. Its central angle is <b>${Math.round(minorDeg)}&deg;</b>, about <b>${pct}%</b> of the whole circle's area.`;
+      }
+
+    } else if (mode === 'tangent') {
+      tangentRadius.setAttribute('x1', C.x); tangentRadius.setAttribute('y1', C.y);
+      tangentRadius.setAttribute('x2', T.x); tangentRadius.setAttribute('y2', T.y);
+      show(tangentRadius, true);
+
+      const rvx = T.x - C.x, rvy = T.y - C.y;
+      const rm = Math.hypot(rvx, rvy) || 1;
+      const ux = rvx / rm, uy = rvy / rm;          // unit radius direction, C -> T
+      const px = -uy, py = ux;                       // unit tangent direction (perpendicular)
+      const ext = 130;
+      const T1 = { x: T.x - px*ext, y: T.y - py*ext };
+      const T2 = { x: T.x + px*ext, y: T.y + py*ext };
+      tangentLine.setAttribute('x1', T1.x); tangentLine.setAttribute('y1', T1.y);
+      tangentLine.setAttribute('x2', T2.x); tangentLine.setAttribute('y2', T2.y);
+      show(tangentLine, true);
+
+      const s = 14;
+      const inX = -ux, inY = -uy;   // points from T back toward center
+      const p1 = { x: T.x + inX*s, y: T.y + inY*s };
+      const p2 = { x: p1.x + px*s, y: p1.y + py*s };
+      const p3 = { x: T.x + px*s, y: T.y + py*s };
+      rightAngleMark.setAttribute('d', `M ${p1.x} ${p1.y} L ${p2.x} ${p2.y} L ${p3.x} ${p3.y}`);
+      show(rightAngleMark, true);
+
+      html = `tangent line at T touches the circle at exactly <b>1</b> point, and it is always perpendicular (<b>90&deg;</b>) to radius CT at that point.`;
+
+    } else if (mode === 'secant') {
+      const dx = B.x - A.x, dy = B.y - A.y;
+      const dm = Math.hypot(dx, dy) || 1;
+      const ux = dx / dm, uy = dy / dm;
+      const ext = 70;
+      const A1 = { x: A.x - ux*ext, y: A.y - uy*ext };
+      const B1 = { x: B.x + ux*ext, y: B.y + uy*ext };
+      secantLine.setAttribute('x1', A1.x); secantLine.setAttribute('y1', A1.y);
+      secantLine.setAttribute('x2', B1.x); secantLine.setAttribute('y2', B1.y);
+      show(secantLine, true);
+      html = `secant line through A and B intersects the circle's circumference at exactly <b>2</b> points — then keeps going in both directions, unlike a chord, which stops at A and B.`;
+    }
+
+    readout.innerHTML = html;
+  }
+
+  const HINTS = {
+    radius: 'Drag the gold point A anywhere around the rim. The length of CA is the radius — try several spots and watch the readout never budge.',
+    diameter: 'Drag A around the rim; B is locked exactly opposite, straight through C. The segment AB is the diameter, always double the radius.',
+    chord: 'Drag A and B independently anywhere on the rim. AB is a chord. Try to line it up through the center — that’s the longest a chord can ever be.',
+    arc: 'Drag A and B. The gold highlight along the rim between them is the minor arc; the rest of the way around is the major arc. Watch the two degree measures always add to 360°.',
+    sector: 'Drag A and B. The shaded wedge is the sector — bounded by two radii and the arc between them, like a slice of pie cut from the whole circle.',
+    tangent: 'Drag the gold point T around the rim. The line through T is a tangent — it only ever grazes the circle at that one point, always at a right angle to the radius.',
+    secant: 'Drag A and B. The line now runs past both points in both directions — a secant, crossing the circle at exactly two points, unlike the one-point tangent.'
+  };
+
+  function setMode(m){
+    mode = m;
+    [...document.querySelectorAll('#modes button')].forEach(b => b.classList.toggle('on', b.dataset.mode === m));
+    hint.textContent = HINTS[m];
+    draw();
+  }
+
+  // ---- drag handling ----
+  let dragging = null;
+  function toLocal(e){
+    const r = svg.getBoundingClientRect();
+    const cx = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+    const cy = (e.touches ? e.touches[0].clientY : e.clientY) - r.top;
+    return { x: cx / r.width * 640, y: cy / r.height * 400 };
+  }
+  function angleFromPoint(p){
+    return Math.atan2(C.y - p.y, p.x - C.x) * 180 / Math.PI;
+  }
+  function down(key, e){
+    if (!ACTIVE[mode].includes(key)) return;
+    dragging = key; move(e); e.preventDefault();
+  }
+  function move(e){
+    if (!dragging) return;
+    const deg = angleFromPoint(toLocal(e));
+    if (dragging === 'A') angleA = deg;
+    else if (dragging === 'B') angleB = deg;
+    else if (dragging === 'T') angleT = deg;
+    draw(); e.preventDefault();
+  }
+  function up(){ dragging = null; }
+
+  hitA.addEventListener('pointerdown', e => down('A', e));
+  hitB.addEventListener('pointerdown', e => down('B', e));
+  hitT.addEventListener('pointerdown', e => down('T', e));
+  hitA.addEventListener('touchstart', e => down('A', e), { passive:false });
+  hitB.addEventListener('touchstart', e => down('B', e), { passive:false });
+  hitT.addEventListener('touchstart', e => down('T', e), { passive:false });
+  window.addEventListener('pointermove', move);
+  window.addEventListener('pointerup', up);
+  window.addEventListener('touchmove', move, { passive:false });
+  window.addEventListener('touchend', up);
+
+  document.getElementById('modes').addEventListener('click', e => { const m = e.target.dataset.mode; if (m) setMode(m); });
+
+  setMode('radius');
+})();
+</script>
+</body>
+</html>

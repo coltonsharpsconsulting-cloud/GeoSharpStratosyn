@@ -1,0 +1,42 @@
+{
+  "id": "LP-W14-S2", "course": "geometry", "week": 14, "session": 2,
+  "session_type": "build", "lesson": "L12 — Circles: Parts & Vocabulary",
+  "unit": "u02", "duration_min": 60, "mode": "Build",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 14 · Circle Hunt & Build",
+  "essential_question": "Can you find a circle's parts hiding in the real world, and then construct and label every one of them yourself with a compass?",
+  "objective": "Measure the radius and diameter of real circular objects and identify a real sector and chord, then construct a circle with a compass and correctly label its center, radius, diameter, chord, arc, sector, and tangent.",
+  "standards": ["G-C.A.2"],
+  "vocab": ["circle", "center", "radius", "diameter", "chord", "arc", "sector", "secant", "tangent", "semicircle", "circumference", "sphere"],
+  "agenda": [
+    {"phase":"brief","min":6,"title":"Brief — From Vocabulary to Real Circles","board":"brief","content":{"heading":"From naming parts to finding and building them","bullets":["Yesterday: named every part of a circle and learned d = 2r.","Today: hunt three real circles in your world and measure them, then draw and label your own circle with a compass.","The test: can you measure a real radius and diameter accurately — and construct and correctly label all seven parts on one circle you draw yourself?"]}},
+    {"phase":"plan","min":8,"title":"Plan — Read the Build Card","board":"plan","content":{"heading":"Gather + plan","note":"Open the project card. Gather your compass, ruler, protractor, and paper. Decide which three real circles you'll hunt (a plate, a clock face, a wheel, a round table) and which real object will stand in for a sector and which for a chord before you start measuring."}},
+    {"phase":"build","min":25,"title":"Build — Hunt & Construct","board":"build","content":{"heading":"Measure the world, then construct to spec","bullets":["Circle Hunt — find and measure the radius and diameter of three real circles; check that each pair satisfies d = 2r.","Identify one real sector and one real chord (not a diameter) and explain why each fits its definition.","Compass Build — draw one circle, mark its center, and draw and label a radius, a diameter, a chord, an arc, a sector, and a tangent.","Check your tangent with a protractor — it should meet its radius at close to a right angle."]}},
+    {"phase":"measure","min":12,"title":"Record Your Hunt & Your Build","board":"measure","content":{"heading":"Get the numbers and labels down","figure":"grid-blank","items":["m1","m2","m3"]}},
+    {"phase":"reflect","min":9,"title":"Reflect & Photograph","board":"reflect","content":{"items":["r1"],"preview":"Session 3: defend why the diameter is always the longest chord and why a circle's radii are always congruent, then the checkpoint."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can measure the radius and diameter of a real circular object and confirm d = 2r"},
+    {"id":"SC2","text":"I can construct a circle with a compass and correctly label its center, radius, diameter, chord, arc, sector, and tangent"},
+    {"id":"SC3","text":"I can identify a sector and a chord in the real world and check a tangent's right angle with a protractor"}
+  ],
+  "assets": {
+    "project": {"note":"Curriculum/Geometry/Lessons/W14-S2/project-card.md"},
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W14-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W14 Circle Parts.md"},
+    "mus": {"practice":"MUS/L12 — Lesson Practice.pdf","review":"MUS/L12 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"measure","kind":"practice","title":"Hunt Log & Compass Build","items":["m1","m2","m3"]},
+      {"phase":"reflect","kind":"exit","title":"Reflect","items":["r1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"m1","type":"measure","sc":"SC1","points":2,"prompt":"List the three real circles you hunted (what each object was) and your measured radius and diameter for each, to the nearest 0.5 cm or 1/4 inch. Confirm each pair satisfies d = 2r.","answer":"Any three honest, plausible real objects with measured radius and diameter, e.g. a dinner plate r ≈ 11 cm / d ≈ 22 cm, a coin r ≈ 1.2 cm / d ≈ 2.4 cm, a clock face r ≈ 15 cm / d ≈ 30 cm.","explain":"Rubric: three named real objects with both measurements recorded (1 pt) + all three pairs correctly satisfying d = 2r within measurement tolerance (1 pt)."},
+    {"ref":"m2","type":"short","sc":"SC3","points":1,"prompt":"Name one real-world example of a sector and one real-world example of a chord that is NOT a diameter, and explain why each fits that part's definition.","answer":"Sector: a slice of pizza or pie — bounded by two straight cuts from near the center and the crust's arc between them. Chord (not a diameter): a cable strung between two points on a circular fountain or arch that doesn't pass through the center.","explain":"Full credit: a plausible real sector (a wedge bounded by two radius-like edges and an arc) and a plausible real chord that clearly does not pass through the center."},
+    {"ref":"m3","type":"construct","sc":"SC2","points":2,"figure":"grid-blank","prompt":"Use a compass to draw a circle. Mark the center C, then draw and label a radius, a diameter, a chord that is not the diameter, an arc, a sector, and a tangent line.","answer":"One compass-drawn circle with center C marked, a labeled radius, a labeled diameter through C (length = 2 × radius), a labeled chord not through C, a marked minor arc, a shaded sector between two radii, and a tangent line touching the circle at exactly one point.","explain":"Rubric: center, radius, and diameter correctly drawn and labeled (1 pt) + chord, arc, sector, and tangent all present and correctly labeled (1 pt)."},
+    {"ref":"r1","type":"short","sc":"SC3","points":2,"prompt":"Reflect: which was harder to get exactly right — measuring a real circle's radius and diameter, or constructing and labeling every part on your own compass-drawn circle? What told you when your tangent line was actually correct?"}
+  ]
+}

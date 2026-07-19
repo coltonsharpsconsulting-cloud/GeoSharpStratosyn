@@ -1,0 +1,42 @@
+{
+  "id": "LP-W16-S2", "course": "geometry", "week": 16, "session": 2,
+  "session_type": "build", "lesson": "L14 — Volume of Rectangular Solids & Cylinders",
+  "unit": "u02", "duration_min": 60, "mode": "Build",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 16 · Volume Hunt & Build",
+  "essential_question": "Can you measure a real box or cylinder's dimensions and compute its exact volume — and verify your answer a second way?",
+  "objective": "Measure the dimensions of real (or CAD/3D-printed) rectangular and cylindrical containers — a cereal box, a soup can, a room — and compute each one's volume with the correct formula, confirming at least one answer by water displacement, unit-cube stacking, or a CAD measurement tool.",
+  "standards": ["G-GMD.A.3"],
+  "vocab": ["volume", "rectangular solid", "cylinder", "base", "cubic units"],
+  "agenda": [
+    {"phase":"brief","min":6,"title":"Brief — From Formulas to Containers","board":"brief","content":{"heading":"From formulas on paper to containers you can fill","bullets":["Yesterday: learned that volume = area of the base × height, and found the volume of a rectangular solid (V = l·w·h) and a cylinder (V = πr²·h).","Today: measure three real containers — at least one rectangular solid and one cylinder — and compute each one's volume, or 3D-print/CAD-model a solid and verify its volume by water displacement or by counting unit cubes.","The test: can you measure the right dimensions (not a diagonal, not the diameter instead of the radius) and get a believable, verified volume?"]}},
+    {"phase":"plan","min":8,"title":"Plan — Read the Build Card","board":"plan","content":{"heading":"Gather + choose your path","note":"Open the project card. Gather a tape measure or ruler, a calculator, and — for the verification path — a graduated measuring container, water, and/or unit cubes (sugar cubes, wooden blocks, or 3D-printed 1-inch cubes). Decide which three containers you'll measure, or which solid you'll model in FreeCAD or 3D-print, before you start."}},
+    {"phase":"build","min":25,"title":"Build — Measure & Compute","board":"build","content":{"heading":"Measure the world, then compute","bullets":["Real-Container Hunt — find a rectangular box (a cereal box, a moving box, a book), a cylinder (a soup can, a candle, a water bottle), and a real room or closet to treat as a third rectangular solid.","Measure length, width, and height for each rectangular solid; measure the radius (or the diameter and divide by 2) and the height for each cylinder.","Compute each volume with the correct formula, showing your work, in cubic units.","CAD / 3D-Print alternative — model a rectangular solid or cylinder in FreeCAD with dimensioned constraints, read its volume back with the measurement tool, then (if a printer is available) print it and verify by water displacement or by packing it with unit cubes.","For all three containers, record the shape, its dimensions, the formula you used, and the computed volume."]}},
+    {"phase":"measure","min":12,"title":"Record Your Measurements","board":"measure","content":{"heading":"Get the numbers down","figure":"grid-blank","items":["m1","m2","m3"]}},
+    {"phase":"reflect","min":9,"title":"Reflect & Photograph","board":"reflect","content":{"items":["r1"],"preview":"Session 3: defend why volume = area of the base × height by stacking layers, review MUS Lesson Practice 14A/14B, and take the checkpoint."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can measure the correct dimensions of a real rectangular solid and a real cylinder (not a diagonal or the diameter instead of the radius)"},
+    {"id":"SC2","text":"I can compute the volume of a rectangular solid and a cylinder using the correct formula for each"},
+    {"id":"SC3","text":"I can confirm a computed volume a second way — by water displacement, unit-cube stacking, or a CAD measurement tool"}
+  ],
+  "assets": {
+    "project": {"note":"Curriculum/Geometry/Lessons/W16-S2/project-card.md"},
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W16-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W16 Volume of Solids.md"},
+    "mus": {"practice":"MUS/L14 — Lesson Practice.pdf","review":"MUS/L14 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"measure","kind":"practice","title":"Record Your Measurements","items":["m1","m2","m3"]},
+      {"phase":"reflect","kind":"exit","title":"Reflect","items":["r1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"m1","type":"measure","sc":"SC1","points":2,"prompt":"List the three containers you worked with (name each: rectangular solid or cylinder) and record every dimension you measured, with units (length/width/height for the solid(s); radius or diameter and height for the cylinder).","answer":"Any three honest, plausible measurements, e.g. cereal box: l = 20 cm, w = 7 cm, h = 30 cm; soup can: r = 3.5 cm, h = 10 cm; bedroom closet: l = 1.2 m, w = 0.6 m, h = 2.1 m.","explain":"Rubric: three named containers with every needed dimension recorded and units (1 pt) + at least one rectangular solid AND one cylinder among them (1 pt)."},
+    {"ref":"m2","type":"short","sc":"SC2","points":2,"prompt":"Using your recorded measurements, compute the volume of all three containers, showing the formula and the numbers plugged in for each.","answer":"Rectangular solid(s): V = l·w·h; Cylinder: V = πr²·h — each with the student's own numbers substituted and multiplied out.","explain":"Rubric: correct formula chosen for each shape (1 pt) + correct arithmetic producing a believable volume in cubic units for each (1 pt)."},
+    {"ref":"m3","type":"short","sc":"SC3","points":1,"prompt":"Pick one of your three containers and confirm its volume a second way — water displacement, packing with unit cubes, or a CAD measurement tool. Did it match your formula answer? If not, what did you fix?","answer":"Any honest comparison naming the confirmation method and result, e.g. 'I filled my soup can with water, poured it into a measuring cup, and got about 385 mL (≈385 cm³), close to my formula answer' or 'I had measured the can's diameter instead of its radius the first time, which threw off my answer — fixing that matched the two methods.'","explain":"Full credit names a specific second method and gives an honest result, including what was corrected if the two didn't initially match."},
+    {"ref":"r1","type":"short","sc":"SC3","points":2,"prompt":"Reflect: which was harder — measuring a cylinder's true radius (not its diameter) and true height (not a slanted edge), or trusting that π actually belongs in the formula before you checked it against real water or cubes? What convinced you the cylinder formula actually works?"}
+  ]
+}

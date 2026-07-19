@@ -1,0 +1,48 @@
+{
+  "id": "LP-W14-S1", "course": "geometry", "week": 14, "session": 1,
+  "session_type": "concept", "lesson": "L12 — Circles: Parts & Vocabulary",
+  "unit": "u02", "duration_min": 60, "mode": "Concept",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 14 · Circles — Parts & Vocabulary",
+  "essential_question": "What do you call each part of a circle, and how do the radius, diameter, chord, arc, sector, secant, and tangent relate to each other and to the center?",
+  "objective": "Identify and label the parts of a circle (center, radius, diameter, chord, arc, sector, secant, tangent), state that a diameter equals twice the radius, and distinguish a chord, a secant, and a tangent by how many points each touches the circle.",
+  "standards": ["G-C.A.2"],
+  "vocab": ["circle", "center", "radius", "diameter", "chord", "arc", "sector", "secant", "tangent", "semicircle", "circumference", "sphere"],
+  "agenda": [
+    {"phase":"launch","min":6,"title":"Launch — The Wheel Has No Corners","board":"launch","content":{"prompt":"Picture a bicycle wheel: straight spokes running from the hub out to the rim, and the rim's own curve connecting them all. Before you learn a single new word, what would you call one spoke? What would you call the whole curved rim if you rolled the wheel out flat and measured it? And what's the difference between a straight stick that just grazes the wheel's rim and one that cuts all the way across it?"}},
+    {"phase":"i_do","min":12,"title":"I do — Center, Radius, Diameter & Every Part Between","board":"i_do","content":{"heading":"One center, and every part named by how it meets the circle","figure":"grid-blank","bullets":["Every point on a circle is the same distance from its center; a radius is the segment from the center to any point on the circle — and every radius of the same circle is congruent.","A chord is any segment with both endpoints on the circle. A diameter is a special chord that passes straight through the center — the longest possible chord, and it always equals 2 × the radius.","A secant is a full LINE (not just a segment) that intersects the circle at exactly two points; a tangent is a line that intersects the circle at exactly one point, and it's always perpendicular to the radius drawn to that point.","An arc is a piece of the circle's circumference (its perimeter, the distance all the way around); the shorter piece is the minor arc, the longer piece the major arc, and together they always add up to 360°. An arc that's exactly half the circle (180°) is a semicircle.","A sector is a piece of the circle's area — the pie-slice region boxed in by two radii and the arc between them.","Two related shapes reuse the word 'circle': a sphere is a three-dimensional circle (think a ball), and an ellipse is a stretched circle — a racetrack or a planet's orbit."]}},
+    {"phase":"explore","min":8,"title":"Explore — Drag the Points, Build Every Part","board":"explore","content":{"heading":"Same circle, seven different parts","note":"On the sim, use the buttons to switch between Radius, Diameter, Chord, Arc, Sector, Tangent, and Secant. Drag the gold points around the circle in each mode and watch the live readout. In Radius mode, notice the length never changes no matter where you drag — every radius is congruent. In Chord mode, drag until the chord swings through the center — that's the longest possible chord, the diameter. In Tangent mode, watch the right-angle mark where the tangent meets the radius.","figure":"grid-blank"}},
+    {"phase":"check","min":5,"title":"Check for Understanding","board":"check","content":{"heading":"Name that part","items":["n1","n2"]}},
+    {"phase":"you_do","min":12,"title":"You do — Label & Relate","board":"you_do","content":{"heading":"Your turn on the worksheet","items":["p1","p2","p3","p4","p5"]}},
+    {"phase":"exit","min":5,"title":"Exit Ticket","board":"exit","content":{"items":["x1"],"preview":"Build session: hunt real circles and identify/measure their parts, then construct and label your own circle with a compass."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can identify and label the parts of a circle: center, radius, diameter, chord, arc, sector, secant, and tangent"},
+    {"id":"SC2","text":"I can state that a diameter equals twice the radius, and that all radii of one circle are congruent"},
+    {"id":"SC3","text":"I can distinguish a chord, a secant, and a tangent by how many points each touches the circle, and state that minor and major arcs of the same circle add to 360°"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W14-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W14 Circle Parts.md"},
+    "mus": {"practice":"MUS/L12 — Lesson Practice.pdf","review":"MUS/L12 — Systematic Review.pdf"},
+    "interactive": {"slug":"circle-parts","note":"Curriculum/Geometry/Lessons/W14-S1/sims/circle-parts.html"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"check","kind":"check","title":"Name That Part","items":["n1","n2"]},
+      {"phase":"practice","kind":"practice","title":"Label & Relate","items":["p1","p2","p3","p4","p5"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"n1","type":"dropdown","sc":"SC1","points":1,"prompt":"The segment from the center of a circle to any point on the circle is called the…","options":["diameter","radius","chord","secant"],"answer":"radius","explain":"A radius always runs from the center to a point on the circle; every radius of the same circle is the same length."},
+    {"ref":"n2","type":"mc","sc":"SC1","points":1,"prompt":"A diameter is best described as…","options":["a segment from the center to the edge","a chord that passes through the center","a line that touches the circle at one point","a piece of the circle's circumference"],"answer":"a chord that passes through the center","explain":"A diameter is a special kind of chord — one whose path happens to run straight through the center — which is exactly why it always equals twice the radius."},
+    {"ref":"p1","type":"short","sc":"SC2","points":2,"prompt":"A circle's radius is 6 cm. What is its diameter? Explain using the relationship between the two.","answer":"12 cm; the diameter always equals 2 × the radius, so 2 × 6 cm = 12 cm.","explain":"d = 2r is a fixed relationship for every circle, no matter its size."},
+    {"ref":"p2","type":"dropdown","sc":"SC3","points":1,"prompt":"A line that touches a circle at exactly one point is called a…","options":["chord","secant","tangent","diameter"],"answer":"tangent","explain":"A tangent meets the circle at exactly one point and is always perpendicular to the radius drawn to that point; a secant, by contrast, always crosses at two points."},
+    {"ref":"p3","type":"construct","sc":"SC1","points":2,"figure":"grid-blank","prompt":"On the grid, use a compass to draw a circle. Mark its center C, then draw and label one radius, one diameter, and one chord that is NOT the diameter.","answer":"A circle with center C marked, a segment from C to the rim labeled as the radius, a segment through C from rim to rim labeled as the diameter, and a separate segment with both endpoints on the circle (not through C) labeled as a chord.","explain":"Rubric: center marked and radius drawn (1 pt) + a correctly labeled diameter (through C) and a correctly labeled chord (not through C) (1 pt)."},
+    {"ref":"p4","type":"short","sc":"SC3","points":2,"prompt":"A central angle cuts off a minor arc measuring 70°. What is the measure of the major arc? Explain how you know.","answer":"290°; a circle's minor arc and major arc always add up to 360°, so 360° − 70° = 290°.","explain":"Minor + major arc = 360° for any two points on the same circle, since together they make up the whole circumference."},
+    {"ref":"p5","type":"short","sc":"SC1","points":1,"prompt":"What is the special name for an arc that measures exactly 180°, and what fraction of the circle does it represent?","answer":"A semicircle — exactly half the circle.","explain":"180° is exactly half of the circle's full 360°, which is why this special arc is named separately."},
+    {"ref":"x1","type":"short","sc":"SC1","points":2,"prompt":"Exit: find one real circle around you right now (a plate, a clock, a wheel, a coin) and point out where its center, a radius, and its circumference would be."}
+  ]
+}

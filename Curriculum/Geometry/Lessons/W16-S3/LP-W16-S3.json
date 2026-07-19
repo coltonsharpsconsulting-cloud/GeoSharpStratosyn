@@ -1,0 +1,44 @@
+{
+  "id": "LP-W16-S3", "course": "geometry", "week": 16, "session": 3,
+  "session_type": "prove", "lesson": "L14 — Volume of Rectangular Solids & Cylinders",
+  "unit": "u02", "duration_min": 60, "mode": "Prove",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 16 · Prove It — Volume of Rectangular Solids & Cylinders",
+  "essential_question": "Why does stacking identical layers of the base, one on top of the other, always give you a solid's exact volume?",
+  "objective": "Justify why volume = area of the base × height by reasoning about stacking congruent layers, review the week's Math-U-See practice (Lesson Practice 14A & 14B), and pass the mastery checkpoint on rectangular-solid and cylinder volume and on a solid's faces, edges, and vertices.",
+  "standards": ["G-GMD.A.3"],
+  "vocab": ["volume", "rectangular solid", "cylinder", "base", "cubic units", "face", "edge", "vertex"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Redraw From Memory","board":"warmup","content":{"prompt":"Without looking, sketch a rectangular solid and a cylinder, and mark a believable length, width, and height (or radius and height) on each. Then say out loud, in your own words, why volume needs THREE measurements while area only ever needed two."}},
+    {"phase":"review","min":12,"title":"Review — Your Math-U-See Work","board":"review","content":{"heading":"Go over Lesson Practice 14A & 14B together","note":"Bring your completed MUS Lesson Practice 14A/14B. We check the tricky ones: telling a cylinder's radius apart from its diameter, remembering the height runs perpendicular to the base whether that base is a rectangle or a circle, the face/edge/vertex matching questions, and the fill-in-the-blank about cubic units. Fix any you missed and note WHY."}},
+    {"phase":"prove","min":16,"title":"Prove It — Reason Out Loud","board":"prove","content":{"heading":"Defend three claims","figure":"grid-blank","bullets":["Claim 1: volume = area of the base × height, whether the base is a rectangle or a circle. Argue it: picture stacking identical paper copies of the base, one directly on top of the next, until the stack is exactly as tall as the solid's height — how many copies of the base's area have you stacked, and why does that total exactly equal the volume?","Claim 2: a rectangular solid's volume is length × width × height — three numbers multiplied — never length × width + height or any other combination. Argue it from the base-times-height idea: what is 'the base' of a rectangular solid, and what is its area, before you ever multiply by the height?","Claim 3: a cylinder's volume is πr² × height — never πr × height or 2πr × height. Argue it: what shape is a cylinder's base, what is the actual area formula for that shape, and why would using the circle's circumference (2πr) instead of its area give you an entirely wrong kind of quantity?"]}},
+    {"phase":"checkpoint","min":18,"title":"Mastery Checkpoint","board":"checkpoint","content":{"heading":"Show what you own","items":["c1","c2","c3","c4","c5","c6"]}},
+    {"phase":"close","min":8,"title":"Close & Set Mastery","board":"close","content":{"items":["x1"],"preview":"Next week, Lesson 15 — Volume of Pyramids, Cones, Prisms & Spheres — where this same base-times-height idea extends to solids that come to a point."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can state and use the volume formulas for a rectangular solid and a cylinder without help"},
+    {"id":"SC2","text":"I can justify why volume = area of the base × height by reasoning about stacking congruent layers"},
+    {"id":"SC3","text":"I can identify a solid's faces, edges, and vertices, and measure a real container's dimensions correctly"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W16-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W16 Volume of Solids.md"},
+    "mus": {"practice":"MUS/L14 — Lesson Practice.pdf","review":"MUS/L14 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"checkpoint","kind":"check","title":"Mastery Checkpoint","items":["c1","c2","c3","c4","c5","c6"]},
+      {"phase":"close","kind":"exit","title":"Set Your Mastery","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"c1","type":"mc","sc":"SC1","points":1,"prompt":"A rectangular solid has length 6 m, width 4 m, and height 3 m. Its volume is…","options":["13 m³","72 m³","144 m³"],"answer":"72 m³","explain":"V = l·w·h = 6 × 4 × 3 = 72 m³."},
+    {"ref":"c2","type":"dropdown","sc":"SC1","points":1,"prompt":"The volume of a geometric solid is always given in ___ units.","options":["linear","square","cubic"],"answer":"cubic","explain":"Volume fills three dimensions, so it's measured in cubic units (in³, ft³, cm³, m³) — never linear or square units."},
+    {"ref":"c3","type":"short","sc":"SC1","points":2,"prompt":"A cylinder has a radius of 6 in and a height of 9 in. Find its volume in terms of π, then estimate it as a decimal (π ≈ 3.14).","answer":"V = π(6)²(9) = 324π in³ ≈ 1017.4 in³","explain":"V = πr²·h = π × 36 × 9 = 324π in³; 324 × 3.14 ≈ 1017.4 in³."},
+    {"ref":"c4","type":"measure","sc":"SC3","points":2,"prompt":"Measure the length, width, and height (or radius and height) of a real container near you right now (a mug, a shoebox, a drinking glass, a cereal box) and compute its volume.","answer":"Any honest measured dimensions with units and a correctly computed volume, e.g. a mug r = 3.5 cm, h = 9 cm → V = π(3.5)²(9) ≈ 346.4 cm³.","explain":"Rubric: dimensions measured and recorded with units, matching the solid's actual shape (1 pt) + volume correctly computed with the matching formula (1 pt)."},
+    {"ref":"c5","type":"dropdown","sc":"SC3","points":1,"prompt":"The point where edges of a rectangular solid meet is called a…","options":["face","edge","vertex"],"answer":"vertex","explain":"A vertex is a corner point where edges meet; a face is a flat surface, and an edge is the line where two faces meet."},
+    {"ref":"c6","type":"short","sc":"SC2","points":2,"prompt":"In your own words, explain why stacking identical copies of a solid's base — one on top of the next, up to the solid's full height — always gives exactly its volume, and use that idea to explain why a taller cylinder (same radius) always has more volume than a shorter one.","answer":"Each stacked layer has the same area as the base; stacking layers up to a height h fills the solid with no gaps and no overlap, so the total volume is exactly base-area × height. Since a taller cylinder is simply more layers of the same base area stacked higher, its volume must be greater than a shorter cylinder sharing that radius.","explain":"Full credit connects 'stacking congruent layers of the base' directly to why multiplying base area by height gives the exact volume, and applies it to compare two cylinders sharing a radius but differing in height."},
+    {"ref":"x1","type":"short","sc":"SC1","points":1,"prompt":"Close: rate yourself on Lesson 14 (Emerging / Proficient / Mastered) and name the one idea you'd want to revisit."}
+  ]
+}

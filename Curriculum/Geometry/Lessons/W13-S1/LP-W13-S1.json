@@ -1,0 +1,47 @@
+{
+  "id": "LP-W13-S1", "course": "geometry", "week": 13, "session": 1,
+  "session_type": "concept", "lesson": "L11 — Polygons: Angles, Diagonals & Regular Polygons",
+  "unit": "u02", "duration_min": 60, "mode": "Concept",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 13 · Polygons — Angles, Diagonals & Regular Polygons",
+  "essential_question": "If a triangle's angles always sum to 180° and a quadrilateral's always sum to 360°, what is the sum for ANY polygon — and is there one formula that works for every number of sides at once?",
+  "objective": "Name a polygon by its number of sides, find the number of diagonals from one vertex and the interior angle sum using (n-2)×180°, and find each interior and exterior angle of a regular polygon.",
+  "standards": ["G-CO.C.11"],
+  "vocab": ["polygon", "diagonal", "interior angle", "exterior angle", "regular polygon", "n-gon"],
+  "agenda": [
+    {"phase":"launch","min":6,"title":"Launch — Count the Corners","board":"launch","content":{"prompt":"A triangle's angles always add to 180°. A quadrilateral's always add to 360°. Before you learn a single new rule, guess out loud: does a pentagon's angle sum keep climbing by another 180°? What about a hexagon? Is there a pattern, or does every shape need its own separate rule?"}},
+    {"phase":"i_do","min":12,"title":"I do — Name It, Split It, Sum It","board":"i_do","content":{"heading":"Diagonals from one vertex turn any polygon into triangles","figure":"grid-blank","bullets":["Polygons are named by their number of sides: 3=triangle, 4=quadrilateral, 5=pentagon, 6=hexagon, 7=heptagon, 8=octagon, 9=nonagon, 10=decagon, 11=undecagon, 12=dodecagon — beyond that, just say 'n-gon' (a 15-gon, a 20-gon).","A diagonal connects two NON-adjacent vertices. From any ONE vertex of an n-sided polygon you can draw exactly n − 3 diagonals (you skip yourself and your two neighbors, who are already joined to you by a side).","Those n − 3 diagonals from one vertex split the whole polygon into exactly n − 2 triangles — and since every triangle's angles sum to 180°, the polygon's interior angle sum is (n − 2) × 180°.","A REGULAR polygon has all sides congruent AND all angles congruent, so dividing the total by n gives each interior angle: (n − 2) × 180° ÷ n.","Every convex polygon's exterior angles (one per vertex) always add up to exactly 360°, no matter how many sides — so a regular polygon's each exterior angle is 360° ÷ n, and interior + exterior = 180° at every vertex."]}},
+    {"phase":"explore","min":8,"title":"Explore — Slide the Sides, Watch It All Update","board":"explore","content":{"heading":"Drag the slider from 3 sides to 12 and read the live totals","note":"On the sim, use the slider or the − / + buttons to change the number of sides from 3 to 12. Watch the diagonal count, the interior angle sum, and each interior angle update live. Stop at n = 4 — what do you notice about the interior angle? Then watch what happens to each interior angle as n climbs toward 12.","figure":"grid-blank"}},
+    {"phase":"check","min":5,"title":"Check for Understanding","board":"check","content":{"heading":"Name that polygon fact","items":["n1","n2"]}},
+    {"phase":"you_do","min":12,"title":"You do — Compute & Justify","board":"you_do","content":{"heading":"Your turn on the worksheet","items":["p1","p2","p3","p4"]}},
+    {"phase":"exit","min":5,"title":"Exit Ticket","board":"exit","content":{"items":["x1"],"preview":"Build session: hunt down or build real regular polygons and verify their diagonal counts and angle sums."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can name a polygon by its number of sides and find the diagonals-from-one-vertex and triangle count"},
+    {"id":"SC2","text":"I can find a polygon's interior angle sum using (n-2)×180°"},
+    {"id":"SC3","text":"I can find each interior and exterior angle of a regular polygon, and find n from a given exterior angle"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W13-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W13 Polygons.md"},
+    "mus": {"practice":"MUS/L11 — Lesson Practice.pdf","review":"MUS/L11 — Systematic Review.pdf"},
+    "interactive": {"slug":"polygon-explorer","note":"Curriculum/Geometry/Lessons/W13-S1/sims/polygon-explorer.html"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"check","kind":"check","title":"Name That Polygon Fact","items":["n1","n2"]},
+      {"phase":"practice","kind":"practice","title":"Compute & Justify","items":["p1","p2","p3","p4"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"n1","type":"dropdown","sc":"SC1","points":1,"prompt":"A 9-sided polygon is called a…","options":["hexagon","octagon","nonagon","decagon"],"answer":"nonagon","explain":"9 sides = nonagon. A polygon always has the same number of angles as sides, so you can count either one."},
+    {"ref":"n2","type":"mc","sc":"SC1","points":1,"prompt":"Drawing every diagonal from ONE vertex of an n-sided polygon splits it into how many triangles?","options":["n","n-1","n-2","n-3"],"answer":"n-2","explain":"n-3 diagonals from one vertex leave n-2 triangles — that's exactly why the interior angle sum formula is (n-2)×180°."},
+    {"ref":"p1","type":"short","sc":"SC1","points":2,"prompt":"A regular hexagon (6 sides). How many diagonals can you draw from ONE vertex, and how many triangles does that split it into?","answer":"3 diagonals from one vertex (6-3=3); those diagonals split the hexagon into 4 triangles (6-2=4).","explain":"n-3 gives diagonals from one vertex; n-2 gives the resulting triangle count — here n=6."},
+    {"ref":"p2","type":"construct","sc":"SC1","points":2,"figure":"grid-blank","prompt":"On the grid, sketch a pentagon (5 sides) and draw every diagonal from ONE vertex. Label how many diagonals you drew and how many triangles they created.","answer":"A closed 5-sided figure with 2 diagonals drawn from one vertex (5-3=2), creating 3 triangles (5-2=3).","explain":"Rubric: a closed 5-sided figure (1 pt) + exactly 2 diagonals from one vertex correctly splitting it into 3 triangles (1 pt)."},
+    {"ref":"p3","type":"dropdown","sc":"SC3","points":1,"prompt":"A regular polygon has an exterior angle measuring 40° at every vertex. What is the polygon's name?","options":["hexagon","octagon","nonagon","decagon"],"answer":"nonagon","explain":"n = 360°÷40° = 9 sides — a nonagon. Every regular polygon's exterior angles always add to 360°, so dividing 360° by one exterior angle gives the number of sides."},
+    {"ref":"p4","type":"short","sc":"SC2","points":2,"prompt":"The sum of the interior angles of a polygon is 1440°. How many sides does it have, and what is the name of that polygon?","answer":"10 sides — a decagon. (n-2)×180°=1440° → n-2=8 → n=10.","explain":"Divide both sides of (n-2)×180°=1440° by 180° to get n-2=8, so n=10 — a decagon."},
+    {"ref":"x1","type":"short","sc":"SC1","points":2,"prompt":"Exit: find one real polygon around you right now (a stop sign, a nut or bolt head, a floor tile, a piece of pasta) and name it by its number of sides. If it looks regular, what would each interior angle measure?"}
+  ]
+}
