@@ -1,0 +1,42 @@
+{
+  "id": "LP-W08-S2", "course": "geometry", "week": 8, "session": 2,
+  "session_type": "build", "lesson": "L07 — Transversals & Parallel Lines",
+  "unit": "u01", "duration_min": 60, "mode": "Build",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 8 · Transversal Hunt & Straightedge Lab",
+  "essential_question": "Can you draw or find a real transversal cutting two parallel lines and measure the angle pairs to confirm what Lesson 7 promised?",
+  "objective": "Draw or find two parallel lines cut by a transversal, measure all eight angles, and confirm by measurement that corresponding, alternate interior, and alternate exterior pairs are each congruent.",
+  "standards": ["G-CO.C.9"],
+  "vocab": ["transversal", "interior angles", "exterior angles", "corresponding angles", "alternate interior angles", "alternate exterior angles"],
+  "agenda": [
+    {"phase":"brief","min":6,"title":"Brief — From Naming to Measuring","board":"brief","content":{"heading":"From definitions to a real diagram","bullets":["Yesterday: classified the eight angles a transversal makes with two lines by position — interior/exterior, corresponding, alternate interior, alternate exterior.","Today: draw (or find) a real transversal and measure all eight angles to see the congruences for real.","The test: do your corresponding, alternate interior, and alternate exterior measurements actually come out equal?"]}},
+    {"phase":"plan","min":8,"title":"Plan — Read the Build Card","board":"plan","content":{"heading":"Gather + plan","note":"Open the project card. Gather a straightedge, protractor, and paper — or scout ahead for a real-world transversal (a crosswalk, a ladder across a fence, notebook lines with a pencil laid across). Decide which route you're taking before you start."}},
+    {"phase":"build","min":25,"title":"Build — Draw It, Then Find It","board":"build","content":{"heading":"Draw it, measure it, then find it in the world","bullets":["Draw two parallel lines (use ruled paper or trace both long edges of a book/ruler) and one transversal crossing both at a slant.","Label the top crossing M and the bottom crossing R. Number the angles 1,2,3,4 at M and 5,6,7,8 at R, going clockwise from upper-left at each.","Transversal Hunt — find one real transversal crossing two parallel things in your world (a crosswalk's curb cut, a ladder across two fence rails, a pencil across ruled notebook lines) and photograph it."]}},
+    {"phase":"measure","min":12,"title":"Measure & Record","board":"measure","content":{"heading":"Get the numbers down","figure":"line","items":["m1","m2","m3"]}},
+    {"phase":"reflect","min":9,"title":"Reflect & Photograph","board":"reflect","content":{"items":["r1"],"preview":"Session 3: defend in words why alternate interior angles must be congruent when lines are parallel, then the checkpoint."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can draw or find a transversal crossing two parallel lines and correctly label all eight angles"},
+    {"id":"SC2","text":"I can measure all eight angles and confirm by measurement that corresponding, alternate interior, and alternate exterior pairs are congruent"},
+    {"id":"SC3","text":"I can find and describe a real-world transversal and name one angle pair it creates"}
+  ],
+  "assets": {
+    "project": {"note":"Curriculum/Geometry/Lessons/W08-S2/project-card.md"},
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W08-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W08 Transversals.md"},
+    "mus": {"practice":"MUS/L07 — Lesson Practice.pdf","review":"MUS/L07 — Systematic Review.pdf","test":"MUS/L07 — Lesson Test.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"measure","kind":"practice","title":"Build Log & Measurements","items":["m1","m2","m3"]},
+      {"phase":"reflect","kind":"exit","title":"Reflect","items":["r1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"m1","type":"measure","sc":"SC1","points":2,"figure":"line","prompt":"Draw (or find) two parallel lines cut by one transversal. Label the crossings M and R and number all eight angles 1–8 as described. Measure them all with a protractor and record m∠1 through m∠8 in order.","answer":"Any eight honest measurements where 1,2,3,4 at M and 5,6,7,8 at R follow the numbering, with corresponding pairs matching, e.g. 65°, 115°, 115°, 65°, 65°, 115°, 115°, 65°.","explain":"Rubric: all eight angles measured and recorded in order (1 pt) + the values are internally consistent — each linear pair at a crossing adds to 180° (1 pt)."},
+    {"ref":"m2","type":"short","sc":"SC2","points":2,"prompt":"Circle one corresponding pair, box your two alternate interior pairs (∠3 & ∠6, ∠4 & ∠5), and underline your two alternate exterior pairs (∠1 & ∠8, ∠2 & ∠7). Do all of them match within a degree or two?","answer":"Yes — each corresponding pair, each alternate interior pair, and each alternate exterior pair should match within measurement tolerance, because the two lines are parallel.","explain":"If a pair is off by more than a couple degrees, the most likely cause is the two lines weren't drawn truly parallel."},
+    {"ref":"m3","type":"short","sc":"SC3","points":2,"prompt":"Record your real-world transversal find: name the object, name the two things acting as the 'parallel lines,' name what's acting as the transversal, and name ONE angle pair type (corresponding, alternate interior, or alternate exterior) you can point to.","answer":"Example: a ladder leaned across two parallel fence rails — the fence rails are the parallel lines, the ladder is the transversal, and the two angles where the ladder meets each rail on the same side are a corresponding pair.","explain":"Rubric: object clearly named (1 pt) + a correctly identified angle pair type at a plausible location (1 pt)."},
+    {"ref":"r1","type":"short","sc":"SC2","points":2,"prompt":"Reflect: which pair type was easiest to spot by eye — corresponding, alternate interior, or alternate exterior — and which took the most care to find? What did measuring teach you that the definition alone didn't?"}
+  ]
+}

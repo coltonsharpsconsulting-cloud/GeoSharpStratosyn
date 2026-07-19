@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Classifying Triangles — Sim</title>
+<style>
+  :root{--void:#0d1322;--ink:#161d31;--bone:#e8ecf3;--mist:#9aabd0;--accent:#8b5cf6;--gold:#f5c842;--border:#2a3142;--good:#7ee081;--warn:#f2665a}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--void);color:var(--bone);font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;min-height:100%}
+  header{padding:2vh 4vw;border-bottom:1px solid var(--border);background:var(--ink)}
+  .eyebrow{font-family:"DM Mono",ui-monospace,monospace;letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--accent)}
+  h1{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(20px,3vw,30px);margin-top:.3rem}
+  main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.6vh;padding:3vh 4vw}
+  .stage{width:100%;max-width:720px;aspect-ratio:16/11;background:var(--ink);border:1px solid var(--border);border-radius:16px;touch-action:none}
+  svg{width:100%;height:100%;display:block}
+  .controls{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
+  button{font-family:"DM Mono",ui-monospace,monospace;font-size:14px;background:var(--ink);color:var(--bone);border:1px solid var(--border);border-radius:999px;padding:.6rem 1.2rem;cursor:pointer}
+  button.on{border-color:var(--accent);color:var(--accent)}
+  .readout{font-family:"DM Mono",ui-monospace,monospace;font-size:clamp(13px,1.9vw,17px);color:var(--mist);text-align:center;min-height:3.4em;line-height:1.6}
+  .readout b{color:var(--gold)}
+  .readout .good{color:var(--good);font-weight:bold}
+  .readout .warn{color:var(--warn);font-weight:bold}
+  .hint{color:var(--mist);font-size:14px;max-width:62ch;text-align:center}
+</style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Geometry · Lesson 10 · sim</div>
+    <h1>Drag any corner. Watch it reclassify.</h1>
+  </header>
+  <main>
+    <div class="controls" id="actions">
+      <button id="resetBtn">Reset</button>
+      <button id="randomBtn">Randomize</button>
+      <button id="straightBtn">Nearly Straight</button>
+    </div>
+    <div class="stage"><svg viewBox="0 0 640 400" id="svg"></svg></div>
+    <div class="readout" id="readout"></div>
+    <p class="hint">Drag vertex A, B, or C anywhere on the grid. The three side lengths, three angle measures, and both classifications update live. Tick marks show which sides are congruent; a small gold square marks a right angle. Pull one vertex until the triangle almost flattens — that's the triangle inequality's edge, where it can no longer close.</p>
+  </main>
+<script>
+(() => {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  const readout = document.getElementById('readout');
+  const W = 640, H = 400, SCALE = 40; // px per "unit" on the background grid
+
+  function make(tag, attrs){ const n=document.createElementNS(NS,tag); for(const k in attrs) n.setAttribute(k,attrs[k]); svg.appendChild(n); return n; }
+  const rad = d => d * Math.PI / 180;
+  const dist = (P,Q) => Math.hypot(Q.x-P.x, Q.y-P.y);
+
+  // ---- faint background grid (ties the readout's "units" to something visible) ----
+  for (let x = 0; x <= W; x += SCALE) make('line', { x1:x, y1:0, x2:x, y2:H, stroke:'#1a2136', 'stroke-width':1 });
+  for (let y = 0; y <= H; y += SCALE) make('line', { x1:0, y1:y, x2:W, y2:y, stroke:'#1a2136', 'stroke-width':1 });
+
+  // ---- triangle vertices (start scalene) ----
+  let P = {
+    A: { x: 160, y: 320 },
+    B: { x: 480, y: 320 },
+    C: { x: 340, y: 90 }
+  };
+
+  const tri = make('polygon', { fill:'rgba(139,92,246,0.12)', stroke:'#8b5cf6', 'stroke-width':4, 'stroke-linejoin':'round' });
+
+  const arcs = { A: make('path', { fill:'none', 'stroke-width':3 }), B: make('path', { fill:'none', 'stroke-width':3 }), C: make('path', { fill:'none', 'stroke-width':3 }) };
+  const rightMarks = { A: make('path', { fill:'none', 'stroke-width':3, stroke:'#f5c842', opacity:0 }), B: make('path', { fill:'none', 'stroke-width':3, stroke:'#f5c842', opacity:0 }), C: make('path', { fill:'none', 'stroke-width':3, stroke:'#f5c842', opacity:0 }) };
+  const angleLbl = { A: make('text', { 'font-size':14, 'font-family':'DM Mono, monospace', 'text-anchor':'middle' }), B: make('text', { 'font-size':14, 'font-family':'DM Mono, monospace', 'text-anchor':'middle' }), C: make('text', { 'font-size':14, 'font-family':'DM Mono, monospace', 'text-anchor':'middle' }) };
+
+  const tickAB = [ make('line',{stroke:'#e8ecf3','stroke-width':2, opacity:0}), make('line',{stroke:'#e8ecf3','stroke-width':2, opacity:0}) ];
+  const tickBC = [ make('line',{stroke:'#e8ecf3','stroke-width':2, opacity:0}), make('line',{stroke:'#e8ecf3','stroke-width':2, opacity:0}) ];
+  const tickCA = [ make('line',{stroke:'#e8ecf3','stroke-width':2, opacity:0}), make('line',{stroke:'#e8ecf3','stroke-width':2, opacity:0}) ];
+
+  const sideLbl = {
+    AB: make('text', { 'font-size':14, 'font-family':'DM Mono, monospace', 'text-anchor':'middle', fill:'#9aabd0' }),
+    BC: make('text', { 'font-size':14, 'font-family':'DM Mono, monospace', 'text-anchor':'middle', fill:'#9aabd0' }),
+    CA: make('text', { 'font-size':14, 'font-family':'DM Mono, monospace', 'text-anchor':'middle', fill:'#9aabd0' })
+  };
+
+  const handle = {}, hit = {}, vLabel = {};
+  ['A','B','C'].forEach(k => {
+    handle[k] = make('circle', { r:11, fill:'#f5c842' });
+    hit[k] = make('circle', { r:26, fill:'transparent', cursor:'grab' });
+    vLabel[k] = make('text', { 'font-size':20, 'font-family':'DM Mono, monospace', fill:'#e8ecf3' });
+  });
+
+  function arcPath(V, fromDeg, toDeg, r){
+    const delta = ((toDeg - fromDeg + 540) % 360) - 180;
+    const to = fromDeg + delta;
+    const steps = Math.max(2, Math.round(Math.abs(delta) / 4));
+    const pts = [];
+    for (let i = 0; i <= steps; i++){
+      const d = fromDeg + (to - fromDeg) * i / steps;
+      const x = V.x + r * Math.cos(rad(d)), y = V.y - r * Math.sin(rad(d));
+      pts.push(`${i === 0 ? 'M' : 'L'}${x.toFixed(2)} ${y.toFixed(2)}`);
+    }
+    return pts.join(' ');
+  }
+  const bearing = (V, Q) => Math.atan2(-(Q.y - V.y), Q.x - V.x) * 180 / Math.PI;
+
+  function angleAt(V, P1, P2){
+    const v1x = P1.x - V.x, v1y = P1.y - V.y;
+    const v2x = P2.x - V.x, v2y = P2.y - V.y;
+    const m1 = Math.hypot(v1x, v1y), m2 = Math.hypot(v2x, v2y);
+    let c = (v1x*v2x + v1y*v2y) / (m1 * m2);
+    c = Math.max(-1, Math.min(1, c));
+    return Math.acos(c) * 180 / Math.PI;
+  }
+
+  function placeTick(pair, Pt1, Pt2, count){
+    const mx = (Pt1.x + Pt2.x) / 2, my = (Pt1.y + Pt2.y) / 2;
+    const dx = Pt2.x - Pt1.x, dy = Pt2.y - Pt1.y;
+    const len = Math.hypot(dx, dy) || 1;
+    const ux = dx / len, uy = dy / len;
+    const px = -uy, py = ux; // perpendicular unit vector
+    const spacing = 7;
+    pair.forEach((tick, i) => {
+      if (i < count){
+        const offset = (i - (count - 1) / 2) * spacing;
+        const cx = mx + ux * offset, cy = my + uy * offset;
+        tick.setAttribute('x1', cx - px*7); tick.setAttribute('y1', cy - py*7);
+        tick.setAttribute('x2', cx + px*7); tick.setAttribute('y2', cy + py*7);
+        tick.setAttribute('opacity', 1);
+      } else {
+        tick.setAttribute('opacity', 0);
+      }
+    });
+  }
+
+  function midLabel(el, P1, P2, centroid, text){
+    const mx = (P1.x + P2.x) / 2, my = (P1.y + P2.y) / 2;
+    const ox = mx - centroid.x, oy = my - centroid.y;
+    const m = Math.hypot(ox, oy) || 1;
+    el.setAttribute('x', mx + ox / m * 16);
+    el.setAttribute('y', my + oy / m * 16);
+    el.textContent = text;
+  }
+
+  function draw(){
+    const { A, B, C } = P;
+    tri.setAttribute('points', `${A.x},${A.y} ${B.x},${B.y} ${C.x},${C.y}`);
+    const centroid = { x: (A.x+B.x+C.x)/3, y: (A.y+B.y+C.y)/3 };
+
+    ['A','B','C'].forEach(k => {
+      handle[k].setAttribute('cx', P[k].x); handle[k].setAttribute('cy', P[k].y);
+      hit[k].setAttribute('cx', P[k].x); hit[k].setAttribute('cy', P[k].y);
+      const away = { x: P[k].x - centroid.x, y: P[k].y - centroid.y };
+      const m = Math.hypot(away.x, away.y) || 1;
+      vLabel[k].setAttribute('x', P[k].x + away.x/m*24);
+      vLabel[k].setAttribute('y', P[k].y + away.y/m*24 + 6);
+      vLabel[k].textContent = k;
+    });
+
+    const lAB = dist(A,B), lBC = dist(B,C), lCA = dist(C,A);
+    const uAB = lAB/SCALE, uBC = lBC/SCALE, uCA = lCA/SCALE;
+
+    midLabel(sideLbl.AB, A, B, centroid, uAB.toFixed(1));
+    midLabel(sideLbl.BC, B, C, centroid, uBC.toFixed(1));
+    midLabel(sideLbl.CA, C, A, centroid, uCA.toFixed(1));
+
+    // ---- triangle inequality / degeneracy check ----
+    const sorted = [lAB, lBC, lCA].sort((a,b) => a - b);
+    const slack = sorted[0] + sorted[1] - sorted[2];
+    const degenerate = slack < 6; // px slack between the two shorter sides and the longest
+
+    // ---- congruent-side tick marks ----
+    const tol = Math.max(6, 0.035 * sorted[2]);
+    const eqAB_BC = Math.abs(lAB - lBC) < tol;
+    const eqBC_CA = Math.abs(lBC - lCA) < tol;
+    const eqCA_AB = Math.abs(lCA - lAB) < tol;
+    let sidesClass;
+    if (eqAB_BC && eqBC_CA && eqCA_AB) {
+      sidesClass = 'equilateral';
+      placeTick(tickAB, A, B, 1); placeTick(tickBC, B, C, 1); placeTick(tickCA, C, A, 1);
+    } else if (eqAB_BC) {
+      sidesClass = 'isosceles';
+      placeTick(tickAB, A, B, 1); placeTick(tickBC, B, C, 1); placeTick(tickCA, C, A, 0);
+    } else if (eqBC_CA) {
+      sidesClass = 'isosceles';
+      placeTick(tickBC, B, C, 1); placeTick(tickCA, C, A, 1); placeTick(tickAB, A, B, 0);
+    } else if (eqCA_AB) {
+      sidesClass = 'isosceles';
+      placeTick(tickCA, C, A, 1); placeTick(tickAB, A, B, 1); placeTick(tickBC, B, C, 0);
+    } else {
+      sidesClass = 'scalene';
+      placeTick(tickAB, A, B, 0); placeTick(tickBC, B, C, 0); placeTick(tickCA, C, A, 0);
+    }
+
+    // ---- angles ----
+    const angA = angleAt(A,B,C), angB = angleAt(B,C,A), angC = angleAt(C,A,B);
+    const angs = { A: angA, B: angB, C: angC };
+    const tolAng = 2.2;
+    const maxAng = Math.max(angA, angB, angC);
+    let anglesClass;
+    if (maxAng > 90 + tolAng) anglesClass = 'obtuse';
+    else if (maxAng > 90 - tolAng) anglesClass = 'right';
+    else anglesClass = 'acute';
+    const equiangular = Math.abs(angA-60) < tolAng && Math.abs(angB-60) < tolAng && Math.abs(angC-60) < tolAng;
+
+    const neighbors = { A: ['B','C'], B: ['C','A'], C: ['A','B'] };
+    ['A','B','C'].forEach(k => {
+      const V = P[k];
+      const [n1, n2] = neighbors[k];
+      const P1 = P[n1], P2 = P[n2];
+      const isRight = Math.abs(angs[k] - 90) < tolAng;
+      const isObtuse = angs[k] > 90 + tolAng;
+      if (isRight && !degenerate){
+        const d1 = bearing(V,P1), d2 = bearing(V,P2);
+        const u1 = { x: Math.cos(rad(d1)), y: -Math.sin(rad(d1)) };
+        const u2 = { x: Math.cos(rad(d2)), y: -Math.sin(rad(d2)) };
+        const s = 16;
+        const p1 = { x: V.x + u1.x*s, y: V.y + u1.y*s };
+        const p2 = { x: p1.x + u2.x*s, y: p1.y + u2.y*s };
+        const p3 = { x: V.x + u2.x*s, y: V.y + u2.y*s };
+        rightMarks[k].setAttribute('d', `M${p1.x} ${p1.y} L${p2.x} ${p2.y} L${p3.x} ${p3.y}`);
+        rightMarks[k].setAttribute('opacity', 1);
+        arcs[k].setAttribute('opacity', 0);
+      } else {
+        rightMarks[k].setAttribute('opacity', 0);
+        arcs[k].setAttribute('opacity', 1);
+        const d1 = bearing(V,P1), d2 = bearing(V,P2);
+        arcs[k].setAttribute('d', arcPath(V, d1, d2, 30));
+        arcs[k].setAttribute('stroke', isObtuse ? '#f5c842' : '#8b5cf6');
+      }
+      const b1 = bearing(V,P1), b2 = bearing(V,P2);
+      const delta = ((b2 - b1 + 540) % 360) - 180;
+      const midDeg = b1 + delta/2;
+      const lx = V.x + 46 * Math.cos(rad(midDeg)), ly = V.y - 46 * Math.sin(rad(midDeg));
+      angleLbl[k].setAttribute('x', lx); angleLbl[k].setAttribute('y', ly);
+      angleLbl[k].setAttribute('fill', (isRight || isObtuse) ? '#f5c842' : '#9aabd0');
+      angleLbl[k].textContent = `${Math.round(angs[k])}°`;
+    });
+
+    let html = `Sides — AB <b>${uAB.toFixed(1)}</b> &middot; BC <b>${uBC.toFixed(1)}</b> &middot; CA <b>${uCA.toFixed(1)}</b> &rarr; <span class="good">${sidesClass}</span><br>`;
+    if (degenerate){
+      html += `<span class="warn">Degenerate — not a real triangle.</span> The two shorter sides (${(sorted[0]/SCALE).toFixed(1)} + ${(sorted[1]/SCALE).toFixed(1)} &asymp; ${(sorted[2]/SCALE).toFixed(1)}) can barely reach the longest side. This IS the triangle inequality's edge — pull any further and it can't close at all.`;
+    } else {
+      html += `Angles — &ang;A <b>${Math.round(angA)}&deg;</b> &middot; &ang;B <b>${Math.round(angB)}&deg;</b> &middot; &ang;C <b>${Math.round(angC)}&deg;</b> &rarr; <span class="good">${anglesClass}</span>`;
+      if (equiangular) html += ` <span class="good">(equiangular — also equilateral!)</span>`;
+    }
+    readout.innerHTML = html;
+  }
+
+  // ---- drag handling, one vertex at a time ----
+  let dragging = null;
+  function toLocal(e){
+    const r = svg.getBoundingClientRect();
+    const cx = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+    const cy = (e.touches ? e.touches[0].clientY : e.clientY) - r.top;
+    return {
+      x: Math.max(50, Math.min(W-50, cx / r.width * W)),
+      y: Math.max(40, Math.min(H-40, cy / r.height * H))
+    };
+  }
+  function down(k, e){ dragging = k; move(e); e.preventDefault(); }
+  function move(e){ if (!dragging) return; P[dragging] = toLocal(e); draw(); e.preventDefault(); }
+  function up(){ dragging = null; }
+
+  ['A','B','C'].forEach(k => {
+    hit[k].addEventListener('pointerdown', e => down(k, e));
+    hit[k].addEventListener('touchstart', e => down(k, e), { passive:false });
+  });
+  window.addEventListener('pointermove', move);
+  window.addEventListener('pointerup', up);
+  window.addEventListener('touchmove', move, { passive:false });
+  window.addEventListener('touchend', up);
+
+  function area(A,B,C){ return Math.abs((B.x-A.x)*(C.y-A.y) - (C.x-A.x)*(B.y-A.y)) / 2; }
+  function randomPoint(){ return { x: 90 + Math.random()*(W-180), y: 70 + Math.random()*(H-140) }; }
+
+  document.getElementById('resetBtn').addEventListener('click', () => {
+    P = { A:{x:160,y:320}, B:{x:480,y:320}, C:{x:340,y:90} };
+    draw();
+  });
+  document.getElementById('randomBtn').addEventListener('click', () => {
+    let A, B, C;
+    do { A = randomPoint(); B = randomPoint(); C = randomPoint(); } while (area(A,B,C) < 6000);
+    P = { A, B, C };
+    draw();
+  });
+  document.getElementById('straightBtn').addEventListener('click', () => {
+    P = { A:{x:100,y:300}, B:{x:340,y:250}, C:{x:560,y:200} };
+    draw();
+  });
+
+  draw();
+})();
+</script>
+</body>
+</html>

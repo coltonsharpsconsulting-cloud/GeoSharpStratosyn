@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Polygons, Quadrilaterals & Perimeter — Sim</title>
+<style>
+  :root{--void:#0d1322;--ink:#161d31;--bone:#e8ecf3;--mist:#9aabd0;--accent:#8b5cf6;--gold:#f5c842;--border:#2a3142;--good:#7ee081}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--void);color:var(--bone);font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;min-height:100%}
+  header{padding:2vh 4vw;border-bottom:1px solid var(--border);background:var(--ink)}
+  .eyebrow{font-family:"DM Mono",ui-monospace,monospace;letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--accent)}
+  h1{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(20px,3vw,30px);margin-top:.3rem}
+  main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.6vh;padding:3vh 4vw}
+  .stage{width:100%;max-width:720px;aspect-ratio:16/10;background:var(--ink);border:1px solid var(--border);border-radius:16px;touch-action:none}
+  svg{width:100%;height:100%;display:block}
+  .controls{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
+  button{font-family:"DM Mono",ui-monospace,monospace;font-size:14px;background:var(--ink);color:var(--bone);border:1px solid var(--border);border-radius:999px;padding:.6rem 1.2rem;cursor:pointer}
+  button.on{border-color:var(--accent);color:var(--accent)}
+  .readout{font-family:"DM Mono",ui-monospace,monospace;font-size:clamp(15px,2.1vw,19px);color:var(--mist);text-align:center;line-height:1.7}
+  .readout b{color:var(--gold)}
+  .readout .fam{color:var(--mist);font-size:.8em}
+  .hint{color:var(--mist);font-size:14px;max-width:58ch;text-align:center}
+</style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Geometry · Lesson 8 · sim</div>
+    <h1>Drag a corner. Watch it reclassify — and re-measure.</h1>
+  </header>
+  <main>
+    <div class="controls" id="presets">
+      <button data-shape="square" class="on">Square</button>
+      <button data-shape="rectangle">Rectangle</button>
+      <button data-shape="parallelogram">Parallelogram</button>
+      <button data-shape="rhombus">Rhombus</button>
+      <button data-shape="trapezoid">Trapezoid</button>
+      <button data-shape="scramble">Scramble</button>
+    </div>
+    <div class="stage"><svg viewBox="0 0 640 400" id="svg"></svg></div>
+    <div class="readout" id="readout"></div>
+    <p class="hint">Drag any gold corner (A, B, C, D — in order around the shape). The reading checks whether opposite sides are parallel, whether all four sides are congruent, and whether the corners are right angles — each within a small drag tolerance, so an almost-perfect square still reads as a square. Perimeter is the sum of all four sides, in grid units (one grid square = 1 unit).</p>
+  </main>
+<script>
+(() => {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  const readout = document.getElementById('readout');
+  const UNIT = 40; // px per grid unit
+  const MINX = 30, MAXX = 610, MINY = 30, MAXY = 370;
+
+  // ---- background grid ----
+  for (let x = 0; x <= 640; x += UNIT) {
+    const l = document.createElementNS(NS,'line');
+    l.setAttribute('x1',x); l.setAttribute('y1',0); l.setAttribute('x2',x); l.setAttribute('y2',400);
+    l.setAttribute('stroke','#2a3142'); l.setAttribute('stroke-width',1);
+    svg.appendChild(l);
+  }
+  for (let y = 0; y <= 400; y += UNIT) {
+    const l = document.createElementNS(NS,'line');
+    l.setAttribute('x1',0); l.setAttribute('y1',y); l.setAttribute('x2',640); l.setAttribute('y2',y);
+    l.setAttribute('stroke','#2a3142'); l.setAttribute('stroke-width',1);
+    svg.appendChild(l);
+  }
+
+  function make(tag, attrs){ const n=document.createElementNS(NS,tag); for(const k in attrs) n.setAttribute(k,attrs[k]); svg.appendChild(n); return n; }
+
+  const IDS = ['A','B','C','D'];
+  let P = { A:{x:240,y:320}, B:{x:400,y:320}, C:{x:400,y:160}, D:{x:240,y:160} }; // square, start state
+
+  const poly = make('polygon', { fill:'#8b5cf622', stroke:'#8b5cf6', 'stroke-width':3 });
+  const dots = {}, labels = {};
+  IDS.forEach(id => {
+    make('circle', { r:22, fill:'transparent', cursor:'grab', 'data-id':id }); // fat invisible hit-target, added first (under)
+  });
+  const hits = [...svg.querySelectorAll('circle')];
+  IDS.forEach((id,i) => {
+    dots[id] = make('circle', { r:12, fill:'#f5c842', cursor:'grab' }); dots[id].dataset.id = id;
+    labels[id] = make('text', { fill:'#e8ecf3', 'font-size':20, 'font-family':'DM Mono, monospace', 'text-anchor':'middle' });
+    labels[id].textContent = id;
+  });
+
+  function dist(p,q){ return Math.hypot(p.x-q.x, p.y-q.y); }
+  function sub(p,q){ return { x:p.x-q.x, y:p.y-q.y }; }
+  function cross(u,v){ return u.x*v.y - u.y*v.x; }
+  function dot(u,v){ return u.x*v.x + u.y*v.y; }
+  function isParallel(u,v){
+    const denom = Math.hypot(u.x,u.y) * Math.hypot(v.x,v.y) || 1;
+    return Math.abs(cross(u,v)) / denom < 0.06; // ~ within 3.5 degrees
+  }
+  function isRight(u,v){
+    const denom = Math.hypot(u.x,u.y) * Math.hypot(v.x,v.y) || 1;
+    return Math.abs(dot(u,v)) / denom < 0.06; // ~ within 3.5 degrees of 90
+  }
+
+  function classify(){
+    const { A, B, C, D } = P;
+    const sAB = dist(A,B), sBC = dist(B,C), sCD = dist(C,D), sDA = dist(D,A);
+    const avg = (sAB + sBC + sCD + sDA) / 4;
+    const eqTol = Math.max(avg * 0.045, 3);
+    const allEqual = Math.abs(sAB-avg) < eqTol && Math.abs(sBC-avg) < eqTol && Math.abs(sCD-avg) < eqTol && Math.abs(sDA-avg) < eqTol;
+
+    const vAB = sub(B,A), vBC = sub(C,B), vCD = sub(D,C), vDA = sub(A,D);
+    const parAC = isParallel(vAB, vCD);   // side AB parallel to side CD
+    const parBD = isParallel(vBC, vDA);   // side BC parallel to side DA
+    const rightA = isRight(vAB, vDA), rightB = isRight(vAB, vBC), rightC = isRight(vBC, vCD), rightD = isRight(vCD, vDA);
+    const allRight = rightA && rightB && rightC && rightD;
+
+    let name, fam;
+    if (allRight && allEqual) { name = 'Square'; fam = 'also a rectangle, a rhombus, a parallelogram & a quadrilateral'; }
+    else if (allRight && parAC && parBD) { name = 'Rectangle'; fam = 'also a parallelogram & a quadrilateral'; }
+    else if (allEqual) { name = 'Rhombus'; fam = 'also a parallelogram & a quadrilateral'; }
+    else if (parAC && parBD) { name = 'Parallelogram'; fam = 'also a quadrilateral'; }
+    else if (parAC !== parBD) { name = 'Trapezoid'; fam = 'also a quadrilateral — only one pair of parallel sides'; }
+    else { name = 'General quadrilateral'; fam = 'no special family — just four straight sides'; }
+
+    return { name, fam, sAB, sBC, sCD, sDA, perimeter: sAB + sBC + sCD + sDA };
+  }
+
+  function draw(){
+    const pts = IDS.map(id => `${P[id].x},${P[id].y}`).join(' ');
+    poly.setAttribute('points', pts);
+    const cx = IDS.reduce((s,id)=>s+P[id].x,0)/4, cy = IDS.reduce((s,id)=>s+P[id].y,0)/4;
+    IDS.forEach((id,i) => {
+      const p = P[id];
+      dots[id].setAttribute('cx', p.x); dots[id].setAttribute('cy', p.y);
+      hits[i].setAttribute('cx', p.x); hits[i].setAttribute('cy', p.y);
+      const dx = p.x - cx, dy = p.y - cy, d = Math.hypot(dx,dy) || 1;
+      labels[id].setAttribute('x', p.x + (dx/d)*22);
+      labels[id].setAttribute('y', p.y + (dy/d)*22 + 6);
+    });
+
+    const c = classify();
+    const u = v => (v/UNIT).toFixed(1);
+    readout.innerHTML =
+      `<b>${c.name}</b> <span class="fam">(${c.fam})</span><br>` +
+      `Perimeter = <b>${u(c.perimeter)}</b> units &nbsp;·&nbsp; sides ${u(c.sAB)}, ${u(c.sBC)}, ${u(c.sCD)}, ${u(c.sDA)}`;
+  }
+
+  // ---- drag ----
+  let drag = null;
+  function toLocal(e){
+    const r = svg.getBoundingClientRect();
+    const cx = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+    const cy = (e.touches ? e.touches[0].clientY : e.clientY) - r.top;
+    return { x: cx / r.width * 640, y: cy / r.height * 400 };
+  }
+  function down(e){ const id = e.target.dataset.id; if (id){ drag = id; e.preventDefault(); } }
+  function move(e){ if (!drag) return; const q = toLocal(e);
+    P[drag].x = Math.max(MINX, Math.min(MAXX, q.x));
+    P[drag].y = Math.max(MINY, Math.min(MAXY, q.y));
+    draw(); e.preventDefault(); }
+  function up(){ drag = null; }
+  svg.addEventListener('pointerdown', down); window.addEventListener('pointermove', move); window.addEventListener('pointerup', up);
+  svg.addEventListener('touchstart', down, { passive:false }); window.addEventListener('touchmove', move, { passive:false }); window.addEventListener('touchend', up);
+
+  // ---- presets ----
+  const PRESETS = {
+    square:        { A:{x:240,y:320}, B:{x:400,y:320}, C:{x:400,y:160}, D:{x:240,y:160} },
+    rectangle:     { A:{x:160,y:320}, B:{x:480,y:320}, C:{x:480,y:200}, D:{x:160,y:200} },
+    parallelogram: { A:{x:180,y:320}, B:{x:460,y:320}, C:{x:540,y:180}, D:{x:260,y:180} },
+    rhombus:       { A:{x:320,y:340}, B:{x:500,y:240}, C:{x:320,y:140}, D:{x:140,y:240} },
+    trapezoid:     { A:{x:160,y:340}, B:{x:480,y:340}, C:{x:400,y:180}, D:{x:240,y:180} },
+    scramble:      { A:{x:180,y:340}, B:{x:480,y:300}, C:{x:560,y:160}, D:{x:240,y:100} }
+  };
+  document.getElementById('presets').addEventListener('click', e => {
+    const s = e.target.dataset.shape; if (!s) return;
+    P = { A:{...PRESETS[s].A}, B:{...PRESETS[s].B}, C:{...PRESETS[s].C}, D:{...PRESETS[s].D} };
+    [...document.querySelectorAll('#presets button')].forEach(b => b.classList.toggle('on', b.dataset.shape === s));
+    draw();
+  });
+
+  draw();
+})();
+</script>
+</body>
+</html>

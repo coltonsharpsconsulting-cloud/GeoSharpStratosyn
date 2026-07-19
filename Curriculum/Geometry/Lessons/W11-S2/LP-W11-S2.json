@@ -1,0 +1,42 @@
+{
+  "id": "LP-W11-S2", "course": "geometry", "week": 11, "session": 2,
+  "session_type": "build", "lesson": "L10 — Classifying Triangles",
+  "unit": "u01", "duration_min": 60, "mode": "Build",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 11 · Straw Triangle Lab",
+  "essential_question": "Can you predict which sets of lengths will close into a triangle before you ever touch the straws — and build one triangle with nothing but a compass?",
+  "objective": "Build triangles from straws or sticks of set lengths to discover which trios satisfy the triangle inequality, classify each resulting triangle by its sides and by its angles, and construct an equilateral triangle using only a compass and a straightedge.",
+  "standards": ["G-CO.A.1"],
+  "vocab": ["scalene", "isosceles", "equilateral", "triangle inequality", "construction", "straightedge", "compass"],
+  "agenda": [
+    {"phase":"brief","min":6,"title":"Brief — From Numbers to Real Lengths","board":"brief","content":{"heading":"From the rule on paper to the straws in your hand","bullets":["Yesterday: sorted triangles by sides and by angles, and tested the triangle inequality with numbers on paper.","Today: build real triangles from set lengths — some will close, some won't — and construct one triangle with a compass and straightedge.","The test: can you predict, before you build, whether a set of lengths will close into a triangle?"]}},
+    {"phase":"plan","min":8,"title":"Plan — Read the Build Card","board":"plan","content":{"heading":"Gather + plan","note":"Open the project card. Gather straws or sticks cut to the listed lengths, a ruler, a protractor, tape or pipe cleaners for the joints, and a compass and straightedge. Decide which trio you'll test first."}},
+    {"phase":"build","min":25,"title":"Build — Straw Test & Compass Construction","board":"build","content":{"heading":"Test the rule, then construct by hand","bullets":["Straw Test — for each of five trios, predict yes/no using the triangle inequality BEFORE touching the straws, then physically test it.","For every trio that DOES close, classify the resulting triangle by its sides and by its angles (measure with a protractor).","Compass Construction — using only a compass and a straightedge, construct one equilateral triangle from a single starting segment.","Check your construction with a ruler: are all three sides really congruent?"]}},
+    {"phase":"measure","min":12,"title":"Record Your Test & Your Construction","board":"measure","content":{"heading":"Get the numbers down","figure":"grid-blank","items":["m1","m2","m3"]}},
+    {"phase":"reflect","min":9,"title":"Reflect & Photograph","board":"reflect","content":{"items":["r1"],"preview":"Session 3: defend why a triangle can never have two right angles and why some length trios can never close, then the checkpoint."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can predict, using the triangle inequality, whether three given lengths will close into a triangle — and confirm it by building"},
+    {"id":"SC2","text":"I can classify a built triangle by its sides and by its angles"},
+    {"id":"SC3","text":"I can construct an equilateral triangle using only a compass and a straightedge"}
+  ],
+  "assets": {
+    "project": {"note":"Curriculum/Geometry/Lessons/W11-S2/project-card.md"},
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W11-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W11 Classifying Triangles.md"},
+    "mus": {"practice":"MUS/L10 — Lesson Practice.pdf","review":"MUS/L10 — Systematic Review.pdf","test":"MUS/L10 — Lesson Test.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"measure","kind":"practice","title":"Test Log & Construction","items":["m1","m2","m3"]},
+      {"phase":"reflect","kind":"exit","title":"Reflect","items":["r1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"m1","type":"measure","sc":"SC1","points":2,"prompt":"List the five length trios you tested, your triangle-inequality PREDICTION (yes/no) made BEFORE building each one, and whether it actually closed when you built it.","answer":"Any five honest trios with correct predictions matching the triangle inequality and matching the physical build result, e.g. (3,4,5)=yes/closed, (4,4,4)=yes/closed, (5,5,9)=yes/closed, (5,7,15)=no/didn't close, (6,8,10)=yes/closed.","explain":"Rubric: five trios with a stated prediction each (1 pt) + the prediction matches both the triangle-inequality math and the physical build result (1 pt)."},
+    {"ref":"m2","type":"short","sc":"SC2","points":2,"prompt":"Pick ONE trio that DID close into a triangle. Measure its three angles with a protractor and classify that triangle BOTH by its sides and by its angles.","answer":"Example: the 3-4-5 trio's angles measure about 37°, 53°, and 90° — a scalene right triangle.","explain":"Full credit names both classifications correctly and the measured angles roughly match the actual triangle (within a few degrees) for the chosen trio."},
+    {"ref":"m3","type":"short","sc":"SC3","points":2,"prompt":"Describe the compass-and-straightedge steps you used to construct your equilateral triangle, and report whether your ruler check confirmed all three sides congruent.","answer":"Drew one segment, set the compass to that segment's exact length, swung an arc from each endpoint, marked where the two arcs crossed as the third vertex, then connected it back to both original endpoints with the straightedge; the ruler check confirmed all three sides matched.","explain":"Rubric: correct construction method described (radius set to the original segment's length, arcs swung from both endpoints, third vertex placed at their intersection) plus an honest ruler-check result."},
+    {"ref":"r1","type":"short","sc":"SC1","points":2,"prompt":"Reflect: which trio surprised you most — one you thought would close but didn't, or one you thought wouldn't close but did? What did building it teach you that the inequality's numbers alone didn't?"}
+  ]
+}

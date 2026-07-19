@@ -1,0 +1,44 @@
+{
+  "id": "LP-W08-S3", "course": "geometry", "week": 8, "session": 3,
+  "session_type": "prove", "lesson": "L07 — Transversals & Parallel Lines",
+  "unit": "u01", "duration_min": 60, "mode": "Prove",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 8 · Prove It — Transversals & Parallel Lines",
+  "essential_question": "Why must alternate interior angles be congruent when lines are parallel — not just usually equal?",
+  "objective": "Justify why alternate interior angles are congruent when two parallel lines are cut by a transversal, use the converse to decide whether given angles force two lines to be parallel, review the week's Math-U-See practice, and pass the mastery checkpoint.",
+  "standards": ["G-CO.C.9"],
+  "vocab": ["transversal", "interior angles", "exterior angles", "corresponding angles", "alternate interior angles", "alternate exterior angles", "converse"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Redraw From Memory","board":"warmup","content":{"prompt":"Without looking, sketch two parallel lines cut by a transversal, number all eight angles 1–8 (1–4 at the top crossing M, 5–8 at the bottom crossing R), and mark one corresponding pair, one alternate interior pair, and one alternate exterior pair."}},
+    {"phase":"review","min":12,"title":"Review — Your Math-U-See Work","board":"review","content":{"heading":"Go over Lesson Practice 7A & 7B together","note":"Bring your completed MUS Lesson Practice 7A/7B. We check the tricky ones: telling interior from exterior at a glance, naming which angle corresponds to a given one across a busy diagram, and the True/False traps about 'lines that look parallel' and the converse statements. Fix any you missed and note WHY."}},
+    {"phase":"prove","min":16,"title":"Prove It — Reason Out Loud","board":"prove","content":{"heading":"Defend three claims","figure":"line","bullets":["Claim 1: if two parallel lines are cut by a transversal, alternate interior angles are congruent. Argue it — at crossing M, ∠4 and ∠1 are vertical angles (Lesson 6), so m∠4 = m∠1. And ∠1 corresponds to ∠5 across the parallel lines, so m∠1 = m∠5. Chain those two together: m∠4 = m∠1 = m∠5, so ∠4 ≅ ∠5 — an alternate interior pair, proven using only Lesson 6's vertical angles and this week's corresponding angles.","Claim 2: the converse works in reverse. If m∠2 = 71° and m∠6 = 71°, are the two lines necessarily parallel? What if m∠2 = 71° and m∠6 = 74° — can the lines still be parallel?","Claim 3: a drawing that looks parallel isn't proof. Argue why you can only conclude angle congruences (or that lines are parallel) from what is actually given — never from how a sketch looks — the same caution Math-U-See prints right on the page."]}},
+    {"phase":"checkpoint","min":18,"title":"Mastery Checkpoint","board":"checkpoint","content":{"heading":"Show what you own","items":["c1","c2","c3","c4","c5","c6"]}},
+    {"phase":"close","min":8,"title":"Close & Set Mastery","board":"close","content":{"items":["x1"],"preview":"Next week, Lesson 8 — Polygons & Perimeter — where these lines and angles become the sides of shapes you can measure all the way around."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can identify and symbolize a transversal's interior, exterior, corresponding, alternate interior, and alternate exterior angles without help"},
+    {"id":"SC2","text":"I can compute an unknown angle's measure using a corresponding, alternate interior, alternate exterior, or vertical partner"},
+    {"id":"SC3","text":"I can justify why alternate interior angles are congruent when lines are parallel, and use the converse to decide whether given angles force two lines to be parallel"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W08-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W08 Transversals.md"},
+    "mus": {"practice":"MUS/L07 — Lesson Practice.pdf","review":"MUS/L07 — Systematic Review.pdf","test":"MUS/L07 — Lesson Test.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"checkpoint","kind":"check","title":"Mastery Checkpoint","items":["c1","c2","c3","c4","c5","c6"]},
+      {"phase":"close","kind":"exit","title":"Set Your Mastery","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"c1","type":"mc","sc":"SC1","points":1,"prompt":"The four angles that lie between two lines crossed by a transversal are called the…","options":["exterior angles","interior angles","corresponding angles"],"answer":"interior angles","explain":"Interior angles lie inside — in the strip between — the two lines crossed by the transversal; exterior angles lie outside that strip."},
+    {"ref":"c2","type":"dropdown","sc":"SC1","points":1,"prompt":"Two angles in the same relative position at each of the two crossings made by a transversal are called ___ angles.","options":["alternate interior","alternate exterior","corresponding"],"answer":"corresponding","explain":"Corresponding angles occupy the same corner — same side of the transversal, same side of the line — at each of the two crossings."},
+    {"ref":"c3","type":"mc","sc":"SC2","points":1,"prompt":"Two parallel lines are cut by a transversal. ∠1 and ∠5 are corresponding angles. If m∠1 = 63°, what is m∠5?","options":["63°","117°","27°"],"answer":"63°","explain":"Corresponding angles are congruent when the two lines cut by the transversal are parallel."},
+    {"ref":"c4","type":"short","sc":"SC2","points":2,"prompt":"Two parallel lines are cut by a transversal, numbered 1,2,3,4 at the top crossing M and 5,6,7,8 at the bottom crossing R (upper-left, upper-right, lower-left, lower-right at each). If m∠1 = 70°, find m∠4 and m∠6, and name the relationship you used for each.","answer":"m∠4 = 70° because ∠1 and ∠4 are vertical angles at M; m∠6 = 110° because ∠2 (= 180° − 70° = 110°, ∠1's linear-pair supplement at M) corresponds to ∠6, and corresponding angles are congruent when the lines are parallel.","explain":"This chains a Lesson 6 fact (linear pairs are supplementary) with this week's corresponding-angles congruence — exactly the kind of reasoning Claim 1 asks you to defend."},
+    {"ref":"c5","type":"construct","sc":"SC1","points":2,"figure":"grid-blank","prompt":"Draw two parallel lines cut by a transversal. Label all eight angles 1–8 (1–4 at the top crossing, 5–8 at the bottom), then mark ONE alternate interior pair and ONE alternate exterior pair with matching marks.","answer":"Two parallel lines and one transversal with all eight angles labeled in the standard positions; one alternate interior pair (e.g., ∠4 & ∠5) and one alternate exterior pair (e.g., ∠1 & ∠8) each marked with matching arcs.","explain":"Rubric: two parallel lines and one transversal with all eight angles correctly labeled (1 pt) + both pairs correctly marked (1 pt)."},
+    {"ref":"c6","type":"short","sc":"SC3","points":2,"prompt":"Two lines are cut by a transversal. You measure ∠2 = 118° and ∠6 = 118°. Are the two lines necessarily parallel? Explain using the word 'converse.'","answer":"Yes — ∠2 and ∠6 are corresponding angles, and the converse of the corresponding angles theorem says that if a pair of corresponding angles is congruent, the two lines cut by the transversal must be parallel.","explain":"Full credit: names ∠2 & ∠6 as corresponding and explicitly invokes the converse (congruent angles force the lines to be parallel), not just the forward direction."},
+    {"ref":"x1","type":"short","sc":"SC1","points":1,"prompt":"Close: rate yourself on Lesson 7 (Emerging / Proficient / Mastered) and name the one idea you'd want to revisit."}
+  ]
+}

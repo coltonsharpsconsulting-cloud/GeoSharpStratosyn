@@ -1,0 +1,44 @@
+{
+  "id": "LP-W10-S3", "course": "geometry", "week": 10, "session": 3,
+  "session_type": "prove", "lesson": "L09 — Area of Parallelograms, Triangles & Trapezoids",
+  "unit": "u01", "duration_min": 60, "mode": "Prove",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 10 · Prove It — Area of Parallelograms, Triangles & Trapezoids",
+  "essential_question": "Why is a triangle's area always exactly half of a same-base-same-height rectangle, and why does a trapezoid need the AVERAGE of its two bases instead of just one?",
+  "objective": "Justify why a triangle's area is half of a rectangle sharing its base and height, and why a trapezoid's area uses the average of its two bases, review the week's Math-U-See practice (Lesson Practice 9A & 9B), and pass the mastery checkpoint on parallelogram, triangle, and trapezoid area.",
+  "standards": ["G-GPE.B.7"],
+  "vocab": ["parallelogram", "triangle", "trapezoid", "base", "height", "composite figure"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Redraw From Memory","board":"warmup","content":{"prompt":"Without looking, sketch a parallelogram, a triangle, and a trapezoid, and mark a believable base and a perpendicular height on each — including the trapezoid's second base. Then say out loud, in your own words, what makes a height 'the height' instead of just any slanted side."}},
+    {"phase":"review","min":12,"title":"Review — Your Math-U-See Work","board":"review","content":{"heading":"Go over Lesson Practice 9A & 9B together","note":"Bring your completed MUS Lesson Practice 9A/9B. We check the tricky ones: telling the true perpendicular height apart from a slanted side, remembering to average the trapezoid's two bases before multiplying, and the fill-in-the-blank sentences about parallelograms, triangles, and quadrilateral heights. Fix any you missed and note WHY."}},
+    {"phase":"prove","min":16,"title":"Prove It — Reason Out Loud","board":"prove","content":{"heading":"Defend three claims","figure":"grid-blank","bullets":["Claim 1: a parallelogram's area is base × height — the same rule as a rectangle. Argue it: if you cut a triangular sliver off one slanted end of a parallelogram and slide it to the other end, what shape do you get, and why doesn't its area change?","Claim 2: a triangle's area is always exactly HALF of a rectangle sharing the same base and height — never a third, never two-thirds. Argue it: picture two identical copies of the same triangle, one flipped and fitted against the other along the slanted side — what shape do the two copies make together, and what does that prove about one triangle alone?","Claim 3: a trapezoid's area uses the AVERAGE of its two parallel bases, not just one of them. Argue it: picture two identical copies of the same trapezoid, one flipped upside-down and slid up against the other — what parallelogram do the two copies form, and how does its base relate to the trapezoid's two original bases?"]}},
+    {"phase":"checkpoint","min":18,"title":"Mastery Checkpoint","board":"checkpoint","content":{"heading":"Show what you own","items":["c1","c2","c3","c4","c5","c6"]}},
+    {"phase":"close","min":8,"title":"Close & Set Mastery","board":"close","content":{"items":["x1"],"preview":"Next week, Lesson 10 — Classifying Triangles by Sides & Angles — where these shapes get sorted into families like scalene, isosceles, equilateral, acute, right, and obtuse."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can state and use the area formulas for a parallelogram, a triangle, and a trapezoid without help"},
+    {"id":"SC2","text":"I can justify why a triangle's area is half of a same-base-same-height rectangle and why a trapezoid uses the average of its two bases"},
+    {"id":"SC3","text":"I can find the area of a composite figure and correctly measure a real shape's base and perpendicular height"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W10-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W10 Area.md"},
+    "mus": {"practice":"MUS/L09 — Lesson Practice.pdf","review":"MUS/L09 — Systematic Review.pdf","test":"MUS/L09 — Lesson Test.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"checkpoint","kind":"check","title":"Mastery Checkpoint","items":["c1","c2","c3","c4","c5","c6"]},
+      {"phase":"close","kind":"exit","title":"Set Your Mastery","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"c1","type":"mc","sc":"SC1","points":1,"prompt":"A parallelogram has a base of 11 cm and a height of 6 cm. Its area is…","options":["17 cm²","33 cm²","66 cm²"],"answer":"66 cm²","explain":"A = b·h = 11 × 6 = 66 cm²."},
+    {"ref":"c2","type":"dropdown","sc":"SC1","points":1,"prompt":"The area of a triangle is ___ the area of a rectangle with the same base and height.","options":["equal to","one-half","twice"],"answer":"one-half","explain":"Math-U-See's own rule: the area of a triangle is one-half the area of a rectangle with the same base and height — never equal to it or twice it."},
+    {"ref":"c3","type":"short","sc":"SC1","points":2,"prompt":"A trapezoid has bases of 7 in and 13 in and a height of 4 in. Find its area, showing the average-base step.","answer":"Average base = (7 + 13) ÷ 2 = 10 in; Area = 10 × 4 = 40 in².","explain":"Average the two bases first, then multiply by the height — skipping the averaging step (and just using one base) is the single most common trapezoid mistake."},
+    {"ref":"c4","type":"measure","sc":"SC3","points":2,"prompt":"Measure the base and the true PERPENDICULAR height (not the slanted side) of a real triangular object near you right now (a slice of bread, a ramp, a roof gable seen from the side, a folded napkin) and compute its area.","answer":"Any honest measured base and height with units and a correctly computed A = ½·b·h, e.g. a folded-napkin triangle b = 18 cm, h = 12 cm → A = ½ × 18 × 12 = 108 cm².","explain":"Rubric: base and height measured and recorded with units, height genuinely perpendicular to the base (1 pt) + area correctly computed as ½·b·h from those numbers (1 pt)."},
+    {"ref":"c5","type":"construct","sc":"SC3","points":2,"figure":"grid-blank","prompt":"On the grid, draw a composite figure made of a rectangle and a triangle stacked together, label every dimension, and compute its total area by splitting it into the two simpler shapes and adding.","answer":"Any correctly labeled composite whose two parts are each computed correctly and summed, e.g. rectangle 8×4 = 32 + triangle ½×8×3 = 12 → total 44 sq units.","explain":"Rubric: two clearly labeled shapes with all dimensions marked (1 pt) + each part's area computed correctly and summed to a correct total (1 pt)."},
+    {"ref":"c6","type":"short","sc":"SC2","points":2,"prompt":"In your own words, explain why two identical copies of the same triangle — one flipped and fitted against the other along the slanted side — always form a parallelogram, and what that proves about a single triangle's area.","answer":"Two congruent copies of a triangle fit together edge-to-edge to form a parallelogram with the same base and the same height as one triangle; since that parallelogram's area is base × height and it's made of exactly two copies of the triangle, one triangle must be exactly half of base × height.","explain":"Full credit names the two-copies-make-a-parallelogram argument and connects it directly to why one triangle is exactly half of base × height — not an estimate, an exact half."},
+    {"ref":"x1","type":"short","sc":"SC1","points":1,"prompt":"Close: rate yourself on Lesson 9 (Emerging / Proficient / Mastered) and name the one idea you'd want to revisit."}
+  ]
+}

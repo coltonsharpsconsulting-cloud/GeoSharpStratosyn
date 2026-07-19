@@ -1,0 +1,47 @@
+{
+  "id": "LP-W08-S1", "course": "geometry", "week": 8, "session": 1,
+  "session_type": "concept", "lesson": "L07 — Transversals & Parallel Lines",
+  "unit": "u01", "duration_min": 60, "mode": "Concept",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 8 · Transversals & Parallel Lines",
+  "essential_question": "When one line crosses two others, several of the eight angles it makes are forced to match — which ones, and how far does that promise run in reverse?",
+  "objective": "Identify a transversal and classify the angle pairs it forms with two lines — corresponding, alternate interior, alternate exterior — and use their congruence, and its converse, to reason about parallel lines.",
+  "standards": ["G-CO.C.9"],
+  "vocab": ["transversal", "interior angles", "exterior angles", "corresponding angles", "alternate interior angles", "alternate exterior angles", "converse"],
+  "agenda": [
+    {"phase":"launch","min":6,"title":"Launch — One Line, Two Crossings","board":"launch","content":{"prompt":"Draw one straight line so it crosses two other lines that look parallel. You now have eight new angles. Without measuring, which ones do you think have to come out the same size — and would your answer change if the two lines weren't actually parallel?"}},
+    {"phase":"i_do","min":12,"title":"I do — Sorting the Eight Angles","board":"i_do","content":{"heading":"Transversal, interior, exterior — sorted by position","figure":"line","bullets":["A transversal is a single line that crosses two (or more) other lines, each at its own point.","Interior angles sit in the strip between the two lines; exterior angles sit outside it, above the top line or below the bottom line.","Corresponding angles sit in the same spot at each crossing — same corner, same side of the transversal.","Alternate interior angles are interior angles on opposite sides of the transversal; alternate exterior angles are the exterior pair on opposite sides.","When the two lines are parallel: corresponding, alternate interior, and alternate exterior angles are each congruent."]}},
+    {"phase":"explore","min":8,"title":"Explore — Rotate the Transversal, Watch All Eight","board":"explore","content":{"heading":"Swing the transversal; watch every angle update","note":"On the sim, drag the gold handle to swing the transversal through both parallel lines. Every angle updates live — toggle a button to spotlight corresponding, alternate interior, or alternate exterior pairs. What happens to every pair if you tilt the transversal more steeply? What happens at exactly 90°?","figure":"line"}},
+    {"phase":"check","min":5,"title":"Check for Understanding","board":"check","content":{"heading":"Name that part","items":["n1","n2"]}},
+    {"phase":"you_do","min":12,"title":"You do — Name & Compute","board":"you_do","content":{"heading":"Your turn on the worksheet","items":["p1","p2","p3","p4"]}},
+    {"phase":"exit","min":5,"title":"Exit Ticket","board":"exit","content":{"items":["x1"],"preview":"Build session: hunt a real transversal crossing two parallel lines and measure the angle pairs to confirm the congruences."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can identify a transversal and label the interior and exterior angles it forms with two lines"},
+    {"id":"SC2","text":"I can name a pair of corresponding, alternate interior, or alternate exterior angles and state that they are congruent when the two lines are parallel"},
+    {"id":"SC3","text":"I can use the converse — congruent corresponding or alternate angles — to conclude that two lines must be parallel"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W08-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W08 Transversals.md"},
+    "mus": {"practice":"MUS/L07 — Lesson Practice.pdf","review":"MUS/L07 — Systematic Review.pdf","test":"MUS/L07 — Lesson Test.pdf"},
+    "interactive": {"slug":"transversal","note":"Curriculum/Geometry/Lessons/W08-S1/sims/transversal.html"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"check","kind":"check","title":"Name That Part","items":["n1","n2"]},
+      {"phase":"practice","kind":"practice","title":"Name & Compute","items":["p1","p2","p3","p4"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"n1","type":"dropdown","sc":"SC1","points":1,"prompt":"A line that crosses two other lines, each at a different point, is called a…","options":["bisector","transversal","segment","vertex"],"answer":"transversal","explain":"A transversal is a straight line that crosses two (or more) other lines, each at its own point."},
+    {"ref":"n2","type":"mc","sc":"SC1","points":1,"prompt":"Given two parallel lines cut by a transversal, which four angles lie in the strip between the two lines?","options":["the exterior angles","the interior angles","the corresponding angles","the vertical angles"],"answer":"the interior angles","explain":"Interior angles lie inside — in the strip between — the two lines crossed by the transversal; exterior angles lie outside that strip."},
+    {"ref":"p1","type":"short","sc":"SC1","points":2,"prompt":"In your own words, explain the difference between an interior angle and an exterior angle when a transversal crosses two lines.","answer":"Interior angles are the four angles that lie in the strip between the two lines; exterior angles are the four that lie outside that strip, above the top line or below the bottom line.","explain":"Position, not size, is what separates interior from exterior — you can tell which is which just by looking at where each angle sits relative to the two lines."},
+    {"ref":"p2","type":"construct","sc":"SC2","points":2,"figure":"grid-blank","prompt":"Draw two parallel horizontal lines cut by one transversal. Label the top crossing M and the bottom crossing R, number all eight angles 1–8 (1,2,3,4 at M; 5,6,7,8 at R), then mark ONE pair of corresponding angles with matching arc marks.","answer":"Two parallel lines and one transversal with all eight angles labeled in the standard positions at M and R, with one corresponding pair (e.g., ∠1 & ∠5) marked with matching arcs.","explain":"Rubric: two parallel lines and one transversal with all eight angles labeled at M and R (1 pt) + one correctly marked corresponding pair (1 pt)."},
+    {"ref":"p3","type":"dropdown","sc":"SC3","points":1,"prompt":"Two lines are cut by a transversal. If a pair of alternate interior angles turns out to be congruent, the two lines must be…","options":["parallel","perpendicular","skew"],"answer":"parallel","explain":"This is the converse of the alternate interior angles theorem: congruent alternate interior angles guarantee the two lines are parallel."},
+    {"ref":"p4","type":"short","sc":"SC2","points":2,"prompt":"Two parallel lines are cut by a transversal, numbered 1,2,3,4 at the top crossing M and 5,6,7,8 at the bottom crossing R (upper-left, upper-right, lower-left, lower-right at each). If m∠1 = 70°, find m∠4 and m∠5, and name the relationship you used for each.","answer":"m∠4 = 70° (∠1 and ∠4 are vertical angles — same crossing, Lesson 6); m∠5 = 70° (∠1 and ∠5 are corresponding angles, congruent because the lines are parallel).","explain":"∠1 and ∠4 sit directly opposite each other at M (vertical); ∠1 and ∠5 sit in the same corner at two different crossings (corresponding)."},
+    {"ref":"x1","type":"short","sc":"SC1","points":2,"prompt":"Exit: find one real transversal in your everyday world (a crosswalk cutting curb lines, a ladder leaned across two fence rails, a pencil laid across ruled notebook lines) and name ONE angle pair it creates — corresponding, alternate interior, or alternate exterior.","explain":"Any real object with a clear transversal and two parallel-ish lines, plus a correctly named pair type, earns full credit."}
+  ]
+}

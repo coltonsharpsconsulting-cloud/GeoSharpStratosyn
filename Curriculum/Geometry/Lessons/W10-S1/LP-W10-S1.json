@@ -1,0 +1,47 @@
+{
+  "id": "LP-W10-S1", "course": "geometry", "week": 10, "session": 1,
+  "session_type": "concept", "lesson": "L09 — Area of Parallelograms, Triangles & Trapezoids",
+  "unit": "u01", "duration_min": 60, "mode": "Concept",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 10 · Area — Parallelograms, Triangles & Trapezoids",
+  "essential_question": "If every area formula starts from a base and a perpendicular height, how do those two numbers turn into the exact area of a parallelogram, a triangle, and a trapezoid?",
+  "objective": "State and apply the area formulas for a parallelogram (A = b·h), a triangle (A = ½b·h), and a trapezoid (A = average of the bases × h), correctly identifying the base and the perpendicular height in each figure, and find the area of a composite figure by splitting it into simpler shapes and adding.",
+  "standards": ["G-GPE.B.7"],
+  "vocab": ["parallelogram", "triangle", "trapezoid", "base", "height", "composite figure"],
+  "agenda": [
+    {"phase":"launch","min":6,"title":"Launch — The Triangle Inside the Rectangle","board":"launch","content":{"prompt":"Picture a triangle drawn snugly inside a rectangle — same base, same height, one corner of the triangle touching the rectangle's far top corner. Without measuring anything, what fraction of the rectangle do you think the triangle covers? Say a fraction out loud — we'll prove the real answer today."}},
+    {"phase":"i_do","min":12,"title":"I do — Base, Height & Three Formulas","board":"i_do","content":{"heading":"Every formula starts from the same two measurements","figure":"grid-blank","bullets":["The area of a parallelogram is base × height (A = b·h) — the same rule as a rectangle, because sliding a triangular sliver from one slanted end to the other rebuilds a rectangle with the same base and height.","The height is always perpendicular (⊥) to the base — never the slanted side, no matter how much longer or more obvious the slanted side looks.","The area of a triangle is one-half base × height (A = ½b·h) — always exactly half of a rectangle sharing the same base and height.","The area of a trapezoid is the average of its two parallel bases, times the height (A = ((b₁+b₂)/2)·h) — Math-U-See's rule: find the average base first, then multiply.","A composite figure's area is just the sum of the simpler shapes (rectangles, triangles, trapezoids) you split it into."]}},
+    {"phase":"explore","min":8,"title":"Explore — Drag Base & Height, Watch Area Update","board":"explore","content":{"heading":"Change the shape; watch the formula plug in live","figure":"grid-blank","note":"On the sim, choose Parallelogram, Triangle, or Trapezoid, then drag the gold base handle and the cyan height handle (and, for the trapezoid, the second gold handle controlling the top base). Watch the readout update live with the base(s), the height, and the formula plugged in with real numbers. Predict the area before you drag, then check."}},
+    {"phase":"check","min":5,"title":"Check for Understanding","board":"check","content":{"heading":"Formula Check","items":["n1","n2"]}},
+    {"phase":"you_do","min":12,"title":"You do — Compute the Area","board":"you_do","content":{"heading":"Your turn on the worksheet","items":["p1","p2","p3","p4"]}},
+    {"phase":"exit","min":5,"title":"Exit Ticket","board":"exit","content":{"items":["x1"],"preview":"Build session: measure and compute the area of real surfaces — a pennant, a tabletop, a tile — or confirm the formulas by counting grid squares."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can state and use the area formulas for a parallelogram, a triangle, and a trapezoid"},
+    {"id":"SC2","text":"I can identify the base and the perpendicular height in a figure, and explain why the height is never the slanted side"},
+    {"id":"SC3","text":"I can find the area of a composite figure by splitting it into simpler shapes and adding"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W10-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W10 Area.md"},
+    "mus": {"practice":"MUS/L09 — Lesson Practice.pdf","review":"MUS/L09 — Systematic Review.pdf","test":"MUS/L09 — Lesson Test.pdf"},
+    "interactive": {"slug":"area-explorer","note":"Curriculum/Geometry/Lessons/W10-S1/sims/area-explorer.html"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"check","kind":"check","title":"Formula Check","items":["n1","n2"]},
+      {"phase":"practice","kind":"practice","title":"Compute the Area","items":["p1","p2","p3","p4"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"n1","type":"dropdown","sc":"SC1","points":1,"prompt":"The area of a parallelogram is found by multiplying the base by the ___.","options":["perimeter","height","diagonal"],"answer":"height","explain":"Math-U-See's own rule: the area of a parallelogram is the base times the height — not the slanted side, the perimeter, or a diagonal."},
+    {"ref":"n2","type":"mc","sc":"SC2","points":1,"prompt":"The height used in every area formula in this lesson is always ___ to the base.","options":["parallel","perpendicular","congruent"],"answer":"perpendicular","explain":"The height is defined as the perpendicular (right-angle) distance from the base to the opposite side or vertex — that's what makes it 'the' height instead of just any slanted measurement."},
+    {"ref":"p1","type":"short","sc":"SC1","points":2,"prompt":"A parallelogram has a base of 9 m and a height of 4 m. Find its area.","answer":"36 m²","explain":"A = b·h = 9 × 4 = 36 m²."},
+    {"ref":"p2","type":"short","sc":"SC1","points":2,"prompt":"A triangle has a base of 14 ft and a height of 6 ft. Find its area.","answer":"42 ft²","explain":"A = ½·b·h = ½ × 14 × 6 = 42 ft² — exactly half of the 84 ft² rectangle sharing the same base and height."},
+    {"ref":"p3","type":"short","sc":"SC1","points":2,"prompt":"A trapezoid has parallel bases of 8 in and 12 in, and a height of 5 in. Find its area.","answer":"50 in²","explain":"Average the bases first: (8 + 12) ÷ 2 = 10 in. Then A = 10 × 5 = 50 in²."},
+    {"ref":"p4","type":"construct","sc":"SC3","points":2,"figure":"grid-blank","prompt":"On the grid, sketch a composite figure made from a rectangle and a triangle stacked together (for example, a 6-by-3 rectangle with a triangle of base 6 and height 2 on top), label every dimension, and compute its total area by adding the two parts.","answer":"Rectangle 6×3 = 18 sq units + triangle ½×6×2 = 6 sq units = 24 sq units total (any correctly labeled composite whose parts are each computed correctly and summed also earns full credit).","explain":"Rubric: two clearly labeled shapes with all dimensions marked (1 pt) + each part's area computed correctly and summed to a correct total (1 pt)."},
+    {"ref":"x1","type":"short","sc":"SC2","points":2,"prompt":"Exit: find one flat real-world surface that's a parallelogram, triangle, or trapezoid shape (a garden bed, a road sign, a roof section, a slice of pizza) — not a plain rectangle. Identify its base and height, and estimate its area."}
+  ]
+}

@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Area of Parallelograms, Triangles &amp; Trapezoids — Sim</title>
+<style>
+  :root{--void:#0d1322;--ink:#161d31;--bone:#e8ecf3;--mist:#9aabd0;--accent:#8b5cf6;--gold:#f5c842;--cyan:#00e5ff;--border:#2a3142;--good:#7ee081}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--void);color:var(--bone);font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;min-height:100%}
+  header{padding:2vh 4vw;border-bottom:1px solid var(--border);background:var(--ink)}
+  .eyebrow{font-family:"DM Mono",ui-monospace,monospace;letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--accent)}
+  h1{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(20px,3vw,30px);margin-top:.3rem}
+  main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.6vh;padding:3vh 4vw}
+  .stage{width:100%;max-width:720px;aspect-ratio:16/11;background:var(--ink);border:1px solid var(--border);border-radius:16px;touch-action:none;overflow:hidden}
+  svg{width:100%;height:100%;display:block}
+  .controls{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
+  button{font-family:"DM Mono",ui-monospace,monospace;font-size:14px;background:var(--ink);color:var(--bone);border:1px solid var(--border);border-radius:999px;padding:.6rem 1.2rem;cursor:pointer}
+  button.on{border-color:var(--accent);color:var(--accent)}
+  .readout{font-family:"DM Mono",ui-monospace,monospace;font-size:clamp(14px,2.1vw,19px);color:var(--mist);text-align:center;min-height:2.4em;line-height:1.5}
+  .readout b{color:var(--gold);font-size:1.1em}
+  .hint{color:var(--mist);font-size:14px;max-width:60ch;text-align:center}
+  .legend{display:flex;gap:1.2rem;flex-wrap:wrap;justify-content:center;font-family:"DM Mono",ui-monospace,monospace;font-size:12px;color:var(--mist)}
+  .legend span{display:inline-flex;align-items:center;gap:.4em}
+  .dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+</style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Geometry · Lesson 9 · sim</div>
+    <h1>Drag the base and the height. Watch the area update.</h1>
+  </header>
+  <main>
+    <div class="controls" id="modes">
+      <button data-mode="parallelogram" class="on">Parallelogram</button>
+      <button data-mode="triangle">Triangle</button>
+      <button data-mode="trapezoid">Trapezoid</button>
+    </div>
+    <div class="stage"><svg viewBox="0 0 640 400" id="svg"></svg></div>
+    <div class="readout" id="readout"></div>
+    <div class="legend">
+      <span><i class="dot" style="background:#f5c842"></i> base handle(s)</span>
+      <span><i class="dot" style="background:#00e5ff"></i> height handle</span>
+    </div>
+    <p class="hint" id="hint"></p>
+    <div class="controls"><button id="resetBtn">Reset</button></div>
+  </main>
+<script>
+(() => {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  const readout = document.getElementById('readout');
+  const hint = document.getElementById('hint');
+
+  function make(tag, attrs){ const n=document.createElementNS(NS,tag); for(const k in attrs) n.setAttribute(k,attrs[k]); svg.appendChild(n); return n; }
+
+  const UNIT = 20;          // px per unit — 1 grid square = 1 square unit
+  const BASE_Y = 300;       // baseline y
+  const L = { x: 140, y: BASE_Y }; // fixed left base point (A)
+  const SLANT = 60;         // fixed visual slant for the parallelogram's top side
+
+  // ---- state (all in px; snapped to 10px = 0.5 unit steps) ----
+  let mode = 'parallelogram';
+  let Rx = 460;      // base handle x  (base b1 = (Rx - L.x) / UNIT)
+  let topY = 180;    // height handle y (height h = (BASE_Y - topY) / UNIT)
+  let halfTop = 80;  // trapezoid: half the top base, in px (b2 = 2*halfTop/UNIT)
+
+  const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+  const snap10 = v => Math.round(v / 10) * 10;
+  function clampBase(x){ return clamp(snap10(x), 260, 620); }
+  function clampHeight(y){ return clamp(snap10(y), 100, 280); }
+  function clampHalfTop(x, rx){ const maxHalf = Math.max(20, (rx - L.x) / 2 - 10); return clamp(snap10(x), 20, maxHalf); }
+
+  // ---- static grid (counting-squares backdrop) ----
+  const gridG = make('g', {});
+  (function drawGrid(){
+    for (let x = 0; x <= 640; x += UNIT){
+      const ln = document.createElementNS(NS,'line');
+      ln.setAttribute('x1',x); ln.setAttribute('y1',0); ln.setAttribute('x2',x); ln.setAttribute('y2',400);
+      ln.setAttribute('stroke','#2a3142'); ln.setAttribute('stroke-width', x % (UNIT*5) === 0 ? 1.2 : 0.6);
+      gridG.appendChild(ln);
+    }
+    for (let y = 0; y <= 400; y += UNIT){
+      const ln = document.createElementNS(NS,'line');
+      ln.setAttribute('x1',0); ln.setAttribute('y1',y); ln.setAttribute('x2',640); ln.setAttribute('y2',y);
+      ln.setAttribute('stroke','#2a3142'); ln.setAttribute('stroke-width', y % (UNIT*5) === 0 ? 1.2 : 0.6);
+      gridG.appendChild(ln);
+    }
+  })();
+
+  // ---- shape polygon ----
+  const shapePoly = make('polygon', { fill:'#8b5cf655', stroke:'#8b5cf6', 'stroke-width':4, 'stroke-linejoin':'round' });
+
+  // ---- altitude (height) guide: dashed vertical line + right-angle tick ----
+  const altitude = make('line', { stroke:'#00e5ff', 'stroke-width':3, 'stroke-dasharray':'7 6' });
+  const rightAngle = make('polyline', { fill:'none', stroke:'#9aabd0', 'stroke-width':2 });
+
+  // ---- labels ----
+  const font = { 'font-family':'DM Mono, monospace', 'font-size':18, fill:'#e8ecf3', 'text-anchor':'middle' };
+  const lblA = make('text', { ...font }); lblA.textContent = 'A';
+  const lblB = make('text', { ...font }); lblB.textContent = 'B';
+  const lblTop1 = make('text', { ...font }); // D (parallelogram/trapezoid top-left, or C for triangle apex)
+  const lblTop2 = make('text', { ...font, opacity:0 }); // C (top-right, trapezoid/parallelogram only)
+  const baseLbl = make('text', { 'font-family':'DM Mono, monospace', 'font-size':16, fill:'#f5c842', 'text-anchor':'middle' });
+  const topBaseLbl = make('text', { 'font-family':'DM Mono, monospace', 'font-size':16, fill:'#f5c842', 'text-anchor':'middle', opacity:0 });
+  const heightLbl = make('text', { 'font-family':'DM Mono, monospace', 'font-size':16, fill:'#00e5ff', 'text-anchor':'start' });
+
+  // ---- draggable handles ----
+  const baseDot = make('circle', { r:11, fill:'#f5c842' });
+  const baseHit = make('circle', { r:26, fill:'transparent', cursor:'grab' });
+
+  const heightDot = make('circle', { r:11, fill:'#00e5ff' });
+  const heightHit = make('circle', { r:26, fill:'transparent', cursor:'grab' });
+
+  const topDot = make('circle', { r:11, fill:'#f5c842' });
+  const topHit = make('circle', { r:26, fill:'transparent', cursor:'grab' });
+
+  function toLocal(e){
+    const r = svg.getBoundingClientRect();
+    const cx = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+    const cy = (e.touches ? e.touches[0].clientY : e.clientY) - r.top;
+    return { x: cx / r.width * 640, y: cy / r.height * 400 };
+  }
+
+  function fmt(n){ return (Math.round(n*10)/10).toString().replace(/\.0$/,''); }
+
+  function draw(){
+    const R = { x: Rx, y: BASE_Y };
+    const cx = (L.x + R.x) / 2;
+    const b1 = (Rx - L.x) / UNIT;
+    const h = (BASE_Y - topY) / UNIT;
+
+    let pts, altitudeFootX, topPtForHandle, topRightPt = null, b2 = null;
+
+    if (mode === 'parallelogram') {
+      const topLeft = { x: L.x + SLANT, y: topY };
+      const topRight = { x: R.x + SLANT, y: topY };
+      pts = [L, R, topRight, topLeft];
+      altitudeFootX = topLeft.x;
+      topPtForHandle = topLeft;
+      lblTop1.textContent = 'D'; lblTop2.setAttribute('opacity', 0);
+      topBaseLbl.setAttribute('opacity', 0);
+      topHit.style.pointerEvents = 'none'; topDot.setAttribute('opacity', 0); topHit.setAttribute('opacity', 0);
+    } else if (mode === 'triangle') {
+      const apex = { x: cx, y: topY };
+      pts = [L, R, apex];
+      altitudeFootX = cx;
+      topPtForHandle = apex;
+      lblTop1.textContent = 'C'; lblTop2.setAttribute('opacity', 0);
+      topBaseLbl.setAttribute('opacity', 0);
+      topHit.style.pointerEvents = 'none'; topDot.setAttribute('opacity', 0); topHit.setAttribute('opacity', 0);
+    } else { // trapezoid
+      const topLeft = { x: cx - halfTop, y: topY };
+      const topRight = { x: cx + halfTop, y: topY };
+      pts = [L, R, topRight, topLeft];
+      altitudeFootX = topLeft.x;
+      topPtForHandle = topLeft;
+      topRightPt = topRight;
+      b2 = (2 * halfTop) / UNIT;
+      lblTop1.textContent = 'D'; lblTop2.textContent = 'C'; lblTop2.setAttribute('opacity', 1);
+      topBaseLbl.setAttribute('opacity', 1);
+      topHit.style.pointerEvents = 'auto'; topDot.setAttribute('opacity', 1); topHit.setAttribute('opacity', 1);
+    }
+
+    shapePoly.setAttribute('points', pts.map(p => `${p.x},${p.y}`).join(' '));
+
+    altitude.setAttribute('x1', altitudeFootX); altitude.setAttribute('y1', topY);
+    altitude.setAttribute('x2', altitudeFootX); altitude.setAttribute('y2', BASE_Y);
+
+    const s = 14;
+    rightAngle.setAttribute('points', `${altitudeFootX},${BASE_Y - s} ${altitudeFootX + s},${BASE_Y - s} ${altitudeFootX + s},${BASE_Y}`);
+
+    // vertex labels
+    lblA.setAttribute('x', L.x - 14); lblA.setAttribute('y', L.y + 24);
+    lblB.setAttribute('x', R.x + 14); lblB.setAttribute('y', R.y + 24);
+    lblTop1.setAttribute('x', topPtForHandle.x - (mode === 'triangle' ? 0 : 14));
+    lblTop1.setAttribute('y', topPtForHandle.y - 14);
+    if (topRightPt) { lblTop2.setAttribute('x', topRightPt.x + 14); lblTop2.setAttribute('y', topRightPt.y - 14); }
+
+    // base label (below baseline, midpoint of A–B)
+    baseLbl.setAttribute('x', (L.x + R.x) / 2); baseLbl.setAttribute('y', BASE_Y + 26);
+    baseLbl.textContent = mode === 'trapezoid' ? `b₁ = ${fmt(b1)}` : `b = ${fmt(b1)}`;
+
+    // top base label (trapezoid only)
+    if (topRightPt) {
+      topBaseLbl.setAttribute('x', cx); topBaseLbl.setAttribute('y', topY - 26);
+      topBaseLbl.textContent = `b₂ = ${fmt(b2)}`;
+    }
+
+    // height label (beside the dashed altitude)
+    heightLbl.setAttribute('x', altitudeFootX + 12); heightLbl.setAttribute('y', (topY + BASE_Y) / 2);
+    heightLbl.textContent = `h = ${fmt(h)}`;
+
+    // handles
+    baseDot.setAttribute('cx', R.x); baseDot.setAttribute('cy', R.y);
+    baseHit.setAttribute('cx', R.x); baseHit.setAttribute('cy', R.y);
+
+    heightDot.setAttribute('cx', topPtForHandle.x); heightDot.setAttribute('cy', topPtForHandle.y);
+    heightHit.setAttribute('cx', topPtForHandle.x); heightHit.setAttribute('cy', topPtForHandle.y);
+
+    if (topRightPt) {
+      topDot.setAttribute('cx', topRightPt.x); topDot.setAttribute('cy', topRightPt.y);
+      topHit.setAttribute('cx', topRightPt.x); topHit.setAttribute('cy', topRightPt.y);
+    }
+
+    // ---- readout: shape name, base(s), height, formula plugged with real numbers ----
+    let area, formulaLine;
+    if (mode === 'parallelogram') {
+      area = b1 * h;
+      formulaLine = `A = b·h = ${fmt(b1)} × ${fmt(h)} = <b>${fmt(area)}</b> sq units`;
+      readout.innerHTML = `Parallelogram &middot; b = <b>${fmt(b1)}</b> &middot; h = <b>${fmt(h)}</b><br>${formulaLine}`;
+    } else if (mode === 'triangle') {
+      area = 0.5 * b1 * h;
+      formulaLine = `A = &frac12;&middot;b&middot;h = &frac12; × ${fmt(b1)} × ${fmt(h)} = <b>${fmt(area)}</b> sq units`;
+      readout.innerHTML = `Triangle &middot; b = <b>${fmt(b1)}</b> &middot; h = <b>${fmt(h)}</b><br>${formulaLine}`;
+    } else {
+      const avg = (b1 + b2) / 2;
+      area = avg * h;
+      formulaLine = `A = (b&#8321;+b&#8322;)/2 &middot; h = (${fmt(b1)}+${fmt(b2)})/2 × ${fmt(h)} = ${fmt(avg)} × ${fmt(h)} = <b>${fmt(area)}</b> sq units`;
+      readout.innerHTML = `Trapezoid &middot; b&#8321; = <b>${fmt(b1)}</b> &middot; b&#8322; = <b>${fmt(b2)}</b> &middot; h = <b>${fmt(h)}</b><br>${formulaLine}`;
+    }
+  }
+
+  function setMode(m){
+    mode = m;
+    [...document.querySelectorAll('#modes button')].forEach(b => b.classList.toggle('on', b.dataset.mode === m));
+    hint.textContent = m === 'parallelogram'
+      ? "Drag the gold handle at B to change the base. Drag the cyan handle at D to change the height. Notice the slanted side's own length never appears in the formula — only the perpendicular height (the dashed cyan line) does."
+      : m === 'triangle'
+      ? "Drag the gold handle at B to change the base. Drag the cyan apex handle at C to change the height. The dashed cyan line is the true altitude — perpendicular to the base, dropped straight down from the apex."
+      : "Drag the gold handle at B for the bottom base and the second gold handle at C for the top base. Drag the cyan handle at D for the height. Watch the average-base step appear in the formula before it multiplies by the height.";
+    draw();
+  }
+
+  // ---- drag handling ----
+  let dragging = null; // 'base' | 'height' | 'top' | null
+  function down(which){ return e => { dragging = which; e.preventDefault(); }; }
+  function move(e){
+    if (!dragging) return;
+    const p = toLocal(e);
+    if (dragging === 'base') Rx = clampBase(p.x);
+    else if (dragging === 'height') topY = clampHeight(p.y);
+    else if (dragging === 'top') {
+      const cx = (L.x + Rx) / 2;
+      halfTop = clampHalfTop(Math.abs(p.x - cx), Rx);
+    }
+    draw();
+    e.preventDefault();
+  }
+  function up(){ dragging = null; }
+
+  baseHit.addEventListener('pointerdown', down('base'));
+  heightHit.addEventListener('pointerdown', down('height'));
+  topHit.addEventListener('pointerdown', down('top'));
+  window.addEventListener('pointermove', move);
+  window.addEventListener('pointerup', up);
+  baseHit.addEventListener('touchstart', down('base'), { passive:false });
+  heightHit.addEventListener('touchstart', down('height'), { passive:false });
+  topHit.addEventListener('touchstart', down('top'), { passive:false });
+  window.addEventListener('touchmove', move, { passive:false });
+  window.addEventListener('touchend', up);
+
+  document.getElementById('modes').addEventListener('click', e => { const m = e.target.dataset.mode; if (m) setMode(m); });
+  document.getElementById('resetBtn').addEventListener('click', () => { Rx = 460; topY = 180; halfTop = 80; draw(); });
+
+  setMode('parallelogram');
+})();
+</script>
+</body>
+</html>

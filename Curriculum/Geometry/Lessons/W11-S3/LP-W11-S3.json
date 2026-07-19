@@ -1,0 +1,44 @@
+{
+  "id": "LP-W11-S3", "course": "geometry", "week": 11, "session": 3,
+  "session_type": "prove", "lesson": "L10 — Classifying Triangles",
+  "unit": "u01", "duration_min": 60, "mode": "Prove",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 11 · Prove It — Classifying Triangles",
+  "essential_question": "Why can't a triangle ever have two right angles — and why can't 5, 7, and 15 ever close into one?",
+  "objective": "Justify why a triangle can never have two right angles, why the two shorter sides must outsum the longest, and why every equilateral triangle is also equiangular; review the week's Math-U-See practice; and pass the mastery checkpoint on classifying triangles and applying the triangle inequality.",
+  "standards": ["G-CO.A.1"],
+  "vocab": ["scalene", "isosceles", "equilateral", "acute triangle", "right triangle", "obtuse triangle", "equiangular", "triangle inequality"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Redraw From Memory","board":"warmup","content":{"prompt":"Without looking, sketch a scalene triangle, an isosceles triangle, and a right triangle from memory, labeling which is which. Then explain out loud, in your own words, why 'right' and 'obtuse' can never describe the same triangle."}},
+    {"phase":"review","min":12,"title":"Review — Your Math-U-See Work","board":"review","content":{"heading":"Go over Lesson Practice 10A & 10B together","note":"Bring your completed MUS Lesson Practice 10A/10B. We check the tricky ones: telling 'isosceles right' (real) apart from 'right obtuse' and 'equilateral right' (both impossible), and the triangle-inequality checks that look wrong at first glance — like 6, 7, and 2 — but still have to be tested with the actual rule, not just a gut feeling. Fix any you missed and note WHY."}},
+    {"phase":"prove","min":16,"title":"Prove It — Reason Out Loud","board":"prove","content":{"heading":"Defend three claims","figure":"grid-blank","bullets":["Claim 1: a triangle can never have two right angles. Argue it from the angle sum — what would be left over for the third angle, and why is that impossible?","Claim 2: sides 5, 7, and 15 cannot form a triangle. Argue it from the triangle inequality — what would the two shorter sides need to add up to instead?","Claim 3: every equilateral triangle is also equiangular, and therefore always acute. Argue it — what forces all three angles to be congruent, and what number does that force each one to equal?"]}},
+    {"phase":"checkpoint","min":18,"title":"Mastery Checkpoint","board":"checkpoint","content":{"heading":"Show what you own","items":["c1","c2","c3","c4","c5","c6"]}},
+    {"phase":"close","min":8,"title":"Close & Set Mastery","board":"close","content":{"items":["x1"],"preview":"Next week, Lesson 11 — Polygons (names, diagonals, and interior/exterior angle sums) — where these triangle ideas scale up to shapes with more sides."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can classify a triangle by its sides and by its angles without help"},
+    {"id":"SC2","text":"I can apply the triangle inequality to decide whether three given lengths can form a triangle"},
+    {"id":"SC3","text":"I can justify why a triangle can never have two right angles and why some length trios can never close into a triangle"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W11-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W11 Classifying Triangles.md"},
+    "mus": {"practice":"MUS/L10 — Lesson Practice.pdf","review":"MUS/L10 — Systematic Review.pdf","test":"MUS/L10 — Lesson Test.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"checkpoint","kind":"check","title":"Mastery Checkpoint","items":["c1","c2","c3","c4","c5","c6"]},
+      {"phase":"close","kind":"exit","title":"Set Your Mastery","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"c1","type":"mc","sc":"SC1","points":1,"prompt":"A triangle with sides measuring 7, 7, and 11 is classified by its sides as…","options":["scalene","isosceles","equilateral"],"answer":"isosceles","explain":"Two of the three sides (the 7's) are congruent and the third is different — that's isosceles, not equilateral."},
+    {"ref":"c2","type":"dropdown","sc":"SC1","points":1,"prompt":"A triangle with angles measuring 20°, 65°, and 95° is classified by its angles as…","options":["acute","right","obtuse"],"answer":"obtuse","explain":"One angle (95°) is greater than 90°, and a triangle can only ever have one angle that large."},
+    {"ref":"c3","type":"short","sc":"SC2","points":2,"prompt":"Can a triangle have sides measuring 5, 7, and 15? Justify your answer using the triangle inequality.","answer":"No — 5 + 7 = 12, which is less than 15. The two shorter sides must add up to MORE than the longest side for three lengths to close into a triangle.","explain":"The triangle inequality requires the sum of the two shorter sides to exceed the longest side; here 12 < 15, so it fails."},
+    {"ref":"c4","type":"mc","sc":"SC3","points":1,"prompt":"Two angles of a triangle measure 90° and 90°. What must the third angle measure?","options":["0°","90°","180°"],"answer":"0°","explain":"180° − 90° − 90° = 0°, but every angle in a real triangle must be greater than 0° — exactly why a triangle can never have two right angles."},
+    {"ref":"c5","type":"construct","sc":"SC1","points":2,"figure":"grid-blank","prompt":"On the grid, construct a triangle that is BOTH isosceles AND right. Label the two congruent sides and mark the 90° angle.","answer":"A right triangle with its two legs drawn the same length (tick-marked congruent) and a small square at the right-angle vertex — a 45°-45°-90° triangle.","explain":"Rubric: a right angle clearly marked (1 pt) + two congruent sides tick-marked, making it isosceles as well as right (1 pt)."},
+    {"ref":"c6","type":"short","sc":"SC3","points":2,"prompt":"In your own words, explain why a triangle can never have two right angles.","answer":"A triangle's three angles must add up to exactly 180°. Two right angles already use up 90° + 90° = 180° by themselves, leaving 0° for the third angle — and no real angle can measure 0°, so a triangle can never have two right angles (or, by the same reasoning, two angles that are each 90° or more).","explain":"Full credit: names the 180° angle-sum constraint and shows that two right angles would leave nothing for the third."},
+    {"ref":"x1","type":"short","sc":"SC1","points":1,"prompt":"Close: rate yourself on Lesson 10 (Emerging / Proficient / Mastered) and name the one idea you'd want to revisit."}
+  ]
+}

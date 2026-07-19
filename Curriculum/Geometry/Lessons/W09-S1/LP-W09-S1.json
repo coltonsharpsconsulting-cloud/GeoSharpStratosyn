@@ -1,0 +1,47 @@
+{
+  "id": "LP-W09-S1", "course": "geometry", "week": 9, "session": 1,
+  "session_type": "concept", "lesson": "L08 — Polygons, Quadrilaterals & Perimeter",
+  "unit": "u01", "duration_min": 60, "mode": "Concept",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 9 · Polygons, Quadrilaterals & Perimeter",
+  "essential_question": "How do a shape's sides and angles pin down exactly which quadrilateral it is — and how do you measure the distance all the way around it?",
+  "objective": "Identify polygons and the quadrilateral family (square, rectangle, parallelogram, rhombus, trapezoid) by their defining properties, compute the perimeter of simple and composite (L-shaped) figures, and state the interior angle sum of a triangle (180°) and a quadrilateral (360°).",
+  "standards": ["G-CO.C.11"],
+  "vocab": ["polygon", "quadrilateral", "parallelogram", "rectangle", "rhombus", "trapezoid", "perimeter"],
+  "agenda": [
+    {"phase":"launch","min":6,"title":"Launch — Walk the Whole Boundary","board":"launch","content":{"prompt":"A city block is basically a rectangle. If you walked its entire boundary once, what exactly would you be adding up? And here's the trickier one: is every square secretly also a rectangle — or are they two separate shapes that just happen to look alike?"}},
+    {"phase":"i_do","min":12,"title":"I do — The Quadrilateral Family Tree","board":"i_do","content":{"heading":"Six shapes, one family tree, and the distance around","figure":"grid-blank","bullets":["A polygon is a closed figure made of straight sides; a quadrilateral is any four-sided polygon at all.","Parallelogram = two pairs of parallel sides (angles may or may not be right angles). Rectangle = a parallelogram with four right angles. Rhombus = a parallelogram with four congruent sides.","Square = four congruent sides AND four right angles — so a square is a rectangle with congruent sides, and also a rhombus with right angles.","Trapezoid = only ONE pair of parallel sides — it can never also be a parallelogram, rectangle, rhombus, or square.","Perimeter is the distance around a figure — add every side. For a composite (L-shaped) figure, first find any missing side lengths, then add every side of the actual boundary.","The interior angles of a triangle always sum to 180°; the interior angles of a quadrilateral always sum to 360° — split any quadrilateral with one diagonal into two triangles to see why."]}},
+    {"phase":"explore","min":8,"title":"Explore — Drag a Corner, Watch It Reclassify","board":"explore","content":{"heading":"Drag a corner; watch the name and the perimeter change","note":"On the sim, drag any of the four gold corners. Watch the shape's name update live — try to make it read 'Square,' then 'Rectangle,' then 'Parallelogram,' then 'Rhombus,' then 'Trapezoid,' and finally a plain 'General quadrilateral.' Watch the perimeter number too — does it go up or down as you stretch a corner outward?"}},
+    {"phase":"check","min":5,"title":"Check for Understanding","board":"check","content":{"heading":"Name That Shape","items":["n1","n2"]}},
+    {"phase":"you_do","min":12,"title":"You do — Classify & Compute","board":"you_do","content":{"heading":"Your turn on the worksheet","items":["p1","p2","p3","p4"]}},
+    {"phase":"exit","min":5,"title":"Exit Ticket","board":"exit","content":{"items":["x1"],"preview":"Build session: measure real quadrilaterals' perimeters and build your own set from cardstock or straws."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can identify a polygon and each quadrilateral family member (square, rectangle, parallelogram, rhombus, trapezoid) by its defining properties"},
+    {"id":"SC2","text":"I can find the perimeter of a simple figure and a composite (L-shaped) figure by finding any missing sides and adding all the sides"},
+    {"id":"SC3","text":"I can state the interior angle sum of a triangle (180°) and a quadrilateral (360°), and explain why a square is always a rectangle but not the reverse"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W09-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W09 Polygons & Perimeter.md"},
+    "mus": {"practice":"MUS/L08 — Lesson Practice.pdf","review":"MUS/L08 — Systematic Review.pdf","test":"MUS/L08 — Lesson Test.pdf"},
+    "interactive": {"slug":"quad-perimeter","note":"Curriculum/Geometry/Lessons/W09-S1/sims/quad-perimeter.html"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"check","kind":"check","title":"Name That Shape","items":["n1","n2"]},
+      {"phase":"practice","kind":"practice","title":"Classify & Compute","items":["p1","p2","p3","p4"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"n1","type":"dropdown","sc":"SC1","points":1,"prompt":"A quadrilateral with two pairs of parallel sides — angles may or may not be right angles — is a…","options":["rectangle","parallelogram","trapezoid","rhombus"],"answer":"parallelogram","explain":"Two pairs of parallel sides, with no requirement about the angles, is exactly the parallelogram definition. A rectangle also has two pairs of parallel sides, but ONLY a rectangle requires all four angles to be right angles."},
+    {"ref":"n2","type":"mc","sc":"SC3","points":1,"prompt":"The interior angles of ANY quadrilateral — square, kite, or any other four-sided figure — always add up to…","options":["180°","270°","360°"],"answer":"360°","explain":"Draw one diagonal across any quadrilateral and it splits into two triangles. Each triangle's angles sum to 180°, and together they cover every interior angle of the quadrilateral exactly once: 180° + 180° = 360°."},
+    {"ref":"p1","type":"short","sc":"SC2","points":1,"prompt":"A rectangular garden plot measures 9 m by 5 m. Find its perimeter.","answer":"28 m","explain":"Perimeter = sum of all four sides: 9 + 5 + 9 + 5 = 28 m (or 2(9 + 5) = 28 m)."},
+    {"ref":"p2","type":"short","sc":"SC2","points":2,"prompt":"A storage shed's footprint is a rectangle with one rectangular corner notch cut out (an L-shape), and every angle in the figure is a right angle. The overall length is 11 ft and the overall width is 7 ft. The notch removed from that corner is 4 ft by 3 ft. Find the two missing side lengths, then find the perimeter of the actual L-shaped footprint.","answer":"Missing sides: 7 ft (11 − 4) and 4 ft (7 − 3). Perimeter = 11 + 4 + 4 + 3 + 7 + 7 = 36 ft.","explain":"Rubric: correctly finds both missing sides by subtracting the notch from the overall dimensions (1 pt) + adds all six sides of the actual boundary for 36 ft (1 pt)."},
+    {"ref":"p3","type":"dropdown","sc":"SC1","points":1,"prompt":"A quadrilateral has four congruent sides, but its angles measure 100°, 80°, 100°, 80° — none of them right angles. What is the BEST name for this shape?","options":["square","rectangle","rhombus","trapezoid"],"answer":"rhombus","explain":"Four congruent sides with angles that are not right angles is exactly the definition of a rhombus. It would only be a square if all four angles were also right angles."},
+    {"ref":"p4","type":"construct","sc":"SC1","points":2,"figure":"grid-blank","prompt":"On the grid, draw a quadrilateral that IS a parallelogram but is NOT a rectangle. Label it and write one sentence explaining how you know it's a parallelogram but not a rectangle.","answer":"Any slanted (non-right-angle) four-sided figure with two pairs of parallel sides, labeled, with a sentence noting both pairs of opposite sides are parallel but the angles are not 90°.","explain":"Rubric: a drawn figure with two pairs of parallel sides (1 pt) + a sentence correctly noting the angles are NOT right angles, which is what keeps it from being a rectangle (1 pt)."},
+    {"ref":"x1","type":"short","sc":"SC3","points":2,"prompt":"Exit: find one quadrilateral-shaped object near you right now (a book cover, a window, a tile, a picture frame) and name the MOST SPECIFIC family member it belongs to. Then name one OTHER family name it also belongs to, and say why."}
+  ]
+}

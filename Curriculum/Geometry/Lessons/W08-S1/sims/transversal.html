@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Transversals & Parallel Lines — Sim</title>
+<style>
+  :root{--void:#0d1322;--ink:#161d31;--bone:#e8ecf3;--mist:#9aabd0;--accent:#8b5cf6;--gold:#f5c842;--border:#2a3142;--good:#7ee081}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--void);color:var(--bone);font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;min-height:100%}
+  header{padding:2vh 4vw;border-bottom:1px solid var(--border);background:var(--ink)}
+  .eyebrow{font-family:"DM Mono",ui-monospace,monospace;letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--accent)}
+  h1{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(20px,3vw,30px);margin-top:.3rem}
+  main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.4vh;padding:3vh 4vw}
+  .stage{width:100%;max-width:760px;aspect-ratio:16/10;background:var(--ink);border:1px solid var(--border);border-radius:16px;touch-action:none}
+  svg{width:100%;height:100%;display:block}
+  .controls{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center}
+  button{font-family:"DM Mono",ui-monospace,monospace;font-size:13px;background:var(--ink);color:var(--bone);border:1px solid var(--border);border-radius:999px;padding:.55rem 1.1rem;cursor:pointer}
+  button.on{border-color:var(--accent);color:var(--accent)}
+  .readout{font-family:"DM Mono",ui-monospace,monospace;font-size:clamp(13px,1.9vw,17px);color:var(--mist);text-align:center;min-height:3.2em;line-height:1.55}
+  .readout b{color:var(--gold)}
+  .readout .g{color:var(--good);font-weight:bold}
+  .readout .y{color:var(--gold);font-weight:bold}
+  .readout .note{color:var(--bone)}
+  .hint{color:var(--mist);font-size:13.5px;max-width:62ch;text-align:center}
+</style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Geometry · Lesson 7 · sim</div>
+    <h1>Drag the transversal. Watch all eight angles at once.</h1>
+  </header>
+  <main>
+    <div class="controls" id="modes">
+      <button data-mode="all" class="on">Show All</button>
+      <button data-mode="corresponding">Corresponding</button>
+      <button data-mode="alt-interior">Alt. Interior</button>
+      <button data-mode="alt-exterior">Alt. Exterior</button>
+    </div>
+    <div class="stage"><svg viewBox="0 0 640 400" id="svg"></svg></div>
+    <div class="readout" id="readout"></div>
+    <div class="controls" id="actions">
+      <button id="snap90">Snap to 90°</button>
+      <button id="randomize">Randomize</button>
+    </div>
+    <p class="hint">Drag the gold handle to swing the violet transversal through both parallel lines. <span class="y">Gold</span> angles always match the other <span class="y">gold</span> angles; <span class="g">green</span> angles always match the other <span class="g">green</span> angles — no matter how you tilt the line. Toggle a button above to spotlight one pair type; the rest dim so the spotlighted pair stands out.</p>
+  </main>
+<script>
+(() => {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  const readout = document.getElementById('readout');
+
+  const GOLD = '#f5c842', GREEN = '#7ee081', ACCENT = '#8b5cf6', STEEL = '#5c6685', BONE = '#e8ecf3';
+
+  const C = { x: 320, y: 210 };   // fixed pivot the transversal always passes through
+  const TOP_Y = 130, BOT_Y = 290; // the two parallel lines (never move)
+  const HALF_GAP = (BOT_Y - TOP_Y) / 2; // = 80, distance from C to each line
+  const LINE_X0 = 40, LINE_X1 = 600;    // horizontal extent of the parallel lines
+
+  function make(tag, attrs){ const n=document.createElementNS(NS,tag); for(const k in attrs) n.setAttribute(k,attrs[k]); svg.appendChild(n); return n; }
+  const rad = d => d * Math.PI / 180;
+  const at = (vx, vy, deg, r) => ({ x: vx + r*Math.cos(rad(deg)), y: vy - r*Math.sin(rad(deg)) });
+
+  function arrow(x, y, ux, uy, color){
+    const tipX = x + ux*13, tipY = y + uy*13;
+    const px = -uy*7, py = ux*7;
+    return `<path d="M${x+px} ${y+py} L${tipX} ${tipY} L${x-px} ${y-py} Z" fill="${color}"/>`;
+  }
+
+  function arcPath(vx, vy, from, to, r){
+    const steps = Math.max(2, Math.round(Math.abs(to - from) / 3));
+    const pts = [];
+    for (let i = 0; i <= steps; i++){ const d = from + (to - from) * i / steps; const p = at(vx, vy, d, r); pts.push(`${i === 0 ? 'M' : 'L'}${p.x.toFixed(2)} ${p.y.toFixed(2)}`); }
+    return pts.join(' ');
+  }
+
+  // ---- static scaffold: the two parallel lines, a subtle "interior strip" band, and tick marks ----
+  make('rect', { x: LINE_X0, y: TOP_Y, width: LINE_X1 - LINE_X0, height: BOT_Y - TOP_Y, fill: ACCENT + '14' });
+  [TOP_Y, BOT_Y].forEach(y => {
+    make('line', { x1: LINE_X0, y1: y, x2: LINE_X1, y2: y, stroke: STEEL, 'stroke-width': 4 });
+    svg.insertAdjacentHTML('beforeend', arrow(LINE_X0, y, -1, 0, STEEL) + arrow(LINE_X1, y, 1, 0, STEEL));
+    // single-chevron "parallel" tick marks
+    [220, 420].forEach(tx => {
+      svg.insertAdjacentHTML('beforeend', `<path d="M${tx-6} ${y-7} L${tx+6} ${y} L${tx-6} ${y+7}" fill="none" stroke="${STEEL}" stroke-width="2.5"/>`);
+    });
+  });
+
+  const dyn = make('g', { id: 'dyn' });
+
+  let phi = 58;      // transversal's tilt angle (0-180, measured like a math angle) — never 0 or 180 (would be parallel to the lines, not a transversal)
+  let mode = 'all';
+
+  function buildVertex(vx, vy, phiDeg, offset, dimSet, positions){
+    const arcR = 36, labelR = 58;
+    const wedges = [
+      { a0: 0,          a1: phiDeg,       num: 2 + offset },
+      { a0: phiDeg,     a1: 180,          num: 1 + offset },
+      { a0: 180,        a1: 180 + phiDeg, num: 3 + offset },
+      { a0: 180 + phiDeg, a1: 360,        num: 4 + offset },
+    ];
+    let out = '';
+    wedges.forEach(w => {
+      const measure = Math.round(w.a1 - w.a0);
+      const color = measure === Math.round(phiDeg) ? GOLD : GREEN;
+      const mid = (w.a0 + w.a1) / 2;
+      const opacity = dimSet.has(w.num) ? 0.16 : 1;
+      const p = at(vx, vy, mid, labelR);
+      positions[w.num] = { x: p.x, y: p.y, color };
+      out += `<path d="${arcPath(vx, vy, w.a0, w.a1, arcR)}" fill="none" stroke="${color}" stroke-width="3" opacity="${opacity}"/>`;
+      out += `<text x="${p.x.toFixed(1)}" y="${p.y.toFixed(1)}" text-anchor="middle" font-size="15" fill="${color}" opacity="${opacity}" font-family="DM Mono, monospace">&ang;${w.num} ${measure}&deg;</text>`;
+    });
+    return out;
+  }
+
+  const PAIR_SETS = {
+    'all':           { pairs: [],                                   dim: [] },
+    'corresponding':  { pairs: [[1,5],[2,6],[3,7],[4,8]],             dim: [] },
+    'alt-interior':   { pairs: [[3,6],[4,5]],                        dim: [1,2,7,8] },
+    'alt-exterior':   { pairs: [[1,8],[2,7]],                        dim: [3,4,5,6] },
+  };
+
+  function draw(){
+    const rTop = HALF_GAP / Math.sin(rad(phi)); // distance from C to each parallel line, along the transversal
+    const extent = rTop + 46;
+    const Mpt = at(C.x, C.y, phi, rTop);         // where the transversal crosses the TOP line
+    const Rpt = at(C.x, C.y, phi + 180, rTop);   // where it crosses the BOTTOM line
+    const farA = at(C.x, C.y, phi, extent);
+    const farB = at(C.x, C.y, phi + 180, extent);
+    const dirA = { x: Math.cos(rad(phi)), y: -Math.sin(rad(phi)) };
+
+    const dimSet = new Set(PAIR_SETS[mode].dim);
+    const positions = {};
+
+    let html = '';
+    // the transversal itself, drawn through C, plus arrowheads and vertex dots
+    html += `<line x1="${farB.x}" y1="${farB.y}" x2="${farA.x}" y2="${farA.y}" stroke="${ACCENT}" stroke-width="4"/>`;
+    html += arrow(farA.x, farA.y, dirA.x, dirA.y, ACCENT);
+    html += arrow(farB.x, farB.y, -dirA.x, -dirA.y, ACCENT);
+
+    // eight angles, at both crossings
+    html += buildVertex(Mpt.x, Mpt.y, phi, 0, dimSet, positions);
+    html += buildVertex(Rpt.x, Rpt.y, phi, 4, dimSet, positions);
+
+    // connector lines for the spotlighted pair type
+    PAIR_SETS[mode].pairs.forEach(([a, b]) => {
+      const pa = positions[a], pb = positions[b];
+      html += `<line x1="${pa.x.toFixed(1)}" y1="${pa.y.toFixed(1)}" x2="${pb.x.toFixed(1)}" y2="${pb.y.toFixed(1)}" stroke="${pa.color}" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.75"/>`;
+    });
+
+    // vertex dots + M/R labels (placed straight up / straight down, clear of every angle label for phi in [25,155])
+    html += `<circle cx="${Mpt.x.toFixed(1)}" cy="${Mpt.y.toFixed(1)}" r="5" fill="${BONE}"/>`;
+    html += `<circle cx="${Rpt.x.toFixed(1)}" cy="${Rpt.y.toFixed(1)}" r="5" fill="${BONE}"/>`;
+    html += `<text x="${Mpt.x.toFixed(1)}" y="${(Mpt.y-70).toFixed(1)}" text-anchor="middle" font-size="17" fill="${BONE}" font-family="DM Mono, monospace">M</text>`;
+    html += `<text x="${Rpt.x.toFixed(1)}" y="${(Rpt.y+76).toFixed(1)}" text-anchor="middle" font-size="17" fill="${BONE}" font-family="DM Mono, monospace">R</text>`;
+
+    // draggable handle at the far end of the transversal
+    html += `<circle cx="${farA.x.toFixed(1)}" cy="${farA.y.toFixed(1)}" r="12" fill="${GOLD}"/>`;
+    html += `<circle id="hit" cx="${farA.x.toFixed(1)}" cy="${farA.y.toFixed(1)}" r="28" fill="transparent" cursor="grab"/>`;
+
+    dyn.innerHTML = html;
+
+    const g = Math.round(phi), y2 = 180 - g;
+    let special = '';
+    if (g === 90) special = '<div class="note">The transversal is perpendicular — all eight angles are right angles!</div>';
+
+    const modeLines = {
+      'all': `<div>&ang;2 = &ang;3 = &ang;6 = &ang;7 = <span class="y">${g}&deg;</span> &middot; &ang;1 = &ang;4 = &ang;5 = &ang;8 = <span class="g">${y2}&deg;</span></div><div>Only two distinct measures ever show up among all eight angles.</div>`,
+      'corresponding': `<div>Corresponding pairs (same corner, each crossing): &ang;1&amp;&ang;5, &ang;2&amp;&ang;6, &ang;3&amp;&ang;7, &ang;4&amp;&ang;8 — every pair matches because the lines are parallel.</div>`,
+      'alt-interior': `<div>Alternate interior pairs (between the lines, opposite sides of the transversal): <span class="y">&ang;3 = &ang;6 = ${g}&deg;</span> &middot; <span class="g">&ang;4 = &ang;5 = ${y2}&deg;</span></div>`,
+      'alt-exterior': `<div>Alternate exterior pairs (outside the lines, opposite sides of the transversal): <span class="g">&ang;1 = &ang;8 = ${y2}&deg;</span> &middot; <span class="y">&ang;2 = &ang;7 = ${g}&deg;</span></div>`,
+    };
+    readout.innerHTML = modeLines[mode] + special;
+  }
+
+  function setMode(m){
+    mode = m;
+    [...document.querySelectorAll('#modes button')].forEach(b => b.classList.toggle('on', b.dataset.mode === m));
+    draw();
+  }
+
+  // ---- drag handling ----
+  let dragging = false;
+  function toLocal(e){
+    const r = svg.getBoundingClientRect();
+    const cx = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+    const cy = (e.touches ? e.touches[0].clientY : e.clientY) - r.top;
+    return { x: cx / r.width * 640, y: cy / r.height * 400 };
+  }
+  function angleFromPoint(p){
+    const d = Math.atan2(C.y - p.y, p.x - C.x) * 180 / Math.PI;
+    const norm = ((d % 360) + 360) % 360;
+    return Math.max(25, Math.min(155, norm)); // stay well clear of 0°/180° (never a transversal) and hug a visible range
+  }
+  function down(e){ if (!(e.target && e.target.id === 'hit')) return; dragging = true; move(e); e.preventDefault(); }
+  function move(e){ if (!dragging) return; phi = angleFromPoint(toLocal(e)); draw(); e.preventDefault(); }
+  function up(){ dragging = false; }
+
+  svg.addEventListener('pointerdown', down);
+  window.addEventListener('pointermove', move);
+  window.addEventListener('pointerup', up);
+  svg.addEventListener('touchstart', down, { passive:false });
+  window.addEventListener('touchmove', move, { passive:false });
+  window.addEventListener('touchend', up);
+
+  document.getElementById('modes').addEventListener('click', e => { const m = e.target.dataset.mode; if (m) setMode(m); });
+  document.getElementById('snap90').addEventListener('click', () => { phi = 90; draw(); });
+  document.getElementById('randomize').addEventListener('click', () => { phi = Math.round(30 + Math.random() * 95); draw(); });
+
+  draw();
+})();
+</script>
+</body>
+</html>

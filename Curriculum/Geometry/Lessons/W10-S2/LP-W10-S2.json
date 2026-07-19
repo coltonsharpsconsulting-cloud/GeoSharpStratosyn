@@ -1,0 +1,42 @@
+{
+  "id": "LP-W10-S2", "course": "geometry", "week": 10, "session": 2,
+  "session_type": "build", "lesson": "L09 — Area of Parallelograms, Triangles & Trapezoids",
+  "unit": "u01", "duration_min": 60, "mode": "Build",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 10 · Area Hunt & Build",
+  "essential_question": "Can you measure a real surface's base and true perpendicular height and compute its exact area with the right formula for its shape?",
+  "objective": "Measure the base and perpendicular height of three real (or grid-paper) surfaces — a parallelogram, a triangle, and a trapezoid — and compute each one's area with the correct formula, confirming at least one answer by counting grid squares or a CAD measurement.",
+  "standards": ["G-GPE.B.7"],
+  "vocab": ["parallelogram", "triangle", "trapezoid", "base", "height", "composite figure"],
+  "agenda": [
+    {"phase":"brief","min":6,"title":"Brief — From Formulas to Real Surfaces","board":"brief","content":{"heading":"From formulas on paper to surfaces you can touch","bullets":["Yesterday: learned the three area formulas and that the height is always perpendicular to the base, never the slanted side.","Today: hunt down three real surfaces — a parallelogram, a triangle, and a trapezoid — measure each one's base and true height, and compute its area, or confirm the formulas by cutting grid-paper shapes and counting squares.","The test: can you find the real PERPENDICULAR height on an object (not just the nearest slanted edge), and get a believable area?"]}},
+    {"phase":"plan","min":8,"title":"Plan — Read the Build Card","board":"plan","content":{"heading":"Gather + choose your path","note":"Open the project card. Gather a tape measure or ruler, a set-square (or a book's square corner) for finding true perpendicular height, and paper — or grid paper, scissors, and glue for the Grid-Paper Confirm path. Decide which three real surfaces you'll hunt, or which three shapes you'll cut, before you start measuring."}},
+    {"phase":"build","min":25,"title":"Build — Measure & Compute","board":"build","content":{"heading":"Measure the world, then compute","bullets":["Real-Surface Hunt — find a parallelogram-shaped surface (a tile, a book propped at an angle, a floor paver), a triangular surface (a pennant, a roof gable, a slice of something), and a trapezoidal surface (a tabletop, a lampshade panel, a purse flap).","Find the TRUE perpendicular height on each — hold a set-square or a book's square corner against the base and slide it up until it meets the opposite side or point. That line, not the slanted edge, is the height.","For the trapezoid, measure BOTH parallel bases.","Grid-Paper Confirm (alternative) — cut a parallelogram, a triangle, and a trapezoid from grid paper with whole-number base and height, then count full and half squares to find each area by counting alone.","For all three shapes, record the shape, its base(s) and height, the formula you used, and the computed area."]}},
+    {"phase":"measure","min":12,"title":"Record Your Measurements","board":"measure","content":{"heading":"Get the numbers down","figure":"grid-blank","items":["m1","m2","m3"]}},
+    {"phase":"reflect","min":9,"title":"Reflect & Photograph","board":"reflect","content":{"items":["r1"],"preview":"Session 3: defend why a triangle is half a parallelogram and why a trapezoid averages its bases, review MUS Lesson Practice 9A/9B, and take the checkpoint."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can measure a real or cut surface's base and true perpendicular height (not the slanted side)"},
+    {"id":"SC2","text":"I can compute the area of a parallelogram, a triangle, and a trapezoid using the correct formula for each"},
+    {"id":"SC3","text":"I can confirm a computed area a second way — by counting grid squares, re-measuring, or a CAD measurement tool"}
+  ],
+  "assets": {
+    "project": {"note":"Curriculum/Geometry/Lessons/W10-S2/project-card.md"},
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W10-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W10 Area.md"},
+    "mus": {"practice":"MUS/L09 — Lesson Practice.pdf","review":"MUS/L09 — Systematic Review.pdf","test":"MUS/L09 — Lesson Test.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"measure","kind":"practice","title":"Record Your Measurements","items":["m1","m2","m3"]},
+      {"phase":"reflect","kind":"exit","title":"Reflect","items":["r1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"m1","type":"measure","sc":"SC1","points":2,"prompt":"List the three surfaces you worked with (name each shape: parallelogram, triangle, trapezoid) and record the base and height you measured for each, with units (record BOTH bases for the trapezoid).","answer":"Any three honest, plausible measurements, e.g. parallelogram tile: b=30 cm, h=18 cm; triangle pennant: b=45 cm, h=20 cm; trapezoid tabletop: b₁=60 cm, b₂=40 cm, h=35 cm.","explain":"Rubric: three named shapes with base/height recorded and units (1 pt) + the trapezoid's second base also recorded (1 pt)."},
+    {"ref":"m2","type":"short","sc":"SC2","points":2,"prompt":"Using your recorded measurements, compute the area of all three shapes, showing the formula and the numbers plugged in for each.","answer":"Parallelogram: A = b·h; Triangle: A = ½·b·h; Trapezoid: A = ((b₁+b₂)/2)·h — each with the student's own numbers substituted and multiplied out.","explain":"Rubric: correct formula chosen for each of the three shapes (1 pt) + correct arithmetic producing a believable area for each (1 pt)."},
+    {"ref":"m3","type":"short","sc":"SC3","points":1,"prompt":"Pick one of your three shapes and confirm its area a second way — by counting grid squares, re-measuring with a different tool, or a CAD measurement tool. Did it match your formula answer? If not, what did you fix?","answer":"Any honest comparison naming the confirmation method and whether it matched, e.g. 'I counted grid squares on my cut trapezoid and got 40, matching my formula answer' or 'my first try was off because I had measured the slanted side instead of the true height.'","explain":"Full credit names a specific second method and gives an honest result, including what was corrected if the two didn't initially match."},
+    {"ref":"r1","type":"short","sc":"SC3","points":2,"prompt":"Reflect: which was harder — finding the true PERPENDICULAR height on a real object, or trusting the trapezoid's 'average the bases' step without counting squares to check it? What convinced you the averaging step actually works?"}
+  ]
+}

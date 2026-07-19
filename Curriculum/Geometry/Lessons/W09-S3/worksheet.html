@@ -1,0 +1,232 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>L08 — Polygons, Quadrilaterals &amp; Perimeter — Worksheet</title>
+<style>/* ws.css — student-facing worksheet, light theme, US-Letter print */
+:root{
+  --ink:#181b22; --mist:#5a606c; --line:#cfd4df; --line2:#e4e8f0;
+  --gold:#5b3fb0; --cyan:#0a6373; --ok:#1c7a45; --no:#b00020;
+  --money:#137a45; --money-bg:#eaf6ee;
+  --bg-page:#eef1f6; --bg-sheet:#fff; --bg-soft:#f6f8fc;
+  --radius:8px;
+}
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+body{
+  font-family:-apple-system,Inter,system-ui,sans-serif;
+  font-size:15px; color:var(--ink); background:var(--bg-page);
+  margin:0; padding:28px 16px 56px; line-height:1.5;
+}
+
+/* Page container */
+.ws{max-width:780px; margin:0 auto; background:var(--bg-sheet);
+  border:1px solid var(--line); border-radius:10px; padding:30px 34px 40px;}
+
+/* ── Tools (screen only) ── */
+.tools{max-width:780px; margin:0 auto 12px; display:flex; gap:8px; justify-content:flex-end;}
+.tools button{font:600 13px/1 inherit; border:1px solid var(--line); background:#fff;
+  color:var(--ink); border-radius:7px; padding:9px 14px; cursor:pointer;}
+.tools button:hover{background:var(--bg-soft);}
+.tools .primary{background:var(--ink); color:#fff; border-color:var(--ink);}
+.tools .primary:hover{background:#000;}
+
+/* ── Header ── */
+.ws-head{margin-bottom:22px;}
+.eyebrow{font:600 11px/1 ui-monospace,monospace; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--gold); margin-bottom:9px;}
+.ws-head h1{font-size:24px; font-weight:800; margin:0 0 4px; letter-spacing:-.01em;}
+.sub{font-size:13px; color:var(--mist); margin-bottom:16px;}
+.ws-id{display:flex; gap:12px; flex-wrap:wrap;}
+.ws-id input{flex:1; min-width:110px;}
+
+/* ── Objective / EQ bar ── */
+.brief{border:1px solid var(--line2); background:var(--bg-soft);
+  border-radius:var(--radius); padding:14px 16px; margin-top:6px;}
+.brief p{margin:0 0 7px;}
+.brief p:last-child{margin-bottom:0;}
+.brief .lab{font:600 10.5px/1 ui-monospace,monospace; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--cyan); margin-right:7px;}
+.sc{margin:9px 0 0; padding:0; list-style:none; font-size:13px; color:var(--mist);}
+.sc li{margin:2px 0; padding-left:18px; position:relative;}
+.sc li::before{content:"▢"; position:absolute; left:0; color:var(--cyan);}
+.vocab{margin-top:11px; display:flex; flex-wrap:wrap; gap:6px;}
+.vocab .lab{display:block; width:100%; margin-bottom:2px;}
+.chip{font:600 12px/1 inherit; border:1px solid var(--line); background:#fff;
+  color:var(--ink); border-radius:20px; padding:5px 11px;}
+
+/* ── Sections ── */
+.ws-sec{border-top:2px solid var(--line); margin-top:26px; padding-top:18px;}
+.ws-sec h2{font-size:13px; font-weight:800; letter-spacing:.09em; text-transform:uppercase;
+  color:var(--cyan); margin:0 0 4px;}
+.ws-sec .lede{font-size:13px; color:var(--mist); margin:0 0 14px;}
+.tag{display:inline-block; font:600 10px/1 ui-monospace,monospace; letter-spacing:.1em;
+  text-transform:uppercase; color:#fff; background:var(--cyan); border-radius:4px;
+  padding:3px 6px; margin-left:8px; vertical-align:2px;}
+.tag.warm{background:var(--gold);} .tag.exit{background:var(--money);}
+
+/* ── Question blocks ── */
+.q{margin-bottom:18px;}
+.q-prompt{font-weight:600; font-size:14px; margin:0 0 9px; color:var(--ink);}
+.q-prompt .pn{color:var(--cyan); font-weight:800; margin-right:6px;}
+.hint{font-size:12px; color:var(--mist); font-weight:400;}
+
+/* ── Inputs ── */
+input,select,textarea{width:100%; font:inherit; font-size:14px; padding:8px 10px;
+  border:1px solid var(--line); border-radius:6px; background:#fbfcfe; color:var(--ink);
+  transition:border-color .15s;}
+input:focus,select:focus,textarea:focus{outline:none; border-color:var(--cyan);}
+textarea{min-height:70px; resize:vertical;}
+.inline-in{display:inline-block; width:150px; padding:4px 8px;}
+.inline-in.sm{width:92px;}
+
+/* answer blank */
+.ans{display:flex; align-items:center; gap:9px; margin-top:10px;
+  background:var(--money-bg); border:1px solid #cfe6d6; border-radius:6px; padding:9px 12px;}
+.ans .lab{font:800 11px/1 ui-monospace,monospace; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--money); white-space:nowrap;}
+.ans input{background:#fff; border-color:#bcd9c6;}
+.ans .unit{font-size:12.5px; color:var(--mist); white-space:nowrap;}
+
+/* work space */
+.work{margin-top:10px; border:1px dashed var(--line); border-radius:6px;
+  background:repeating-linear-gradient(#fff,#fff 27px,var(--line2) 27px,var(--line2) 28px);
+  min-height:88px; padding:6px 12px 4px;}
+.work .wlab{font:600 10px/1 ui-monospace,monospace; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--mist);}
+.work.tall{min-height:120px;}
+
+/* choose-one option lists */
+.q-opts{display:flex; flex-direction:column; gap:7px; margin-top:2px;}
+.q-opts label{display:flex; align-items:center; gap:9px; font-weight:400; font-size:14px; cursor:pointer;}
+.q-opts input[type=radio]{width:auto; flex-shrink:0; accent-color:var(--cyan);}
+
+/* ── Tables (spending logs) ── */
+.tbl-wrap{overflow-x:auto; margin:12px 0;}
+table.log{width:100%; border-collapse:collapse; font-size:14px;}
+table.log th,table.log td{border:1px solid var(--line); padding:8px 10px; text-align:left;}
+table.log th{background:var(--bg-soft); font-size:11px; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--mist); font-weight:700;}
+table.log td.amt,table.log th.amt,table.log td.run,table.log th.run{text-align:right;
+  font-variant-numeric:tabular-nums;}
+table.log .fill{color:#b9bfca; font-style:italic;}
+table.log tr.tot td{border-top:2px solid var(--ink); font-weight:800; background:var(--money-bg);}
+table.log td.run{color:var(--money); font-weight:700;}
+
+/* worked-step list */
+ol.steps{margin:12px 0 4px; padding-left:22px;}
+ol.steps li{margin:7px 0;}
+ol.steps b{color:var(--money);}
+.callout{border-left:3px solid var(--cyan); background:#eef7f9; border-radius:0 6px 6px 0;
+  padding:10px 13px; margin:12px 0; font-size:13.5px;}
+.callout b{color:var(--cyan);}
+.result{display:flex; flex-wrap:wrap; gap:8px 20px; margin:12px 0 2px; padding:11px 14px;
+  background:var(--money-bg); border:1px solid #cfe6d6; border-radius:6px;}
+.result .r{font-size:13px;} .result .r b{color:var(--money); font-size:15px;}
+
+.example{border:1px solid var(--line2); border-radius:var(--radius); padding:14px 16px; margin-top:4px;}
+.example + .example{margin-top:16px;}
+.example h3{font-size:14px; margin:0 0 2px;}
+.example .who{font:600 10.5px/1 ui-monospace,monospace; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--gold); margin-bottom:8px;}
+
+/* ── Teacher Answer Key ── */
+#teacherKey{display:none;}
+body.show-key #teacherKey{display:block;}
+.key{page-break-before:always; break-before:page; border-top:none; margin-top:34px;}
+.key-banner{background:var(--ink); color:#fff; border-radius:8px; padding:12px 16px; margin-bottom:16px;}
+.key-banner h2{color:#fff; font-size:15px; margin:0 0 2px; letter-spacing:.04em;}
+.key-banner p{margin:0; font-size:12px; color:#c7ccd6;}
+.key .kq{margin-bottom:13px; padding-bottom:11px; border-bottom:1px solid var(--line2);}
+.key .kref{font:800 12px/1 ui-monospace,monospace; color:var(--cyan); margin-right:8px;}
+.key .kans{color:var(--money); font-weight:800;}
+.key .kwhy{display:block; font-size:12.5px; color:var(--mist); margin-top:4px;}
+.key .kpts{float:right; font:700 11px/1 ui-monospace,monospace; color:var(--mist);}
+
+.foot{margin-top:26px; padding-top:14px; border-top:1px solid var(--line); font-size:12px; color:var(--mist);}
+
+/* ── Print (US-Letter) ── */
+@page{size:letter; margin:.5in;}
+@media print{
+  body{background:#fff; padding:0; font-size:12.5px;}
+  .ws{max-width:100%; border:none; border-radius:0; padding:0;}
+  .tools{display:none;}
+  .ws-sec{break-inside:auto;}
+  .q,.example,.tbl-wrap,.result,.callout,.ans{break-inside:avoid;}
+  input,select,textarea{border:none; border-bottom:1px solid #888; border-radius:0;
+    background:transparent; padding:3px 2px;}
+  .inline-in{border-bottom:1px solid #666;}
+  .work{background:#fff; border:1px solid #bbb;}
+  .ans{background:#f4faf5;}
+  /* Teacher key always prints, on its own page */
+  #teacherKey{display:block !important;}
+}
+
+.ws-fig{margin:10px 0;text-align:center}.ws-fig svg{max-width:100%;height:auto;max-height:260px}
+#teacherKey:not([hidden]){display:block}</style></head><body>
+<div class="tools"><button id="keyBtn">Show Teacher Key</button><button id="printBtn" class="primary">Print / Save PDF</button></div>
+<div class="ws"><header class="ws-head"><div class="eyebrow">The Salas Compass · Worksheet</div>
+<h1>L08 — Polygons, Quadrilaterals &amp; Perimeter</h1><div class="sub">Week 9 · Prove It — Polygons, Quadrilaterals &amp; Perimeter</div>
+<div class="ws-id"><input placeholder="Stephen Salas"><input placeholder="Date"></div></header>
+<div class="brief"><p><span class="lab">Objective</span>Justify why every square is a rectangle (but not every rectangle is a square) and why a quadrilateral's interior angles always sum to 360°, review the week's Math-U-See practice, and pass the mastery checkpoint on classifying quadrilaterals and computing perimeter.</p></div>
+<section class="ws-sec"><h2>Mastery Checkpoint</h2><div class="q" data-ref="c1"><p class="q-prompt"><span class="pn">C1.</span>A quadrilateral has four right angles but its four sides are NOT all congruent. What is the BEST name for it?</p><div class="q-opts"><label><input type="radio" name="c1"> square</label><label><input type="radio" name="c1"> rectangle</label><label><input type="radio" name="c1"> rhombus</label></div></div><div class="q" data-ref="c2"><p class="q-prompt"><span class="pn">C2.</span>Splitting any quadrilateral with one diagonal creates two triangles. Since each triangle's angles sum to 180°, the quadrilateral's angles must sum to…</p><div class="q-opts"><label><input type="radio" name="c2"> 180°</label><label><input type="radio" name="c2"> 270°</label><label><input type="radio" name="c2"> 360°</label></div></div><div class="q" data-ref="c3"><p class="q-prompt"><span class="pn">C3.</span>Which statement is always TRUE?</p><div class="q-opts"><label><input type="radio" name="c3"> Every rectangle is a square</label><label><input type="radio" name="c3"> Every square is a rectangle</label><label><input type="radio" name="c3"> Every trapezoid is a parallelogram</label></div></div><div class="q" data-ref="c4"><p class="q-prompt"><span class="pn">C4.</span>A patio's footprint is a rectangle with one rectangular corner notch removed (an L-shape), and every angle in the figure is a right angle. The overall footprint is 13 ft by 9 ft, and the notch removed from that corner is 5 ft by 4 ft. Find the perimeter of the actual patio.</p><div class="work"><span class="wlab">work</span></div><div class="ans"><span class="lab">Answer</span><input></div></div><div class="q" data-ref="c5"><p class="q-prompt"><span class="pn">C5.</span>On the grid, draw and label a trapezoid — a quadrilateral with exactly one pair of parallel sides. Mark which one pair of sides is parallel.</p><div class="ws-fig"><svg viewBox="0 0 560 360" xmlns="http://www.w3.org/2000/svg" font-family="DM Mono, monospace"><line x1="0" y1="0" x2="0" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="28" y1="0" x2="28" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="56" y1="0" x2="56" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="84" y1="0" x2="84" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="112" y1="0" x2="112" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="140" y1="0" x2="140" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="168" y1="0" x2="168" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="196" y1="0" x2="196" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="224" y1="0" x2="224" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="252" y1="0" x2="252" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="280" y1="0" x2="280" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="308" y1="0" x2="308" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="336" y1="0" x2="336" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="364" y1="0" x2="364" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="392" y1="0" x2="392" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="420" y1="0" x2="420" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="448" y1="0" x2="448" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="476" y1="0" x2="476" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="504" y1="0" x2="504" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="532" y1="0" x2="532" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="560" y1="0" x2="560" y2="360" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="0" x2="560" y2="0" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="28" x2="560" y2="28" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="56" x2="560" y2="56" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="84" x2="560" y2="84" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="112" x2="560" y2="112" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="140" x2="560" y2="140" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="168" x2="560" y2="168" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="196" x2="560" y2="196" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="224" x2="560" y2="224" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="252" x2="560" y2="252" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="280" x2="560" y2="280" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="308" x2="560" y2="308" stroke="#cfd4df" stroke-width="1"/><line x1="0" y1="336" x2="560" y2="336" stroke="#cfd4df" stroke-width="1"/></svg></div><div class="work tall"><span class="wlab">construction space</span></div></div><div class="q" data-ref="c6"><p class="q-prompt"><span class="pn">C6.</span>In your own words, explain why every square is a rectangle, but not every rectangle can be called a square.</p><div class="work"><span class="wlab">work</span></div><div class="ans"><span class="lab">Answer</span><input></div></div></section><section class="ws-sec"><h2>Set Your Mastery</h2><div class="q" data-ref="x1"><p class="q-prompt"><span class="pn">X1.</span>Close: rate yourself on Lesson 8 (Emerging / Proficient / Mastered) and name the one idea you'd want to revisit.</p><div class="work"><span class="wlab">work</span></div><div class="ans"><span class="lab">Answer</span><input></div></div></section>
+<section id="teacherKey" class="ws-sec key" hidden data-key-blob="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"></section>
+</div>
+<script>// key-lock.js — "phony" passphrase gate for teacher answer keys.
+// Obfuscation only: the passphrase is derivable from the shipped JS, by design.
+const enc = new TextEncoder();
+const dec = new TextDecoder();
+// Sentinel prepended before XOR so a wrong passphrase is rejected reliably
+// (a right decode always begins with MAGIC; garbage from a wrong key won't).
+const MAGIC = 'GEOKEY';
+
+async function keystream(pass, len) {
+  const digest = new Uint8Array(await crypto.subtle.digest('SHA-256', enc.encode(pass)));
+  const out = new Uint8Array(len);
+  for (let i = 0; i < len; i++) out[i] = digest[i % digest.length];
+  return out;
+}
+function b64encode(bytes) {
+  let s = ''; for (const b of bytes) s += String.fromCharCode(b);
+  return (typeof btoa === 'function') ? btoa(s) : Buffer.from(s, 'binary').toString('base64');
+}
+function b64decode(str) {
+  const s = (typeof atob === 'function') ? atob(str) : Buffer.from(str, 'base64').toString('binary');
+  const out = new Uint8Array(s.length);
+  for (let i = 0; i < s.length; i++) out[i] = s.charCodeAt(i);
+  return out;
+}
+
+async function encodeKey(html, pass) {
+  const data = enc.encode(MAGIC + html);
+  const ks = await keystream(pass, data.length);
+  const x = new Uint8Array(data.length);
+  for (let i = 0; i < data.length; i++) x[i] = data[i] ^ ks[i];
+  return b64encode(x);
+}
+// Returns the decoded HTML on the right passphrase, or null on a wrong one.
+async function decodeKey(blob, pass) {
+  const data = b64decode(blob);
+  const ks = await keystream(pass, data.length);
+  const x = new Uint8Array(data.length);
+  for (let i = 0; i < data.length; i++) x[i] = data[i] ^ ks[i];
+  const text = dec.decode(x);
+  return text.startsWith(MAGIC) ? text.slice(MAGIC.length) : null;
+}
+
+// Browser wiring: call from a worksheet. buttonEl toggles a prompt; on correct
+// passphrase, decoded HTML is injected into targetEl. Returns nothing.
+function wireKeyGate({ button, target, blob }) {
+  if (!button || !target) return;
+  button.addEventListener('click', async () => {
+    if (target.dataset.open === '1') { target.hidden = true; target.dataset.open = '0'; button.textContent = 'Show Teacher Key'; return; }
+    const pass = window.prompt('Parent passphrase to reveal the answer key:');
+    if (pass == null) return;
+    const html = await decodeKey(blob, pass);
+    // decodeKey returns null unless the sentinel decoded — a reliable wrong-pass reject.
+    if (html == null) { window.alert('That passphrase does not match.'); return; }
+    target.innerHTML = html; target.hidden = false; target.dataset.open = '1';
+    button.textContent = 'Hide Teacher Key';
+  });
+}
+
+document.getElementById('printBtn').addEventListener('click',()=>window.print());
+const _kt=document.getElementById('teacherKey');
+wireKeyGate({button:document.getElementById('keyBtn'),target:_kt,blob:_kt.dataset.keyBlob});</script></body></html>

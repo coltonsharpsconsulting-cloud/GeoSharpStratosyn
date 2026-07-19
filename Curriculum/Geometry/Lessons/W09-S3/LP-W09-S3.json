@@ -1,0 +1,44 @@
+{
+  "id": "LP-W09-S3", "course": "geometry", "week": 9, "session": 3,
+  "session_type": "prove", "lesson": "L08 — Polygons, Quadrilaterals & Perimeter",
+  "unit": "u01", "duration_min": 60, "mode": "Prove",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 9 · Prove It — Polygons, Quadrilaterals & Perimeter",
+  "essential_question": "Can you defend the quadrilateral family tree — and explain why every quadrilateral's angles always add up to exactly 360°?",
+  "objective": "Justify why every square is a rectangle (but not every rectangle is a square) and why a quadrilateral's interior angles always sum to 360°, review the week's Math-U-See practice, and pass the mastery checkpoint on classifying quadrilaterals and computing perimeter.",
+  "standards": ["G-CO.C.11"],
+  "vocab": ["polygon", "quadrilateral", "parallelogram", "rectangle", "rhombus", "trapezoid", "perimeter"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Redraw From Memory","board":"warmup","content":{"prompt":"Without looking, sketch a rectangle, a rhombus, and a trapezoid from memory, and write one defining property under each. Then check your three sketches against your concept note."}},
+    {"phase":"review","min":12,"title":"Review — Your Math-U-See Work","board":"review","content":{"heading":"Go over Lesson Practice 8A & 8B together","note":"Bring your completed MUS Lesson Practice 8A/8B. We check the tricky ones: the true/false questions about interior angle sums (a quadrilateral is 360°, not 180°!), whether a trapezoid must have a right angle (it doesn't), and the composite L-shaped perimeter problems where you had to find a missing side first. Fix any you missed and note WHY."}},
+    {"phase":"prove","min":16,"title":"Prove It — Reason Out Loud","board":"prove","content":{"heading":"Defend three claims","figure":"grid-blank","bullets":["Claim 1: every square is a rectangle, but not every rectangle is a square. Argue it from the definitions — what does a square have that a rectangle doesn't require?","Claim 2: the interior angles of ANY quadrilateral always add up to 360°, no matter its shape. Argue it by splitting the quadrilateral with one diagonal into two triangles.","Claim 3: a trapezoid can never also be a parallelogram. Argue it from how many pairs of parallel sides each one is allowed to have."]}},
+    {"phase":"checkpoint","min":18,"title":"Mastery Checkpoint","board":"checkpoint","content":{"heading":"Show what you own","items":["c1","c2","c3","c4","c5","c6"]}},
+    {"phase":"close","min":8,"title":"Close & Set Mastery","board":"close","content":{"items":["x1"],"preview":"Next week, Lesson 9 — Area of parallelograms, trapezoids & triangles — where these same shapes get a second measurement."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can classify a quadrilateral (square, rectangle, parallelogram, rhombus, trapezoid) from its properties without help"},
+    {"id":"SC2","text":"I can compute the perimeter of a simple or composite figure by finding any missing sides and adding all the sides"},
+    {"id":"SC3","text":"I can justify why every square is a rectangle (but not the reverse) and why a quadrilateral's angles always sum to 360°"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W09-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W09 Polygons & Perimeter.md"},
+    "mus": {"practice":"MUS/L08 — Lesson Practice.pdf","review":"MUS/L08 — Systematic Review.pdf","test":"MUS/L08 — Lesson Test.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"checkpoint","kind":"check","title":"Mastery Checkpoint","items":["c1","c2","c3","c4","c5","c6"]},
+      {"phase":"close","kind":"exit","title":"Set Your Mastery","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"c1","type":"mc","sc":"SC1","points":1,"prompt":"A quadrilateral has four right angles but its four sides are NOT all congruent. What is the BEST name for it?","options":["square","rectangle","rhombus"],"answer":"rectangle","explain":"Four right angles plus two pairs of parallel sides is the rectangle definition. It would only be a square if all four sides were also congruent."},
+    {"ref":"c2","type":"dropdown","sc":"SC3","points":1,"prompt":"Splitting any quadrilateral with one diagonal creates two triangles. Since each triangle's angles sum to 180°, the quadrilateral's angles must sum to…","options":["180°","270°","360°"],"answer":"360°","explain":"The diagonal splits the quadrilateral into two triangles that together cover every one of its four angles exactly once, so 180° + 180° = 360°."},
+    {"ref":"c3","type":"mc","sc":"SC3","points":1,"prompt":"Which statement is always TRUE?","options":["Every rectangle is a square","Every square is a rectangle","Every trapezoid is a parallelogram"],"answer":"Every square is a rectangle","explain":"A square satisfies every requirement of a rectangle (four right angles, two pairs of parallel sides) plus one extra requirement (congruent sides) — so it's always also a rectangle. The reverse is false, and a trapezoid (only one pair of parallel sides) can never be a parallelogram (two pairs)."},
+    {"ref":"c4","type":"short","sc":"SC2","points":2,"prompt":"A patio's footprint is a rectangle with one rectangular corner notch removed (an L-shape), and every angle in the figure is a right angle. The overall footprint is 13 ft by 9 ft, and the notch removed from that corner is 5 ft by 4 ft. Find the perimeter of the actual patio.","answer":"44 ft.","explain":"Rubric: finds the missing sides, 13 − 5 = 8 ft and 9 − 4 = 5 ft (1 pt) + adds all six sides of the actual boundary, 13 + 5 + 5 + 4 + 8 + 9 = 44 ft (1 pt) — the same as the bounding rectangle's perimeter, 2(13 + 9), since the notch's edges are simply replaced by two new edges of equal total length."},
+    {"ref":"c5","type":"construct","sc":"SC1","points":2,"figure":"grid-blank","prompt":"On the grid, draw and label a trapezoid — a quadrilateral with exactly one pair of parallel sides. Mark which one pair of sides is parallel.","answer":"Any four-sided figure with exactly one pair of clearly parallel sides marked, correctly labeled as a trapezoid.","explain":"Rubric: a drawn quadrilateral with one pair of sides marked parallel (1 pt) + the OTHER pair of sides clearly NOT parallel, so it doesn't accidentally become a parallelogram (1 pt)."},
+    {"ref":"c6","type":"short","sc":"SC3","points":2,"prompt":"In your own words, explain why every square is a rectangle, but not every rectangle can be called a square.","answer":"A rectangle only requires four right angles and two pairs of parallel sides. A square meets both of those requirements AND has the extra property of four congruent sides. So every square automatically qualifies as a rectangle — but a rectangle only becomes a square if you also check that all four sides are equal, which most rectangles don't have.","explain":"Full credit: names that a square meets every rectangle requirement PLUS an extra one (congruent sides), which is why the relationship only runs one direction — matching the ⊂ (subset) idea from Lesson 2: squares ⊂ rectangles, not the reverse."},
+    {"ref":"x1","type":"short","sc":"SC1","points":1,"prompt":"Close: rate yourself on Lesson 8 (Emerging / Proficient / Mastered) and name the one idea you'd want to revisit."}
+  ]
+}

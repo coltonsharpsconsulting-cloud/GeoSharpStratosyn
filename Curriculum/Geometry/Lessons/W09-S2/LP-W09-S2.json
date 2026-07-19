@@ -1,0 +1,42 @@
+{
+  "id": "LP-W09-S2", "course": "geometry", "week": 9, "session": 2,
+  "session_type": "build", "lesson": "L08 — Polygons, Quadrilaterals & Perimeter",
+  "unit": "u01", "duration_min": 60, "mode": "Build",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 9 · Quadrilateral Hunt & Build",
+  "essential_question": "Can you measure and classify a real quadrilateral you didn't build — and then build your own set of the family with your hands?",
+  "objective": "Measure and classify real-world quadrilaterals (finding each one's perimeter), and build a physical set of the quadrilateral family (e.g., square, rectangle, parallelogram, rhombus) from cardstock or straws, verifying each by its sides and angles and computing its perimeter.",
+  "standards": ["G-CO.C.11"],
+  "vocab": ["quadrilateral", "parallelogram", "rectangle", "rhombus", "trapezoid", "perimeter"],
+  "agenda": [
+    {"phase":"brief","min":6,"title":"Brief — From Family Tree to Hands","board":"brief","content":{"heading":"From definitions to real shapes","bullets":["Yesterday: learned the quadrilateral family tree and how to find perimeter, including composite L-shapes.","Today: hunt two real quadrilaterals and measure/classify them, then build your own set of the family from cardstock or straws.","The test: can you classify a shape you didn't build — and build one that matches a specific family name on request?"]}},
+    {"phase":"plan","min":8,"title":"Plan — Read the Build Card","board":"plan","content":{"heading":"Gather + plan","note":"Open the project card. Gather your ruler/tape measure, cardstock or straws, brads or tape, scissors, and a protractor or square corner for checking right angles. Pick your two real-world hunt objects before you start measuring — choose shapes that AREN'T both plain rectangles."}},
+    {"phase":"build","min":25,"title":"Build — Hunt & Assemble","board":"build","content":{"heading":"Measure the world, then build the family","bullets":["Hunt — measure and classify two real quadrilaterals (not just rectangles).","Build — cut straws or cardstock strips to length and assemble at least three quadrilateral family members (e.g., square, rectangle, and a non-rectangle parallelogram or rhombus).","Hinge at least one shape with brads or a loose loop of tape so you can push its angles and watch what stays the same and what changes.","Verify every built shape's family with a ruler (side lengths) and a protractor or square corner (right angles) before moving on."]}},
+    {"phase":"measure","min":12,"title":"Record What You Found","board":"measure","content":{"heading":"Get the numbers down","figure":"grid-blank","items":["m1","m2","m3"]}},
+    {"phase":"reflect","min":9,"title":"Reflect & Photograph","board":"reflect","content":{"items":["r1"],"preview":"Session 3: defend why every square is a rectangle but not the reverse, and why 360° never changes, then the checkpoint."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can measure a real quadrilateral's sides and correctly classify which family member it is"},
+    {"id":"SC2","text":"I can build physical members of the quadrilateral family and verify their properties by measuring sides and checking angles"},
+    {"id":"SC3","text":"I can compute the perimeter of a real or built quadrilateral by adding its side lengths, and explain what stays fixed and what changes when a hinged shape is pushed"}
+  ],
+  "assets": {
+    "project": {"note":"Curriculum/Geometry/Lessons/W09-S2/project-card.md"},
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W09-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W09 Polygons & Perimeter.md"},
+    "mus": {"practice":"MUS/L08 — Lesson Practice.pdf","review":"MUS/L08 — Systematic Review.pdf","test":"MUS/L08 — Lesson Test.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"measure","kind":"practice","title":"Hunt & Build Log","items":["m1","m2","m3"]},
+      {"phase":"reflect","kind":"exit","title":"Reflect","items":["r1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"m1","type":"measure","sc":"SC1","points":2,"prompt":"Hunt object #1: name the real quadrilateral you measured (a door, a rug, a tabletop, a gate, a window...), record its four side lengths, classify its family (square/rectangle/parallelogram/rhombus/trapezoid/general), and compute its perimeter.","answer":"Any honest real object with four measured sides, a classification that correctly matches those measurements, and a perimeter equal to the sum of the four sides.","explain":"Rubric: four recorded side lengths with units (1 pt) + a classification that correctly matches those measurements and a correctly summed perimeter (1 pt)."},
+    {"ref":"m2","type":"measure","sc":"SC1","points":2,"prompt":"Hunt object #2: name a DIFFERENT real quadrilateral (ideally not another plain rectangle), record its four side lengths, classify its family, and compute its perimeter.","answer":"Any honest real object with four measured sides, a classification that correctly matches those measurements, and a perimeter equal to the sum of the four sides.","explain":"Rubric: four recorded side lengths with units (1 pt) + a classification that correctly matches those measurements and a correctly summed perimeter (1 pt)."},
+    {"ref":"m3","type":"short","sc":"SC3","points":2,"prompt":"On your built set, pick the shape you made with hinged (adjustable) corners. Push its corners so the angles change without changing any side length. What classification did it start as, what did it become, and what happened to its perimeter?","answer":"Any honest description — e.g., started as a rectangle (four right angles), pushed into a slanted parallelogram (angles no longer 90° but sides unchanged) — and the perimeter stayed exactly the same because the side lengths never changed, only the angles did.","explain":"Full credit: correctly identifies that side lengths (and therefore perimeter) don't change when only the angles change — perimeter depends on side length, not on how 'open' or 'squished' the angles are."},
+    {"ref":"r1","type":"short","sc":"SC2","points":2,"prompt":"Reflect: which was harder — correctly classifying a real-world quadrilateral you didn't build yourself, or building one from scratch to match a specific family name? What did your hands teach you that the definitions alone didn't?"}
+  ]
+}
