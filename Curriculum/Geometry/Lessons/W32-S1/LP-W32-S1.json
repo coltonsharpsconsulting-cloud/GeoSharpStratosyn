@@ -1,0 +1,47 @@
+{
+  "id": "LP-W32-S1", "course": "geometry", "week": 32, "session": 1,
+  "session_type": "concept", "lesson": "L28 — Transformations: Translations, Reflections & Rotations",
+  "unit": "u03", "duration_min": 60, "mode": "Concept",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 32 · Transformations — Translations, Reflections & Rotations",
+  "essential_question": "When you slide, flip, or turn a figure on the coordinate plane, exactly how do its vertices' coordinates change — and why does the image always come out congruent to the original?",
+  "objective": "Translate a figure by a given vector, reflect a figure over the x-axis or y-axis, and rotate a figure 90° or 180° about the origin on the coordinate plane, stating the image's coordinates with the correct rule each time, and explain why every such rigid motion (isometry) produces an image congruent to the pre-image.",
+  "standards": ["G-CO.A.2"],
+  "vocab": ["translation", "reflection", "rotation", "x-axis", "y-axis", "image", "pre-image", "isometry", "rigid motion"],
+  "agenda": [
+    {"phase":"launch","min":6,"title":"Launch — Slide, Flip, or Turn?","board":"launch","content":{"prompt":"Hold up a book flat on the table. Slide it three inches to the right without turning it. Now flip it over like a page turning. Now spin it a quarter turn while keeping one corner pinned to the table. All three moves change WHERE the book is — but which of the three, if any, changes its SIZE or SHAPE?"}},
+    {"phase":"i_do","min":12,"title":"I do — Three Moves, Three Coordinate Rules","board":"i_do","content":{"heading":"Slide, flip, turn — each one has its own rule for (x, y)","figure":"grid-blank","bullets":["A translation SLIDES every point of a figure the same distance in the same direction — add (h, k) to every vertex: (x, y) → (x + h, y + k).","A reflection FLIPS a figure over a line, creating a mirror image. Over the x-axis: (x, y) → (x, −y). Over the y-axis: (x, y) → (−x, y).","A rotation TURNS a figure about a fixed point (here, the origin). 90° (counterclockwise, unless stated otherwise): (x, y) → (−y, x). 180°: (x, y) → (−x, −y).","The original figure is the pre-image; the moved figure is the image. Corresponding vertices carry the same letter with a prime mark: A → A′.","Translations, reflections, and rotations are rigid motions (isometries) — they preserve every side length and every angle measure, so the image is always congruent to the pre-image, even though its position (and sometimes its orientation) changes."]}},
+    {"phase":"explore","min":8,"title":"Explore — Move It, Read the Coordinates","board":"explore","content":{"heading":"Apply a move; watch the image and its coordinates appear","note":"On the sim, start with triangle ABC. Apply a translation, then reset and try a reflection over each axis, then reset and try each rotation. After every move, compare the image's vertex coordinates to the coordinate rule above — do they match? Then compare the side lengths listed for the pre-image and the image: are they ever different?","figure":"grid-blank"}},
+    {"phase":"check","min":5,"title":"Check for Understanding","board":"check","content":{"heading":"Name that rule","items":["n1","n2"]}},
+    {"phase":"you_do","min":12,"title":"You do — Transform & Coordinate","board":"you_do","content":{"heading":"Your turn on the worksheet","items":["p1","p2","p3","p4"]}},
+    {"phase":"exit","min":5,"title":"Exit Ticket","board":"exit","content":{"items":["x1"],"preview":"Build session: physically slide, flip, and turn a cut-out shape on a grid — predicting each image's coordinates before you move it — then use the same three moves to build a tessellation."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can translate a figure on the coordinate plane by a given vector and state the image's coordinates"},
+    {"id":"SC2","text":"I can reflect a figure over the x-axis or y-axis and state the image's coordinates"},
+    {"id":"SC3","text":"I can rotate a figure 90° or 180° about the origin and state the image's coordinates, and explain why the image is congruent to the pre-image"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W32-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W32 Transformations.md"},
+    "mus": {"practice":"MUS/L28 — Lesson Practice.pdf","review":"MUS/L28 — Systematic Review.pdf"},
+    "interactive": {"slug":"transformations","note":"Curriculum/Geometry/Lessons/W32-S1/sims/transformations.html"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"check","kind":"check","title":"Name That Rule","items":["n1","n2"]},
+      {"phase":"practice","kind":"practice","title":"Transform & Coordinate","items":["p1","p2","p3","p4"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"n1","type":"dropdown","sc":"SC1","points":1,"prompt":"Translating a point 4 units right and 2 units down moves (x, y) to…","options":["(x+4, y+2)","(x+4, y−2)","(x−4, y+2)"],"answer":"(x+4, y−2)","explain":"Right adds to x; down subtracts from y — 4 right and 2 down gives (x+4, y−2)."},
+    {"ref":"n2","type":"mc","sc":"SC2","points":1,"prompt":"Reflecting point (5, 3) over the x-axis produces the image…","options":["(5, -3)","(-5, 3)","(-5, -3)"],"answer":"(5, -3)","explain":"Reflecting over the x-axis keeps x the same and negates y: (x, y) → (x, −y)."},
+    {"ref":"p1","type":"short","sc":"SC1","points":2,"prompt":"Triangle ABC has vertices A(1, 2), B(4, 2), C(4, 5). Translate the triangle by the vector (−3, 1) — 3 left and 1 up. Give the coordinates of A′, B′, and C′.","answer":"A′(−2, 3), B′(1, 3), C′(1, 6).","explain":"Apply (x, y) → (x − 3, y + 1) to each vertex: A(1,2)→A′(−2,3); B(4,2)→B′(1,3); C(4,5)→C′(1,6)."},
+    {"ref":"p2","type":"construct","sc":"SC2","points":2,"figure":"grid-blank","prompt":"On the grid, plot triangle ABC with A(1, 1), B(5, 1), C(5, 3). Reflect it over the y-axis and plot the image A′B′C′. Label all six points with their coordinates.","answer":"A(1,1), B(5,1), C(5,3) plotted in Quadrant I; A′(−1,1), B′(−5,1), C′(−5,3) plotted as the mirror image in Quadrant II, same distance from the y-axis as the pre-image.","explain":"Rubric: pre-image plotted and labeled correctly (1 pt) + image correctly reflected over the y-axis using (x,y)→(−x,y) and labeled with primes (1 pt)."},
+    {"ref":"p3","type":"short","sc":"SC3","points":2,"prompt":"Rotate the point (3, −2) 90° counterclockwise about the origin. Give the image's coordinates and state the rule you used.","answer":"Image: (2, 3). Rule used: (x, y) → (−y, x), so (3, −2) → (−(−2), 3) = (2, 3).","explain":"A 90° rotation about the origin swaps the coordinates and negates the new x-value (the old y): (x, y) → (−y, x)."},
+    {"ref":"p4","type":"short","sc":"SC3","points":2,"prompt":"Triangle ABC from p1 has side AB = 3 units. After the translation in p1, what is the length of A′B′? Explain how you know without re-measuring.","answer":"A′B′ = 3 units — unchanged.","explain":"Translations (like all rigid motions) preserve distance, so every side length in the image equals the corresponding side length in the pre-image; sliding both endpoints by the same amount never changes the gap between them."},
+    {"ref":"x1","type":"short","sc":"SC1","points":2,"prompt":"Exit: pick ONE point of your own (not the origin) and show its image after a 180° rotation about the origin. State the coordinate rule you used.","answer":"Any point (x, y) rotated 180° about the origin using (x, y) → (−x, −y), with the student's own chosen coordinates and their correctly computed image."}
+  ]
+}

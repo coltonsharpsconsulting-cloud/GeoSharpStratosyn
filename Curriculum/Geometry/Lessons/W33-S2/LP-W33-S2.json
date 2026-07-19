@@ -1,0 +1,42 @@
+{
+  "id": "LP-W33-S2", "course": "geometry", "week": 33, "session": 2,
+  "session_type": "build", "lesson": "L29 — Right-Triangle Trigonometry: Sine, Cosine & Tangent",
+  "unit": "u03", "duration_min": 60, "mode": "Build",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 33 · Sight & Measure — A Real Clinometer, A Real Height",
+  "essential_question": "Can you find the height of something too tall to measure directly — a tree, a flagpole, a building — using nothing but an angle and a tape measure?",
+  "objective": "Build or use a clinometer to measure the angle of elevation to the top of a tall real-world object, measure the horizontal distance to its base, and use the tangent ratio (plus your own eye height) to calculate its height.",
+  "standards": ["G-SRT.C.6"],
+  "vocab": ["sine (sin)", "cosine (cos)", "tangent (tan)", "opposite side", "adjacent side", "hypotenuse"],
+  "agenda": [
+    {"phase":"brief","min":6,"title":"Brief — From the Ratio to the Real World","board":"brief","content":{"heading":"From SOH-CAH-TOA on paper to a height you can't reach","bullets":["Yesterday: defined sin θ, cos θ, and tan θ, and used a calculator to find a missing side from one side and an angle.","Today: build or use a clinometer to sight the angle of elevation to the top of something tall, measure your distance from its base, and use tangent to calculate a height you can't reach with a tape measure.","The test: does the math predict the height before you ever touch a ladder to it?"]}},
+    {"phase":"plan","min":8,"title":"Plan — Read the Build Card","board":"plan","content":{"heading":"Gather + choose your target","note":"Open the project card. Gather a protractor, a drinking straw, tape, string, and a small weight (a washer or paperclip) to build a clinometer — or use a phone's built-in inclinometer/level app if you have one. You'll also need a long tape measure, a trundle wheel, or a known stride length for pacing off distance. Pick a real tall object (a tree, a flagpole, a basketball hoop, the peak of a roof) and the flat, open spot you'll stand to sight it."}},
+    {"phase":"build","min":25,"title":"Build & Sight","board":"build","content":{"heading":"Clinometer, distance, and one careful sight line","bullets":["Clinometer Build (or Use) — tape a drinking straw along the flat edge of a protractor, then tie a weighted string through the protractor's center hole so it hangs and swings freely as a plumb line — or use a phone inclinometer app instead.","Measure a fixed horizontal distance from the base of your tall object out to where you'll stand — far enough back to see the whole top (20-50 ft usually works).","Sight the top of the object through the straw (or aim the phone), keeping the protractor's flat edge level, and read where the string crosses the scale — 90° minus that reading gives the angle of elevation above horizontal (a phone app can just give you the angle of elevation directly).","Record your own eye height off the ground with the tape measure — the clinometer sights from eye level, not ground level, so this gets added back in at the end."]}},
+    {"phase":"measure","min":12,"title":"Record Your Test","board":"measure","content":{"heading":"Get the numbers down","figure":"grid-blank","items":["m1","m2","m3"]}},
+    {"phase":"reflect","min":9,"title":"Reflect & Photograph","board":"reflect","content":{"items":["r1"],"preview":"Session 3: reason about why the trig ratios depend only on the angle (similar triangles!), review MUS Lesson Practice 29A/29B, then the checkpoint."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can build or use a clinometer to sight and measure a real angle of elevation"},
+    {"id":"SC2","text":"I can use the tangent ratio, my measured angle, and my measured horizontal distance to calculate the height of a real tall object, adding back my eye height"},
+    {"id":"SC3","text":"I can explain why the clinometer's reading has to be measured from eye height, not ground level"}
+  ],
+  "assets": {
+    "project": {"note":"Curriculum/Geometry/Lessons/W33-S2/project-card.md"},
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W33-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W33 Sine, Cosine & Tangent.md"},
+    "mus": {"practice":"MUS/L29 — Lesson Practice.pdf","review":"MUS/L29 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"measure","kind":"practice","title":"Test Log & Measurement","items":["m1","m2","m3"]},
+      {"phase":"reflect","kind":"exit","title":"Reflect","items":["r1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"m1","type":"measure","sc":"SC1","points":2,"prompt":"Build (or use) a clinometer and sight the angle of elevation to the top of a real tall object (a tree, flagpole, or building corner) from a fixed distance. Record the angle of elevation and your horizontal distance from the object's base.","answer":"Any honestly sighted angle and measured distance, e.g. angle of elevation ≈ 32°, distance = 40 ft","explain":"Any real sighted angle and taped/paced distance works — if you read the string against a protractor's degree scale rather than a dedicated angle-of-elevation scale, remember to subtract that reading from 90°."},
+    {"ref":"m2","type":"short","sc":"SC2","points":2,"prompt":"Using tan(angle of elevation) = (height above eye level) / (horizontal distance), solve for the height above your eye level, then add your own eye height to find the object's total height.","answer":"height above eye level = distance × tan(angle); total height = that + eye height, e.g. 40 × tan 32° ≈ 25.0 ft, plus 5.3 ft eye height ≈ 30.3 ft","explain":"Rubric: tangent set up correctly with opposite = unknown height above eye level and adjacent = horizontal distance (1 pt) + eye height correctly added back to get the object's true total height (1 pt)."},
+    {"ref":"m3","type":"short","sc":"SC3","points":1,"prompt":"Why do you have to add your eye height back in at the end, instead of just using distance × tan(angle) as your final answer?","answer":"Because the clinometer sights from eye level, not from the ground — the right triangle you measured only accounts for the object's height ABOVE your eye, so the ground-to-eye height has to be added back to get the object's true total height.","explain":"The angle of elevation is measured starting at the observer's eye, so the triangle's opposite leg only covers the part of the object above eye level."},
+    {"ref":"r1","type":"short","sc":"SC2","points":2,"prompt":"Reflect: how confident are you in your measured height, and what's the biggest source of error — the angle reading, the distance measurement, or something else?"}
+  ]
+}

@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Transformations: Translations, Reflections & Rotations — Sim</title>
+<style>
+  :root{--void:#0d1322;--ink:#161d31;--bone:#e8ecf3;--mist:#9aabd0;--accent:#8b5cf6;--gold:#f5c842;--border:#2a3142;--good:#7ee081}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--void);color:var(--bone);font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;min-height:100%}
+  header{padding:2vh 4vw;border-bottom:1px solid var(--border);background:var(--ink)}
+  .eyebrow{font-family:"DM Mono",ui-monospace,monospace;letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--accent)}
+  h1{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(20px,3vw,30px);margin-top:.3rem}
+  main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.4vh;padding:3vh 4vw}
+  .stage{width:100%;max-width:600px;aspect-ratio:1/1;background:var(--ink);border:1px solid var(--border);border-radius:16px;touch-action:none}
+  svg{width:100%;height:100%;display:block}
+  .controls{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
+  button{font-family:"DM Mono",ui-monospace,monospace;font-size:14px;background:var(--ink);color:var(--bone);border:1px solid var(--border);border-radius:999px;padding:.6rem 1.2rem;cursor:pointer}
+  button.on{border-color:var(--accent);color:var(--accent)}
+  .vectorRow{display:none;gap:.8rem;align-items:center;flex-wrap:wrap;justify-content:center;font-family:"DM Mono",ui-monospace,monospace;font-size:14px;color:var(--mist)}
+  .vectorRow input[type=number]{width:4.5em;background:var(--ink);color:var(--bone);border:1px solid var(--border);border-radius:8px;padding:.3rem .5rem;font-family:"DM Mono",ui-monospace,monospace;font-size:14px}
+  .readout{font-family:"DM Mono",ui-monospace,monospace;font-size:clamp(14px,2vw,18px);color:var(--mist);text-align:center;min-height:1.6em;max-width:70ch}
+  .readout b{color:var(--gold)}
+  .readout .match{color:var(--good);font-weight:bold}
+  .tables{display:flex;gap:1.2rem;flex-wrap:wrap;justify-content:center}
+  .tbl{border-collapse:collapse;font-family:"DM Mono",ui-monospace,monospace;font-size:12.5px;color:var(--bone)}
+  .tbl th,.tbl td{border:1px solid var(--border);padding:.3rem .55rem;text-align:left;white-space:nowrap}
+  .tbl th{color:var(--mist);font-weight:600}
+  .hint{color:var(--mist);font-size:13px;max-width:60ch;text-align:center}
+</style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Geometry · Lesson 28 · sim</div>
+    <h1>Slide it. Flip it. Turn it. The sides never change.</h1>
+  </header>
+  <main>
+    <div class="controls" id="moves">
+      <button data-move="translate">Translate</button>
+      <button data-move="reflectX">Reflect over x-axis</button>
+      <button data-move="reflectY">Reflect over y-axis</button>
+      <button data-move="rotate90">Rotate 90°</button>
+      <button data-move="rotate180">Rotate 180°</button>
+    </div>
+    <div class="vectorRow" id="vectorRow">
+      <label>dx <input type="number" id="dx" value="-7" step="1"></label>
+      <label>dy <input type="number" id="dy" value="-2" step="1"></label>
+      <button id="applyTranslate">Apply</button>
+    </div>
+    <div class="stage"><svg viewBox="0 0 600 600" id="svg"></svg></div>
+    <div class="readout" id="readout"></div>
+    <div class="tables" id="tables"></div>
+    <div class="controls"><button id="resetBtn">Reset</button></div>
+    <p class="hint" id="hint">Triangle ABC is a 3-4-5 right triangle. Pick a move above, then compare the image's coordinates and side lengths to the pre-image's — the shape never changes, only where it sits.</p>
+  </main>
+<script>
+(() => {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  const readout = document.getElementById('readout');
+  const tables = document.getElementById('tables');
+  const hint = document.getElementById('hint');
+  const vectorRow = document.getElementById('vectorRow');
+  const dxInput = document.getElementById('dx');
+  const dyInput = document.getElementById('dy');
+
+  const UNIT = 25;      // px per unit
+  const RANGE = 12;     // grid spans -RANGE..RANGE on both axes
+  const ORIGIN = { x: 300, y: 300 };
+
+  const PRE = [ { id: 'A', x: 2, y: 1 }, { id: 'B', x: 6, y: 1 }, { id: 'C', x: 6, y: 4 } ];
+
+  let current = { type: 'none' };
+
+  function toSvg(x, y){ return { x: ORIGIN.x + x * UNIT, y: ORIGIN.y - y * UNIT }; }
+
+  function make(tag, attrs){ const n = document.createElementNS(NS, tag); for (const k in attrs) n.setAttribute(k, attrs[k]); svg.appendChild(n); return n; }
+
+  function drawGrid(){
+    for (let i = -RANGE; i <= RANGE; i++){
+      const isAxis = i === 0;
+      const stroke = isAxis ? '#9aabd0' : '#232a3d';
+      const w = isAxis ? 2 : 1;
+      const v1 = toSvg(i, -RANGE), v2 = toSvg(i, RANGE);
+      make('line', { x1: v1.x, y1: v1.y, x2: v2.x, y2: v2.y, stroke, 'stroke-width': w });
+      const h1 = toSvg(-RANGE, i), h2 = toSvg(RANGE, i);
+      make('line', { x1: h1.x, y1: h1.y, x2: h2.x, y2: h2.y, stroke, 'stroke-width': w });
+      if (i !== 0 && i % 2 === 0){
+        const lx = toSvg(i, 0);
+        const tx = make('text', { x: lx.x + 3, y: lx.y + 13, 'font-size': 10, fill: '#5c6685', 'font-family': 'DM Mono, monospace' }); tx.textContent = i;
+        const ly = toSvg(0, i);
+        const ty = make('text', { x: ly.x + 4, y: ly.y - 3, 'font-size': 10, fill: '#5c6685', 'font-family': 'DM Mono, monospace' }); ty.textContent = i;
+      }
+    }
+    const xEnd = toSvg(RANGE, 0);
+    const xt = make('text', { x: xEnd.x - 16, y: xEnd.y - 8, 'font-size': 14, fill: '#c7cfe4', 'font-family': 'DM Mono, monospace' }); xt.textContent = 'x';
+    const yEnd = toSvg(0, RANGE);
+    const yt = make('text', { x: yEnd.x + 8, y: yEnd.y + 14, 'font-size': 14, fill: '#c7cfe4', 'font-family': 'DM Mono, monospace' }); yt.textContent = 'y';
+  }
+
+  function polygonPoints(verts){ return verts.map(v => { const p = toSvg(v.x, v.y); return `${p.x},${p.y}`; }).join(' '); }
+
+  function drawShape(verts, color, dashed, suffix){
+    make('polygon', { points: polygonPoints(verts), fill: color + '26', stroke: color, 'stroke-width': 3, 'stroke-dasharray': dashed ? '8 6' : 'none' });
+    verts.forEach(v => {
+      const p = toSvg(v.x, v.y);
+      make('circle', { cx: p.x, cy: p.y, r: 6, fill: color });
+      const t = make('text', { x: p.x + (v.x < 0 ? -12 : 10), y: p.y - 10, 'font-size': 16, fill: '#e8ecf3', 'font-family': 'DM Mono, monospace' });
+      t.textContent = v.id + suffix;
+    });
+  }
+
+  function dist(a, b){ return Math.hypot(a.x - b.x, a.y - b.y); }
+  function fmtPt(id, x, y){ return `${id}(${x}, ${y})`; }
+
+  function computeImage(type, dx, dy){
+    if (type === 'translate') return PRE.map(v => ({ id: v.id, x: v.x + dx, y: v.y + dy }));
+    if (type === 'reflectX') return PRE.map(v => ({ id: v.id, x: v.x, y: -v.y }));
+    if (type === 'reflectY') return PRE.map(v => ({ id: v.id, x: -v.x, y: v.y }));
+    if (type === 'rotate90') return PRE.map(v => ({ id: v.id, x: -v.y, y: v.x }));
+    if (type === 'rotate180') return PRE.map(v => ({ id: v.id, x: -v.x, y: -v.y }));
+    return null;
+  }
+
+  function ruleText(type, dx, dy){
+    if (type === 'translate') return `(x, y) → (x + ${dx}, y + ${dy})`;
+    if (type === 'reflectX') return '(x, y) → (x, −y)';
+    if (type === 'reflectY') return '(x, y) → (−x, y)';
+    if (type === 'rotate90') return '(x, y) → (−y, x)';
+    if (type === 'rotate180') return '(x, y) → (−x, −y)';
+    return '';
+  }
+
+  function labelText(type, dx, dy){
+    if (type === 'translate') return `Translation by (${dx}, ${dy})`;
+    if (type === 'reflectX') return 'Reflection over the x-axis';
+    if (type === 'reflectY') return 'Reflection over the y-axis';
+    if (type === 'rotate90') return 'Rotation 90° about the origin';
+    if (type === 'rotate180') return 'Rotation 180° about the origin';
+    return '';
+  }
+
+  function hintText(type){
+    if (type === 'translate') return 'Every vertex moved by the exact same (dx, dy) — that sameness is why the triangle never stretched.';
+    if (type === 'reflectX' || type === 'reflectY') return 'One coordinate flipped sign, one stayed put — the triangle mirrored across the axis, but its sides stayed 3, 4, and 5.';
+    if (type === 'rotate90' || type === 'rotate180') return 'Every vertex turned the same angle around the origin — the triangle spun to a new quadrant, but its sides stayed 3, 4, and 5.';
+    return 'Triangle ABC is a 3-4-5 right triangle. Pick a move above, then compare the image’s coordinates and side lengths to the pre-image’s — the shape never changes, only where it sits.';
+  }
+
+  function render(){
+    svg.innerHTML = '';
+    drawGrid();
+    drawShape(PRE, '#8b5cf6', false, '');
+
+    let image = null;
+    const dx = Number(dxInput.value) || 0;
+    const dy = Number(dyInput.value) || 0;
+    if (current.type !== 'none'){
+      image = computeImage(current.type, dx, dy);
+      drawShape(image, '#f5c842', true, '′');
+    }
+
+    let vertexRows = '<table class="tbl"><tr><th>Vertex</th><th>Pre-image</th><th>Image</th></tr>';
+    PRE.forEach((v, i) => {
+      const iv = image ? image[i] : null;
+      vertexRows += `<tr><td>${v.id}${iv ? ` / ${v.id}′` : ''}</td><td>${fmtPt(v.id, v.x, v.y)}</td><td>${iv ? fmtPt(v.id + '′', iv.x, iv.y) : '—'}</td></tr>`;
+    });
+    vertexRows += '</table>';
+
+    const pairs = [['AB', 0, 1], ['BC', 1, 2], ['CA', 2, 0]];
+    let sideRows = '<table class="tbl"><tr><th>Side</th><th>Pre-image</th><th>Image</th></tr>';
+    pairs.forEach(([name, i, j]) => {
+      const preLen = dist(PRE[i], PRE[j]);
+      const imgLen = image ? dist(image[i], image[j]) : null;
+      sideRows += `<tr><td>${name}${image ? ` / ${name}′` : ''}</td><td>${preLen.toFixed(2)}</td><td>${imgLen !== null ? imgLen.toFixed(2) : '—'}</td></tr>`;
+    });
+    sideRows += '</table>';
+
+    tables.innerHTML = vertexRows + sideRows;
+    hint.textContent = hintText(current.type);
+
+    if (current.type === 'none'){
+      readout.innerHTML = 'Pick a move above to see the image and its coordinates.';
+    } else {
+      readout.innerHTML = `<b>${labelText(current.type, dx, dy)}</b> &middot; rule: ${ruleText(current.type, dx, dy)} &middot; <span class="match">every side length matches — congruent!</span>`;
+    }
+  }
+
+  document.getElementById('moves').addEventListener('click', e => {
+    const m = e.target.dataset.move;
+    if (!m) return;
+    [...document.querySelectorAll('#moves button')].forEach(b => b.classList.toggle('on', b === e.target));
+    vectorRow.style.display = m === 'translate' ? 'flex' : 'none';
+    current = { type: m };
+    render();
+  });
+
+  document.getElementById('applyTranslate').addEventListener('click', () => { current = { type: 'translate' }; render(); });
+  dxInput.addEventListener('input', () => { if (current.type === 'translate') render(); });
+  dyInput.addEventListener('input', () => { if (current.type === 'translate') render(); });
+
+  document.getElementById('resetBtn').addEventListener('click', () => {
+    current = { type: 'none' };
+    [...document.querySelectorAll('#moves button')].forEach(b => b.classList.remove('on'));
+    vectorRow.style.display = 'none';
+    render();
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>

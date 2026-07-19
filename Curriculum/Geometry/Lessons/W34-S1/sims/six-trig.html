@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Six Trigonometric Ratios — Sim</title>
+<style>
+  :root{--void:#0d1322;--ink:#161d31;--bone:#e8ecf3;--mist:#9aabd0;--accent:#8b5cf6;--gold:#f5c842;--border:#2a3142;--good:#7ee081}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--void);color:var(--bone);font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;min-height:100%}
+  header{padding:2vh 4vw;border-bottom:1px solid var(--border);background:var(--ink)}
+  .eyebrow{font-family:"DM Mono",ui-monospace,monospace;letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--accent)}
+  h1{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(20px,3vw,30px);margin-top:.3rem}
+  main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.6vh;padding:3vh 4vw}
+  .stage{width:100%;max-width:720px;aspect-ratio:16/11;background:var(--ink);border:1px solid var(--border);border-radius:16px;touch-action:none}
+  svg{width:100%;height:100%;display:block}
+  .controls{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
+  button{font-family:"DM Mono",ui-monospace,monospace;font-size:14px;background:var(--ink);color:var(--bone);border:1px solid var(--border);border-radius:999px;padding:.6rem 1.2rem;cursor:pointer}
+  button.on{border-color:var(--accent);color:var(--accent)}
+  .readout{font-family:"DM Mono",ui-monospace,monospace;font-size:clamp(15px,2.1vw,19px);color:var(--mist);text-align:center;min-height:1.6em}
+  .readout b{color:var(--gold);font-size:1.1em}
+  .readout .match{color:var(--good);font-weight:bold}
+  .hint{color:var(--mist);font-size:14px;max-width:60ch;text-align:center}
+  .ratios{width:100%;max-width:720px;display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+  .pair{grid-column:span 2;display:grid;grid-template-columns:1fr 1fr;gap:.7rem;border-bottom:1px dashed var(--border);padding-bottom:.7rem}
+  .pair:last-child{border-bottom:none}
+  .card{background:var(--ink);border:1px solid var(--border);border-radius:12px;padding:.7rem .9rem;font-family:"DM Mono",ui-monospace,monospace}
+  .card .name{color:var(--accent);font-size:15px;font-weight:bold}
+  .card .frac{color:var(--bone);font-size:15px;margin-top:.2rem}
+  .card .dec{color:var(--gold);font-size:14px;margin-top:.15rem}
+  .check{grid-column:span 2;text-align:center;font-family:"DM Mono",ui-monospace,monospace;font-size:13px;color:var(--mist);margin-top:-.3rem}
+  .check b{color:var(--good)}
+</style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Geometry · Lesson 30 · sim</div>
+    <h1>Drag θ. Watch all six ratios flip in real time.</h1>
+  </header>
+  <main>
+    <div class="controls" id="presets">
+      <button data-deg="30">30°</button>
+      <button data-deg="45">45°</button>
+      <button data-deg="60">60°</button>
+      <button id="randomBtn">Random</button>
+    </div>
+    <div class="stage"><svg viewBox="0 0 640 400" id="svg"></svg></div>
+    <div class="readout" id="readout"></div>
+    <div class="ratios">
+      <div class="pair">
+        <div class="card"><div class="name">sin θ = opp/hyp</div><div class="frac" id="sinFrac"></div><div class="dec" id="sinDec"></div></div>
+        <div class="card"><div class="name">csc θ = hyp/opp</div><div class="frac" id="cscFrac"></div><div class="dec" id="cscDec"></div></div>
+      </div>
+      <div class="check">sin θ × csc θ = <b id="sinCheck"></b></div>
+      <div class="pair">
+        <div class="card"><div class="name">cos θ = adj/hyp</div><div class="frac" id="cosFrac"></div><div class="dec" id="cosDec"></div></div>
+        <div class="card"><div class="name">sec θ = hyp/adj</div><div class="frac" id="secFrac"></div><div class="dec" id="secDec"></div></div>
+      </div>
+      <div class="check">cos θ × sec θ = <b id="cosCheck"></b></div>
+      <div class="pair">
+        <div class="card"><div class="name">tan θ = opp/adj</div><div class="frac" id="tanFrac"></div><div class="dec" id="tanDec"></div></div>
+        <div class="card"><div class="name">cot θ = adj/opp</div><div class="frac" id="cotFrac"></div><div class="dec" id="cotDec"></div></div>
+      </div>
+      <div class="check">tan θ × cot θ = <b id="tanCheck"></b></div>
+    </div>
+    <p class="hint" id="hint">Drag the gold point at B to change θ. The hypotenuse always measures 12 units — opposite and adjacent stretch and shrink as θ turns, and every ratio below updates live, as both a fraction of the current side lengths and a decimal.</p>
+  </main>
+<script>
+(() => {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  const readout = document.getElementById('readout');
+  const hint = document.getElementById('hint');
+
+  const V = { x: 150, y: 340 };  // theta vertex
+  const R = 220;                 // hypotenuse length in px
+  const UNIT = 12;                // hypotenuse length in "units"
+  const PX_PER_UNIT = R / UNIT;
+
+  function make(tag, attrs){ const n=document.createElementNS(NS,tag); for(const k in attrs) n.setAttribute(k,attrs[k]); svg.appendChild(n); return n; }
+  const rad = d => d * Math.PI / 180;
+  const at = (deg, r) => ({ x: V.x + r*Math.cos(rad(deg)), y: V.y - r*Math.sin(rad(deg)) });
+  const fmt = n => (Math.round(n * 100) / 100).toFixed(2);
+  const fmt3 = n => (Math.round(n * 1000) / 1000).toFixed(3);
+
+  // ---- background grid (very faint) ----
+  for (let x = 0; x <= 640; x += 40) make('line', { x1:x, y1:0, x2:x, y2:400, stroke:'#1c2338', 'stroke-width':1 });
+  for (let y = 0; y <= 400; y += 40) make('line', { x1:0, y1:y, x2:640, y2:y, stroke:'#1c2338', 'stroke-width':1 });
+
+  // ---- theta arc (updates live) ----
+  const arc = make('path', { fill:'none', stroke:'#f5c842', 'stroke-width':3 });
+
+  // ---- adjacent leg (V to A, baseline) ----
+  const legAdj = make('line', { stroke:'#8b5cf6', 'stroke-width':5, 'stroke-linecap':'round' });
+  const lblAdj = make('text', { 'text-anchor':'middle', 'font-size':16, fill:'#e8ecf3', 'font-family':'DM Mono, monospace' });
+
+  // ---- opposite leg (A to B, vertical) ----
+  const legOpp = make('line', { stroke:'#8b5cf6', 'stroke-width':5, 'stroke-linecap':'round' });
+  const lblOpp = make('text', { 'text-anchor':'start', 'font-size':16, fill:'#e8ecf3', 'font-family':'DM Mono, monospace' });
+
+  // ---- hypotenuse (V to B) ----
+  const hyp = make('line', { stroke:'#e8ecf3', 'stroke-width':4, 'stroke-linecap':'round' });
+  const lblHyp = make('text', { 'text-anchor':'middle', 'font-size':16, fill:'#9aabd0', 'font-family':'DM Mono, monospace' });
+
+  // ---- right-angle marker at A ----
+  const rightAngle = make('path', { fill:'none', stroke:'#9aabd0', 'stroke-width':2 });
+
+  // ---- vertex V + theta label ----
+  make('circle', { cx:V.x, cy:V.y, r:7, fill:'#8b5cf6' });
+  const lblV = make('text', { x:V.x-16, y:V.y+8, 'text-anchor':'middle', 'font-size':20, fill:'#e8ecf3', 'font-family':'DM Mono, monospace' }); lblV.textContent = 'θ';
+
+  // ---- draggable point B ----
+  const handle = make('circle', { r:12, fill:'#f5c842' });
+  const hitB = make('circle', { r:26, fill:'transparent', cursor:'grab' });
+
+  let theta = 40;   // current angle, degrees
+  const MIN = 8, MAX = 82;
+
+  function arcPath(from, to, r){
+    const steps = Math.max(2, Math.round(Math.abs(to - from) / 3));
+    const pts = [];
+    for (let i = 0; i <= steps; i++){ const d = from + (to - from) * i / steps; const p = at(d, r); pts.push(`${i === 0 ? 'M' : 'L'}${p.x} ${p.y}`); }
+    return pts.join(' ');
+  }
+
+  function draw(){
+    const t = rad(theta);
+    const B = { x: V.x + R * Math.cos(t), y: V.y - R * Math.sin(t) };
+    const A = { x: B.x, y: V.y };
+
+    legAdj.setAttribute('x1', V.x); legAdj.setAttribute('y1', V.y);
+    legAdj.setAttribute('x2', A.x); legAdj.setAttribute('y2', A.y);
+    legOpp.setAttribute('x1', A.x); legOpp.setAttribute('y1', A.y);
+    legOpp.setAttribute('x2', B.x); legOpp.setAttribute('y2', B.y);
+    hyp.setAttribute('x1', V.x); hyp.setAttribute('y1', V.y);
+    hyp.setAttribute('x2', B.x); hyp.setAttribute('y2', B.y);
+    handle.setAttribute('cx', B.x); handle.setAttribute('cy', B.y);
+    hitB.setAttribute('cx', B.x); hitB.setAttribute('cy', B.y);
+    arc.setAttribute('d', arcPath(0, theta, 46));
+
+    const s = 14;
+    rightAngle.setAttribute('d', `M${A.x-s} ${A.y} L${A.x-s} ${A.y-s} L${A.x} ${A.y-s}`);
+
+    const oppU = UNIT * Math.sin(t);
+    const adjU = UNIT * Math.cos(t);
+    const hypU = UNIT;
+
+    lblAdj.setAttribute('x', (V.x + A.x) / 2);
+    lblAdj.setAttribute('y', V.y + 22);
+    lblAdj.textContent = `adj ${fmt(adjU)}`;
+
+    lblOpp.setAttribute('x', A.x + 10);
+    lblOpp.setAttribute('y', (A.y + B.y) / 2);
+    lblOpp.textContent = `opp ${fmt(oppU)}`;
+
+    const mid = { x: (V.x + B.x) / 2, y: (V.y + B.y) / 2 };
+    lblHyp.setAttribute('x', mid.x - 24);
+    lblHyp.setAttribute('y', mid.y - 10);
+    lblHyp.textContent = `hyp ${fmt(hypU)}`;
+
+    const sinV = oppU / hypU, cosV = adjU / hypU, tanV = oppU / adjU;
+    const cscV = 1 / sinV, secV = 1 / cosV, cotV = 1 / tanV;
+
+    document.getElementById('sinFrac').textContent = `${fmt(oppU)}/${fmt(hypU)}`;
+    document.getElementById('sinDec').textContent = `≈ ${fmt3(sinV)}`;
+    document.getElementById('cscFrac').textContent = `${fmt(hypU)}/${fmt(oppU)}`;
+    document.getElementById('cscDec').textContent = `≈ ${fmt3(cscV)}`;
+    document.getElementById('sinCheck').textContent = fmt3(sinV * cscV);
+
+    document.getElementById('cosFrac').textContent = `${fmt(adjU)}/${fmt(hypU)}`;
+    document.getElementById('cosDec').textContent = `≈ ${fmt3(cosV)}`;
+    document.getElementById('secFrac').textContent = `${fmt(hypU)}/${fmt(adjU)}`;
+    document.getElementById('secDec').textContent = `≈ ${fmt3(secV)}`;
+    document.getElementById('cosCheck').textContent = fmt3(cosV * secV);
+
+    document.getElementById('tanFrac').textContent = `${fmt(oppU)}/${fmt(adjU)}`;
+    document.getElementById('tanDec').textContent = `≈ ${fmt3(tanV)}`;
+    document.getElementById('cotFrac').textContent = `${fmt(adjU)}/${fmt(oppU)}`;
+    document.getElementById('cotDec').textContent = `≈ ${fmt3(cotV)}`;
+    document.getElementById('tanCheck').textContent = fmt3(tanV * cotV);
+
+    const deg = Math.round(theta);
+    let note = '';
+    if (deg === 45) note = ' — the 45-45-90 triangle from Lesson 20!';
+    else if (deg === 30) note = ' — the short leg of a 30-60-90 triangle, Lesson 21!';
+    else if (deg === 60) note = ' — the long leg of a 30-60-90 triangle, Lesson 21!';
+    readout.innerHTML = `θ = <b>${deg}&deg;</b>${note} &middot; sin&sup2;θ + cos&sup2;θ = ${fmt3(sinV*sinV + cosV*cosV)}`;
+
+    [...document.querySelectorAll('#presets button[data-deg]')].forEach(b => b.classList.toggle('on', Number(b.dataset.deg) === deg));
+  }
+
+  function setTheta(deg){
+    theta = Math.max(MIN, Math.min(MAX, deg));
+    draw();
+  }
+
+  // ---- drag handling ----
+  let dragging = false;
+  function toLocal(e){
+    const r = svg.getBoundingClientRect();
+    const cx = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+    const cy = (e.touches ? e.touches[0].clientY : e.clientY) - r.top;
+    return { x: cx / r.width * 640, y: cy / r.height * 400 };
+  }
+  function angleFromPoint(p){
+    const d = Math.atan2(V.y - p.y, p.x - V.x) * 180 / Math.PI;
+    return Math.max(MIN, Math.min(MAX, d));
+  }
+  function down(e){ dragging = true; move(e); e.preventDefault(); }
+  function move(e){ if (!dragging) return; theta = angleFromPoint(toLocal(e)); draw(); e.preventDefault(); }
+  function up(){ dragging = false; }
+
+  hitB.addEventListener('pointerdown', down);
+  window.addEventListener('pointermove', move);
+  window.addEventListener('pointerup', up);
+  hitB.addEventListener('touchstart', down, { passive:false });
+  window.addEventListener('touchmove', move, { passive:false });
+  window.addEventListener('touchend', up);
+
+  document.getElementById('presets').addEventListener('click', e => {
+    const deg = e.target.dataset.deg;
+    if (deg) setTheta(Number(deg));
+  });
+  document.getElementById('randomBtn').addEventListener('click', () => {
+    setTheta(Math.round(MIN + Math.random() * (MAX - MIN)));
+  });
+
+  draw();
+})();
+</script>
+</body>
+</html>

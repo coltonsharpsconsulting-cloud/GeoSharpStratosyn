@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Similar Triangles & AA Similarity — Sim</title>
+<style>
+  :root{--void:#0d1322;--ink:#161d31;--bone:#e8ecf3;--mist:#9aabd0;--accent:#8b5cf6;--gold:#f5c842;--border:#2a3142;--good:#7ee081;--sky:#38bdf8;--steel:#5c6685}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--void);color:var(--bone);font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;min-height:100%}
+  header{padding:2vh 4vw;border-bottom:1px solid var(--border);background:var(--ink)}
+  .eyebrow{font-family:"DM Mono",ui-monospace,monospace;letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--accent)}
+  h1{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(20px,3vw,30px);margin-top:.3rem}
+  main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2vh;padding:2.4vh 4vw}
+  .stage{width:100%;max-width:600px;aspect-ratio:640/580;background:var(--ink);border:1px solid var(--border);border-radius:16px;touch-action:none}
+  svg{width:100%;height:100%;display:block}
+  .controls{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;align-items:center}
+  button{font-family:"DM Mono",ui-monospace,monospace;font-size:13px;background:var(--ink);color:var(--bone);border:1px solid var(--border);border-radius:999px;padding:.55rem 1.1rem;cursor:pointer}
+  button.on{border-color:var(--accent);color:var(--accent)}
+  .slider-row{display:flex;align-items:center;gap:.7rem;font-family:"DM Mono",ui-monospace,monospace;font-size:14px;color:var(--mist)}
+  .slider-row input[type=range]{width:min(60vw,340px);accent-color:var(--gold)}
+  .slider-row b{color:var(--gold);min-width:3.6ch;display:inline-block;text-align:right}
+  .readout{font-family:"DM Mono",ui-monospace,monospace;font-size:clamp(12.5px,1.7vw,15.5px);color:var(--mist);text-align:center;min-height:5.6em;line-height:1.55;max-width:680px}
+  .readout b{color:var(--gold)}
+  .readout .statement{color:var(--good);font-weight:bold;font-size:1.2em}
+  .readout .part{font-weight:bold}
+  .readout .note{color:var(--bone);margin-top:.3em}
+  .hint{color:var(--mist);font-size:13.5px;max-width:64ch;text-align:center}
+</style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Geometry · Lesson 27 · sim</div>
+    <h1>Slide the scale factor. Same shape, new size.</h1>
+  </header>
+  <main>
+    <div class="stage"><svg viewBox="0 0 640 580" id="svg"></svg></div>
+    <div class="slider-row">
+      <span>scale factor k</span>
+      <input type="range" id="kSlider" min="0.4" max="2.2" step="0.05" value="1.5">
+      <b id="kVal">1.50</b>
+    </div>
+    <div class="readout" id="readout"></div>
+    <div class="controls" id="actions">
+      <button id="newTriBtn">New Triangle</button>
+      <button id="resetBtn">Reset (k = 1)</button>
+    </div>
+    <p class="hint">Drag the slider to change the scale factor k. △DEF is always a scaled copy of △ABC — same three angles, every side multiplied by the same k. Watch each corresponding side pair's ratio stay locked to k even as the size changes. "New Triangle" reshapes △ABC — try it, then confirm the same thing happens no matter the shape. That's AA similarity: match the angles, and the sides are automatically proportional.</p>
+  </main>
+<script>
+(() => {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  const readout = document.getElementById('readout');
+  const kSlider = document.getElementById('kSlider');
+  const kVal = document.getElementById('kVal');
+  const SCALE = 20; // px per "unit" for the readout
+
+  function make(tag, attrs){ const n=document.createElementNS(NS,tag); for(const k in attrs) n.setAttribute(k,attrs[k]); svg.appendChild(n); return n; }
+  const rad = d => d * Math.PI / 180;
+  const deg = r => r * 180 / Math.PI;
+  const dist = (P,Q) => Math.hypot(Q.x-P.x, Q.y-P.y);
+  function angleAt(V,P1,P2){
+    const v1x=P1.x-V.x, v1y=P1.y-V.y, v2x=P2.x-V.x, v2y=P2.y-V.y;
+    const m1=Math.hypot(v1x,v1y), m2=Math.hypot(v2x,v2y);
+    let c=(v1x*v2x+v1y*v2y)/(m1*m2); c=Math.max(-1,Math.min(1,c));
+    return deg(Math.acos(c));
+  }
+  const bearing = (V,Q) => deg(Math.atan2(-(Q.y-V.y), Q.x-V.x));
+  function arcPath(V, fromDeg, toDeg, r){
+    const delta = ((toDeg - fromDeg + 540) % 360) - 180;
+    const to = fromDeg + delta;
+    const steps = Math.max(2, Math.round(Math.abs(delta) / 4));
+    const pts = [];
+    for (let i = 0; i <= steps; i++){
+      const d = fromDeg + (to - fromDeg) * i / steps;
+      const x = V.x + r*Math.cos(rad(d)), y = V.y - r*Math.sin(rad(d));
+      pts.push(`${i === 0 ? 'M' : 'L'}${x.toFixed(2)} ${y.toFixed(2)}`);
+    }
+    return pts.join(' ');
+  }
+
+  // ---- colors: position 1 (A/D) gold, position 2 (B/E) green, position 3 (C/F) sky ----
+  const COL = { 1: '#f5c842', 2: '#7ee081', 3: '#38bdf8' };
+
+  // ---- preset ABC shapes (all scalene, all keep a compact bounding radius) ----
+  const PRESETS = [
+    { A:{x:275,y:160}, B:{x:365,y:160}, C:{x:305,y:80} },   // acute-ish scalene
+    { A:{x:270,y:168}, B:{x:370,y:168}, C:{x:345,y:120} },  // flatter / obtuse-ish
+    { A:{x:275,y:172}, B:{x:385,y:155}, C:{x:335,y:95} }    // tall scalene
+  ];
+  let presetIdx = 0;
+
+  const GD = { x: 320, y: 400 }; // fixed center point for DEF
+
+  // ---- static ABC elements ----
+  const triABC = make('polygon', { fill:'rgba(139,92,246,0.12)', stroke:'#8b5cf6', 'stroke-width':4, 'stroke-linejoin':'round' });
+  const sideABC = { AB: make('text',{'font-size':13,'font-family':'DM Mono, monospace','text-anchor':'middle'}),
+                     BC: make('text',{'font-size':13,'font-family':'DM Mono, monospace','text-anchor':'middle'}),
+                     CA: make('text',{'font-size':13,'font-family':'DM Mono, monospace','text-anchor':'middle'}) };
+  const angArcABC = { A: make('path',{fill:'none','stroke-width':3}), B: make('path',{fill:'none','stroke-width':3}), C: make('path',{fill:'none','stroke-width':3}) };
+  const angLblABC = { A: make('text',{'font-size':13,'font-family':'DM Mono, monospace','text-anchor':'middle'}),
+                       B: make('text',{'font-size':13,'font-family':'DM Mono, monospace','text-anchor':'middle'}),
+                       C: make('text',{'font-size':13,'font-family':'DM Mono, monospace','text-anchor':'middle'}) };
+  const vLabelABC = { A: make('text',{'font-size':18,'font-family':'DM Mono, monospace','font-weight':'bold'}),
+                       B: make('text',{'font-size':18,'font-family':'DM Mono, monospace','font-weight':'bold'}),
+                       C: make('text',{'font-size':18,'font-family':'DM Mono, monospace','font-weight':'bold'}) };
+  const dotABC = { A: make('circle',{r:5}), B: make('circle',{r:5}), C: make('circle',{r:5}) };
+
+  // ---- DEF elements (scaled copy, not draggable) ----
+  const triDEF = make('polygon', { fill:'rgba(56,189,248,0.12)', stroke:'#38bdf8', 'stroke-width':4, 'stroke-linejoin':'round' });
+  const sideDEF = { DE: make('text',{'font-size':13,'font-family':'DM Mono, monospace','text-anchor':'middle'}),
+                     EF: make('text',{'font-size':13,'font-family':'DM Mono, monospace','text-anchor':'middle'}),
+                     FD: make('text',{'font-size':13,'font-family':'DM Mono, monospace','text-anchor':'middle'}) };
+  const angArcDEF = { D: make('path',{fill:'none','stroke-width':3}), E: make('path',{fill:'none','stroke-width':3}), F: make('path',{fill:'none','stroke-width':3}) };
+  const angLblDEF = { D: make('text',{'font-size':13,'font-family':'DM Mono, monospace','text-anchor':'middle'}),
+                       E: make('text',{'font-size':13,'font-family':'DM Mono, monospace','text-anchor':'middle'}),
+                       F: make('text',{'font-size':13,'font-family':'DM Mono, monospace','text-anchor':'middle'}) };
+  const vLabelDEF = { D: make('text',{'font-size':18,'font-family':'DM Mono, monospace','font-weight':'bold'}),
+                       E: make('text',{'font-size':18,'font-family':'DM Mono, monospace','font-weight':'bold'}),
+                       F: make('text',{'font-size':18,'font-family':'DM Mono, monospace','font-weight':'bold'}) };
+  const dotDEF = { D: make('circle',{r:5}), E: make('circle',{r:5}), F: make('circle',{r:5}) };
+
+  // ---- divider between the two triangle "shelves" ----
+  make('line', { x1:40, y1:290, x2:600, y2:290, stroke:'#2a3142', 'stroke-width':1, 'stroke-dasharray':'3 6' });
+
+  function midLabel(el, P1, P2, centroid, text, color){
+    const mx = (P1.x+P2.x)/2, my = (P1.y+P2.y)/2;
+    const ox = mx-centroid.x, oy = my-centroid.y;
+    const m = Math.hypot(ox,oy) || 1;
+    el.setAttribute('x', mx + ox/m*16);
+    el.setAttribute('y', my + oy/m*16);
+    el.setAttribute('fill', color);
+    el.textContent = text;
+  }
+  function placeVLabel(el, V, centroid, text, color){
+    const ox = V.x-centroid.x, oy = V.y-centroid.y;
+    const m = Math.hypot(ox,oy) || 1;
+    el.setAttribute('x', V.x + ox/m*24);
+    el.setAttribute('y', V.y + oy/m*24 + 6);
+    el.setAttribute('text-anchor','middle');
+    el.setAttribute('fill', color);
+    el.textContent = text;
+  }
+
+  function draw(){
+    const preset = PRESETS[presetIdx];
+    const A = preset.A, B = preset.B, C = preset.C;
+    const G = { x:(A.x+B.x+C.x)/3, y:(A.y+B.y+C.y)/3 };
+    const REL = { A:{x:A.x-G.x,y:A.y-G.y}, B:{x:B.x-G.x,y:B.y-G.y}, C:{x:C.x-G.x,y:C.y-G.y} };
+    const k = parseFloat(kSlider.value);
+    kVal.textContent = k.toFixed(2);
+
+    const D = { x: GD.x + REL.A.x*k, y: GD.y + REL.A.y*k };
+    const E = { x: GD.x + REL.B.x*k, y: GD.y + REL.B.y*k };
+    const F = { x: GD.x + REL.C.x*k, y: GD.y + REL.C.y*k };
+    const cD = { x:(D.x+E.x+F.x)/3, y:(D.y+E.y+F.y)/3 };
+
+    // ---- ABC ----
+    triABC.setAttribute('points', `${A.x},${A.y} ${B.x},${B.y} ${C.x},${C.y}`);
+    const colABC = { A: COL[1], B: COL[2], C: COL[3] };
+    ['A','B','C'].forEach(key => {
+      const P = { A, B, C }[key];
+      dotABC[key].setAttribute('cx', P.x); dotABC[key].setAttribute('cy', P.y); dotABC[key].setAttribute('fill', colABC[key]);
+      placeVLabel(vLabelABC[key], P, G, key, colABC[key]);
+    });
+    const lAB = dist(A,B), lBC = dist(B,C), lCA = dist(C,A);
+    midLabel(sideABC.AB, A, B, G, (lAB/SCALE).toFixed(1), colABC.A);
+    midLabel(sideABC.BC, B, C, G, (lBC/SCALE).toFixed(1), colABC.B);
+    midLabel(sideABC.CA, C, A, G, (lCA/SCALE).toFixed(1), colABC.C);
+
+    const angA = angleAt(A,B,C), angB = angleAt(B,C,A), angC = angleAt(C,A,B);
+    angArcABC.A.setAttribute('d', arcPath(A, bearing(A,C), bearing(A,B), 28)); angArcABC.A.setAttribute('stroke', colABC.A);
+    angArcABC.B.setAttribute('d', arcPath(B, bearing(B,A), bearing(B,C), 28)); angArcABC.B.setAttribute('stroke', colABC.B);
+    angArcABC.C.setAttribute('d', arcPath(C, bearing(C,B), bearing(C,A), 28)); angArcABC.C.setAttribute('stroke', colABC.C);
+    const outA={x:A.x-G.x,y:A.y-G.y}, mA=Math.hypot(outA.x,outA.y)||1;
+    const outB={x:B.x-G.x,y:B.y-G.y}, mB=Math.hypot(outB.x,outB.y)||1;
+    const outC={x:C.x-G.x,y:C.y-G.y}, mC=Math.hypot(outC.x,outC.y)||1;
+    angLblABC.A.setAttribute('x', A.x+outA.x/mA*46); angLblABC.A.setAttribute('y', A.y+outA.y/mA*46); angLblABC.A.setAttribute('fill', colABC.A); angLblABC.A.textContent = Math.round(angA)+'°';
+    angLblABC.B.setAttribute('x', B.x+outB.x/mB*46); angLblABC.B.setAttribute('y', B.y+outB.y/mB*46); angLblABC.B.setAttribute('fill', colABC.B); angLblABC.B.textContent = Math.round(angB)+'°';
+    angLblABC.C.setAttribute('x', C.x+outC.x/mC*46); angLblABC.C.setAttribute('y', C.y+outC.y/mC*46); angLblABC.C.setAttribute('fill', colABC.C); angLblABC.C.textContent = Math.round(angC)+'°';
+
+    // ---- DEF ----
+    triDEF.setAttribute('points', `${D.x},${D.y} ${E.x},${E.y} ${F.x},${F.y}`);
+    const colDEF = { D: COL[1], E: COL[2], F: COL[3] };
+    ['D','E','F'].forEach(key => {
+      const P = { D, E, F }[key];
+      dotDEF[key].setAttribute('cx', P.x); dotDEF[key].setAttribute('cy', P.y); dotDEF[key].setAttribute('fill', colDEF[key]);
+      placeVLabel(vLabelDEF[key], P, cD, key, colDEF[key]);
+    });
+    const lDE = dist(D,E), lEF = dist(E,F), lFD = dist(F,D);
+    midLabel(sideDEF.DE, D, E, cD, (lDE/SCALE).toFixed(1), colDEF.D);
+    midLabel(sideDEF.EF, E, F, cD, (lEF/SCALE).toFixed(1), colDEF.E);
+    midLabel(sideDEF.FD, F, D, cD, (lFD/SCALE).toFixed(1), colDEF.F);
+
+    const angD = angleAt(D,E,F), angE = angleAt(E,F,D), angF = angleAt(F,D,E);
+    angArcDEF.D.setAttribute('d', arcPath(D, bearing(D,F), bearing(D,E), 28)); angArcDEF.D.setAttribute('stroke', colDEF.D);
+    angArcDEF.E.setAttribute('d', arcPath(E, bearing(E,D), bearing(E,F), 28)); angArcDEF.E.setAttribute('stroke', colDEF.E);
+    angArcDEF.F.setAttribute('d', arcPath(F, bearing(F,E), bearing(F,D), 28)); angArcDEF.F.setAttribute('stroke', colDEF.F);
+    const outD={x:D.x-cD.x,y:D.y-cD.y}, mD=Math.hypot(outD.x,outD.y)||1;
+    const outE={x:E.x-cD.x,y:E.y-cD.y}, mE=Math.hypot(outE.x,outE.y)||1;
+    const outF={x:F.x-cD.x,y:F.y-cD.y}, mF=Math.hypot(outF.x,outF.y)||1;
+    angLblDEF.D.setAttribute('x', D.x+outD.x/mD*46); angLblDEF.D.setAttribute('y', D.y+outD.y/mD*46); angLblDEF.D.setAttribute('fill', colDEF.D); angLblDEF.D.textContent = Math.round(angD)+'°';
+    angLblDEF.E.setAttribute('x', E.x+outE.x/mE*46); angLblDEF.E.setAttribute('y', E.y+outE.y/mE*46); angLblDEF.E.setAttribute('fill', colDEF.E); angLblDEF.E.textContent = Math.round(angE)+'°';
+    angLblDEF.F.setAttribute('x', F.x+outF.x/mF*46); angLblDEF.F.setAttribute('y', F.y+outF.y/mF*46); angLblDEF.F.setAttribute('fill', colDEF.F); angLblDEF.F.textContent = Math.round(angF)+'°';
+
+    // ---- readout ----
+    const rAB = lDE/lAB, rBC = lEF/lBC, rCA = lFD/lCA;
+    readout.innerHTML =
+      `<span class="statement">△ABC &sim; △DEF</span> &middot; scale factor k = <b>${k.toFixed(2)}</b><br>` +
+      `<span class="part" style="color:${COL[1]}">AB=${(lAB/SCALE).toFixed(1)} &rarr; DE=${(lDE/SCALE).toFixed(1)}</span> (ratio ${rAB.toFixed(2)}) &middot; ` +
+      `<span class="part" style="color:${COL[2]}">BC=${(lBC/SCALE).toFixed(1)} &rarr; EF=${(lEF/SCALE).toFixed(1)}</span> (ratio ${rBC.toFixed(2)}) &middot; ` +
+      `<span class="part" style="color:${COL[3]}">CA=${(lCA/SCALE).toFixed(1)} &rarr; FD=${(lFD/SCALE).toFixed(1)}</span> (ratio ${rCA.toFixed(2)})<br>` +
+      `<span class="part" style="color:${COL[1]}">&ang;A=&ang;D=${Math.round(angA)}&deg;</span> &middot; ` +
+      `<span class="part" style="color:${COL[2]}">&ang;B=&ang;E=${Math.round(angB)}&deg;</span> &middot; ` +
+      `<span class="part" style="color:${COL[3]}">&ang;C=&ang;F=${Math.round(angC)}&deg;</span><br>` +
+      `<span class="note">Every ratio equals k, no matter what k is set to — angles stay fixed, sides all scale together. That constant ratio IS the definition of similar.</span>`;
+  }
+
+  kSlider.addEventListener('input', draw);
+  document.getElementById('newTriBtn').addEventListener('click', () => { presetIdx = (presetIdx + 1) % PRESETS.length; draw(); });
+  document.getElementById('resetBtn').addEventListener('click', () => { kSlider.value = 1; draw(); });
+
+  draw();
+})();
+</script>
+</body>
+</html>

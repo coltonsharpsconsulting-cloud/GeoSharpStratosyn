@@ -1,0 +1,44 @@
+{
+  "id": "LP-W31-S3", "course": "geometry", "week": 31, "session": 3,
+  "session_type": "prove", "lesson": "L27 — Similar Triangles & AA Similarity",
+  "unit": "u03", "duration_min": 60, "mode": "Prove",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 31 · Prove It — AA Similarity & Proportions",
+  "essential_question": "Why is matching just TWO angles enough to guarantee two triangles are similar — and can you set up and solve a proportion for a missing side under pressure?",
+  "objective": "Justify why the AA Similarity Postulate works (the third angle is forced by the 180° angle sum), set up and solve proportions to find missing sides and scale factors, review the week's Math-U-See practice, and pass the mastery checkpoint on similar triangles and AA similarity.",
+  "standards": ["G-SRT.A.3"],
+  "vocab": ["similar", "similar triangles", "AA similarity postulate", "scale factor", "proportion", "corresponding sides"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Two Angles, No Peeking","board":"warmup","content":{"prompt":"Without looking at your notes, sketch two triangles that share only two marked congruent angles — nothing else marked. Label the third angle of each using the 180° rule, and circle whether the two triangles must be similar, must be congruent, or neither."}},
+    {"phase":"review","min":12,"title":"Review — Your Math-U-See Work","board":"review","content":{"heading":"Go over Lesson Practice 27A & 27B together","note":"Bring your completed MUS Lesson Practice 27A/27B. We check the tricky ones: completing two-column AA-similarity proofs where perpendicular segments force a shared right angle, or parallel lines force congruent angles across a transversal; and the 'corresponding parts of similar figures are proportional' problems — including the one where X is the TOTAL base of the larger triangle, not just the extra piece, which trips people up. Fix any you missed and note WHY."}},
+    {"phase":"prove","min":16,"title":"Prove It — Reason Out Loud","board":"prove","content":{"heading":"Defend three claims","figure":"grid-blank","bullets":["Claim 1: two triangles share only two pairs of congruent angles — nobody checked the third pair or any side. Argue why they must ALSO have a congruent third angle pair, using nothing but the 180° angle sum.","Claim 2: similar triangles are NOT necessarily congruent. Argue why 'same shape' doesn't force 'same size,' and give a scale factor other than 1 that would make two similar triangles clearly not congruent.","Claim 3: given a proportion built from two similar triangles' corresponding sides (like a/b = c/d), argue why cross-multiplying is valid, and use it to explain how you can solve for one missing side even when you're only given three of the four side lengths."]}},
+    {"phase":"checkpoint","min":18,"title":"Mastery Checkpoint","board":"checkpoint","content":{"heading":"Show what you own","items":["c1","c2","c3","c4","c5","c6"]}},
+    {"phase":"close","min":8,"title":"Close & Set Mastery","board":"close","content":{"items":["x1"],"preview":"Next week, Lesson 28 — Transformations: Translations, Reflections & Rotations — where instead of same-shape/different-size, you'll explore moves that preserve a figure exactly on the coordinate plane."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can state the definition of similar triangles and the AA Similarity Postulate without help"},
+    {"id":"SC2","text":"I can justify why matching two angle pairs forces the third pair to match, and why that makes AA sufficient for similarity"},
+    {"id":"SC3","text":"I can set up and solve a proportion to find a missing side or a scale factor between similar triangles"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W31-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W31 Similar Triangles.md"},
+    "mus": {"practice":"MUS/L27 — Lesson Practice.pdf","review":"MUS/L27 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"checkpoint","kind":"check","title":"Mastery Checkpoint","items":["c1","c2","c3","c4","c5","c6"]},
+      {"phase":"close","kind":"exit","title":"Set Your Mastery","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"c1","type":"mc","sc":"SC1","points":1,"prompt":"Two triangles are similar when…","options":["they have the same perimeter","all corresponding angles are congruent AND all corresponding sides are proportional","only the angles match; the side ratios can differ from side to side","they are the exact same size"],"answer":"all corresponding angles are congruent AND all corresponding sides are proportional","explain":"Similarity is a two-part promise — congruent angles, and sides that all share ONE constant ratio (the scale factor) — not a vague 'looks the same' impression."},
+    {"ref":"c2","type":"dropdown","sc":"SC2","points":1,"prompt":"The AA Similarity Postulate says that if two angles of one triangle are congruent to two angles of another triangle, the two triangles are…","options":["congruent","similar","neither — more information is needed"],"answer":"similar","explain":"Two matching angle pairs force the third pair to match too (the 180° angle sum leaves no other option), which is exactly why AA alone guarantees similarity."},
+    {"ref":"c3","type":"short","sc":"SC3","points":2,"prompt":"Two similar right triangles: the smaller has a leg of 8 and a hypotenuse of X; the larger, similar triangle has the corresponding leg 12 and the corresponding hypotenuse 15. Find X.","answer":"Scale factor from the larger to the smaller is 8 ÷ 12 = 2/3. X = 15 × (2/3) = 10.","explain":"Set up the proportion 8/12 = X/15, cross-multiply (8 × 15 = 12 × X), and solve: 120 = 12X, so X = 10."},
+    {"ref":"c4","type":"construct","sc":"SC1","points":2,"figure":"grid-blank","prompt":"On the grid, draw two similar (but NOT congruent) triangles with a scale factor of your own choosing (not 1). Mark the two pairs of angles you use to justify the similarity by AA.","answer":"Two same-shape, clearly different-size triangles, with two pairs of angles arc-marked alike (matching style per corresponding pair).","explain":"Rubric: two clearly similar, non-congruent triangles drawn (1 pt) + two pairs of corresponding angles correctly and consistently arc-marked (1 pt)."},
+    {"ref":"c5","type":"short","sc":"SC3","points":2,"prompt":"△RST ~ △UVW, with a scale factor from △RST to △UVW of 3. If RS = 4.5, what is UV? If VW = 21, what is ST?","answer":"UV = 4.5 × 3 = 13.5. ST = 21 ÷ 3 = 7.","explain":"Multiply by the scale factor to go from the smaller triangle's side to the larger triangle's corresponding side; divide by it to go the other way."},
+    {"ref":"c6","type":"proof","sc":"SC2","points":3,"prompt":"Complete the proof. Given: AB⊥BD and EC⊥BD, with E on segment AD and C on segment BD (so △ECD sits inside △ABD, sharing ∠D). Prove: △ABD ~ △ECD. Statements: (1) AB⊥BD and EC⊥BD. (2) ∠ABD and ∠ECD are right angles. (3) ∠ABD ≅ ∠ECD. (4) ∠D ≅ ∠D. (5) △ABD ~ △ECD. Fill in the REASON for each of the five statements above.","answer":"(1) Given. (2) Definition of perpendicular lines. (3) All right angles are congruent. (4) Reflexive Property. (5) AA Similarity Postulate — ∠ABD ≅ ∠ECD and the shared ∠D give two congruent angle pairs between the two triangles.","explain":"This is the classic AA-similarity setup: two perpendicular segments force a shared right angle, and a shared vertex angle (Reflexive Property) supplies the second angle pair — together, exactly enough for AA."},
+    {"ref":"x1","type":"short","sc":"SC1","points":1,"prompt":"Close: rate yourself on Lesson 27 (Emerging / Proficient / Mastered) and name the one idea — AA similarity, scale factor, or solving proportions — you'd want to revisit before Lesson 28's transformations."}
+  ]
+}

@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Right-Triangle Trigonometry: SOH-CAH-TOA — Sim</title>
+<style>
+  :root{--void:#0d1322;--ink:#161d31;--bone:#e8ecf3;--mist:#9aabd0;--accent:#8b5cf6;--gold:#f5c842;--border:#2a3142;--good:#7ee081;--warn:#f2665a}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--void);color:var(--bone);font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;min-height:100%}
+  header{padding:2vh 4vw;border-bottom:1px solid var(--border);background:var(--ink)}
+  .eyebrow{font-family:"DM Mono",ui-monospace,monospace;letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--accent)}
+  h1{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(20px,3vw,30px);margin-top:.3rem}
+  main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.6vh;padding:3vh 4vw}
+  .stage{width:100%;max-width:720px;aspect-ratio:4/3;background:var(--ink);border:1px solid var(--border);border-radius:16px}
+  svg{width:100%;height:100%;display:block}
+  .controls{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
+  button{font-family:"DM Mono",ui-monospace,monospace;font-size:14px;background:var(--ink);color:var(--bone);border:1px solid var(--border);border-radius:999px;padding:.6rem 1.2rem;cursor:pointer}
+  button.on{border-color:var(--accent);color:var(--accent)}
+  .slider-row{display:flex;align-items:center;gap:1rem;width:100%;max-width:720px}
+  .slider-row input[type=range]{flex:1;accent-color:#8b5cf6}
+  .theta-readout{font-family:"DM Mono",ui-monospace,monospace;font-size:18px;color:var(--gold);min-width:5.5em;text-align:right}
+  .readout{font-family:"DM Mono",ui-monospace,monospace;font-size:clamp(13px,1.9vw,16px);color:var(--mist);text-align:center;min-height:5.6em;line-height:1.6}
+  .readout b{color:var(--gold)}
+  .readout .good{color:var(--good);font-weight:bold}
+  .hint{color:var(--mist);font-size:14px;max-width:62ch;text-align:center}
+</style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Geometry · Lesson 29 · sim</div>
+    <h1>Slide &theta;. Watch opposite, adjacent &amp; hypotenuse.</h1>
+  </header>
+  <main>
+    <div class="controls" id="presets">
+      <button data-deg="30">&theta; = 30&deg;</button>
+      <button data-deg="45">&theta; = 45&deg;</button>
+      <button data-deg="60">&theta; = 60&deg;</button>
+      <button id="randomBtn">Randomize</button>
+    </div>
+    <div class="stage"><svg viewBox="0 0 640 480" id="svg"></svg></div>
+    <div class="slider-row">
+      <input type="range" id="thetaSlider" min="5" max="85" step="1" value="40" aria-label="acute angle theta in degrees">
+      <span class="theta-readout" id="thetaReadout">&theta; = 40&deg;</span>
+    </div>
+    <div class="readout" id="readout"></div>
+    <p class="hint">Drag the slider to change acute angle &theta;. The hypotenuse always stays 10.00 units — only the opposite and adjacent legs change length as &theta; changes. Watch sin &theta;, cos &theta;, and tan &theta; update as both a ratio of the actual side lengths and a decimal.</p>
+  </main>
+<script>
+(() => {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  const readout = document.getElementById('readout');
+  const thetaReadout = document.getElementById('thetaReadout');
+  const slider = document.getElementById('thetaSlider');
+  const W = 640, H = 480;
+  const R = 220;             // px representing a hypotenuse of HYP_UNITS
+  const HYP_UNITS = 10;      // hypotenuse is always fixed at this many "units"
+  const C = { x: 170, y: 400 }; // right-angle vertex, fixed on screen
+
+  function make(tag, attrs){ const n = document.createElementNS(NS, tag); for (const k in attrs) n.setAttribute(k, attrs[k]); svg.appendChild(n); return n; }
+
+  // ---- faint background grid ----
+  for (let x = 0; x <= W; x += 20) make('line', { x1:x, y1:0, x2:x, y2:H, stroke:'#1a2136', 'stroke-width':1 });
+  for (let y = 0; y <= H; y += 20) make('line', { x1:0, y1:y, x2:W, y2:y, stroke:'#1a2136', 'stroke-width':1 });
+
+  let theta = 40; // degrees, the one live parameter
+
+  const tri = make('polygon', { fill:'rgba(139,92,246,0.18)', stroke:'#8b5cf6', 'stroke-width':4, 'stroke-linejoin':'round' });
+  const rightMark = make('path', { fill:'none', stroke:'#e8ecf3', 'stroke-width':2 });
+  const thetaArc = make('path', { fill:'none', stroke:'#f5c842', 'stroke-width':2 });
+  const compArc = make('path', { fill:'none', stroke:'#4b5570', 'stroke-width':2 });
+
+  const vA = make('circle', { r:5, fill:'#e8ecf3' });
+  const vB = make('circle', { r:5, fill:'#e8ecf3' });
+  const vC = make('circle', { r:6, fill:'#e8ecf3' });
+
+  const lblTheta = make('text', { 'font-size':16, 'font-family':'DM Mono, monospace', fill:'#f5c842', 'text-anchor':'middle' }); lblTheta.textContent = 'θ';
+  const lblComp  = make('text', { 'font-size':12, 'font-family':'DM Mono, monospace', fill:'#9aabd0', 'text-anchor':'middle' }); lblComp.textContent = '90°−θ';
+  const lbl90 = make('text', { 'font-size':13, 'font-family':'DM Mono, monospace', fill:'#9aabd0' }); lbl90.textContent = '90°';
+
+  const lblOpp = make('text', { 'font-size':16, 'font-family':'DM Mono, monospace', 'text-anchor':'middle', fill:'#7ee081' });
+  const lblAdj = make('text', { 'font-size':16, 'font-family':'DM Mono, monospace', 'text-anchor':'middle', fill:'#e8ecf3' });
+  const lblHyp = make('text', { 'font-size':16, 'font-family':'DM Mono, monospace', 'text-anchor':'middle', fill:'#8b5cf6' });
+
+  function atDeg(vx, vy, deg, r){
+    const rad = deg * Math.PI / 180;
+    return { x: vx + r * Math.cos(rad), y: vy - r * Math.sin(rad) };
+  }
+
+  function arcPath(cx, cy, r, fromDeg, toDeg){
+    const steps = Math.max(2, Math.round(Math.abs(toDeg - fromDeg) / 3));
+    const pts = [];
+    for (let i = 0; i <= steps; i++){
+      const d = fromDeg + (toDeg - fromDeg) * i / steps;
+      const p = atDeg(cx, cy, d, r);
+      pts.push(`${i === 0 ? 'M' : 'L'}${p.x} ${p.y}`);
+    }
+    return pts.join(' ');
+  }
+
+  function draw(){
+    const rad = theta * Math.PI / 180;
+    const oppUnits = HYP_UNITS * Math.sin(rad);
+    const adjUnits = HYP_UNITS * Math.cos(rad);
+    const scale = R / HYP_UNITS;
+
+    const A = { x: C.x, y: C.y - oppUnits * scale };       // top of vertical (opposite) leg
+    const B = { x: C.x + adjUnits * scale, y: C.y };       // end of horizontal (adjacent) leg
+
+    tri.setAttribute('points', `${A.x},${A.y} ${B.x},${B.y} ${C.x},${C.y}`);
+
+    // right-angle corner mark at C
+    rightMark.setAttribute('d', `M${C.x + 14},${C.y} L${C.x + 14},${C.y - 14} L${C.x},${C.y - 14}`);
+    lbl90.setAttribute('x', C.x + 22); lbl90.setAttribute('y', C.y - 18);
+
+    // theta arc at B: between ray B->C (180°) and ray B->A (180°-theta)
+    thetaArc.setAttribute('d', arcPath(B.x, B.y, 28, 180 - theta, 180));
+    const midThetaDeg = 180 - theta / 2;
+    const tLbl = atDeg(B.x, B.y, midThetaDeg, 44);
+    lblTheta.setAttribute('x', tLbl.x); lblTheta.setAttribute('y', tLbl.y);
+
+    // complementary angle arc at A: between ray A->C (270°, straight down) and ray A->B (270°+theta going toward B... use direct geometry)
+    // ray A->C points straight down (mathAngle = -90 == 270); ray A->B points toward B (down and to the right)
+    compArc.setAttribute('d', arcPath(A.x, A.y, 26, 270, 270 + (90 - theta)));
+    const midCompDeg = 270 + (90 - theta) / 2;
+    const cLbl = atDeg(A.x, A.y, midCompDeg, 42);
+    lblComp.setAttribute('x', cLbl.x); lblComp.setAttribute('y', cLbl.y);
+
+    vA.setAttribute('cx', A.x); vA.setAttribute('cy', A.y);
+    vB.setAttribute('cx', B.x); vB.setAttribute('cy', B.y);
+    vC.setAttribute('cx', C.x); vC.setAttribute('cy', C.y);
+
+    lblOpp.setAttribute('x', C.x - 42); lblOpp.setAttribute('y', (C.y + A.y) / 2 + 5);
+    lblOpp.textContent = `opp = ${oppUnits.toFixed(2)}`;
+    lblAdj.setAttribute('x', (C.x + B.x) / 2); lblAdj.setAttribute('y', C.y + 26);
+    lblAdj.textContent = `adj = ${adjUnits.toFixed(2)}`;
+    lblHyp.setAttribute('x', (A.x + B.x) / 2 + 26); lblHyp.setAttribute('y', (A.y + B.y) / 2 - 6);
+    lblHyp.textContent = `hyp = ${HYP_UNITS.toFixed(2)}`;
+
+    const sinT = oppUnits / HYP_UNITS;
+    const cosT = adjUnits / HYP_UNITS;
+    const tanT = oppUnits / adjUnits;
+
+    thetaReadout.textContent = `θ = ${theta}°`;
+    readout.innerHTML =
+      `opposite = <b>${oppUnits.toFixed(2)}</b>, adjacent = <b>${adjUnits.toFixed(2)}</b>, hypotenuse = <b>${HYP_UNITS.toFixed(2)}</b> (fixed)<br>` +
+      `sin &theta; = opp/hyp = ${oppUnits.toFixed(2)}/${HYP_UNITS.toFixed(2)} &asymp; <span class="good">${sinT.toFixed(3)}</span> &middot; ` +
+      `cos &theta; = adj/hyp = ${adjUnits.toFixed(2)}/${HYP_UNITS.toFixed(2)} &asymp; <span class="good">${cosT.toFixed(3)}</span> &middot; ` +
+      `tan &theta; = opp/adj = ${oppUnits.toFixed(2)}/${adjUnits.toFixed(2)} &asymp; <span class="good">${tanT.toFixed(3)}</span>`;
+  }
+
+  slider.addEventListener('input', () => { theta = Number(slider.value); draw(); });
+
+  document.getElementById('presets').addEventListener('click', (e) => {
+    const deg = e.target.dataset.deg;
+    if (deg) { theta = Number(deg); slider.value = theta; draw(); }
+  });
+
+  document.getElementById('randomBtn').addEventListener('click', () => {
+    theta = 5 + Math.floor(Math.random() * 81); // whole degree, 5-85
+    slider.value = theta;
+    draw();
+  });
+
+  draw();
+})();
+</script>
+</body>
+</html>

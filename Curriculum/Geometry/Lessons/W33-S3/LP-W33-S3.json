@@ -1,0 +1,44 @@
+{
+  "id": "LP-W33-S3", "course": "geometry", "week": 33, "session": 3,
+  "session_type": "prove", "lesson": "L29 — Right-Triangle Trigonometry: Sine, Cosine & Tangent",
+  "unit": "u03", "duration_min": 60, "mode": "Prove",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 33 · Prove It — Why the Trig Ratios Never Change",
+  "essential_question": "Why do sin θ, cos θ, and tan θ depend only on the angle θ — not on how big the right triangle is?",
+  "objective": "Explain, using similar triangles, why the trigonometric ratios depend only on the angle and not on the triangle's size; set up and solve for a missing side using sin, cos, or tan; review the week's Math-U-See practice; and pass the mastery checkpoint on right-triangle trigonometry.",
+  "standards": ["G-SRT.C.6"],
+  "vocab": ["sine (sin)", "cosine (cos)", "tangent (tan)", "opposite side", "adjacent side", "hypotenuse"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Redraw From Memory","board":"warmup","content":{"prompt":"Without looking, draw a right triangle, label one acute angle θ, and label its opposite side, adjacent side, and hypotenuse. Write SOH-CAH-TOA from memory. Then explain out loud, in your own words, why the opposite and adjacent sides swap if you pick the OTHER acute angle instead."}},
+    {"phase":"review","min":12,"title":"Review — Your Math-U-See Work","board":"review","content":{"heading":"Go over Lesson Practice 29A & 29B together","note":"Bring your completed MUS Lesson Practice 29A/29B. We check the tricky ones: reducing a ratio fully (like 6/10 down to 3/5), matching each side to sin, cos, or tan correctly for BOTH acute angles θ and α in the same triangle, and noticing that sin θ = cos α whenever θ and α are the two acute angles of the same right triangle."}},
+    {"phase":"prove","min":16,"title":"Prove It — Reason Out Loud","board":"prove","content":{"heading":"Defend three claims","figure":"grid-blank","bullets":["Claim 1: sin θ, cos θ, and tan θ depend only on θ, never on the size of the triangle. Argue it from similar triangles — any two right triangles sharing acute angle θ are similar by AA (they share the right angle AND θ, so the third angle matches too), and similar triangles have proportional sides — so opposite/hypotenuse comes out to the same number no matter which similar triangle you measure.","Claim 2: if θ and α are the two acute angles of the same right triangle, then sin θ = cos α (and cos θ = sin α). Argue why, using the fact that the side opposite θ is the same side that's adjacent to α, and both ratios divide by the same shared hypotenuse.","Claim 3: given one side and an angle, you can't just guess which ratio to use — argue how to pick sin, cos, or tan correctly by naming what you're given relative to θ (opposite? adjacent? hypotenuse?) and what's being asked for."]}},
+    {"phase":"checkpoint","min":18,"title":"Mastery Checkpoint","board":"checkpoint","content":{"heading":"Show what you own","items":["c1","c2","c3","c4","c5","c6"]}},
+    {"phase":"close","min":8,"title":"Close & Set Mastery","board":"close","content":{"items":["x1"],"preview":"Next week, Lesson 30 — The Six Trigonometric Ratios — where sine, cosine, and tangent get three reciprocal partners: cosecant, secant, and cotangent."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can explain, using similar triangles (AA), why sin θ, cos θ, and tan θ depend only on the angle θ, not the triangle's size"},
+    {"id":"SC2","text":"I can set up and solve for a missing side of a right triangle using sin, cos, or tan, given one side and an acute angle"},
+    {"id":"SC3","text":"I can find sin θ, cos θ, and tan θ as reduced fractions from a right triangle's three side lengths, and connect sin θ = cos α for the triangle's two acute angles"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W33-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W33 Sine, Cosine & Tangent.md"},
+    "mus": {"practice":"MUS/L29 — Lesson Practice.pdf","review":"MUS/L29 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"checkpoint","kind":"check","title":"Mastery Checkpoint","items":["c1","c2","c3","c4","c5","c6"]},
+      {"phase":"close","kind":"exit","title":"Set Your Mastery","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"c1","type":"mc","sc":"SC1","points":1,"prompt":"Two right triangles both have a 35° acute angle but are different sizes. What must be true about sin 35° in each triangle?","options":["It's different in each triangle, since the triangles are different sizes","It's exactly the same number in both triangles","It can only be found using a calculator, not from the sides","It depends on which triangle has the longer hypotenuse"],"answer":"It's exactly the same number in both triangles","explain":"Any two right triangles sharing an acute angle of 35° are similar by AA (both have a 90° angle and a 35° angle, so their third angles match too) — similar triangles have proportional sides, so opposite/hypotenuse is the same ratio in both, no matter the triangle's size."},
+    {"ref":"c2","type":"dropdown","sc":"SC1","points":1,"prompt":"Because two right triangles with the same acute angle θ are similar by AA, their corresponding sides are…","options":["equal in length","proportional (the same ratio)","perpendicular","impossible to compare"],"answer":"proportional (the same ratio)","explain":"Similar triangles don't have equal sides, but their corresponding sides always share the same ratio — that's exactly why sin θ, cos θ, and tan θ are fixed numbers for a given θ."},
+    {"ref":"c3","type":"short","sc":"SC3","points":2,"prompt":"A right triangle has legs 9 and 12 and a hypotenuse of 15. For the acute angle θ opposite the side of length 9, find sin θ, cos θ, and tan θ, fully reduced.","answer":"sin θ = 3/5, cos θ = 4/5, tan θ = 3/4","explain":"sin θ = 9/15 = 3/5; cos θ = 12/15 = 4/5; tan θ = 9/12 = 3/4 — the same 3-4-5 family as before, just scaled up by 3."},
+    {"ref":"c4","type":"short","sc":"SC3","points":2,"prompt":"In the triangle from #c3 (legs 9 and 12, hypotenuse 15), let α be the OTHER acute angle (opposite the side of length 12). Find sin α and cos α, and state which of θ's ratios each one matches.","answer":"sin α = 12/15 = 4/5 (matches cos θ); cos α = 9/15 = 3/5 (matches sin θ)","explain":"θ and α are complementary (they add to 90°); the side opposite one angle is the side adjacent to the other, and both share the same hypotenuse, so sin α = cos θ and cos α = sin θ."},
+    {"ref":"c5","type":"short","sc":"SC2","points":2,"prompt":"Set up and solve: a right triangle has a hypotenuse of 18 and an acute angle of 42°. Find the length of the side adjacent to the 42° angle, rounded to the nearest hundredth.","answer":"x = 18 cos 42° ≈ 13.38","explain":"cos 42° = adjacent/18, so adjacent = 18 cos 42° ≈ 18(0.7431) ≈ 13.38 — CAH pairs adjacent with hypotenuse."},
+    {"ref":"c6","type":"measure","sc":"SC2","points":2,"figure":"grid-blank","prompt":"The figure shows a right triangle with an acute angle marked θ ≈ 37°, an adjacent leg of 8 units, and an unknown opposite leg x. Use a ruler to measure x directly on the grid, then check: does it roughly match x = 8 tan 37° ≈ 6.03?","answer":"≈6.0 units, matching the computed x = 8 tan 37° ≈ 6.03","explain":"Rubric: accept any ruler measurement within about half a unit of 6.03 — this confirms tan θ = opposite/adjacent is a real, checkable ratio, not just algebra."},
+    {"ref":"x1","type":"short","sc":"SC1","points":1,"prompt":"Close: rate yourself on Lesson 29 (Emerging / Proficient / Mastered) and name the one idea you'd want to revisit."}
+  ]
+}

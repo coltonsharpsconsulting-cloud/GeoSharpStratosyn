@@ -1,0 +1,44 @@
+{
+  "id": "LP-W34-S3", "course": "geometry", "week": 34, "session": 3,
+  "session_type": "prove", "lesson": "L30 — The Six Trigonometric Ratios",
+  "unit": "u03", "duration_min": 60, "mode": "Prove",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 34 · Prove It — The Six Trig Ratios",
+  "essential_question": "Can you defend WHY csc θ must equal 1/sin θ — not just recite the reciprocal pairs — and compute all six ratios cold?",
+  "objective": "Justify the three reciprocal relationships and the identity sin²θ + cos²θ = 1 from the definitions of the six ratios, review the week's Math-U-See practice, and pass the final mastery checkpoint of the course.",
+  "standards": ["G-SRT.C.6"],
+  "vocab": ["sine", "cosine", "tangent", "cosecant", "secant", "cotangent", "reciprocal", "opposite", "adjacent", "hypotenuse"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Redraw From Memory","board":"warmup","content":{"prompt":"Without looking, sketch a right triangle, label opposite, adjacent, and hypotenuse relative to θ, and write from memory all six ratio names paired with their reciprocals (sin↔csc, cos↔sec, tan↔cot). Then check against your concept note."}},
+    {"phase":"review","min":12,"title":"Review — Your Math-U-See Work","board":"review","content":{"heading":"Go over Lesson Practice 30A & 30B together","note":"Bring your completed MUS Lesson Practice 30A/30B. We check the tricky ones: reducing every ratio all the way (10/6 must become 5/3, not stay as a decimal), the problems where θ moves to the OTHER acute vertex of the same triangle so opposite and adjacent trade places, and the sin²θ + cos²θ = 1 fill-in-the-blank on both worksheets. Fix any you missed and note WHY."}},
+    {"phase":"prove","min":16,"title":"Prove It — Reason Out Loud","board":"prove","content":{"heading":"Defend three claims","figure":"grid-blank","bullets":["Claim 1: csc θ must equal 1/sin θ. Argue it directly from the definitions — sin θ = opp/hyp and csc θ = hyp/opp are the same two numbers, one on top of the other flipped — so multiplying them always collapses to 1.","Claim 2: sin²θ + cos²θ = 1 for EVERY right triangle, no matter how big or small. Argue it from the Pythagorean theorem: sin²θ + cos²θ = (opp/hyp)² + (adj/hyp)² = (opp² + adj²)/hyp², and opp² + adj² = hyp² is exactly the Pythagorean theorem — so the fraction is always hyp²/hyp² = 1.","Claim 3: if you rotate the same right triangle so θ sits at the OTHER acute vertex, sin θ and cos θ swap values (the old adjacent becomes the new opposite, and vice versa) — but sin²θ + cos²θ = 1 still holds at the new vertex too. Argue why that identity survives the swap."]}},
+    {"phase":"checkpoint","min":18,"title":"Mastery Checkpoint","board":"checkpoint","content":{"heading":"Show what you own","items":["c1","c2","c3","c4","c5","c6"]}},
+    {"phase":"close","min":8,"title":"Close — Lesson 30 of 30, Complete","board":"close","content":{"items":["x1"],"preview":"This completes all 30 lessons of Math-U-See Geometry — next is the year-end final exam and the year-end capstone project, not another weekly lesson."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can justify why each reciprocal pair (sin/csc, cos/sec, tan/cot) always multiplies to 1"},
+    {"id":"SC2","text":"I can derive sin²θ + cos²θ = 1 from the Pythagorean theorem and explain why it holds for any right triangle"},
+    {"id":"SC3","text":"I can compute all six trigonometric ratios, reduced, for a given right triangle without help"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W34-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W34 The Six Trig Ratios.md"},
+    "mus": {"practice":"MUS/L30 — Lesson Practice.pdf","review":"MUS/L30 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"checkpoint","kind":"check","title":"Mastery Checkpoint","items":["c1","c2","c3","c4","c5","c6"]},
+      {"phase":"close","kind":"exit","title":"Set Your Mastery","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"c1","type":"dropdown","sc":"SC1","points":1,"prompt":"The reciprocal of cos θ is called…","options":["sin θ","tan θ","sec θ","cot θ"],"answer":"sec θ","explain":"sec θ (secant) = hyp/adj, exactly cos θ = adj/hyp flipped upside down."},
+    {"ref":"c2","type":"mc","sc":"SC3","points":1,"prompt":"A right triangle has legs 3 and 4 and hypotenuse 5. θ sits at the vertex between the leg of 4 and the hypotenuse, so the leg of 3 is opposite θ and the leg of 4 is adjacent to θ. Which ratio equals 4/3?","options":["tan θ","cot θ","sec θ"],"answer":"cot θ","explain":"cot θ = adj/opp = 4/3. tan θ would be opp/adj = 3/4, the reciprocal of this answer."},
+    {"ref":"c3","type":"short","sc":"SC3","points":3,"prompt":"For that same 3-4-5 triangle (opposite = 3, adjacent = 4, hypotenuse = 5), find all six trigonometric ratios for θ. Reduce every fraction.","answer":"sin θ = 3/5; cos θ = 4/5; tan θ = 3/4; csc θ = 5/3; sec θ = 5/4; cot θ = 4/3.","explain":"3-4-5 is already in lowest terms with no common factor, so every ratio built from it is already reduced."},
+    {"ref":"c4","type":"measure","sc":"SC1","points":2,"prompt":"Using the baseline (adjacent), height-above-eye (opposite), and hypotenuse you measured and computed in your Build session, recompute sin θ and cos θ as decimals (three places), then confirm sin²θ + cos²θ ≈ 1 using your own real numbers.","answer":"Answers vary by student's own measurements, e.g. sin θ ≈ 0.530, cos θ ≈ 0.848, and 0.530² + 0.848² ≈ 0.281 + 0.719 = 1.000.","explain":"Rubric: correctly recomputes sin θ and cos θ from their own recorded sides (1 pt) + correctly squares and adds to confirm ≈ 1, allowing for measurement rounding (1 pt)."},
+    {"ref":"c5","type":"short","sc":"SC1","points":2,"prompt":"Explain, from the definitions (not just 'it's the rule'), why csc θ must always equal 1/sin θ.","answer":"sin θ = opp/hyp and csc θ = hyp/opp are the same two side lengths, just with the numerator and denominator swapped. Any fraction times its swapped version equals 1 — (opp/hyp) × (hyp/opp) = (opp×hyp)/(hyp×opp) = 1 — so csc θ is exactly 1 ÷ sin θ.","explain":"Full credit connects the reciprocal to the actual side-length fractions, not just to a memorized flipping rule."},
+    {"ref":"c6","type":"short","sc":"SC2","points":2,"prompt":"Fill in the blank exactly as on your MUS worksheet: sin²θ + cos²θ = ______. This identity is really the ______ expressed with trigonometric ratios.","answer":"sin²θ + cos²θ = 1. This identity is really the Pythagorean theorem expressed with trigonometric ratios.","explain":"Dividing a² + b² = c² through by c² turns it into (a/c)² + (b/c)² = 1, which is sin²θ + cos²θ = 1 once a/c and b/c are named sin θ and cos θ."},
+    {"ref":"x1","type":"short","sc":"SC3","points":1,"prompt":"Close: rate yourself on Lesson 30 — and on the whole trig arc, Lessons 29-30 (Emerging / Proficient / Mastered) — and name the one ratio, of all six, you'd most want to drill again before the year-end final."}
+  ]
+}

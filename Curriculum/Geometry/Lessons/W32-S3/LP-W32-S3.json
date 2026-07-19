@@ -1,0 +1,44 @@
+{
+  "id": "LP-W32-S3", "course": "geometry", "week": 32, "session": 3,
+  "session_type": "prove", "lesson": "L28 — Transformations: Translations, Reflections & Rotations",
+  "unit": "u03", "duration_min": 60, "mode": "Prove",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 32 · Prove It — Transformations",
+  "essential_question": "Why does sliding, flipping, or turning a figure always leave it congruent to where it started — and can you compute the exact image coordinates for each type, with no sim in front of you?",
+  "objective": "Justify why translations, reflections, and rotations (rigid motions / isometries) always produce an image congruent to the pre-image, compute image coordinates for a translation, an axis reflection, or an origin rotation without a sim, review the week's Math-U-See practice, and pass the mastery checkpoint on coordinate transformations.",
+  "standards": ["G-CO.A.2"],
+  "vocab": ["translation", "reflection", "rotation", "x-axis", "y-axis", "image", "pre-image", "isometry", "rigid motion", "orientation"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Redraw From Memory","board":"warmup","content":{"prompt":"Without looking, sketch a triangle in Quadrant I and, from memory, write the coordinate rule for translating by (h, k), for reflecting over the x-axis and the y-axis, and for rotating 180° about the origin. Then explain out loud why none of these three moves can ever change a side's length."}},
+    {"phase":"review","min":12,"title":"Review — Your Math-U-See Work","board":"review","content":{"heading":"Go over Lesson Practice 28A & 28B together","note":"Bring your completed MUS Lesson Practice 28A/28B. We check the tricky ones: reading a translation's direction correctly from wording like 'over −6 and down 7' (6 LEFT, not right, then 7 down), telling a reflection in the x-axis apart from a reflection in the y-axis just by looking at which way the figure flipped on the grid, and matching a 90°/180°/270° rotation to where the figure actually lands rather than guessing. Fix any you missed and note WHY."}},
+    {"phase":"prove","min":16,"title":"Prove It — Reason Out Loud","board":"prove","content":{"heading":"Defend three claims","figure":"grid-blank","bullets":["Claim 1: every translation, reflection, and rotation is a rigid motion. Argue it — pick any two points on a figure and show that the DISTANCE between their images always equals the distance between the originals, no matter which of the three rules you apply.","Claim 2: because rigid motions preserve every length and every angle measure, the image is always congruent to the pre-image. Connect this to CPCTC-style reasoning — corresponding sides and corresponding angles must match.","Claim 3: a reflection reverses a figure's orientation (a clockwise-labeled triangle becomes counterclockwise), but a translation and a rotation do not. Argue why a reflection is fundamentally different from the other two, even though all three preserve congruence."]}},
+    {"phase":"checkpoint","min":18,"title":"Mastery Checkpoint","board":"checkpoint","content":{"heading":"Show what you own","items":["c1","c2","c3","c4","c5","c6"]}},
+    {"phase":"close","min":8,"title":"Close & Set Mastery","board":"close","content":{"items":["x1"],"preview":"Next week, Lesson 29 — Right-Triangle Trigonometry: Sine, Cosine & Tangent — where a right triangle's own ratios replace the Pythagorean theorem as the main tool."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can compute image coordinates for a translation, a reflection over the x-axis or y-axis, and a rotation of 90° or 180° about the origin, without a sim"},
+    {"id":"SC2","text":"I can identify which transformation was applied given a pre-image and its image"},
+    {"id":"SC3","text":"I can justify why a rigid motion (translation, reflection, or rotation) always produces an image congruent to the pre-image"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W32-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W32 Transformations.md"},
+    "mus": {"practice":"MUS/L28 — Lesson Practice.pdf","review":"MUS/L28 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"checkpoint","kind":"check","title":"Mastery Checkpoint","items":["c1","c2","c3","c4","c5","c6"]},
+      {"phase":"close","kind":"exit","title":"Set Your Mastery","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"c1","type":"mc","sc":"SC1","points":1,"prompt":"Translating the point (−2, 5) by the vector (6, −3) produces the image…","options":["(4, 2)","(4, 8)","(-8, 2)"],"answer":"(4, 2)","explain":"(x + 6, y − 3) = (−2 + 6, 5 − 3) = (4, 2)."},
+    {"ref":"c2","type":"dropdown","sc":"SC1","points":1,"prompt":"Reflecting the point (3, 2) over the x-axis produces the image…","options":["(3, -2)","(-3, 2)","(-3, -2)"],"answer":"(3, -2)","explain":"Reflecting over the x-axis keeps x the same and negates y: (x, y) → (x, −y)."},
+    {"ref":"c3","type":"short","sc":"SC1","points":2,"prompt":"Reflecting that same point, (3, 2), over the y-axis instead produces what image? Give the coordinates and state the rule you used.","answer":"Image: (−3, 2). Rule used: (x, y) → (−x, y).","explain":"Reflecting over the y-axis keeps y the same and negates x."},
+    {"ref":"c4","type":"construct","sc":"SC1","points":2,"figure":"grid-blank","prompt":"On the grid, plot triangle DEF with D(1, 1), E(4, 1), F(4, 3). Rotate it 180° about the origin and plot the image D′E′F′. Label all six points with their coordinates.","answer":"D(1,1), E(4,1), F(4,3) plotted in Quadrant I; D′(−1,−1), E′(−4,−1), F′(−4,−3) plotted in Quadrant III, using (x,y)→(−x,−y) on each vertex.","explain":"Rubric: pre-image plotted and labeled correctly (1 pt) + image correctly rotated 180° about the origin and labeled with primes (1 pt)."},
+    {"ref":"c5","type":"short","sc":"SC3","points":2,"prompt":"In your own words, explain why a rotation always produces an image congruent to the pre-image.","answer":"A rotation turns every point of the figure through the same angle, the same direction, around the same fixed point — every point stays the same distance from the center of rotation, and the distance between any two points of the figure never changes, so every side length and every angle measure in the image matches the pre-image exactly. That preservation of length and angle is the definition of congruence.","explain":"Full credit connects the rotation to distance preservation (an isometry/rigid motion) and states that preserved side lengths and angle measures are exactly what \"congruent\" means."},
+    {"ref":"c6","type":"dropdown","sc":"SC2","points":1,"prompt":"Which of the three transformations — translation, reflection, or rotation — is the ONLY one that reverses a figure's orientation (a clockwise-labeled triangle becomes counterclockwise)?","options":["translation","reflection","rotation"],"answer":"reflection","explain":"A reflection flips the figure over a line like a mirror, which reverses the order you read its vertices in; a translation and a rotation both preserve orientation."},
+    {"ref":"x1","type":"short","sc":"SC1","points":1,"prompt":"Close: rate yourself on Lesson 28 (Emerging / Proficient / Mastered) and name the one transformation — translation, reflection, or rotation — you'd want to drill more before moving on to trigonometry next week."}
+  ]
+}

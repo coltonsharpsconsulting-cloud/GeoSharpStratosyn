@@ -1,0 +1,42 @@
+{
+  "id": "LP-W31-S2", "course": "geometry", "week": 31, "session": 2,
+  "session_type": "build", "lesson": "L27 — Similar Triangles & AA Similarity",
+  "unit": "u03", "duration_min": 60, "mode": "Build",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 31 · Indirect Measurement Lab",
+  "essential_question": "Can you find the height of something far too tall to measure directly — using nothing but a shadow, a small stick, and a proportion?",
+  "objective": "Measure the height of a tall object indirectly by comparing its shadow to the shadow of a known-height object (or a mirror sightline), set up a similar-triangles proportion from the measurements, and solve for the missing height.",
+  "standards": ["G-SRT.A.3"],
+  "vocab": ["similar triangles", "indirect measurement", "shadow method", "mirror method", "proportion", "scale factor"],
+  "agenda": [
+    {"phase":"brief","min":6,"title":"Brief — From Slider to Sunlight","board":"brief","content":{"heading":"From the sim to something you can't reach","bullets":["Yesterday: defined similar triangles, stated the AA Similarity Postulate, and solved proportions on paper.","Today: use similar triangles outdoors (or with a lamp indoors) to measure something too tall to reach with a tape measure.","The test: can you set up the proportion correctly BEFORE you calculate, and does your answer hold up to a rough cross-check?"]}},
+    {"phase":"plan","min":8,"title":"Plan — Read the Build Card","board":"plan","content":{"heading":"Gather + plan","note":"Open the project card. Gather a yardstick or meter stick (a known height), a measuring tape, a calculator, and — for the mirror method — a small flat mirror. Pick your tall object (a tree, a flagpole, a basketball hoop, a building) and decide which method (shadow or mirror) fits today's light and location."}},
+    {"phase":"build","min":25,"title":"Build — Shadow Method & Mirror Method","board":"build","content":{"heading":"Two ways to build the second, smaller triangle","bullets":["Shadow method: stand your known-height stick perfectly vertical, then measure ITS shadow and the tall object's shadow at the SAME moment (same sun angle). The stick-and-shadow triangle and the object-and-shadow triangle share that sun angle AND a right angle where each stands straight up — AA guarantees they're similar.","Set up the proportion: stick height ÷ stick shadow = object height ÷ object shadow. Solve for the one unknown.","Mirror method (alternative or cross-check): lay a small mirror flat on the ground between you and the object. Back away until you see the object's top centered in the mirror. Measure your eye height, your distance from the mirror, and the mirror's distance from the object's base — the angle of incidence equals the angle of reflection, so the two right triangles are similar by AA the same way.","If time allows, run BOTH methods on the same object and compare your two height estimates."]}},
+    {"phase":"measure","min":12,"title":"Record Your Measurements & Solve","board":"measure","content":{"heading":"Get the numbers down","figure":"grid-blank","items":["m1","m2","m3"]}},
+    {"phase":"reflect","min":9,"title":"Reflect & Photograph","board":"reflect","content":{"items":["r1"],"preview":"Session 3: defend why AA is enough and solve proportions for missing sides, review MUS Lesson Practice 27A/27B, then the checkpoint."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can identify the two similar right triangles formed by an object, its shadow (or reflection sightline), and the sun's rays (or line of sight)"},
+    {"id":"SC2","text":"I can set up and solve a proportion using known heights and shadows (or sightline distances) to find an unknown height"},
+    {"id":"SC3","text":"I can measure carefully and cross-check my computed height against a second method or a reasonable estimate"}
+  ],
+  "assets": {
+    "project": {"note":"Curriculum/Geometry/Lessons/W31-S2/project-card.md"},
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W31-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W31 Similar Triangles.md"},
+    "mus": {"practice":"MUS/L27 — Lesson Practice.pdf","review":"MUS/L27 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"measure","kind":"practice","title":"Measurement Log & Proportion","items":["m1","m2","m3"]},
+      {"phase":"reflect","kind":"exit","title":"Reflect","items":["r1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"m1","type":"measure","sc":"SC1","points":2,"prompt":"Record your setup: which method you used (shadow or mirror), the known height you measured directly (your stick's height, or your eye height), and the two shadow lengths or sightline distances you measured.","answer":"Example (shadow method): stick height 3 ft, stick's shadow 4 ft, tall object's shadow 22 ft, measured within a few minutes of each other so the sun angle matched.","explain":"Full credit records a clearly labeled known height plus both shadow lengths (or, for the mirror method, eye height, distance to mirror, and mirror-to-object distance), all measured in the same units."},
+    {"ref":"m2","type":"short","sc":"SC2","points":2,"prompt":"Set up your proportion (known height ÷ known shadow = unknown height ÷ unknown shadow, or the matching mirror-method proportion) and solve for the tall object's height. Show the proportion and your answer.","answer":"Example: 3/4 = X/22 → 4X = 66 → X = 16.5 ft.","explain":"Rubric: correct proportion set up with matching parts on each side (1 pt) + correctly solved by cross-multiplying for the unknown height (1 pt)."},
+    {"ref":"m3","type":"short","sc":"SC3","points":2,"prompt":"If you ran a second method (or a rough visual/pace estimate) as a cross-check, how close did your two height estimates come? If you only used one method, explain what could introduce error (uneven ground, a stick that wasn't perfectly vertical, shadows measured a few minutes apart, a mirror that wasn't perfectly flat, etc.).","answer":"Answers vary — full credit either reports a real second estimate and compares it honestly, or names at least one specific, plausible source of measurement error in the single method used.","explain":"The point is recognizing that real measurement always carries some error, and naming WHERE that error most likely crept in."},
+    {"ref":"r1","type":"short","sc":"SC2","points":2,"prompt":"Reflect: which part of the setup mattered most for accuracy — measuring both shadows at the exact same moment, standing the stick (or mirror) perfectly level, or something else? What would you change next time?"}
+  ]
+}

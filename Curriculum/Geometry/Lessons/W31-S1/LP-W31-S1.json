@@ -1,0 +1,47 @@
+{
+  "id": "LP-W31-S1", "course": "geometry", "week": 31, "session": 1,
+  "session_type": "concept", "lesson": "L27 — Similar Triangles & AA Similarity",
+  "unit": "u03", "duration_min": 60, "mode": "Concept",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 31 · Similar Triangles & the AA Similarity Postulate",
+  "essential_question": "If two triangles share just two pairs of congruent angles, do you already know — before measuring a single side — that every pair of corresponding sides shares the same ratio?",
+  "objective": "Define similar triangles as having congruent corresponding angles and proportional corresponding sides, apply the AA Similarity Postulate to justify that two triangles are similar, and use a proportion to compute a scale factor or solve for a missing side.",
+  "standards": ["G-SRT.A.3"],
+  "vocab": ["similar", "similar triangles", "corresponding sides", "corresponding angles", "AA similarity postulate", "scale factor", "proportion"],
+  "agenda": [
+    {"phase":"launch","min":6,"title":"Launch — Same Shape, Different Size","board":"launch","content":{"prompt":"Picture a photo of a triangle, and a poster made by enlarging that exact photo. Before you learn a single new word: what stays exactly the same between the small photo and the big poster, and what changes? Say it out loud in terms of angles and sides."}},
+    {"phase":"i_do","min":12,"title":"I do — Same Angles, Proportional Sides","board":"i_do","content":{"heading":"Similar triangles: two promises, one postulate","figure":"grid-blank","bullets":["Similar figures have the same SHAPE but not necessarily the same SIZE — corresponding angles congruent, corresponding sides proportional (all in the same ratio).","Notation: △ABC ~ △DEF. Order matters exactly like congruence notation — A↔D, B↔E, C↔F.","AA (Angle-Angle) Similarity Postulate: if two angles of one triangle are congruent to two angles of another, the triangles are similar — no side ever needs checking.","Why two angles are enough: a triangle's angles always sum to 180°, so once two pairs match, the third pair is FORCED to match too — the same leftover, both times.","Scale factor = the constant ratio between corresponding sides. 'Corresponding parts of similar figures are proportional' — write a proportion and cross-multiply to find a missing side."]}},
+    {"phase":"explore","min":8,"title":"Explore — Slide the Scale Factor","board":"explore","content":{"heading":"Same angles hold. Watch the ratio hold too.","note":"On the sim, drag the scale-factor slider. △DEF is always a scaled copy of △ABC. Watch all three angle measures stay identical between the two triangles while every side pair's ratio locks to the same number as the slider — that number IS the scale factor. Try the 'New Triangle' button to reshape △ABC and confirm the same thing happens no matter the shape.","figure":"grid-blank"}},
+    {"phase":"check","min":5,"title":"Check for Understanding","board":"check","content":{"heading":"Similar or not?","items":["n1","n2"]}},
+    {"phase":"you_do","min":12,"title":"You do — Scale It, Solve It","board":"you_do","content":{"heading":"Your turn on the worksheet","items":["p1","p2","p3","p4"]}},
+    {"phase":"exit","min":5,"title":"Exit Ticket","board":"exit","content":{"items":["x1"],"preview":"Build session: measure the height of a tall object you can't reach, using nothing but a shadow (or a mirror) and similar triangles."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can state the definition of similar triangles — congruent corresponding angles and proportional corresponding sides"},
+    {"id":"SC2","text":"I can apply the AA Similarity Postulate to justify that two triangles are similar from just two angle pairs"},
+    {"id":"SC3","text":"I can compute a scale factor and use a proportion to solve for a missing side in similar triangles"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W31-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W31 Similar Triangles.md"},
+    "mus": {"practice":"MUS/L27 — Lesson Practice.pdf","review":"MUS/L27 — Systematic Review.pdf"},
+    "interactive": {"slug":"similar-triangles","note":"Curriculum/Geometry/Lessons/W31-S1/sims/similar-triangles.html"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"check","kind":"check","title":"Similar or Not?","items":["n1","n2"]},
+      {"phase":"practice","kind":"practice","title":"Scale It, Solve It","items":["p1","p2","p3","p4"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"n1","type":"dropdown","sc":"SC2","points":1,"prompt":"Two triangles have two pairs of congruent angles. By the AA Similarity Postulate, the triangles are…","options":["congruent","similar","neither — a third angle must be checked first","neither — at least one side must be checked first"],"answer":"similar","explain":"AA needs only two angle pairs; the third pair is automatically forced to match by the 180° angle sum, so no side or third angle ever needs checking."},
+    {"ref":"n2","type":"mc","sc":"SC1","points":1,"prompt":"In similar (but not congruent) triangles, corresponding sides are always…","options":["congruent (equal)","proportional (same ratio, not necessarily equal)","perpendicular"],"answer":"proportional (same ratio, not necessarily equal)","explain":"Similarity relaxes congruence's 'equal sides' promise to 'sides in one constant ratio' — the scale factor."},
+    {"ref":"p1","type":"short","sc":"SC2","points":2,"prompt":"Triangle 1 has angles measuring 35° and 95°. Triangle 2 has angles measuring 95° and 50°. Are the two triangles similar? Use AA to justify your answer, including what the third angle of EACH triangle must be.","answer":"Yes, similar. Triangle 1's third angle is 180° − 35° − 95° = 50°, giving angles {35°, 95°, 50°}. Triangle 2's third angle is 180° − 95° − 50° = 35°, giving angles {95°, 50°, 35°} — the same three angles. Two pairs match directly (95° and 50°), so AA applies.","explain":"Once the third angle of each triangle is computed, both triangles turn out to share the exact same three angle measures — confirming AA similarity even though it wasn't obvious from the two angles given at first glance."},
+    {"ref":"p2","type":"construct","sc":"SC1","points":2,"figure":"grid-blank","prompt":"On the grid, draw two similar (but NOT congruent) triangles. Mark two pairs of corresponding angles with matching arc marks to justify the similarity by AA.","answer":"Two triangles, clearly different sizes but the same shape, with two pairs of angles arc-marked alike (same style per corresponding pair).","explain":"Rubric: two same-shape, different-size triangles drawn (1 pt) + two pairs of corresponding angles correctly and consistently arc-marked (1 pt)."},
+    {"ref":"p3","type":"short","sc":"SC3","points":2,"prompt":"△ABC ~ △DEF. AB = 6 and DE = 15. What is the scale factor from △ABC to △DEF? If BC = 8, what is EF?","answer":"Scale factor = 15 ÷ 6 = 2.5. EF = 8 × 2.5 = 20.","explain":"The scale factor is the ratio of any pair of corresponding sides (DE ÷ AB); once found, multiply every other side of △ABC by that same factor to get its match in △DEF."},
+    {"ref":"p4","type":"short","sc":"SC3","points":2,"prompt":"Two similar triangles share the same two base angles. The smaller triangle has sides 5, 7, and 8 opposite its three angles. In the larger, similar triangle, the side corresponding to the 5 measures 10. Find X, the side corresponding to the 8.","answer":"Scale factor = 10 ÷ 5 = 2. X = 8 × 2 = 16.","explain":"Corresponding parts of similar figures are proportional — once one pair of corresponding sides gives the scale factor, every other corresponding side scales by that same factor."},
+    {"ref":"x1","type":"short","sc":"SC1","points":2,"prompt":"Exit: name two real-world similar figures (a photo and an enlargement, a model car and the real car, a small and large print of the same picture) and explain what must be true about their corresponding angles AND corresponding sides for them to actually be similar — not just 'kind of look the same.'"}
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "LP-W34-S2", "course": "geometry", "week": 34, "session": 2,
+  "session_type": "build", "lesson": "L30 — The Six Trigonometric Ratios",
+  "unit": "u03", "duration_min": 60, "mode": "Build",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 34 · Height & Distance Capstone Lab",
+  "essential_question": "Can you use trig to find the height of something you cannot climb up and measure — and then turn that same real triangle into all six ratios?",
+  "objective": "Build a clinometer, measure a real angle of elevation and baseline distance, solve for the height of a real object using tangent, and compute all six trigonometric ratios (reduced) from the resulting real, measured right triangle.",
+  "standards": ["G-SRT.C.6"],
+  "vocab": ["clinometer", "angle of elevation", "opposite", "adjacent", "hypotenuse", "reciprocal", "line-of-sight"],
+  "agenda": [
+    {"phase":"brief","min":6,"title":"Brief — From Screen to Field","board":"brief","content":{"heading":"From the sim to a real height","bullets":["Yesterday: dragged θ on a screen and watched all six ratios flip.","Today: build a real clinometer, sight a real object, and solve a real height problem end to end.","The test: your computed height and your six computed ratios both come from the SAME real triangle — no made-up numbers."]}},
+    {"phase":"plan","min":8,"title":"Plan — Read the Build Card","board":"plan","content":{"heading":"Gather + plan","note":"Open the project card. Gather the protractor, straw, tape, string, weight, tape measure, and calculator. Pick a tall target you cannot climb (flagpole, hoop, tree, roofline) and a clear line of sight to its top."}},
+    {"phase":"build","min":26,"title":"Build — Clinometer, Baseline, Sighting","board":"build","content":{"heading":"Measure the real triangle","bullets":["Tape the straw along the protractor's straight edge; hang the weighted string from the center hole. Level the straw — the string should cross 90°.","Measure the baseline: the straight-line ground distance from your spot to directly below the target. This is your adjacent side.","Measure your eye height at the straw.","Sight the top of the target through the straw; have a partner read where the string crosses the scale.","Angle of elevation θ = |reading − 90°|."]}},
+    {"phase":"measure","min":14,"title":"Solve & Compute All Six","board":"measure","content":{"heading":"From one real triangle to six real ratios","figure":"grid-blank","items":["m1","m2","m3","m4"]}},
+    {"phase":"reflect","min":6,"title":"Reflect & Photograph","board":"reflect","content":{"items":["r1"],"preview":"Session 3: defend the reciprocal relationships, review MUS Lesson Practice 30A/30B, and take the final mastery checkpoint."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can build and use a clinometer to measure a real angle of elevation"},
+    {"id":"SC2","text":"I can use tangent, a measured baseline, and eye height to solve a real height/distance problem"},
+    {"id":"SC3","text":"I can compute all six trigonometric ratios, reduced, from a real measured right triangle, and verify each reciprocal pair multiplies to 1"}
+  ],
+  "assets": {
+    "project": {"note":"Curriculum/Geometry/Lessons/W34-S2/project-card.md"},
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W34-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W34 The Six Trig Ratios.md"},
+    "mus": {"practice":"MUS/L30 — Lesson Practice.pdf","review":"MUS/L30 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"measure","kind":"practice","title":"Solve & Compute All Six","items":["m1","m2","m3","m4"]},
+      {"phase":"reflect","kind":"exit","title":"Reflect","items":["r1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"m1","type":"measure","sc":"SC1","points":2,"prompt":"Record your clinometer sighting: baseline distance (adjacent), eye height, and the angle of elevation θ you read (with units). Show reading − 90° = θ.","answer":"Any real, consistent set of measurements, e.g. baseline = 12 m, eye height = 1.5 m, protractor reading = 58°, so θ = |58° − 90°| = 32°.","explain":"Rubric: baseline recorded with units (1 pt) + angle correctly found as |reading − 90°| (1 pt)."},
+    {"ref":"m2","type":"short","sc":"SC2","points":2,"prompt":"Using your baseline and θ, compute the height ABOVE your eye: height-above-eye = baseline × tan θ. Then add your eye height to get the target's total height. Show both numbers.","answer":"E.g. with baseline = 12 m and θ = 32°: height-above-eye = 12 × tan(32°) ≈ 7.50 m; total height ≈ 7.50 + 1.5 = 9.00 m. (Numbers will vary — the method is what's graded.)","explain":"tan θ = opposite/adjacent, so opposite (height above eye) = adjacent (baseline) × tan θ; the eye height must be added back on since the clinometer measures from eye level, not the ground."},
+    {"ref":"m3","type":"short","sc":"SC3","points":2,"prompt":"Compute the hypotenuse (your line-of-sight distance to the top) with the Pythagorean theorem, using your baseline and height-above-eye from the last question.","answer":"E.g. hyp = √(12² + 7.50²) = √(144 + 56.25) = √200.25 ≈ 14.15 m.","explain":"The baseline and height-above-eye are the two legs of the real right triangle you measured; the Pythagorean theorem gives the third side, the hypotenuse."},
+    {"ref":"m4","type":"short","sc":"SC3","points":3,"prompt":"Using your baseline (adjacent), height-above-eye (opposite), and hypotenuse from your own measurements, compute all six trig ratios for θ — sin, cos, tan, csc, sec, cot — as decimals, reducing any fraction that reduces. Then verify sin θ × csc θ ≈ 1 (or show one of the other two reciprocal checks).","answer":"E.g. with adjacent ≈ 12, opposite ≈ 7.50, hypotenuse ≈ 14.15: sin θ ≈ 0.530, cos θ ≈ 0.848, tan θ ≈ 0.625, csc θ ≈ 1.887, sec θ ≈ 1.179, cot θ ≈ 1.600. Check: sin θ × csc θ ≈ 0.530 × 1.887 ≈ 1.00. (Numbers will vary with each student's own measurements.)","explain":"Every ratio comes directly from the same three real, measured/computed side lengths — this is the whole lesson applied to a triangle you built with your own hands, not a textbook diagram."},
+    {"ref":"r1","type":"short","sc":"SC2","points":2,"prompt":"Reflect: where do you think the biggest source of error crept into your height calculation — the baseline measurement, the angle reading, or the eye height — and how would you reduce that error if you did this again?"}
+  ]
+}

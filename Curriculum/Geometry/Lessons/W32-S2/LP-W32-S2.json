@@ -1,0 +1,42 @@
+{
+  "id": "LP-W32-S2", "course": "geometry", "week": 32, "session": 2,
+  "session_type": "build", "lesson": "L28 — Transformations: Translations, Reflections & Rotations",
+  "unit": "u03", "duration_min": 60, "mode": "Build",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 32 · Transformation Lab: Slide, Flip, Turn & Tessellate",
+  "essential_question": "Can you predict a shape's new coordinates BEFORE you physically slide, flip, or turn it — and use those same three moves, repeated, to tile a page edge-to-edge with no gaps?",
+  "objective": "Physically translate, reflect, and rotate a cut-out coordinate shape on a grid, predicting each image's vertex coordinates before moving it and checking the traced result against the prediction, then repeat translations, reflections, and/or rotations of a single tile to build a gap-free tessellation or symmetric Escher-style design.",
+  "standards": ["G-CO.A.2"],
+  "vocab": ["translation", "reflection", "rotation", "tessellation", "tile", "isometry", "symmetry"],
+  "agenda": [
+    {"phase":"brief","min":6,"title":"Brief — From the Sim to Your Own Hands","board":"brief","content":{"heading":"From reading coordinates to moving real paper","bullets":["Yesterday: translated, reflected, and rotated a figure on the sim and read off exact image coordinates.","Today: cut out a real shape, predict its image's coordinates BEFORE moving it, then physically slide/flip/turn it on graph paper to check — and use the same three moves to tile a page.","The test: does your predicted coordinate always match where the shape actually lands?"]}},
+    {"phase":"plan","min":8,"title":"Plan — Read the Build Card","board":"plan","content":{"heading":"Gather + plan","note":"Open the project card. Gather graph paper, a piece of cardstock or cardboard to cut your tile from, scissors, tape, a ruler, and colored pencils. Trace your tile onto the graph paper first, labeling its vertices — this becomes your pre-image."}},
+    {"phase":"build","min":25,"title":"Build — Predict, Move, Tessellate","board":"build","content":{"heading":"Fix the rule first; let the paper confirm it","bullets":["Part 1 — Coordinate Move Lab: with your cut-out tile traced as the pre-image on graph paper, predict (using Session 1's coordinate rules) the image's vertices for a translation, for a reflection over each axis, and for a 90°/180° rotation about the origin. Write EVERY prediction down before moving the cut-out.","Physically slide, flip, or turn the cut-out into each new position, trace it, and read off the actual coordinates. Do they match your predictions?","Part 2 — Tessellation: pick ONE tile shape. Using ONLY translations, reflections, and/or rotations of that same tile (no resizing — no dilations), tile a region of the page edge-to-edge with no gaps or overlaps, Escher-style.","Color adjacent tiles differently so the repeating pattern is easy to see, and circle one spot where you can point to the exact transformation (slide, flip, or turn) that carries one tile onto its neighbor."]}},
+    {"phase":"measure","min":12,"title":"Record Every Prediction Next to Its Result","board":"measure","content":{"heading":"Get the numbers down","figure":"grid-blank","items":["m1","m2","m3"]}},
+    {"phase":"reflect","min":9,"title":"Reflect & Photograph","board":"reflect","content":{"items":["r1"],"preview":"Session 3: defend why every rigid motion preserves congruence, compute image coordinates without a sim, review MUS Lesson Practice 28A/28B, and take the checkpoint."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can predict a shape's image coordinates for a translation, reflection, or rotation BEFORE physically moving it, and confirm the prediction by tracing the actual move"},
+    {"id":"SC2","text":"I can physically translate, reflect, and rotate a cut-out shape on a coordinate grid"},
+    {"id":"SC3","text":"I can use repeated translations, reflections, and/or rotations of a single tile to build a gap-free tessellation"}
+  ],
+  "assets": {
+    "project": {"note":"Curriculum/Geometry/Lessons/W32-S2/project-card.md"},
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W32-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W32 Transformations.md"},
+    "mus": {"practice":"MUS/L28 — Lesson Practice.pdf","review":"MUS/L28 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"measure","kind":"practice","title":"Predict, Then Measure","items":["m1","m2","m3"]},
+      {"phase":"reflect","kind":"exit","title":"Reflect","items":["r1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"m1","type":"measure","sc":"SC1","points":2,"figure":"grid-blank","prompt":"Record your tile's pre-image vertex coordinates, the vector you used, your PREDICTED translation-image coordinates (computed BEFORE moving the cut-out), and the ACTUAL coordinates you traced after physically sliding it. Do the prediction and the actual result match?","answer":"Any honest set of pre-image coordinates, a stated translation vector (h, k), a predicted image using (x, y) → (x+h, y+k), and a traced actual image matching the prediction within normal tracing error — e.g. pre-image A(1,1), B(4,1), C(4,3); vector (−5, 2); predicted A′(−4,3), B′(−1,3), C′(−1,5); actual result matching.","explain":"Rubric: pre-image and vector recorded (1 pt) + predicted image computed correctly AND matching the physically traced result (1 pt)."},
+    {"ref":"m2","type":"short","sc":"SC1","points":2,"prompt":"Record the same pre-image vertex coordinates, your PREDICTED image coordinates for a reflection over ONE axis (state which axis), and the ACTUAL coordinates you traced after physically flipping the cut-out. Do they match?","answer":"Any honest set with a stated axis, a predicted image using (x,y)→(x,−y) for the x-axis or (x,y)→(−x,y) for the y-axis, and a traced actual image matching the prediction.","explain":"Full credit requires the predicted image to use the correct axis rule and the physically flipped/traced result to match it."},
+    {"ref":"m3","type":"short","sc":"SC3","points":2,"prompt":"Describe your tessellation: which tile shape did you use, and which transformation (or transformations) carry one tile exactly onto its neighbor? Confirm there are no gaps or overlaps where the tiles meet.","answer":"Any tessellation description naming the tile shape, correctly identifying the transformation(s) — translation, reflection, and/or rotation — that map one tile onto an adjacent one, and confirming the tiling is gap-free and overlap-free.","explain":"Rubric: tile and transformation(s) correctly named (1 pt) + honest confirmation the tiling has no gaps or overlaps (1 pt)."},
+    {"ref":"r1","type":"short","sc":"SC1","points":2,"prompt":"Reflect: which prediction was hardest to trust before you checked it by moving the cut-out — and how did the tessellation use the same coordinate rules \"in disguise,\" tile after tile?"}
+  ]
+}
