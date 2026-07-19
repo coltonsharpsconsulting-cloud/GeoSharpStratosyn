@@ -1,0 +1,47 @@
+{
+  "id": "LP-W20-S1", "course": "geometry", "week": 20, "session": 1,
+  "session_type": "concept", "lesson": "L18 — The Pythagorean Theorem",
+  "unit": "u02", "duration_min": 60, "mode": "Concept",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 20 · The Pythagorean Theorem — Legs, Hypotenuse & a² + b² = c²",
+  "essential_question": "If you know a right triangle's two legs, is there an exact way — no measuring tape needed — to find its third side?",
+  "objective": "Identify the legs and hypotenuse of a right triangle, state the Pythagorean theorem (a² + b² = c²), use it to find a missing side while keeping radical answers in simplest form, and use its converse to test whether three given lengths form a right triangle.",
+  "standards": ["G-SRT.C.8"],
+  "vocab": ["right triangle", "leg", "hypotenuse", "Pythagorean theorem", "converse", "radical"],
+  "agenda": [
+    {"phase":"launch","min":6,"title":"Launch — The Ramp Problem","board":"launch","content":{"prompt":"A ramp needs to rise 3 ft over a 4 ft horizontal run. Without ever measuring the ramp itself, is there a way to find its exact length using only those two numbers? What would you even do with them?"}},
+    {"phase":"i_do","min":12,"title":"I do — Legs, Hypotenuse & the Theorem","board":"i_do","content":{"heading":"One equation, every right triangle","figure":"grid-blank","bullets":["A right triangle has exactly one 90° angle — mark it with a small square.","The two sides that form the right angle are the legs (a and b); the side opposite the right angle, always the longest, is the hypotenuse (c).","The Pythagorean theorem: a² + b² = c² — square each leg, add them, and you get the hypotenuse squared.","To find a missing side, solve for the unknown and take the square root — keep the radical in simplest form unless it's a perfect square.","The converse: if a² + b² = c² is true for three given sides (c the longest), the triangle IS a right triangle; if not, it isn't."]}},
+    {"phase":"explore","min":8,"title":"Explore — Drag the Legs, Watch the Squares","board":"explore","content":{"heading":"Move a leg; watch the squares balance","note":"On the sim, drag the handle at the end of leg a or leg b. Watch the square drawn on each side grow, and watch their areas update live — does the sum of the two smaller squares always equal the big tilted one? Try to land on 3 and 4. Then try two legs that don't give a whole-number hypotenuse — what does the sim do with the radical?","figure":"grid-blank"}},
+    {"phase":"check","min":5,"title":"Check for Understanding","board":"check","content":{"heading":"Name that part","items":["n1","n2"]}},
+    {"phase":"you_do","min":12,"title":"You do — Find the Missing Side","board":"you_do","content":{"heading":"Your turn on the worksheet","items":["p1","p2","p3","p4"]}},
+    {"phase":"exit","min":5,"title":"Exit Ticket","board":"exit","content":{"items":["x1"],"preview":"Build session: build a 3-4-5 triangle with string and confirm the right angle really is 90°."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can identify the legs and hypotenuse of a right triangle and state the Pythagorean theorem"},
+    {"id":"SC2","text":"I can use a² + b² = c² to find a missing side, keeping radical answers in simplest form"},
+    {"id":"SC3","text":"I can use the converse of the Pythagorean theorem to test whether three lengths form a right triangle"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W20-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W20 The Pythagorean Theorem.md"},
+    "mus": {"practice":"MUS/L18 — Lesson Practice.pdf","review":"MUS/L18 — Systematic Review.pdf"},
+    "interactive": {"slug":"pythagorean","note":"Curriculum/Geometry/Lessons/W20-S1/sims/pythagorean.html"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"check","kind":"check","title":"Name That Part","items":["n1","n2"]},
+      {"phase":"practice","kind":"practice","title":"Find the Missing Side","items":["p1","p2","p3","p4"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"n1","type":"dropdown","sc":"SC1","points":1,"prompt":"The two sides that form the right angle in a right triangle are called the…","options":["hypotenuse","legs","diagonals","radicals"],"answer":"legs","explain":"The legs are the two sides that meet at the 90° angle; the hypotenuse is the side opposite it."},
+    {"ref":"n2","type":"mc","sc":"SC1","points":1,"prompt":"The side opposite the right angle — always the longest side in a right triangle — is called the…","options":["leg","hypotenuse","vertex"],"answer":"hypotenuse","explain":"The hypotenuse sits opposite the 90° angle and is always the longest of the three sides."},
+    {"ref":"p1","type":"short","sc":"SC2","points":2,"prompt":"A right triangle has legs measuring 5 and 12. Find the length of the hypotenuse.","answer":"13","explain":"c = √(5² + 12²) = √(25 + 144) = √169 = 13."},
+    {"ref":"p2","type":"construct","sc":"SC2","points":2,"figure":"grid-blank","prompt":"On the grid, draw a right triangle with legs 3 units and 4 units, mark the right angle, and use the Pythagorean theorem to find and label the hypotenuse.","answer":"A right triangle with legs 3 and 4 labeled, the right angle marked, and the hypotenuse labeled 5 (since 3² + 4² = 25 and √25 = 5).","explain":"Rubric: a right triangle with legs 3 and 4 and the right angle marked (1 pt) + the hypotenuse correctly computed and labeled 5 (1 pt)."},
+    {"ref":"p3","type":"short","sc":"SC2","points":2,"prompt":"A right triangle has legs measuring 4 and 6. Find the exact length of the hypotenuse, simplifying the radical.","answer":"2√13","explain":"c = √(4² + 6²) = √(16 + 36) = √52 = √(4 · 13) = 2√13."},
+    {"ref":"p4","type":"short","sc":"SC3","points":2,"prompt":"Could a triangle with sides 9, 12, and 16 be a right triangle? Use the converse of the Pythagorean theorem to justify your answer.","answer":"No — 9² + 12² = 81 + 144 = 225, but 16² = 256. Since 225 ≠ 256, the triangle is not right.","explain":"The converse checks whether the two shorter sides squared and added equal the longest side squared; here they don't, so the triangle can't be right."},
+    {"ref":"x1","type":"short","sc":"SC1","points":2,"prompt":"Exit: name one place you'd use the Pythagorean theorem in real life (a ladder against a wall, a TV screen's diagonal, squaring a foundation's corner) and say which of your three measurements would be the hypotenuse."}
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "LP-W18-S2", "course": "geometry", "week": 18, "session": 2,
+  "session_type": "build", "lesson": "L16 — Surface Area of Solids",
+  "unit": "u02", "duration_min": 60, "mode": "Build",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 18 · Surface Area Hunt & Build",
+  "essential_question": "Can you unfold a real box or can into its net, measure it, and compute exactly how much material covers it — then verify your answer?",
+  "objective": "Unfold real rectangular and cylindrical containers into their nets — or design and fold a net in FreeCAD or on paper — measure each face, and compute total surface area with the correct formula, confirming at least one answer by measuring the unfolded material directly.",
+  "standards": ["G-GMD.A.3"],
+  "vocab": ["surface area", "net", "lateral area", "rectangular solid", "cylinder"],
+  "agenda": [
+    {"phase":"brief","min":6,"title":"Brief — From Formulas to Real Nets","board":"brief","content":{"heading":"From formulas on paper to material you can cut","bullets":["Yesterday: learned that total surface area is the sum of the areas of all a solid's faces, and that a net is what you get when you unfold a solid flat to see every face at once.","Today: unfold (or carefully cut open) a real box and a real can into their nets, measure every face, and compute each one's total surface area — or design a net in FreeCAD or on paper, fold it into the actual solid, and confirm it matches.","The test: can you unfold a solid without stretching or overlapping any face, measure it honestly, and get a believable, verified surface area?"]}},
+    {"phase":"plan","min":8,"title":"Plan — Read the Build Card","board":"plan","content":{"heading":"Gather + choose your path","note":"Open the project card. Gather an empty cereal box or shoebox, an empty can with a removable label, scissors, a ruler or tape measure, and a calculator. Decide whether you'll cut open a real container, design a net in FreeCAD, or draw one on paper and fold it — before you start."}},
+    {"phase":"build","min":25,"title":"Build — Unfold & Compute","board":"build","content":{"heading":"Unfold the world, then compute","bullets":["Box net — carefully cut along the edges of an empty cereal box or shoebox (or draw its net full-size on paper) until it lies completely flat with all six faces visible and connected. Measure each face's length and width.","Can net — peel or cut the label off a can (or wrap a strip of paper around it and mark where it meets itself) to get the lateral rectangle, and trace the top and bottom circles. Measure the rectangle's height and width (its width should equal the circle's circumference) and the circle's radius.","Compute each solid's total surface area from your measured net, showing every face's area and the sum, in square units.","FreeCAD / paper-net alternative — sketch a net (six connected rectangles for a box, or two circles plus a rectangle for a cylinder) with dimensioned constraints in FreeCAD, or draw one to scale on paper; fold it into the actual 3-D solid and confirm its edges line up and its dimensions match your target box or can.","For every container, record the shape, each face's dimensions and area, the total surface area, and how you verified it."]}},
+    {"phase":"measure","min":12,"title":"Record Your Measurements","board":"measure","content":{"heading":"Get the numbers down","figure":"grid-blank","items":["m1","m2","m3"]}},
+    {"phase":"reflect","min":9,"title":"Reflect & Photograph","board":"reflect","content":{"items":["r1"],"preview":"Session 3: defend why a cylinder's lateral surface unrolls into a rectangle of width 2πr, review MUS Lesson Practice 16A/16B, and take the checkpoint."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can unfold (or design) a real solid's net without stretching or overlapping any face"},
+    {"id":"SC2","text":"I can measure a net's faces and compute total surface area using the correct formula for a rectangular solid and a cylinder"},
+    {"id":"SC3","text":"I can verify a computed surface area a second way — by measuring the actual unfolded material, or by folding a designed net back into the solid"}
+  ],
+  "assets": {
+    "project": {"note":"Curriculum/Geometry/Lessons/W18-S2/project-card.md"},
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W18-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W18 Surface Area.md"},
+    "mus": {"practice":"MUS/L16 — Lesson Practice.pdf","review":"MUS/L16 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"measure","kind":"practice","title":"Record Your Measurements","items":["m1","m2","m3"]},
+      {"phase":"reflect","kind":"exit","title":"Reflect","items":["r1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"m1","type":"measure","sc":"SC1","points":2,"prompt":"List the containers you unfolded or designed (name each: rectangular solid or cylinder) and record every face's dimensions with units (length & width of each rectangle for a box; the rectangle's width & height and the circle's radius for a can).","answer":"Any two honest, plausible net measurements, e.g. cereal box faces: 20×7, 20×7, 20×30, 20×30, 7×30, 7×30 cm; soup can: label 22×10 cm, radius 3.5 cm.","explain":"Rubric: every face's dimensions recorded with units (1 pt) + one rectangular solid AND one cylinder both represented (1 pt)."},
+    {"ref":"m2","type":"short","sc":"SC2","points":2,"prompt":"Using your measured net, compute the total surface area of each container, showing every face's area and the sum.","answer":"Rectangular solid: sum the six measured face areas, or check against 2(lw+lh+wh); Cylinder: 2×(πr²) + (label width × label height) — each with the student's own numbers substituted and added.","explain":"Rubric: every face's area computed and summed correctly for the box (1 pt) + the can's two circles and rectangle computed and summed correctly (1 pt)."},
+    {"ref":"m3","type":"short","sc":"SC3","points":1,"prompt":"Verify one computed surface area a second way — e.g., confirm the box's summed face areas match 2(lw+lh+wh) from its outer dimensions, confirm the can label's width matches 2πr from its measured radius, or fold a designed net back into the solid and check it matches your target dimensions. Did it match? If not, what did you fix?","answer":"Any honest comparison naming the confirmation method and result, e.g. 'My can label measured 22 cm wide, and 2π(3.5) ≈ 22.0 cm — it matched' or 'I had measured the can's diameter instead of its radius the first time, which threw off my answer — fixing that matched the two methods.'","explain":"Full credit names a specific second method and gives an honest result, including what was corrected if the two didn't initially match."},
+    {"ref":"r1","type":"short","sc":"SC3","points":2,"prompt":"Reflect: which was harder — cutting a real net open without stretching, tearing, or overlapping a face, or trusting that unrolling a curved cylinder side gives you a perfect rectangle before you measured it? What convinced you the cylinder's lateral area formula (2πr·h) actually works?"}
+  ]
+}

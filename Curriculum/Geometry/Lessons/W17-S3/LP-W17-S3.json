@@ -1,0 +1,44 @@
+{
+  "id": "LP-W17-S3", "course": "geometry", "week": 17, "session": 3,
+  "session_type": "prove", "lesson": "L15 — Volume of Pyramids, Cones, Prisms & Spheres",
+  "unit": "u02", "duration_min": 60, "mode": "Prove",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 17 · Prove It — Volume of Pyramids, Cones, Prisms & Spheres",
+  "essential_question": "Why does a pyramid always hold exactly ⅓ the volume of a prism that shares its base and height?",
+  "objective": "Justify why V = ⅓Bh for a pyramid and cone by reasoning about filling a matching prism or cylinder, review the week's Math-U-See practice (Lesson Practice 15A & 15B), and pass the mastery checkpoint on pyramid, cone, prism, and sphere volume.",
+  "standards": ["G-GMD.A.3"],
+  "vocab": ["pyramid", "cone", "prism", "sphere", "apex", "altitude", "slant height", "cubic units"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Redraw From Memory","board":"warmup","content":{"prompt":"Without looking, sketch a pyramid and a cone, and mark a believable apex, altitude, and slant height on each. Then say out loud, in your own words, why the altitude — not the slant height — is the one that belongs in the volume formula."}},
+    {"phase":"review","min":12,"title":"Review — Your Math-U-See Work","board":"review","content":{"heading":"Go over Lesson Practice 15A & 15B together","note":"Bring your completed MUS Lesson Practice 15A/15B. We check the tricky ones: the fill-in-the-blanks about the apex, the altitude, and the slant height; the ⅓ factor for pyramids and cones; a prism's congruent parallel bases and parallelogram lateral surfaces; the sphere-volume formula rounded to the nearest hundredth; and the composite-solid problems (a pyramid sitting on a prism, a cone sitting on a cylinder) where you find each part's volume separately, then add. Fix any you missed and note WHY."}},
+    {"phase":"prove","min":16,"title":"Prove It — Reason Out Loud","board":"prove","content":{"heading":"Defend three claims","figure":"grid-blank","bullets":["Claim 1: a pyramid's volume is exactly ⅓ of a prism sharing the same base and the same height. Argue it: if you built a hollow pyramid and a hollow prism with the identical square base and the identical height, filled the pyramid with sand, and poured it into the prism three separate times, what would you expect to happen — and why does that experiment prove the ⅓ relationship rather than just suggest it?","Claim 2: a cone's volume is exactly ⅓ of a cylinder sharing the same circular base and height — never ½, never equal. Argue it from the same base-and-height idea used for pyramids and prisms: why should a cone follow the exact same ⅓ rule as a pyramid even though its base is a circle instead of a polygon?","Claim 3: a sphere's volume formula, V = 4⁄3πr³, has no 'base times height' anywhere in it — no B, no h. Argue why a sphere can't be measured with the base-times-height idea the way every other solid this unit has been: what would you even choose as its 'base,' and what would count as its 'height'?"]}},
+    {"phase":"checkpoint","min":18,"title":"Mastery Checkpoint","board":"checkpoint","content":{"heading":"Show what you own","items":["c1","c2","c3","c4","c5","c6"]}},
+    {"phase":"close","min":8,"title":"Close & Set Mastery","board":"close","content":{"items":["x1"],"preview":"Next week continues building on volume as the course moves toward surface area and the year's final units."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can state and apply the volume formulas for a pyramid, cone, prism, and sphere without help"},
+    {"id":"SC2","text":"I can justify why a pyramid or cone holds exactly ⅓ the volume of a matching prism or cylinder by reasoning about filling it"},
+    {"id":"SC3","text":"I can identify a solid's apex, altitude, and slant height, and measure a real solid's dimensions correctly"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W17-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W17 Volume of Pyramids, Cones & Spheres.md"},
+    "mus": {"practice":"MUS/L15 — Lesson Practice.pdf","review":"MUS/L15 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"checkpoint","kind":"check","title":"Mastery Checkpoint","items":["c1","c2","c3","c4","c5","c6"]},
+      {"phase":"close","kind":"exit","title":"Set Your Mastery","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"c1","type":"mc","sc":"SC1","points":1,"prompt":"A pyramid has a square base with sides 4 in and an altitude of 6 in. Its volume is…","options":["32 in³","96 in³","16 in³"],"answer":"32 in³","explain":"V = ⅓Bh = ⅓ × (4 × 4) × 6 = ⅓ × 16 × 6 = 32 in³."},
+    {"ref":"c2","type":"dropdown","sc":"SC3","points":1,"prompt":"The height of one triangular face of a pyramid, measured along the tilted face rather than straight down, is called the ___.","options":["altitude","slant height","apex","base"],"answer":"slant height","explain":"The slant height runs along a face; the altitude is the perpendicular height used for volume — the two are never the same length."},
+    {"ref":"c3","type":"short","sc":"SC1","points":2,"prompt":"A cone has a radius of 5 cm and a height of 12 cm. Find its volume in terms of π, then estimate it as a decimal (π ≈ 3.14).","answer":"V = ⅓π(5)²(12) = 100π cm³ ≈ 314.16 cm³","explain":"V = ⅓πr²h = ⅓ × π × 25 × 12 = 100π cm³; 100 × 3.14159 ≈ 314.16 cm³."},
+    {"ref":"c4","type":"measure","sc":"SC3","points":2,"prompt":"Measure the radius and altitude (or the base and altitude) of a real cone- or pyramid-shaped object near you right now (a paper cup, a funnel, a party hat, a pyramid paperweight) and compute its volume.","answer":"Any honest measured dimensions with units and a correctly computed volume, e.g. a paper party hat r = 4 cm, h = 15 cm → V = ⅓π(4)²(15) ≈ 251.33 cm³.","explain":"Rubric: dimensions measured and recorded with units, matching the solid's actual shape (1 pt) + volume correctly computed with the matching formula and the ⅓ factor included (1 pt)."},
+    {"ref":"c5","type":"short","sc":"SC1","points":2,"prompt":"Find the volume of a sphere with a radius of 4 in. Round to the nearest hundredth.","answer":"≈ 268.08 in³","explain":"V = 4⁄3πr³ = 4⁄3 × π × 64 = 85.33π ≈ 268.08 in³ (rounded to the nearest hundredth, as MUS requires for spheres)."},
+    {"ref":"c6","type":"short","sc":"SC2","points":2,"prompt":"A prism has a triangular base with legs 5 m and 12 m (a right triangle) and a length of 8 m. Find its volume, then explain in one or two sentences why this prism's formula does NOT include a ⅓, while a pyramid's does.","answer":"Base area = ½(5)(12) = 30 m²; V = Bh = 30 × 8 = 240 m³. A prism's straight sides mean every cross-section all the way up is congruent to the base, so stacking base-area layers straight up fills the whole solid with no gaps and no waste — no ⅓ needed. A pyramid's cross-sections shrink to a point, so the same stack of layers only fills about a third of the matching prism.","explain":"Full credit computes 240 m³ correctly and explains the ⅓ difference in terms of constant cross-sections (prism) versus shrinking cross-sections (pyramid)."},
+    {"ref":"x1","type":"short","sc":"SC1","points":1,"prompt":"Close: rate yourself on Lesson 15 (Emerging / Proficient / Mastered) and name the one idea you'd want to revisit."}
+  ]
+}

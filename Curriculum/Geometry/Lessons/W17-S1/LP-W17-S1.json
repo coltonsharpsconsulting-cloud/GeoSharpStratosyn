@@ -1,0 +1,48 @@
+{
+  "id": "LP-W17-S1", "course": "geometry", "week": 17, "session": 1,
+  "session_type": "concept", "lesson": "L15 — Volume of Pyramids, Cones, Prisms & Spheres",
+  "unit": "u02", "duration_min": 60, "mode": "Concept",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 17 · Volume — Pyramids, Cones, Prisms & Spheres",
+  "essential_question": "When a solid tapers to a single point instead of standing straight up, what happens to 'volume = base × height'?",
+  "objective": "State and apply V = ⅓Bh for a pyramid, V = ⅓πr²h for a cone, V = Bh for a general prism, and V = 4⁄3πr³ for a sphere, and identify a pyramid's apex, altitude, and slant height.",
+  "standards": ["G-GMD.A.3"],
+  "vocab": ["pyramid", "cone", "prism", "sphere", "apex", "altitude", "slant height", "base"],
+  "agenda": [
+    {"phase":"launch","min":6,"title":"Launch — Does It Hold the Same Amount?","board":"launch","content":{"prompt":"Last week every solid stood up straight, so volume was simply base area times height. This week's pyramid and cone both taper to a single point instead. Before any math — if a pyramid and a box share the exact same base and the exact same height, do you think the pyramid holds the same volume as the box, more, or less? Defend your guess."}},
+    {"phase":"i_do","min":12,"title":"I do — One New Factor Joins the Rule","board":"i_do","content":{"heading":"Base area × height, plus one third when a solid tapers to a point","figure":"grid-blank","bullets":["A pyramid comes to a single point called the apex; the perpendicular distance from the base straight down to the apex is the altitude — that's the height that belongs in the volume formula.","The slant height is the height of one triangular face, measured along the tilted face, not straight down — always longer than the altitude, and never used for volume.","Pyramid and cone: V = ⅓ × area of the base × height — exactly ⅓ of a prism or cylinder sharing the same base and height.","A prism (any base shape — triangle, rectangle, pentagon) still follows last week's rule with no exception: V = area of the base × height, no ⅓, because its sides run straight up, not to a point.","A sphere has no base and no height at all — its volume stands alone: V = 4⁄3 × π × r³."]}},
+    {"phase":"explore","min":8,"title":"Explore — Choose a Solid, Drag Its Dimensions","board":"explore","content":{"heading":"Watch the ⅓ (and the 4⁄3) fill in live","figure":"grid-blank","note":"On the sim, choose Prism, Pyramid, Cone, or Sphere. Drag the dimension sliders and watch the readout build the formula with real numbers plugged in — notice the ⅓ appears for pyramid and cone but never for the prism, and the sphere's formula has no base or height in it at all. Predict the volume before you drag, then check."}},
+    {"phase":"check","min":5,"title":"Check for Understanding","board":"check","content":{"heading":"Apex, Altitude & Slant Height Check","items":["n1","n2"]}},
+    {"phase":"you_do","min":12,"title":"You do — Compute the Volume","board":"you_do","content":{"heading":"Your turn on the worksheet","items":["p1","p2","p3","p4","p5"]}},
+    {"phase":"exit","min":5,"title":"Exit Ticket","board":"exit","content":{"items":["x1"],"preview":"Build session: compute the volume of real cones, pyramids, and spheres — and discover the ⅓ relationship by pouring a pyramid into a matching prism."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can identify a pyramid's apex, altitude, and slant height, and state that V = ⅓Bh for pyramids and cones"},
+    {"id":"SC2","text":"I can find the volume of a pyramid and a cone given their base dimensions and height"},
+    {"id":"SC3","text":"I can find the volume of a prism (V = Bh) and a sphere (V = 4⁄3πr³)"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W17-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W17 Volume of Pyramids, Cones & Spheres.md"},
+    "mus": {"practice":"MUS/L15 — Lesson Practice.pdf","review":"MUS/L15 — Systematic Review.pdf"},
+    "interactive": {"slug":"volume-solids","note":"Curriculum/Geometry/Lessons/W17-S1/sims/volume-solids.html"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"check","kind":"check","title":"Apex, Altitude & Slant Height Check","items":["n1","n2"]},
+      {"phase":"practice","kind":"practice","title":"Compute the Volume","items":["p1","p2","p3","p4","p5"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"n1","type":"dropdown","sc":"SC1","points":1,"prompt":"The point where a pyramid's faces (or a cone's surface) all meet is called its…","options":["altitude","slant height","apex","vertex"],"answer":"apex","explain":"The apex is the single point a pyramid or cone tapers to; a rectangular solid has no apex at all."},
+    {"ref":"n2","type":"mc","sc":"SC1","points":1,"prompt":"Which measurement belongs in the volume formula for a pyramid or a cone: the altitude or the slant height?","options":["the altitude","the slant height"],"answer":"the altitude","explain":"Volume needs the perpendicular height (altitude) straight down to the base — the slant height is the height of a tilted face and would give the wrong (too large) volume."},
+    {"ref":"p1","type":"short","sc":"SC2","points":2,"prompt":"A pyramid has a square base with sides 5 in and an altitude of 9 in. Find its volume.","answer":"75 in³","explain":"V = ⅓Bh = ⅓ × (5 × 5) × 9 = ⅓ × 25 × 9 = 75 in³."},
+    {"ref":"p2","type":"short","sc":"SC2","points":2,"prompt":"A cone has a radius of 3 cm and a height of 10 cm. Find its volume in terms of π, then estimate it as a decimal (π ≈ 3.14).","answer":"V = ⅓π(3)²(10) = 30π cm³ ≈ 94.2 cm³","explain":"V = ⅓πr²h = ⅓ × π × 9 × 10 = 30π cm³; 30 × 3.14 ≈ 94.2 cm³."},
+    {"ref":"p3","type":"short","sc":"SC3","points":2,"prompt":"A prism has a triangular base with legs 6 m and 8 m (a right triangle) and a length of 12 m. Find its volume.","answer":"288 m³","explain":"Base area = ½(6)(8) = 24 m²; V = Bh = 24 × 12 = 288 m³ — no ⅓, since a prism's sides run straight, not to a point."},
+    {"ref":"p4","type":"short","sc":"SC3","points":2,"prompt":"Find the volume of a sphere with a radius of 6 ft. Round to the nearest hundredth.","answer":"≈ 904.78 ft³","explain":"V = 4⁄3πr³ = 4⁄3 × π × 216 = 288π ≈ 904.78 ft³."},
+    {"ref":"p5","type":"construct","sc":"SC1","points":2,"figure":"grid-blank","prompt":"On the grid, sketch a pyramid with a square base. Label its apex, its altitude, and its slant height.","answer":"A labeled pyramid with the apex marked at the top point, the altitude drawn as a dashed perpendicular line from the apex straight down to the center of the base, and the slant height drawn as a solid line from the apex down the middle of one triangular face to the base edge.","explain":"Rubric: a recognizable pyramid with a square base (1 pt) + apex, altitude, and slant height all correctly identified and distinguished from one another (1 pt)."},
+    {"ref":"x1","type":"short","sc":"SC1","points":2,"prompt":"Exit: name one real object shaped like a pyramid or a cone (a tent, a party hat, the Great Pyramid, an ice-cream cone) and say whether finding its volume needs the altitude or the slant height — and why."}
+  ]
+}

@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Pythagorean Theorem — Sim</title>
+<style>
+  :root{--void:#0d1322;--ink:#161d31;--bone:#e8ecf3;--mist:#9aabd0;--accent:#8b5cf6;--gold:#f5c842;--border:#2a3142;--good:#7ee081;--warn:#f2665a}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--void);color:var(--bone);font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;min-height:100%}
+  header{padding:2vh 4vw;border-bottom:1px solid var(--border);background:var(--ink)}
+  .eyebrow{font-family:"DM Mono",ui-monospace,monospace;letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--accent)}
+  h1{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(20px,3vw,30px);margin-top:.3rem}
+  main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.6vh;padding:3vh 4vw}
+  .stage{width:100%;max-width:720px;aspect-ratio:4/3;background:var(--ink);border:1px solid var(--border);border-radius:16px;touch-action:none}
+  svg{width:100%;height:100%;display:block}
+  .controls{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
+  button{font-family:"DM Mono",ui-monospace,monospace;font-size:14px;background:var(--ink);color:var(--bone);border:1px solid var(--border);border-radius:999px;padding:.6rem 1.2rem;cursor:pointer}
+  button.on{border-color:var(--accent);color:var(--accent)}
+  .readout{font-family:"DM Mono",ui-monospace,monospace;font-size:clamp(13px,1.9vw,17px);color:var(--mist);text-align:center;min-height:4.4em;line-height:1.6}
+  .readout b{color:var(--gold)}
+  .readout .good{color:var(--good);font-weight:bold}
+  .hint{color:var(--mist);font-size:14px;max-width:62ch;text-align:center}
+</style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Geometry · Lesson 18 · sim</div>
+    <h1>Drag the legs. Watch the squares balance.</h1>
+  </header>
+  <main>
+    <div class="controls" id="actions">
+      <button id="resetBtn">Reset (3-4-5)</button>
+      <button id="tripleBtn">Try 6-8-10</button>
+      <button id="randomBtn">Randomize</button>
+    </div>
+    <div class="stage"><svg viewBox="0 0 640 480" id="svg"></svg></div>
+    <div class="readout" id="readout"></div>
+    <p class="hint">Drag the gold handle at the end of leg <b>a</b> (right) or leg <b>b</b> (up) to any grid mark. Every square updates live — the two smaller squares, built on the legs, always add up to the big tilted square built on the hypotenuse. That's a² + b² = c², seen instead of just stated.</p>
+  </main>
+<script>
+(() => {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.getElementById('svg');
+  const readout = document.getElementById('readout');
+  const W = 640, H = 480, S = 18;       // px per grid unit
+  const C = { x: 190, y: 300 };         // right-angle vertex (fixed)
+  const MIN_U = 2, MAX_U = 8;
+
+  function make(tag, attrs){ const n = document.createElementNS(NS, tag); for (const k in attrs) n.setAttribute(k, attrs[k]); svg.appendChild(n); return n; }
+  const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+
+  // ---- faint background grid ----
+  for (let x = 0; x <= W; x += S) make('line', { x1:x, y1:0, x2:x, y2:H, stroke:'#1a2136', 'stroke-width':1 });
+  for (let y = 0; y <= H; y += S) make('line', { x1:0, y1:y, x2:W, y2:y, stroke:'#1a2136', 'stroke-width':1 });
+
+  let a = 3, b = 4; // current leg lengths, in grid units
+
+  // ---- squares (drawn first, so the triangle sits on top) ----
+  const sqA = make('rect', { fill:'rgba(245,200,66,0.16)', stroke:'#f5c842', 'stroke-width':2 });
+  const sqB = make('rect', { fill:'rgba(245,200,66,0.16)', stroke:'#f5c842', 'stroke-width':2 });
+  const sqC = make('polygon', { fill:'rgba(126,224,129,0.16)', stroke:'#7ee081', 'stroke-width':2 });
+  const lblSqA = make('text', { 'font-size':16, 'font-family':'DM Mono, monospace', 'text-anchor':'middle', fill:'#f5c842' });
+  const lblSqB = make('text', { 'font-size':16, 'font-family':'DM Mono, monospace', 'text-anchor':'middle', fill:'#f5c842' });
+  const lblSqC = make('text', { 'font-size':16, 'font-family':'DM Mono, monospace', 'text-anchor':'middle', fill:'#7ee081' });
+
+  // ---- triangle ----
+  const tri = make('polygon', { fill:'rgba(139,92,246,0.18)', stroke:'#8b5cf6', 'stroke-width':4, 'stroke-linejoin':'round' });
+  const rightMark = make('path', { fill:'none', stroke:'#e8ecf3', 'stroke-width':2 });
+  const vC = make('circle', { r:6, fill:'#e8ecf3' });
+
+  // ---- side labels ----
+  const lblA = make('text', { 'font-size':18, 'font-family':'DM Mono, monospace', 'text-anchor':'middle', fill:'#e8ecf3' });
+  const lblB = make('text', { 'font-size':18, 'font-family':'DM Mono, monospace', 'text-anchor':'middle', fill:'#e8ecf3' });
+  const lblC = make('text', { 'font-size':18, 'font-family':'DM Mono, monospace', 'text-anchor':'middle', fill:'#e8ecf3' });
+
+  // ---- draggable handles: B controls leg a (horizontal), A controls leg b (vertical) ----
+  const handleB = make('circle', { r:12, fill:'#f5c842' });
+  const hitB = make('circle', { r:26, fill:'transparent', cursor:'grab' });
+  const handleA = make('circle', { r:12, fill:'#f5c842' });
+  const hitA = make('circle', { r:26, fill:'transparent', cursor:'grab' });
+
+  function simplifyRadical(n){
+    let rad = n, coeff = 1;
+    for (let p = 2; p * p <= rad; p++){
+      while (rad % (p * p) === 0){ rad /= (p * p); coeff *= p; }
+    }
+    return { coeff, rad };
+  }
+
+  function draw(){
+    const B = { x: C.x + a * S, y: C.y };
+    const A = { x: C.x, y: C.y - b * S };
+
+    vC.setAttribute('cx', C.x); vC.setAttribute('cy', C.y);
+    tri.setAttribute('points', `${A.x},${A.y} ${B.x},${B.y} ${C.x},${C.y}`);
+
+    // right-angle corner mark
+    rightMark.setAttribute('d', `M${C.x + 14},${C.y} L${C.x + 14},${C.y - 14} L${C.x},${C.y - 14}`);
+
+    // square on leg a (below CB)
+    sqA.setAttribute('x', C.x); sqA.setAttribute('y', C.y);
+    sqA.setAttribute('width', a * S); sqA.setAttribute('height', a * S);
+    lblSqA.setAttribute('x', C.x + a * S / 2); lblSqA.setAttribute('y', C.y + a * S / 2 + 6);
+    lblSqA.textContent = `a² = ${a * a}`;
+
+    // square on leg b (left of CA)
+    sqB.setAttribute('x', C.x - b * S); sqB.setAttribute('y', A.y);
+    sqB.setAttribute('width', b * S); sqB.setAttribute('height', b * S);
+    lblSqB.setAttribute('x', C.x - b * S / 2); lblSqB.setAttribute('y', A.y + b * S / 2 + 6);
+    lblSqB.textContent = `b² = ${b * b}`;
+
+    // square on hypotenuse AB, built on the side away from C
+    const dx = B.x - A.x, dy = B.y - A.y;
+    const len = Math.hypot(dx, dy);
+    const ux = dx / len, uy = dy / len;
+    let px = -uy, py = ux;
+    const mid = { x: (A.x + B.x) / 2, y: (A.y + B.y) / 2 };
+    const away = { x: mid.x - C.x, y: mid.y - C.y };
+    if (px * away.x + py * away.y < 0){ px = -px; py = -py; }
+    const A2 = { x: A.x + px * len, y: A.y + py * len };
+    const B2 = { x: B.x + px * len, y: B.y + py * len };
+    sqC.setAttribute('points', `${A.x},${A.y} ${B.x},${B.y} ${B2.x},${B2.y} ${A2.x},${A2.y}`);
+    const centroid = { x: (A.x + B.x + A2.x + B2.x) / 4, y: (A.y + B.y + A2.y + B2.y) / 4 };
+
+    const n = a * a + b * b;
+    const { coeff, rad } = simplifyRadical(n);
+    const exact = rad === 1 ? `${coeff}` : (coeff === 1 ? `√${rad}` : `${coeff}√${rad}`);
+
+    lblSqC.setAttribute('x', centroid.x); lblSqC.setAttribute('y', centroid.y + 6);
+    lblSqC.textContent = `c² = ${n}`;
+
+    // side length labels
+    lblA.setAttribute('x', (C.x + B.x) / 2); lblA.setAttribute('y', C.y - 8);
+    lblA.textContent = `a = ${a}`;
+    lblB.setAttribute('x', C.x - 22); lblB.setAttribute('y', (C.y + A.y) / 2 + 5);
+    lblB.textContent = `b = ${b}`;
+    lblC.setAttribute('x', (A.x + B.x) / 2 - 16); lblC.setAttribute('y', (A.y + B.y) / 2 - 10);
+    lblC.textContent = `c = ${exact}`;
+
+    // handles
+    handleB.setAttribute('cx', B.x); handleB.setAttribute('cy', B.y);
+    hitB.setAttribute('cx', B.x); hitB.setAttribute('cy', B.y);
+    handleA.setAttribute('cx', A.x); handleA.setAttribute('cy', A.y);
+    hitA.setAttribute('cx', A.x); hitA.setAttribute('cy', A.y);
+
+    const decimal = Math.sqrt(n).toFixed(2);
+    const decLine = rad === 1 ? '' : ` &asymp; ${decimal}`;
+    readout.innerHTML =
+      `a = <b>${a}</b>, b = <b>${b}</b> &rarr; a&sup2; + b&sup2; = ${a * a} + ${b * b} = <b>${n}</b> = c&sup2;<br>` +
+      `c = <span class="good">${exact}</span>${decLine} &mdash; the hypotenuse, found without ever measuring it directly.<br>` +
+      `The two smaller squares (${a * a} + ${b * b}) always add up to the big tilted square (${n}). That's a&sup2; + b&sup2; = c&sup2;.`;
+  }
+
+  // ---- drag handling ----
+  function toLocal(e){
+    const r = svg.getBoundingClientRect();
+    const cx = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+    const cy = (e.touches ? e.touches[0].clientY : e.clientY) - r.top;
+    return { x: cx / r.width * W, y: cy / r.height * H };
+  }
+  let dragging = null;
+  function down(which, e){ dragging = which; move(e); e.preventDefault(); }
+  function move(e){
+    if (!dragging) return;
+    const p = toLocal(e);
+    if (dragging === 'a'){
+      a = clamp(Math.round((p.x - C.x) / S), MIN_U, MAX_U);
+    } else {
+      b = clamp(Math.round((C.y - p.y) / S), MIN_U, MAX_U);
+    }
+    draw();
+    e.preventDefault();
+  }
+  function up(){ dragging = null; }
+
+  hitB.addEventListener('pointerdown', e => down('a', e));
+  hitA.addEventListener('pointerdown', e => down('b', e));
+  hitB.addEventListener('touchstart', e => down('a', e), { passive:false });
+  hitA.addEventListener('touchstart', e => down('b', e), { passive:false });
+  window.addEventListener('pointermove', move);
+  window.addEventListener('pointerup', up);
+  window.addEventListener('touchmove', move, { passive:false });
+  window.addEventListener('touchend', up);
+
+  document.getElementById('resetBtn').addEventListener('click', () => { a = 3; b = 4; draw(); });
+  document.getElementById('tripleBtn').addEventListener('click', () => { a = 6; b = 8; draw(); });
+  document.getElementById('randomBtn').addEventListener('click', () => {
+    a = MIN_U + Math.floor(Math.random() * (MAX_U - MIN_U + 1));
+    b = MIN_U + Math.floor(Math.random() * (MAX_U - MIN_U + 1));
+    draw();
+  });
+
+  draw();
+})();
+</script>
+</body>
+</html>

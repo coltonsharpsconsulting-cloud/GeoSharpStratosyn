@@ -1,0 +1,42 @@
+{
+  "id": "LP-W17-S2", "course": "geometry", "week": 17, "session": 2,
+  "session_type": "build", "lesson": "L15 — Volume of Pyramids, Cones, Prisms & Spheres",
+  "unit": "u02", "duration_min": 60, "mode": "Build",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 17 · Volume Hunt & Build — Cones, Pyramids & Spheres",
+  "essential_question": "Can you measure a real cone, pyramid, and sphere and compute each one's volume — and prove with your own hands that a pyramid holds exactly ⅓ of a matching prism?",
+  "objective": "Measure the dimensions of real (or 3D-printed/FreeCAD-modeled) cones, pyramids, and spheres — an ice-cream cone, a ball, a pyramid model — and compute each one's volume with the correct formula, then discover the ⅓ relationship hands-on by filling a pyramid-shaped container with rice, sand, or water and pouring it into a prism sharing the same base and height.",
+  "standards": ["G-GMD.A.3"],
+  "vocab": ["pyramid", "cone", "prism", "sphere", "apex", "altitude", "cubic units"],
+  "agenda": [
+    {"phase":"brief","min":6,"title":"Brief — From Formulas to Solids You Can Fill","board":"brief","content":{"heading":"From ⅓ on paper to rice in your hands","bullets":["Yesterday: learned that pyramids and cones hold exactly ⅓ the volume of a prism or cylinder sharing their base and height, and that a sphere's volume, 4⁄3πr³, stands completely on its own.","Today: measure a real cone, a real or modeled pyramid, and something spherical, then compute each one's volume — and discover the ⅓ relationship firsthand by pouring a pyramid-shaped container into a prism with the identical base and height.","The test: can you measure the altitude (not the slant height) and get a believable volume, and can you show — by pouring — that it takes exactly three pyramids-full to fill the matching prism?"]}},
+    {"phase":"plan","min":8,"title":"Plan — Read the Build Card","board":"plan","content":{"heading":"Gather + choose your path","note":"Open the project card. Gather a tape measure or ruler, a calculator, rice or sand (or water) for the pouring proof, and — if you're building your own pyramid and prism — paper, tape, and scissors, or FreeCAD. Decide which cone, pyramid, and spherical object you'll measure before you start."}},
+    {"phase":"build","min":25,"title":"Build — Measure, Compute & Pour","board":"build","content":{"heading":"Measure the world, then prove the ⅓ by hand","bullets":["Cone Hunt — measure a real cone (an ice-cream cone, a paper party hat, a funnel, a traffic cone): its radius and its altitude (not the slant edge running down the side).","Pyramid Hunt / Model — find or fold/print a pyramid (a paperweight, a tent, a paper pyramid, a FreeCAD or 3D-printed model) and measure its base and altitude.","Sphere Hunt — measure a ball's radius: wrap a string around its widest point for the circumference, divide by 2π, or measure straight across for the diameter and divide by 2.","Compute each volume with the correct formula, showing your work, in cubic units.","The ⅓ Discovery — build or gather a pyramid and a prism (or a cone and a cylinder) that share the exact same base and the exact same height. Fill the pyramid with rice, sand, or water and pour it into the prism. Repeat, and count how many pyramids-full it takes to fill the prism exactly."]}},
+    {"phase":"measure","min":12,"title":"Record Your Measurements","board":"measure","content":{"heading":"Get the numbers — and the pours — down","figure":"grid-blank","items":["m1","m2","m3"]}},
+    {"phase":"reflect","min":9,"title":"Reflect & Photograph","board":"reflect","content":{"items":["r1"],"preview":"Session 3: defend why a pyramid holds exactly ⅓ of a matching prism, review MUS Lesson Practice 15A/15B, and take the checkpoint."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can measure the correct dimensions (altitude, not slant height; radius, not diameter) of a real cone, pyramid, and sphere"},
+    {"id":"SC2","text":"I can compute the volume of a cone, a pyramid, and a sphere using the correct formula for each"},
+    {"id":"SC3","text":"I can demonstrate, by pouring, that a pyramid holds exactly ⅓ the volume of a prism sharing its base and height"}
+  ],
+  "assets": {
+    "project": {"note":"Curriculum/Geometry/Lessons/W17-S2/project-card.md"},
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W17-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W17 Volume of Pyramids, Cones & Spheres.md"},
+    "mus": {"practice":"MUS/L15 — Lesson Practice.pdf","review":"MUS/L15 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"measure","kind":"practice","title":"Record Your Measurements","items":["m1","m2","m3"]},
+      {"phase":"reflect","kind":"exit","title":"Reflect","items":["r1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"m1","type":"measure","sc":"SC1","points":2,"prompt":"List the cone, pyramid, and spherical object you worked with, and record every dimension you measured, with units (radius and altitude for the cone; base and altitude for the pyramid; radius for the sphere).","answer":"Any three honest, plausible measurements, e.g. ice-cream cone: r = 2.5 cm, h = 9 cm; paper pyramid: s = 8 cm, h = 10 cm; tennis ball: r = 3.3 cm.","explain":"Rubric: three named objects (cone, pyramid, sphere) with every needed dimension recorded and units (1 pt) + the right dimension chosen each time — altitude not slant height, radius not diameter (1 pt)."},
+    {"ref":"m2","type":"short","sc":"SC2","points":2,"prompt":"Using your recorded measurements, compute the volume of your cone, pyramid, and sphere, showing the formula and the numbers plugged in for each.","answer":"Cone: V = ⅓πr²h; Pyramid: V = ⅓Bh; Sphere: V = 4⁄3πr³ — each with the student's own numbers substituted and multiplied out, sphere rounded to the nearest hundredth.","explain":"Rubric: correct formula chosen for each shape (1 pt) + correct arithmetic producing a believable volume in cubic units for each (1 pt)."},
+    {"ref":"m3","type":"short","sc":"SC3","points":2,"prompt":"Describe your ⅓ pouring proof: what pyramid and prism (or cone and cylinder) did you use, how many pyramids-full did it take to exactly fill the prism, and did that match the ⅓ relationship?","answer":"Any honest description naming the two containers used and the pour count, e.g. 'I folded a paper pyramid and a paper box sharing a 4-inch square base and a 6-inch height, filled the pyramid with rice three times, and it filled the box exactly on the third pour — matching the ⅓ relationship.'","explain":"Full credit names the two matched containers, reports an honest pour count, and connects the result explicitly to the ⅓ relationship (three pyramids-full = one matching prism)."},
+    {"ref":"r1","type":"short","sc":"SC1","points":2,"prompt":"Reflect: which was harder — measuring a cone or pyramid's true altitude (not its slanted edge), or trusting that ⅓ actually belongs in the formula before you poured and checked it yourself? What convinced you the ⅓ relationship is real?"}
+  ]
+}

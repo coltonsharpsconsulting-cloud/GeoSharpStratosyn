@@ -1,0 +1,44 @@
+{
+  "id": "LP-W18-S3", "course": "geometry", "week": 18, "session": 3,
+  "session_type": "prove", "lesson": "L16 — Surface Area of Solids",
+  "unit": "u02", "duration_min": 60, "mode": "Prove",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 18 · Prove It — Surface Area of Solids",
+  "essential_question": "Why does a cylinder's curved side unroll into a perfect rectangle — and why does that rectangle's width have to equal 2πr?",
+  "objective": "Justify why a cylinder's lateral surface unrolls into a rectangle of width 2πr and why a net's face areas sum to a solid's total surface area, review the week's Math-U-See practice (Lesson Practice 16A & 16B), and pass the mastery checkpoint on surface area for rectangular solids and cylinders.",
+  "standards": ["G-GMD.A.3"],
+  "vocab": ["surface area", "net", "lateral area", "total surface area", "rectangular solid", "cylinder"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Redraw From Memory","board":"warmup","content":{"prompt":"Without looking, sketch the net of a rectangular solid (six connected rectangles) and the net of a cylinder (two circles and a rectangle), and mark a believable length/width/height (or radius/height) on each. Then say out loud, in your own words, why the cylinder's rectangle has to have one very specific width — not just any width you like."}},
+    {"phase":"review","min":12,"title":"Review — Your Math-U-See Work","board":"review","content":{"heading":"Go over Lesson Practice 16A & 16B together","note":"Bring your completed MUS Lesson Practice 16A/16B. We check the tricky ones: telling total surface area apart from lateral area, remembering a cylinder's two bases are congruent circles, the face-counting questions (rectangular solid vs. pyramid), and the fill-in-the-blank about which two measurements multiply to give a cylinder's lateral area. Fix any you missed and note WHY."}},
+    {"phase":"prove","min":16,"title":"Prove It — Reason Out Loud","board":"prove","content":{"heading":"Defend three claims","figure":"grid-blank","bullets":["Claim 1: total surface area is the sum of the areas of every face in the net. Argue it: if a net shows every face laid flat, uncut and unstretched, at its true size, why does adding up those flat areas have to equal exactly the area you'd need to cover the original solid?","Claim 2: a rectangular solid's total surface area is 2(lw+lh+wh) — never lwh (that's volume) and never just lw+lh+wh (forgetting the pairs). Argue it from the net: how many faces does a rectangular solid have, how are they paired up into congruent pairs, and why does each pair get multiplied by 2 rather than counted once?","Claim 3: a cylinder's curved (lateral) surface unrolls into a rectangle whose width is exactly the base circle's circumference, 2πr — never the diameter, and never the radius alone. Argue it: picture cutting straight down the side of a soup can's label and peeling it off flat — what has to be true about the label's width for it to wrap back around the can exactly once, with no gap and no overlap?"]}},
+    {"phase":"checkpoint","min":18,"title":"Mastery Checkpoint","board":"checkpoint","content":{"heading":"Show what you own","items":["c1","c2","c3","c4","c5","c6"]}},
+    {"phase":"close","min":8,"title":"Close & Set Mastery","board":"close","content":{"items":["x1"],"preview":"Next week, Lesson 17 — Simplifying Radicals — a new tool that gets square roots into exact form for the right-triangle work coming right after."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can state and use the total surface area formulas for a rectangular solid and a cylinder without help"},
+    {"id":"SC2","text":"I can justify why a cylinder's lateral surface unrolls into a rectangle of width 2πr, and why a net's face areas sum to the total surface area"},
+    {"id":"SC3","text":"I can distinguish lateral area from total surface area, and measure a real container's net correctly"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W18-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W18 Surface Area.md"},
+    "mus": {"practice":"MUS/L16 — Lesson Practice.pdf","review":"MUS/L16 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"checkpoint","kind":"check","title":"Mastery Checkpoint","items":["c1","c2","c3","c4","c5","c6"]},
+      {"phase":"close","kind":"exit","title":"Set Your Mastery","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"c1","type":"mc","sc":"SC1","points":1,"prompt":"A rectangular solid has length 7 m, width 3 m, and height 4 m. Its total surface area is…","options":["84 m²","61 m²","122 m²"],"answer":"122 m²","explain":"SA = 2(lw+lh+wh) = 2(21+28+12) = 2(61) = 122 m². (84 m² is the volume trap, l·w·h; 61 m² forgets to double the three face-pairs.)"},
+    {"ref":"c2","type":"dropdown","sc":"SC2","points":1,"prompt":"The curved side of a cylinder, unrolled flat, becomes a rectangle whose width equals the base circle's ___.","options":["radius","diameter","circumference"],"answer":"circumference","explain":"The unrolled label has to wrap exactly once around the can with no gap or overlap, so its width is the circle's circumference, 2πr."},
+    {"ref":"c3","type":"short","sc":"SC1","points":2,"prompt":"A cylinder has a radius of 3 cm and a height of 8 cm. Find its total surface area in terms of π, then estimate it as a decimal (π ≈ 3.14).","answer":"SA = 2π(3)² + 2π(3)(8) = 18π + 48π = 66π cm² ≈ 207.2 cm²","explain":"Two circles: 2πr² = 18π. Unrolled rectangle: 2πrh = 48π. Total = 66π ≈ 207.24, rounding to 207.2 cm²."},
+    {"ref":"c4","type":"measure","sc":"SC3","points":2,"prompt":"Measure the length, width, and height (or radius and height) of a real container near you right now (a mug, a shoebox, a tissue box) and compute its total surface area.","answer":"Any honest measured dimensions with units and a correctly computed total surface area, e.g. a mug r = 4 cm, h = 9 cm → SA = 2π(4)² + 2π(4)(9) = 32π + 72π = 104π ≈ 326.6 cm².","explain":"Rubric: dimensions measured and recorded with units, matching the container's actual shape (1 pt) + surface area correctly computed with the matching formula (1 pt)."},
+    {"ref":"c5","type":"dropdown","sc":"SC3","points":1,"prompt":"A drinking glass, open at the top with no lid, needs material equal to its lateral area PLUS…","options":["nothing else — lateral area alone is enough","one base (the bottom)","two bases (top and bottom)"],"answer":"one base (the bottom)","explain":"An open top means only the bottom base needs covering, so total material = lateral area + one base, not two."},
+    {"ref":"c6","type":"short","sc":"SC2","points":2,"prompt":"In your own words, explain why cutting a solid's net without stretching or overlapping any face guarantees that summing the net's face areas gives exactly the solid's total surface area, and use that idea to explain why a taller cylinder (same radius) always needs more lateral material than a shorter one with the same radius.","answer":"Because the net shows every face at its true, unstretched size with no piece counted twice or left out, adding those face areas has to equal exactly the area needed to cover the solid. A taller cylinder (same radius) has the same base circles but a longer unrolled rectangle — its height is greater while its width (the circumference, 2πr) stays the same — so its lateral area 2πrh must be larger.","explain":"Full credit connects 'a net preserves true size with no overlap or gap' directly to why summing face areas gives the exact total surface area, and applies it to compare two cylinders sharing a radius but differing in height."},
+    {"ref":"x1","type":"short","sc":"SC1","points":1,"prompt":"Close: rate yourself on Lesson 16 (Emerging / Proficient / Mastered) and name the one idea you'd want to revisit."}
+  ]
+}

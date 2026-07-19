@@ -1,0 +1,44 @@
+{
+  "id": "LP-W19-S3", "course": "geometry", "week": 19, "session": 3,
+  "session_type": "prove", "lesson": "L17 — Simplifying Radicals",
+  "unit": "u02", "duration_min": 60, "mode": "Prove",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 19 · Prove It — Simplifying Radicals",
+  "essential_question": "Why does pulling out the largest perfect square always give the fully simplified form — and why can only LIKE radicals ever combine?",
+  "objective": "Justify why factoring out the largest perfect-square factor produces the fully simplified radical, justify why only like radicals can be combined, review the week's Math-U-See practice, and pass the mastery checkpoint.",
+  "standards": ["N-RN.A.2"],
+  "vocab": ["radicand", "perfect square", "simplify", "like radicals", "coefficient"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Resimplify From Memory","board":"warmup","content":{"prompt":"Without looking anything up, simplify √72 and √48 from scratch. Then check your work against your concept note and your tile log from Session 2."}},
+    {"phase":"review","min":12,"title":"Review — Your Math-U-See Work","board":"review","content":{"heading":"Go over Lesson Practice 17A & 17B together","note":"Bring your completed MUS Lesson Practice 17A/17B. We check the tricky ones: the unlike-radical trap (5√2+3√5 can't combine), problems that need TWO simplifying steps, dividing radicals (numbers over numbers, radicals over radicals), and the fill-in-the-blank vocabulary (radical sign, perfect square). Fix any you missed and note WHY."}},
+    {"phase":"prove","min":16,"title":"Prove It — Reason Out Loud","board":"prove","content":{"heading":"Defend three claims","figure":"grid-blank","bullets":["Claim 1: √72 simplifies to 6√2, and no larger perfect square could have been pulled out. Argue it: list every perfect square that divides 72 evenly (1, 4, 9, 36) and show why 36 is the largest — and why nothing bigger is hiding in the leftover 2.","Claim 2: 5√2 and 3√5 can NEVER be combined into one term, no matter how you simplify them. Argue it from the definition of like radicals.","Claim 3: (3√2)(5√8) comes out to 60 with no radical left at all. Argue why multiplying two radicals can sometimes make the radical disappear completely."]}},
+    {"phase":"checkpoint","min":18,"title":"Mastery Checkpoint","board":"checkpoint","content":{"heading":"Show what you own","items":["c1","c2","c3","c4","c5","c6"]}},
+    {"phase":"close","min":8,"title":"Close & Set Mastery","board":"close","content":{"items":["x1"],"preview":"Next week, Lesson 18 — The Pythagorean Theorem — where these very radicals become the EXACT lengths of a right triangle's sides."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can simplify any radical to its simplest form and justify why no larger perfect square remains"},
+    {"id":"SC2","text":"I can justify why only like radicals combine, and correctly combine or refuse to combine given pairs"},
+    {"id":"SC3","text":"I can multiply two radicals and simplify the result, recognizing when the radical disappears entirely"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W19-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W19 Simplifying Radicals.md"},
+    "mus": {"practice":"MUS/L17 — Lesson Practice.pdf","review":"MUS/L17 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"checkpoint","kind":"check","title":"Mastery Checkpoint","items":["c1","c2","c3","c4","c5","c6"]},
+      {"phase":"close","kind":"exit","title":"Set Your Mastery","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"c1","type":"mc","sc":"SC1","points":1,"prompt":"√98 simplified is…","options":["7√2","2√49","49√2","14√7"],"answer":"7√2","explain":"98 = 49 × 2, and 49 is a perfect square (√49 = 7), so √98 = √(49×2) = 7√2."},
+    {"ref":"c2","type":"dropdown","sc":"SC2","points":1,"prompt":"Which pair are LIKE radicals?","options":["6√3 and 6√5","4√7 and 10√7","2√6 and 2√8"],"answer":"4√7 and 10√7","explain":"Like radicals must share the exact same radicand — both terms here have 7 under the root, so their coefficients (4 and 10) can combine."},
+    {"ref":"c3","type":"short","sc":"SC2","points":2,"prompt":"Combine: 9√3 + 2√3 − 4√3.","answer":"7√3","explain":"All three terms share the radicand 3, so just combine the coefficients: 9 + 2 − 4 = 7, giving 7√3."},
+    {"ref":"c4","type":"short","sc":"SC2","points":2,"prompt":"Simplify √8 first, then decide: can √8 and 5√2 be combined? If so, combine them.","answer":"√8 = √(4 × 2) = 2√2; since 2√2 and 5√2 are now like radicals, 2√2 + 5√2 = 7√2.","explain":"√8 looks unlike 5√2 until you simplify it — 4 is the largest perfect square dividing 8, revealing the shared radicand 2."},
+    {"ref":"c5","type":"mc","sc":"SC3","points":1,"prompt":"Multiply and simplify: (2√5)(2√5).","options":["4√5","4√10","10√5","20"],"answer":"20","explain":"Numbers times numbers: 2 × 2 = 4. Radicals times radicals: √5 × √5 = 5 (the identity √a×√a=a). 4 × 5 = 20 — the radical cancels entirely since 5 × 5 = 25, a perfect square."},
+    {"ref":"c6","type":"short","sc":"SC2","points":2,"prompt":"In your own words, explain why 6√7 and 3√5 can NEVER be combined into one term, no matter how you simplify them.","answer":"Their radicands (7 and 5) are already in simplest form and are different numbers — like radicals must share the exact same number under the root, and no amount of factoring can turn 7 into 5, so the two terms stay separate forever.","explain":"Full credit connects the impossibility to the radicands being different prime numbers with no perfect-square factor that could reconcile them."},
+    {"ref":"x1","type":"short","sc":"SC1","points":1,"prompt":"Close: rate yourself on Lesson 17 (Emerging / Proficient / Mastered) and name the one idea you'd want to revisit."}
+  ]
+}

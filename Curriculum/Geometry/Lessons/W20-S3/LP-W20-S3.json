@@ -1,0 +1,44 @@
+{
+  "id": "LP-W20-S3", "course": "geometry", "week": 20, "session": 3,
+  "session_type": "prove", "lesson": "L18 — The Pythagorean Theorem",
+  "unit": "u02", "duration_min": 60, "mode": "Prove",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 20 · Prove It — The Pythagorean Theorem",
+  "essential_question": "Why does a² + b² = c² actually work, and how can its converse tell you a triangle is right before you ever swing a protractor?",
+  "objective": "Justify why a² + b² = c² using the area/square argument, apply the converse of the Pythagorean theorem to determine whether a triangle is right, review the week's Math-U-See practice, and pass the mastery checkpoint on the Pythagorean theorem.",
+  "standards": ["G-SRT.C.8"],
+  "vocab": ["right triangle", "leg", "hypotenuse", "Pythagorean theorem", "converse", "radical"],
+  "agenda": [
+    {"phase":"warmup","min":6,"title":"Warm-Up — Redraw From Memory","board":"warmup","content":{"prompt":"Without looking, draw a right triangle, label its legs a and b and its hypotenuse c, and write the Pythagorean theorem from memory. Then explain out loud, in your own words, why the theorem only works on a RIGHT triangle."}},
+    {"phase":"review","min":12,"title":"Review — Your Math-U-See Work","board":"review","content":{"heading":"Go over Lesson Practice 18A & 18B together","note":"Bring your completed MUS Lesson Practice 18A/18B. We check the tricky ones: keeping radical answers in simplest form instead of a rounded decimal, remembering the converse always compares against the LONGEST of the three sides, and the 'estimate first' step from the Systematic Review. Fix any you missed and note WHY."}},
+    {"phase":"prove","min":16,"title":"Prove It — Reason Out Loud","board":"prove","content":{"heading":"Defend three claims","figure":"grid-blank","bullets":["Claim 1: a² + b² = c² is true for every right triangle. Argue it from the area/square picture: build a square of side (a+b) two ways — once as four copies of the right triangle around a tilted square of side c, once as the two smaller squares a² and b² plus the same four triangles. What does that force to be true?","Claim 2: the converse works: if a² + b² = c² for three lengths (c the longest), the triangle they form must be right. Argue why a triangle with those three side lengths couldn't possibly close up at any other angle at that vertex.","Claim 3: sides 6, 7, and 9 do NOT form a right triangle, even though they close into a real triangle. Argue it — what does the converse actually check, and how is that different from the triangle inequality?"]}},
+    {"phase":"checkpoint","min":18,"title":"Mastery Checkpoint","board":"checkpoint","content":{"heading":"Show what you own","items":["c1","c2","c3","c4","c5","c6"]}},
+    {"phase":"close","min":8,"title":"Close & Set Mastery","board":"close","content":{"items":["x1"],"preview":"Next week, Lesson 19 — Rationalizing Denominators — where you clear radicals out of the bottom of a fraction, a skill that will make hypotenuse and leg answers even cleaner to work with."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can identify the legs and hypotenuse of a right triangle and state the Pythagorean theorem without help"},
+    {"id":"SC2","text":"I can find a missing side of a right triangle using a² + b² = c², keeping radical answers in simplest form"},
+    {"id":"SC3","text":"I can use the converse of the Pythagorean theorem to justify whether a triangle is right"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W20-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W20 The Pythagorean Theorem.md"},
+    "mus": {"practice":"MUS/L18 — Lesson Practice.pdf","review":"MUS/L18 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"checkpoint","kind":"check","title":"Mastery Checkpoint","items":["c1","c2","c3","c4","c5","c6"]},
+      {"phase":"close","kind":"exit","title":"Set Your Mastery","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"c1","type":"mc","sc":"SC1","points":1,"prompt":"In a right triangle, the side opposite the right angle is called the…","options":["leg","hypotenuse","vertex"],"answer":"hypotenuse","explain":"The hypotenuse is the side across from the 90° angle, and it's always the longest of the three sides."},
+    {"ref":"c2","type":"dropdown","sc":"SC1","points":1,"prompt":"The Pythagorean theorem states a² + b² = ___","options":["a + b","c","c²"],"answer":"c²","explain":"The squares of the two legs add up to the square of the hypotenuse — not the hypotenuse itself, its square."},
+    {"ref":"c3","type":"short","sc":"SC2","points":2,"prompt":"A right triangle has legs measuring 8 and 15. Find the length of the hypotenuse.","answer":"17","explain":"c = √(8² + 15²) = √(64 + 225) = √289 = 17."},
+    {"ref":"c4","type":"short","sc":"SC2","points":2,"prompt":"A right triangle has a hypotenuse of 12 and one leg of 6. Find the exact length of the other leg, simplifying the radical.","answer":"6√3","explain":"The other leg = √(12² − 6²) = √(144 − 36) = √108 = √(36 · 3) = 6√3."},
+    {"ref":"c5","type":"measure","sc":"SC2","points":2,"figure":"grid-blank","prompt":"The figure shows a right triangle with legs 6 and 8 units marked on the grid. Use a ruler to measure the hypotenuse directly on the page, then check: does your measurement match c = √(6² + 8²) = 10?","answer":"≈10 units, matching the computed c = 10","explain":"Rubric: accept any ruler measurement within about half a unit of 10 — this confirms a² + b² = c² is a real, checkable length (36 + 64 = 100 = 10²), not just algebra."},
+    {"ref":"c6","type":"short","sc":"SC3","points":2,"prompt":"In your own words, explain how you can tell whether a triangle with three given side lengths is a right triangle WITHOUT measuring any angles.","answer":"Square the two shorter sides and add them; square the longest side. If the two results are equal, the triangle is right — that's the converse of the Pythagorean theorem.","explain":"Full credit names the converse: comparing (shorter)² + (shorter)² to (longest)² and checking for equality."},
+    {"ref":"x1","type":"short","sc":"SC1","points":1,"prompt":"Close: rate yourself on Lesson 18 (Emerging / Proficient / Mastered) and name the one idea you'd want to revisit."}
+  ]
+}

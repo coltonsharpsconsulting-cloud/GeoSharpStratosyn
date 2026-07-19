@@ -1,0 +1,47 @@
+{
+  "id": "LP-W18-S1", "course": "geometry", "week": 18, "session": 1,
+  "session_type": "concept", "lesson": "L16 — Surface Area of Solids",
+  "unit": "u02", "duration_min": 60, "mode": "Concept",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 18 · Surface Area — Nets, Rectangular Solids & Cylinders",
+  "essential_question": "If volume tells you how much space is inside a solid, what tells you exactly how much material it takes to cover its outside?",
+  "objective": "State that total surface area is the sum of the areas of all of a solid's faces, unfold a solid into its net to find each face's area, and apply SA = 2(lw+lh+wh) for a rectangular solid and SA = 2πr² + 2πrh for a cylinder, distinguishing lateral area from total surface area.",
+  "standards": ["G-GMD.A.3"],
+  "vocab": ["surface area", "net", "lateral area", "total surface area", "face", "rectangular solid", "cylinder"],
+  "agenda": [
+    {"phase":"launch","min":6,"title":"Launch — Wrapping the Box","board":"launch","content":{"prompt":"Picture wrapping a birthday gift, or peeling the paper label off a soup can. Without unrolling or unfolding anything yet, what do you think you'd need to know to cut the material to EXACTLY the right size — no more, no less?"}},
+    {"phase":"i_do","min":12,"title":"I do — Unfold It, Then Add Up Every Face","board":"i_do","content":{"heading":"A net turns a solid into flat shapes you already know","figure":"grid-blank","bullets":["Total surface area is the sum of the areas of ALL of a solid's faces — every flat (or unrolled) surface, counted once and added together.","A net is what you get when you cut a solid along its edges and unfold it completely flat — every face keeps its true size and shape, just laid out side by side.","A rectangular solid's net is six rectangles in three congruent pairs: top & bottom (l·w), front & back (l·h), and two sides (w·h) — so SA = 2lw + 2lh + 2wh = 2(lw + lh + wh).","A cylinder's net is two circles (the top and bottom bases, each πr²) plus one rectangle (the curved side unrolled flat), whose width equals the base's circumference 2πr and whose height equals the cylinder's height — so SA = 2πr² + 2πrh.","Lateral area is the area of the SIDES ONLY, with no bases included; total surface area is lateral area PLUS the area of the base(s)."]}},
+    {"phase":"explore","min":8,"title":"Explore — Unfold the Solid, Watch the Faces Add Up","board":"explore","content":{"heading":"Drag the dimensions; press Unfold","figure":"grid-blank","note":"On the sim, choose Box or Cylinder. Drag the dimension sliders, then press Unfold to Net to watch the solid open flat. Read each face's area, then watch them sum into the total surface area readout. Predict the total before you press Unfold, then check."}},
+    {"phase":"check","min":5,"title":"Check for Understanding","board":"check","content":{"heading":"Net Check","items":["n1","n2"]}},
+    {"phase":"you_do","min":12,"title":"You do — Compute the Surface Area","board":"you_do","content":{"heading":"Your turn on the worksheet","items":["p1","p2","p3","p4"]}},
+    {"phase":"exit","min":5,"title":"Exit Ticket","board":"exit","content":{"items":["x1"],"preview":"Build session: unfold real boxes and cans into their nets and measure exactly how much cardboard or label material each one needs."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can state that total surface area is the sum of the areas of all of a solid's faces, and describe how a net unfolds a solid to show them"},
+    {"id":"SC2","text":"I can find the surface area of a rectangular solid using SA = 2(lw+lh+wh)"},
+    {"id":"SC3","text":"I can find the surface area of a cylinder using SA = 2πr² + 2πrh, and explain the difference between lateral area and total surface area"}
+  ],
+  "assets": {
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W18-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W18 Surface Area.md"},
+    "mus": {"practice":"MUS/L16 — Lesson Practice.pdf","review":"MUS/L16 — Systematic Review.pdf"},
+    "interactive": {"slug":"surface-net","note":"Curriculum/Geometry/Lessons/W18-S1/sims/surface-net.html"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"check","kind":"check","title":"Net Check","items":["n1","n2"]},
+      {"phase":"practice","kind":"practice","title":"Compute the Surface Area","items":["p1","p2","p3","p4"]},
+      {"phase":"exit","kind":"exit","title":"Exit Ticket","items":["x1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"n1","type":"dropdown","sc":"SC1","points":1,"prompt":"Cutting a solid along its edges and unfolding it completely flat produces its…","options":["volume","net","lateral area","perimeter"],"answer":"net","explain":"A net is a solid's faces unfolded flat along its edges, with every face shown at its true size."},
+    {"ref":"n2","type":"mc","sc":"SC1","points":1,"prompt":"Total surface area is found by…","options":["multiplying the base area by the height","adding the areas of all the faces","multiplying the perimeter by the height"],"answer":"adding the areas of all the faces","explain":"Surface area is a sum of face areas, not a base-times-height product — that formula is for volume."},
+    {"ref":"p1","type":"short","sc":"SC2","points":2,"prompt":"A rectangular solid has length 8 cm, width 5 cm, and height 6 cm. Find its total surface area.","answer":"236 cm²","explain":"SA = 2(lw+lh+wh) = 2(8·5 + 8·6 + 5·6) = 2(40+48+30) = 2(118) = 236 cm²."},
+    {"ref":"p2","type":"short","sc":"SC3","points":2,"prompt":"A cylinder has a radius of 4 ft and a height of 10 ft. Find its total surface area in terms of π, then estimate it as a decimal (use π ≈ 3.14).","answer":"SA = 2π(4)² + 2π(4)(10) = 32π + 80π = 112π ft² ≈ 351.7 ft²","explain":"Two circles: 2πr² = 32π. Unrolled rectangle: 2πrh = 80π. Total = 112π ≈ 351.68, rounding to 351.7 ft²."},
+    {"ref":"p3","type":"mc","sc":"SC3","points":1,"prompt":"A cardboard tube, open at both ends (no top or bottom circles), needs material equal to its…","options":["lateral area only","total surface area","volume"],"answer":"lateral area only","explain":"With no bases to cover, only the curved side needs material — that's the lateral area, 2πrh."},
+    {"ref":"p4","type":"construct","sc":"SC1","points":2,"figure":"grid-blank","prompt":"On the grid, sketch the net of a rectangular solid with length 4, width 3, and height 2 — six rectangles laid out flat and connected at their shared edges. Label each rectangle's dimensions.","answer":"Six connected rectangles: two 4×3 (top/bottom), two 4×2 (front/back), and two 3×2 (sides), arranged as an unfolded box.","explain":"Rubric: six rectangles shown unfolded and connected at shared edges (1 pt) + each pair correctly dimensioned — 4×3, 4×2, 3×2 (1 pt)."},
+    {"ref":"x1","type":"short","sc":"SC2","points":2,"prompt":"Exit: name one real object that needs its surface covered exactly — wrapping paper for a box, a label for a can, paint for a wall — and say whether it's closer to a rectangular solid or a cylinder, and which measurements you'd need to find its surface area."}
+  ]
+}

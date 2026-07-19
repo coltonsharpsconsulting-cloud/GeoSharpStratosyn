@@ -1,0 +1,42 @@
+{
+  "id": "LP-W19-S2", "course": "geometry", "week": 19, "session": 2,
+  "session_type": "build", "lesson": "L17 — Simplifying Radicals",
+  "unit": "u02", "duration_min": 60, "mode": "Build",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 19 · Perfect-Square Tiles Lab",
+  "essential_question": "Can you SEE why 36 is a 'perfect' square — and physically pull it out of a pile of 72 tiles?",
+  "objective": "Build physical square arrays to identify perfect squares, use unit tiles to factor a radicand into its largest perfect-square block plus a remainder, and match radicals to their simplified forms in a card sort.",
+  "standards": ["N-RN.A.2"],
+  "vocab": ["perfect square", "radicand", "factor", "like radicals", "simplify"],
+  "agenda": [
+    {"phase":"brief","min":6,"title":"Brief — From Formula to Tiles","board":"brief","content":{"heading":"From yesterday's rule to real squares","bullets":["Yesterday: simplified radicals on paper by pulling out the largest perfect square.","Today: build real square arrays of tiles to SEE why some tile counts form a perfect square and others don't.","The test: can you physically split 72 tiles into a complete square block plus leftovers — BEFORE you write a single formula step?"]}},
+    {"phase":"plan","min":8,"title":"Plan — Read the Build Card","board":"plan","content":{"heading":"Gather + plan","note":"Open the project card. Gather your unit tiles (or cut 1-inch graph-paper squares), scissors, index cards for the sort, a marker, and a ruler. Decide which radicand you'll factor first."}},
+    {"phase":"build","min":25,"title":"Build — Tile It, Factor It, Sort It","board":"build","content":{"heading":"Perfect squares you can hold","bullets":["Build square arrays: arrange unit tiles into every square array you can, from 1×1 up through 6×6 or bigger, recording each total — that total IS a perfect square.","Factor a radicand physically: count out 72 tiles. Arrange the largest complete square block you can (you should land on a 6×6 block, 36 tiles) — whatever won't fit into that block is your remainder.","Repeat for at least two more radicands from the project card's list (try 48 and 50), each time recording the block's side length and the leftover tile count.","Card sort: match each radical card (like √12, √18, √45) to its simplified-form card (2√3, 3√2, 3√5…) by naming the perfect-square factor you pulled out."]}},
+    {"phase":"measure","min":12,"title":"Record Your Tile Counts & Sort","board":"measure","content":{"heading":"Get the splits down","figure":"grid-blank","items":["m1","m2","m3"]}},
+    {"phase":"reflect","min":9,"title":"Reflect & Photograph","board":"reflect","content":{"items":["r1"],"preview":"Session 3: defend why the largest-perfect-square method always gives the simplest form, then the checkpoint."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can build perfect-square tile arrays and explain why they have no leftover tiles"},
+    {"id":"SC2","text":"I can physically factor a radicand into a perfect-square block plus a remainder and translate that into simplified radical form"},
+    {"id":"SC3","text":"I can match radicals to their simplified forms and name the perfect-square factor each pair used"}
+  ],
+  "assets": {
+    "project": {"note":"Curriculum/Geometry/Lessons/W19-S2/project-card.md"},
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W19-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W19 Simplifying Radicals.md"},
+    "mus": {"practice":"MUS/L17 — Lesson Practice.pdf","review":"MUS/L17 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"measure","kind":"practice","title":"Tile Log & Card Sort","items":["m1","m2","m3"]},
+      {"phase":"reflect","kind":"exit","title":"Reflect","items":["r1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"m1","type":"measure","sc":"SC1","points":2,"prompt":"Build at least four different perfect-square tile arrays (for example 3×3, 4×4, 5×5, 6×6). Record each array's side length and total tile count.","answer":"Example: 3×3 = 9 tiles, 4×4 = 16 tiles, 5×5 = 25 tiles, 6×6 = 36 tiles — each total is a perfect square because the tiles form a complete square with no leftovers.","explain":"Rubric: at least four arrays built and recorded (1 pt) + correct side-length-to-tile-count matches (1 pt)."},
+    {"ref":"m2","type":"short","sc":"SC2","points":2,"prompt":"Use 72 tiles. Build the largest complete square block you can. Record the block's side length, how many tiles it used, and how many tiles were left over — then write √72 in simplified form using your results.","answer":"6×6 block = 36 tiles used, 2 tiles left over → √72 = √(36 × 2) = 6√2.","explain":"Rubric: correct largest block found (6×6, 36 tiles) with 2 left over (1 pt) + correctly translated into 6√2 (1 pt)."},
+    {"ref":"m3","type":"short","sc":"SC3","points":2,"prompt":"From your card sort, list three radical/simplified-form pairs you matched and name the perfect-square factor you pulled out for each.","answer":"Example: √12 → 2√3 (pulled out 4); √18 → 3√2 (pulled out 9); √45 → 3√5 (pulled out 9).","explain":"Rubric: three correct pairs (1 pt) + the correct perfect-square factor named for each (1 pt)."},
+    {"ref":"r1","type":"short","sc":"SC2","points":2,"prompt":"Reflect: which radicand was hardest to physically factor into a perfect-square block, and what did arranging the tiles by hand teach you that the formula alone didn't?"}
+  ]
+}

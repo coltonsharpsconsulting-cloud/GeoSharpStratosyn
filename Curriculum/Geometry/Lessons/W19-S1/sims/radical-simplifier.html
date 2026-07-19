@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Simplifying Radicals — Sim</title>
+<style>
+  :root{--void:#0d1322;--ink:#161d31;--bone:#e8ecf3;--mist:#9aabd0;--accent:#8b5cf6;--gold:#f5c842;--border:#2a3142;--good:#7ee081;--warn:#f2665a}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--void);color:var(--bone);font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;min-height:100%}
+  header{padding:2vh 4vw;border-bottom:1px solid var(--border);background:var(--ink)}
+  .eyebrow{font-family:"DM Mono",ui-monospace,monospace;letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--accent)}
+  h1{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(20px,3vw,30px);margin-top:.3rem}
+  main{flex:1;display:flex;flex-direction:column;align-items:center;gap:1.6vh;padding:3vh 4vw 5vh}
+  section{width:100%;max-width:760px;display:flex;flex-direction:column;align-items:center;gap:1.4vh}
+  .controls{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;align-items:center}
+  button{font-family:"DM Mono",ui-monospace,monospace;font-size:14px;background:var(--ink);color:var(--bone);border:1px solid var(--border);border-radius:999px;padding:.6rem 1.2rem;cursor:pointer}
+  button.on{border-color:var(--accent);color:var(--accent)}
+  button:hover{border-color:var(--mist)}
+  input[type=number]{font-family:"DM Mono",ui-monospace,monospace;font-size:16px;background:var(--ink);color:var(--bone);border:1px solid var(--border);border-radius:8px;padding:.5rem .6rem;width:6.5em}
+  .radicand-input{display:flex;align-items:center;gap:.4rem;font-family:"DM Mono",monospace;font-size:20px;color:var(--mist)}
+  .stage{width:100%;background:var(--ink);border:1px solid var(--border);border-radius:16px;padding:3vh 3vw;display:flex;flex-direction:column;align-items:center;gap:1.2vh;min-height:14vh;justify-content:center}
+  .tree-row{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;justify-content:center}
+  .tree-box{font-family:"DM Mono",ui-monospace,monospace;font-size:clamp(17px,2.6vw,24px);background:var(--void);border:1px solid var(--border);border-radius:10px;padding:.5rem .9rem}
+  .tree-box.sq{border-color:var(--gold);color:var(--gold)}
+  .tree-box.rem{border-color:var(--accent);color:var(--accent)}
+  .tree-box.final-box{border-color:var(--good);color:var(--good);font-size:clamp(20px,3vw,28px)}
+  .tree-arrow,.tree-op{font-family:"DM Mono",monospace;font-size:18px;color:var(--mist)}
+  .note-line{font-family:"DM Mono",ui-monospace,monospace;font-size:14px;color:var(--mist);text-align:center;max-width:60ch}
+  .readout{font-family:"DM Mono",ui-monospace,monospace;font-size:clamp(14px,2vw,17px);color:var(--mist);text-align:center;line-height:1.6}
+  .readout b{color:var(--gold)}
+  .readout .good{color:var(--good);font-weight:bold}
+  .readout .warn{color:var(--warn);font-weight:bold}
+  .hint{color:var(--mist);font-size:14px;max-width:62ch;text-align:center}
+  .check-yourself{width:100%;border-top:1px dashed var(--border);padding-top:1.6vh;display:flex;flex-direction:column;align-items:center;gap:.8rem}
+  .check-row{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;justify-content:center;font-family:"DM Mono",monospace;font-size:18px;color:var(--mist)}
+  .check-row input{width:5.5em}
+  .feedback{font-family:"DM Mono",ui-monospace,monospace;font-size:14px;text-align:center;max-width:56ch;min-height:1.4em}
+  .feedback.good{color:var(--good)}
+  .feedback.warn{color:var(--warn)}
+  .feedback.mid{color:var(--gold)}
+  .squares-ref{width:100%;border-top:1px dashed var(--border);padding-top:1.4vh;display:flex;flex-direction:column;align-items:center;gap:.6rem}
+  .chips{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center}
+  .chip{font-family:"DM Mono",ui-monospace,monospace;font-size:13px;background:var(--ink);border:1px solid var(--border);border-radius:999px;padding:.3rem .7rem;color:var(--mist)}
+  .chip.factor{border-color:var(--gold);color:var(--gold)}
+  .chip.used{background:var(--gold);color:var(--void);font-weight:bold}
+  .combine-stage{flex-direction:row;gap:1.2rem}
+  .term{font-family:"DM Mono",ui-monospace,monospace;font-size:clamp(22px,3.4vw,32px);background:var(--void);border:1px solid var(--border);border-radius:12px;padding:.8rem 1.2rem;color:var(--accent)}
+  .plusop{font-family:"DM Mono",monospace;font-size:24px;color:var(--mist)}
+</style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Geometry · Lesson 17 · sim</div>
+    <h1>Pull out the perfect square. Read the simplified radical.</h1>
+  </header>
+  <main>
+    <div class="controls" id="modes">
+      <button data-mode="simplify" class="on">Simplify</button>
+      <button data-mode="combine">Combine</button>
+    </div>
+
+    <section id="simplifyPanel">
+      <div class="controls">
+        <button id="prevBtn">‹ Prev</button>
+        <div class="radicand-input">&radic;<input id="radicandInput" type="number" min="2" max="999" step="1" value="72"><button id="goBtn">Go</button></div>
+        <button id="nextBtn">Next ›</button>
+        <button id="randomBtn">Random</button>
+      </div>
+      <div class="stage" id="tree"></div>
+      <p class="hint" id="simplifyHint">Step through the presets with Prev / Next, type your own radicand and hit Go, or hit Random. Watch the largest perfect-square factor split off on its own.</p>
+
+      <div class="check-yourself">
+        <p class="hint">Check yourself — write your own simplified form for &radic;<b id="checkN">72</b>:</p>
+        <div class="check-row">
+          <input id="coeffInput" type="number" placeholder="coeff" step="1">
+          <span>&radic;</span>
+          <input id="radInput" type="number" placeholder="radicand" step="1">
+          <button id="checkBtn">Check</button>
+        </div>
+        <div class="feedback" id="checkFeedback"></div>
+      </div>
+
+      <div class="squares-ref">
+        <p class="hint">Perfect squares reference (gold = divides the current radicand; filled = the one pulled out):</p>
+        <div class="chips" id="squareChips"></div>
+      </div>
+    </section>
+
+    <section id="combinePanel" hidden>
+      <div class="stage combine-stage">
+        <div class="term" id="termA"></div>
+        <div class="plusop" id="opSign">+</div>
+        <div class="term" id="termB"></div>
+      </div>
+      <div class="controls">
+        <button id="revealBtn">Reveal</button>
+        <button id="newPairBtn">New Pair</button>
+      </div>
+      <div class="readout" id="combineReadout"></div>
+      <p class="hint">Decide BEFORE you hit Reveal: are these like radicals or not? Some pairs need simplifying first before you can tell.</p>
+    </section>
+  </main>
+
+<script>
+(() => {
+  // ---------------- shared math ----------------
+  function largestSquareFactor(n){
+    let best = 1;
+    for (let k = 2; k*k <= n; k++){
+      if (n % (k*k) === 0) best = k*k;
+    }
+    return best;
+  }
+  function simplify(n){
+    const sq = largestSquareFactor(n);
+    return { sq, coeff: Math.sqrt(sq), rem: n / sq };
+  }
+  function fmtTerm(coeff, rem){
+    if (rem === 1) return String(coeff);
+    return (coeff === 1 ? '' : String(coeff)) + '√' + rem;
+  }
+
+  const PERFECT_SQUARES = [1,4,9,16,25,36,49,64,81,100,121,144,169,196,225];
+  const PRESETS = [8,12,14,18,20,24,27,32,45,48,49,50,63,72,75,80,98,108,150,200,300];
+
+  // ---------------- mode switching ----------------
+  const simplifyPanel = document.getElementById('simplifyPanel');
+  const combinePanel = document.getElementById('combinePanel');
+  document.getElementById('modes').addEventListener('click', e => {
+    const m = e.target.dataset.mode;
+    if (!m) return;
+    [...document.querySelectorAll('#modes button')].forEach(b => b.classList.toggle('on', b.dataset.mode === m));
+    simplifyPanel.hidden = m !== 'simplify';
+    combinePanel.hidden = m !== 'combine';
+  });
+
+  // ---------------- Simplify panel ----------------
+  const radicandInput = document.getElementById('radicandInput');
+  const tree = document.getElementById('tree');
+  const simplifyHint = document.getElementById('simplifyHint');
+  const checkN = document.getElementById('checkN');
+  const coeffInput = document.getElementById('coeffInput');
+  const radInput = document.getElementById('radInput');
+  const checkFeedback = document.getElementById('checkFeedback');
+  const squareChips = document.getElementById('squareChips');
+
+  let presetIndex = PRESETS.indexOf(72);
+  let currentN = 72;
+
+  function clampInt(v, lo, hi){
+    v = Math.round(Number(v));
+    if (!Number.isFinite(v)) return null;
+    return Math.max(lo, Math.min(hi, v));
+  }
+
+  function renderTree(n){
+    const { sq, coeff, rem } = simplify(n);
+    tree.innerHTML = '';
+    if (sq === 1){
+      tree.innerHTML =
+        '<div class="tree-row"><div class="tree-box">√' + n + '</div></div>' +
+        '<p class="note-line">No perfect square (other than 1) divides ' + n + ' evenly — this radical is already in simplest form.</p>';
+    } else if (rem === 1){
+      tree.innerHTML =
+        '<div class="tree-row">' +
+          '<div class="tree-box">√' + n + '</div><div class="tree-arrow">=</div>' +
+          '<div class="tree-box sq">√' + sq + '</div>' +
+        '</div>' +
+        '<div class="tree-row"><div class="tree-arrow">=</div><div class="tree-box final-box">' + coeff + '</div></div>' +
+        '<p class="note-line">' + n + ' is ITSELF a perfect square — the radical disappears completely, leaving the whole number ' + coeff + '.</p>';
+    } else {
+      tree.innerHTML =
+        '<div class="tree-row">' +
+          '<div class="tree-box">√' + n + '</div><div class="tree-arrow">=</div>' +
+          '<div class="tree-box">√(' + sq + ' &times; ' + rem + ')</div>' +
+        '</div>' +
+        '<div class="tree-row">' +
+          '<div class="tree-arrow">=</div>' +
+          '<div class="tree-box sq">√' + sq + '</div><div class="tree-op">&times;</div><div class="tree-box rem">√' + rem + '</div>' +
+        '</div>' +
+        '<div class="tree-row"><div class="tree-arrow">=</div><div class="tree-box final-box">' + fmtTerm(coeff, rem) + '</div></div>' +
+        '<p class="note-line">' + sq + ' is the LARGEST perfect square dividing ' + n + ' evenly (' + n + ' ÷ ' + sq + ' = ' + rem + ').</p>';
+    }
+  }
+
+  function renderChips(n){
+    squareChips.innerHTML = '';
+    const { sq } = simplify(n);
+    PERFECT_SQUARES.forEach(ps => {
+      const div = document.createElement('div');
+      const divides = n % ps === 0;
+      div.className = 'chip' + (divides ? ' factor' : '') + (ps === sq && sq > 1 ? ' used' : '');
+      div.textContent = ps;
+      squareChips.appendChild(div);
+    });
+  }
+
+  function render(n){
+    currentN = n;
+    radicandInput.value = n;
+    checkN.textContent = n;
+    coeffInput.value = '';
+    radInput.value = '';
+    checkFeedback.textContent = '';
+    checkFeedback.className = 'feedback';
+    renderTree(n);
+    renderChips(n);
+  }
+
+  document.getElementById('prevBtn').addEventListener('click', () => {
+    presetIndex = (presetIndex - 1 + PRESETS.length) % PRESETS.length;
+    render(PRESETS[presetIndex]);
+  });
+  document.getElementById('nextBtn').addEventListener('click', () => {
+    presetIndex = (presetIndex + 1) % PRESETS.length;
+    render(PRESETS[presetIndex]);
+  });
+  document.getElementById('goBtn').addEventListener('click', () => {
+    const v = clampInt(radicandInput.value, 2, 999);
+    if (v === null) { simplifyHint.textContent = 'Enter a whole number between 2 and 999.'; return; }
+    simplifyHint.textContent = 'Step through the presets with Prev / Next, type your own radicand and hit Go, or hit Random. Watch the largest perfect-square factor split off on its own.';
+    render(v);
+  });
+  document.getElementById('randomBtn').addEventListener('click', () => {
+    render(2 + Math.floor(Math.random() * 298));
+  });
+  radicandInput.addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('goBtn').click(); });
+
+  document.getElementById('checkBtn').addEventListener('click', () => {
+    const n = currentN;
+    const cRaw = coeffInput.value.trim();
+    const rRaw = radInput.value.trim();
+    const c = cRaw === '' ? 1 : Number(cRaw);
+    const r = rRaw === '' ? NaN : Number(rRaw);
+    if (!Number.isInteger(c) || !Number.isInteger(r) || c < 0 || r <= 0){
+      checkFeedback.textContent = 'Enter positive whole numbers — a coefficient (or leave blank for 1) and a radicand.';
+      checkFeedback.className = 'feedback warn';
+      return;
+    }
+    const value = c * c * r;
+    if (value !== n){
+      checkFeedback.textContent = (c === 1 ? '√' + r : c + '√' + r) + ' is not equivalent to √' + n + ' — check your arithmetic (coefficient² × radicand should equal ' + n + ').';
+      checkFeedback.className = 'feedback warn';
+      return;
+    }
+    const rFactor = largestSquareFactor(r);
+    if (rFactor > 1){
+      const subCoeff = Math.sqrt(rFactor);
+      checkFeedback.textContent = 'Correct value, but not fully simplified — ' + r + ' still has a perfect-square factor (' + rFactor + '). √' + r + ' = ' + subCoeff + '√' + (r / rFactor) + ', so keep going.';
+      checkFeedback.className = 'feedback mid';
+      return;
+    }
+    if (r === 1){
+      checkFeedback.textContent = 'Correct — since the radicand simplifies all the way to 1, √' + n + ' is just the whole number ' + c + '. No radical needed at all.';
+    } else {
+      checkFeedback.textContent = 'Correct! √' + n + ' = ' + fmtTerm(c, r) + ' — fully simplified.';
+    }
+    checkFeedback.className = 'feedback good';
+  });
+
+  render(72);
+
+  // ---------------- Combine panel ----------------
+  const FAMILIES = [
+    [2, 8, 18, 32, 50, 72, 98, 128],
+    [3, 12, 27, 48, 75, 108],
+    [5, 20, 45, 80, 125, 180],
+    [6, 24, 54, 96, 150],
+    [7, 28, 63, 112],
+    [10, 40, 90, 160]
+  ];
+
+  const termAEl = document.getElementById('termA');
+  const termBEl = document.getElementById('termB');
+  const opSignEl = document.getElementById('opSign');
+  const combineReadout = document.getElementById('combineReadout');
+
+  let pairA, pairB, opSym;
+
+  function pick(arr){ return arr[Math.floor(Math.random() * arr.length)]; }
+
+  function newPair(){
+    const sameFamily = Math.random() < 0.55;
+    const famA = pick(FAMILIES);
+    const radA = pick(famA);
+    let radB;
+    if (sameFamily){
+      radB = pick(famA);
+    } else {
+      let famB;
+      do { famB = pick(FAMILIES); } while (famB === famA);
+      radB = pick(famB);
+    }
+    const coeffA = 1 + Math.floor(Math.random() * 8);
+    const coeffB = 1 + Math.floor(Math.random() * 8);
+    opSym = Math.random() < 0.7 ? '+' : '−';
+    pairA = { coeff: coeffA, rad: radA };
+    pairB = { coeff: coeffB, rad: radB };
+    opSignEl.textContent = opSym;
+    termAEl.textContent = fmtTerm(pairA.coeff, pairA.rad);
+    termBEl.textContent = fmtTerm(pairB.coeff, pairB.rad);
+    combineReadout.innerHTML = '';
+  }
+
+  document.getElementById('newPairBtn').addEventListener('click', newPair);
+  document.getElementById('revealBtn').addEventListener('click', () => {
+    const sa = simplify(pairA.rad);
+    const sb = simplify(pairB.rad);
+    const coeffA2 = pairA.coeff * sa.coeff;
+    const coeffB2 = pairB.coeff * sb.coeff;
+    const simpA = fmtTerm(coeffA2, sa.rem);
+    const simpB = fmtTerm(coeffB2, sb.rem);
+    const stepA = sa.sq > 1
+      ? fmtTerm(pairA.coeff, pairA.rad) + ' = ' + simpA
+      : simpA + ' (already simplest form)';
+    const stepB = sb.sq > 1
+      ? fmtTerm(pairB.coeff, pairB.rad) + ' = ' + simpB
+      : simpB + ' (already simplest form)';
+    let html = '<div>' + stepA + '</div><div>' + stepB + '</div>';
+    if (sa.rem === sb.rem){
+      const combinedCoeff = opSym === '+' ? coeffA2 + coeffB2 : coeffA2 - coeffB2;
+      html += '<div class="good">Same radicand (' + sa.rem + ') → LIKE radicals. ' +
+              simpA + ' ' + opSym + ' ' + simpB + ' = <b>' + fmtTerm(combinedCoeff, sa.rem) + '</b></div>';
+    } else {
+      html += '<div class="warn">Different radicands (' + sa.rem + ' vs ' + sb.rem + ') → UNLIKE radicals. These can never combine — the answer stays ' +
+              simpA + ' ' + opSym + ' ' + simpB + '.</div>';
+    }
+    combineReadout.innerHTML = html;
+  });
+
+  newPair();
+})();
+</script>
+</body>
+</html>

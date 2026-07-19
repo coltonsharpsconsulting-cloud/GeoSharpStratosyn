@@ -1,0 +1,42 @@
+{
+  "id": "LP-W20-S2", "course": "geometry", "week": 20, "session": 2,
+  "session_type": "build", "lesson": "L18 — The Pythagorean Theorem",
+  "unit": "u02", "duration_min": 60, "mode": "Build",
+  "teacher": "Colton", "student": "Stephen Salas",
+  "banner": "Week 20 · 3-4-5 String Lab",
+  "essential_question": "Does a triangle built from string at exactly 3, 4, and 5 units always close into a real right angle — and does a² + b² = c² hold up when you measure the real world?",
+  "objective": "Build a 3-4-5 right triangle from string and confirm it forms a true right angle, then measure a real right angle (a ramp, a door brace, a corner) and check that its three side lengths satisfy a² + b² = c² within measurement tolerance.",
+  "standards": ["G-SRT.C.8"],
+  "vocab": ["right triangle", "leg", "hypotenuse", "Pythagorean theorem", "converse", "right angle"],
+  "agenda": [
+    {"phase":"brief","min":6,"title":"Brief — From Numbers to the Real World","board":"brief","content":{"heading":"From the equation on paper to a right angle you can check","bullets":["Yesterday: stated a² + b² = c² and used it to find missing sides, keeping radicals simplified.","Today: build a real 3-4-5 triangle from string and confirm it truly makes a right angle, then test the rule against a right angle you measure in real life.","The test: does the math predict the angle before you ever check it with a square?"]}},
+    {"phase":"plan","min":8,"title":"Plan — Read the Build Card","board":"plan","content":{"heading":"Gather + plan","note":"Open the project card. Gather string or twine, a tape measure or ruler, tape or a marker for knots, and a protractor or carpenter's square. Decide where you'll mark 3, 4, and 5 units along your string, and pick one real right angle around your home to measure afterward."}},
+    {"phase":"build","min":25,"title":"Build & Test","board":"build","content":{"heading":"String triangle, then a real-world check","bullets":["String Triangle — mark your string (or a length of rope) at 3, 4, and 5 equal units, tie it into a loop, and pull it taut at three points to form a triangle.","Check the angle where the 3-unit and 4-unit sides meet with a protractor or a carpenter's square — is it 90°?","Real Right Angle — find one real right angle around your home (a ramp, a door-frame brace, a ladder against a wall, a corner shelf bracket) and measure its two legs and its hypotenuse.","Compute a² + b² and c² for your real measurement and compare."]}},
+    {"phase":"measure","min":12,"title":"Record Your Test","board":"measure","content":{"heading":"Get the numbers down","figure":"grid-blank","items":["m1","m2","m3"]}},
+    {"phase":"reflect","min":9,"title":"Reflect & Photograph","board":"reflect","content":{"items":["r1"],"preview":"Session 3: defend why a² + b² = c² actually works and use the converse to test if a triangle is right, then the checkpoint."}}
+  ],
+  "success_criteria": [
+    {"id":"SC1","text":"I can build a 3-4-5 triangle from string and confirm it forms a true right angle"},
+    {"id":"SC2","text":"I can measure a real right angle's legs and hypotenuse and check that a² + b² = c² within measurement tolerance"},
+    {"id":"SC3","text":"I can identify which of three measured lengths must be the hypotenuse before doing any math"}
+  ],
+  "assets": {
+    "project": {"note":"Curriculum/Geometry/Lessons/W20-S2/project-card.md"},
+    "concept_note": {"note":"Curriculum/Geometry/Lessons/W20-S1/concept-note.md"},
+    "compass": {"date":"","note":"Curriculum/Geometry/The Salas Compass/2026-W20 The Pythagorean Theorem.md"},
+    "mus": {"practice":"MUS/L18 — Lesson Practice.pdf","review":"MUS/L18 — Systematic Review.pdf"}
+  },
+  "activity": {
+    "submit": {"mode":"download","format":"pdf"},
+    "sections": [
+      {"phase":"measure","kind":"practice","title":"Test Log & Measurement","items":["m1","m2","m3"]},
+      {"phase":"reflect","kind":"exit","title":"Reflect","items":["r1"]}
+    ]
+  },
+  "questions": [
+    {"ref":"m1","type":"measure","sc":"SC1","points":2,"prompt":"Build a 3-4-5 triangle from string or rope marked at 3, 4, and 5 equal units, pull it taut into a triangle, and measure the angle where the 3-unit and 4-unit sides meet with a protractor or carpenter's square. Record the angle.","answer":"≈90° (a right angle)","explain":"Because 3² + 4² = 9 + 16 = 25 = 5², the converse of the Pythagorean theorem guarantees this triangle must be a right triangle — your measured angle should land at (or very near) 90°."},
+    {"ref":"m2","type":"short","sc":"SC2","points":2,"prompt":"Measure the two legs and the hypotenuse of a real right angle around your home. Record all three lengths, then compute a² + b² and c² and compare.","answer":"Any honestly measured trio where a² + b² comes out close to c² (allowing for ruler and rounding error), e.g. legs 6 in and 8 in, hypotenuse ≈10 in → 36 + 64 = 100 = 10².","explain":"Rubric: three measured lengths recorded (1 pt) + a² + b² computed and compared to c², with a reasonable real-world match (1 pt)."},
+    {"ref":"m3","type":"short","sc":"SC3","points":1,"prompt":"Before doing any math, which of your three measured lengths did you expect to be the hypotenuse, and how did you know?","answer":"The longest of the three, and the one opposite the right angle.","explain":"The hypotenuse is always the longest side of a right triangle and always sits opposite the 90° angle — you can spot it before any computation."},
+    {"ref":"r1","type":"short","sc":"SC2","points":2,"prompt":"Reflect: how close did your real-world measurement come to a² + b² = c² exactly, and what do you think caused any gap — the theorem, or your ruler?"}
+  ]
+}
