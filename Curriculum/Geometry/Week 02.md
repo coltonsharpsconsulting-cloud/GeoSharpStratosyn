@@ -8,10 +8,10 @@ tags:
 kind: week
 quarter: Q1
 unit: u01
-start: 2026-08-24
-end: 2026-08-30
-date: 2026-08-24
-endDate: 2026-08-30
+start: 2026-08-10
+end: 2026-08-16
+date: 2026-08-10
+endDate: 2026-08-16
 allDay: true
 title: "W02"
 topic: "Points, Lines, Rays & Segments"

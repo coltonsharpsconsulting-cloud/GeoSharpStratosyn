@@ -8,10 +8,10 @@ tags:
 kind: week
 quarter: Q4
 unit: u03
-start: 2027-04-19
-end: 2027-04-25
-date: 2027-04-19
-endDate: 2027-04-25
+start: 2027-04-05
+end: 2027-04-11
+date: 2027-04-05
+endDate: 2027-04-11
 allDay: true
 title: "W36"
 topic: "Catch-Up & Reteach"

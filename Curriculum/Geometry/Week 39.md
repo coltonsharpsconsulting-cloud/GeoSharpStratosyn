@@ -8,10 +8,10 @@ tags:
 kind: week
 quarter: Q4
 unit: u03
-start: 2027-05-10
-end: 2027-05-16
-date: 2027-05-10
-endDate: 2027-05-16
+start: 2027-04-26
+end: 2027-05-02
+date: 2027-04-26
+endDate: 2027-05-02
 allDay: true
 title: "W39"
 topic: "Capstone Build"

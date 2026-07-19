@@ -8,10 +8,10 @@ tags:
 kind: week
 quarter: Q1
 unit: u01
-start: 2026-10-05
-end: 2026-10-11
-date: 2026-10-05
-endDate: 2026-10-11
+start: 2026-09-21
+end: 2026-09-27
+date: 2026-09-21
+endDate: 2026-09-27
 allDay: true
 title: "W08"
 topic: "Polygons & Interior/Exterior Angles"

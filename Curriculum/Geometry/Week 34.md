@@ -8,10 +8,10 @@ tags:
 kind: week
 quarter: Q4
 unit: u03
-start: 2027-04-05
-end: 2027-04-11
-date: 2027-04-05
-endDate: 2027-04-11
+start: 2027-03-22
+end: 2027-03-28
+date: 2027-03-22
+endDate: 2027-03-28
 allDay: true
 title: "W34"
 topic: "Transformations & Symmetry"

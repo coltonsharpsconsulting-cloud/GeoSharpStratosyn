@@ -8,10 +8,10 @@ tags:
 kind: week
 quarter: Q4
 unit: u03
-start: 2027-03-15
-end: 2027-03-21
-date: 2027-03-15
-endDate: 2027-03-21
+start: 2027-03-01
+end: 2027-03-07
+date: 2027-03-01
+endDate: 2027-03-07
 allDay: true
 title: "W31"
 topic: "Two-Column Proof & Geometric Reasoning"

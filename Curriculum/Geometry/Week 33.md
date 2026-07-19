@@ -8,10 +8,10 @@ tags:
 kind: week
 quarter: Q4
 unit: u03
-start: 2027-03-29
-end: 2027-04-04
-date: 2027-03-29
-endDate: 2027-04-04
+start: 2027-03-15
+end: 2027-03-21
+date: 2027-03-15
+endDate: 2027-03-21
 allDay: true
 title: "W33"
 topic: "Coordinate Geometry: Midpoint, Distance & Slope"

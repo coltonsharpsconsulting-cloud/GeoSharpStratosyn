@@ -8,10 +8,10 @@ tags:
 kind: week
 quarter: Q2
 unit: u02
-start: 2026-12-21
-end: 2026-12-27
-date: 2026-12-21
-endDate: 2026-12-27
+start: 2026-12-07
+end: 2026-12-13
+date: 2026-12-07
+endDate: 2026-12-13
 allDay: true
 title: "W19"
 topic: "Special Right Triangles (45-45-90, 30-60-90)"

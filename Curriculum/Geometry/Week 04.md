@@ -8,10 +8,10 @@ tags:
 kind: week
 quarter: Q1
 unit: u01
-start: 2026-09-07
-end: 2026-09-13
-date: 2026-09-07
-endDate: 2026-09-13
+start: 2026-08-24
+end: 2026-08-30
+date: 2026-08-24
+endDate: 2026-08-30
 allDay: true
 title: "W04"
 topic: "Angles & Angle Measure"

@@ -8,10 +8,10 @@ tags:
 kind: week
 quarter: Q3
 unit: u03
-start: 2027-02-01
-end: 2027-02-07
-date: 2027-02-01
-endDate: 2027-02-07
+start: 2027-01-18
+end: 2027-01-24
+date: 2027-01-18
+endDate: 2027-01-24
 allDay: true
 title: "W25"
 topic: "Solving Right Triangles & Inverse Trig"

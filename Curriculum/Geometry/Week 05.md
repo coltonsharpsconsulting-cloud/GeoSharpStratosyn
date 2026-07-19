@@ -8,10 +8,10 @@ tags:
 kind: week
 quarter: Q1
 unit: u01
-start: 2026-09-14
-end: 2026-09-20
-date: 2026-09-14
-endDate: 2026-09-20
+start: 2026-08-31
+end: 2026-09-06
+date: 2026-08-31
+endDate: 2026-09-06
 allDay: true
 title: "W05"
 topic: "Angle Pairs & Bisectors"

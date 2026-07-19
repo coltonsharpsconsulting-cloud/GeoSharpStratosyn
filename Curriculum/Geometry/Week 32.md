@@ -8,10 +8,10 @@ tags:
 kind: week
 quarter: Q4
 unit: u03
-start: 2027-03-22
-end: 2027-03-28
-date: 2027-03-22
-endDate: 2027-03-28
+start: 2027-03-08
+end: 2027-03-14
+date: 2027-03-08
+endDate: 2027-03-14
 allDay: true
 title: "W32"
 topic: "Circles: Chords, Tangents, Arcs & Inscribed Angles"

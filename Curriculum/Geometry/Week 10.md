@@ -8,10 +8,10 @@ tags:
 kind: week
 quarter: Q1
 unit: u01
-start: 2026-10-19
-end: 2026-10-25
-date: 2026-10-19
-endDate: 2026-10-25
+start: 2026-10-05
+end: 2026-10-11
+date: 2026-10-05
+endDate: 2026-10-11
 allDay: true
 title: "W10"
 topic: "Quadrilaterals & Their Properties"

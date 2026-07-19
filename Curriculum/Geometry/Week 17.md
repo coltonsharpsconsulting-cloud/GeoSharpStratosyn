@@ -8,10 +8,10 @@ tags:
 kind: week
 quarter: Q2
 unit: u02
-start: 2026-12-07
-end: 2026-12-13
-date: 2026-12-07
-endDate: 2026-12-13
+start: 2026-11-23
+end: 2026-11-29
+date: 2026-11-23
+endDate: 2026-11-29
 allDay: true
 title: "W17"
 topic: "The Distance Formula & Coordinate Basics"

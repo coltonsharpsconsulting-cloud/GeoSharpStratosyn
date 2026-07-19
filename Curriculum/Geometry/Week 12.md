@@ -8,10 +8,10 @@ tags:
 kind: week
 quarter: Q2
 unit: u01
-start: 2026-11-02
-end: 2026-11-08
-date: 2026-11-02
-endDate: 2026-11-08
+start: 2026-10-19
+end: 2026-10-25
+date: 2026-10-19
+endDate: 2026-10-25
 allDay: true
 title: "W12"
 topic: "Unit 01 Studio, Review & MUS Unit Test I"

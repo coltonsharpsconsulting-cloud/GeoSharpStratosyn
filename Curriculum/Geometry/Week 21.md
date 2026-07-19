@@ -8,10 +8,10 @@ tags:
 kind: week
 quarter: Q3
 unit: u02
-start: 2027-01-04
-end: 2027-01-10
-date: 2027-01-04
-endDate: 2027-01-10
+start: 2026-12-21
+end: 2026-12-27
+date: 2026-12-21
+endDate: 2026-12-27
 allDay: true
 title: "W21"
 topic: "Similar Triangles & Proportional Parts"

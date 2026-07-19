@@ -8,10 +8,10 @@ tags:
 kind: week
 quarter: Q3
 unit: u02
-start: 2027-01-18
-end: 2027-01-24
-date: 2027-01-18
-endDate: 2027-01-24
+start: 2027-01-04
+end: 2027-01-10
+date: 2027-01-04
+endDate: 2027-01-10
 allDay: true
 title: "W23"
 topic: "Catch-Up & Reteach"

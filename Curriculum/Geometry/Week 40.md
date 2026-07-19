@@ -8,10 +8,10 @@ tags:
 kind: week
 quarter: Q4
 unit: u03
-start: 2027-05-17
-end: 2027-05-23
-date: 2027-05-17
-endDate: 2027-05-23
+start: 2027-05-03
+end: 2027-05-09
+date: 2027-05-03
+endDate: 2027-05-09
 allDay: true
 title: "W40"
 topic: "Portfolio Show & Transcript Close"

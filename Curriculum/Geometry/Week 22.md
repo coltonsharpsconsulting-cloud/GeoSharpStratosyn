@@ -8,10 +8,10 @@ tags:
 kind: week
 quarter: Q3
 unit: u02
-start: 2027-01-11
-end: 2027-01-17
-date: 2027-01-11
-endDate: 2027-01-17
+start: 2026-12-28
+end: 2027-01-03
+date: 2026-12-28
+endDate: 2027-01-03
 allDay: true
 title: "W22"
 topic: "Unit 02 Studio, Review & MUS Unit Test II"

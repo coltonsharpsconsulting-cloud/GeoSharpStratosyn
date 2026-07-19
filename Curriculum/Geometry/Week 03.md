@@ -8,10 +8,10 @@ tags:
 kind: week
 quarter: Q1
 unit: u01
-start: 2026-08-31
-end: 2026-09-06
-date: 2026-08-31
-endDate: 2026-09-06
+start: 2026-08-17
+end: 2026-08-23
+date: 2026-08-17
+endDate: 2026-08-23
 allDay: true
 title: "W03"
 topic: "Planes & Sets (Union & Intersection)"

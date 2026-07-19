@@ -8,10 +8,10 @@ tags:
 kind: week
 quarter: Q2
 unit: u02
-start: 2026-11-30
-end: 2026-12-06
-date: 2026-11-30
-endDate: 2026-12-06
+start: 2026-11-16
+end: 2026-11-22
+date: 2026-11-16
+endDate: 2026-11-22
 allDay: true
 title: "W16"
 topic: "The Pythagorean Theorem"

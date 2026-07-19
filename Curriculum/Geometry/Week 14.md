@@ -8,10 +8,10 @@ tags:
 kind: week
 quarter: Q2
 unit: u02
-start: 2026-11-16
-end: 2026-11-22
-date: 2026-11-16
-endDate: 2026-11-22
+start: 2026-11-02
+end: 2026-11-08
+date: 2026-11-02
+endDate: 2026-11-08
 allDay: true
 title: "W14"
 topic: "Area of Triangles & Trapezoids"

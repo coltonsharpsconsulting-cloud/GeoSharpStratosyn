@@ -8,10 +8,10 @@ tags:
 kind: week
 quarter: Q3
 unit: u03
-start: 2027-01-25
-end: 2027-01-31
-date: 2027-01-25
-endDate: 2027-01-31
+start: 2027-01-11
+end: 2027-01-17
+date: 2027-01-11
+endDate: 2027-01-17
 allDay: true
 title: "W24"
 topic: "Right-Triangle Trigonometry (sin, cos, tan)"

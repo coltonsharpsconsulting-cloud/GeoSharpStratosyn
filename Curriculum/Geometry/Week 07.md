@@ -8,10 +8,10 @@ tags:
 kind: week
 quarter: Q1
 unit: u01
-start: 2026-09-28
-end: 2026-10-04
-date: 2026-09-28
-endDate: 2026-10-04
+start: 2026-09-14
+end: 2026-09-20
+date: 2026-09-14
+endDate: 2026-09-20
 allDay: true
 title: "W07"
 topic: "Triangles & the Angle-Sum Theorem"

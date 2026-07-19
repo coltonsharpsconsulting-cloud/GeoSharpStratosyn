@@ -8,10 +8,10 @@ tags:
 kind: week
 quarter: Q1
 unit: u01
-start: 2026-10-12
-end: 2026-10-18
-date: 2026-10-12
-endDate: 2026-10-18
+start: 2026-09-28
+end: 2026-10-04
+date: 2026-09-28
+endDate: 2026-10-04
 allDay: true
 title: "W09"
 topic: "Congruent Triangles (SSS, SAS, ASA)"

@@ -8,10 +8,10 @@ tags:
 kind: week
 quarter: Q1
 unit: u01
-start: 2026-09-21
-end: 2026-09-27
-date: 2026-09-21
-endDate: 2026-09-27
+start: 2026-09-07
+end: 2026-09-13
+date: 2026-09-07
+endDate: 2026-09-13
 allDay: true
 title: "W06"
 topic: "Parallel & Perpendicular Lines; Transversals"

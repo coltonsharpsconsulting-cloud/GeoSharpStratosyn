@@ -8,10 +8,10 @@ tags:
 kind: week
 quarter: Q3
 unit: u03
-start: 2027-02-15
-end: 2027-02-21
-date: 2027-02-15
-endDate: 2027-02-21
+start: 2027-02-01
+end: 2027-02-07
+date: 2027-02-01
+endDate: 2027-02-07
 allDay: true
 title: "W27"
 topic: "Surface Area of Prisms, Cylinders, Pyramids & Cones"

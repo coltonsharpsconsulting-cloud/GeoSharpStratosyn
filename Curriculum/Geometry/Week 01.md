@@ -8,10 +8,10 @@ tags:
 kind: week
 quarter: Q1
 unit: u01
-start: 2026-08-17
-end: 2026-08-23
-date: 2026-08-17
-endDate: 2026-08-23
+start: 2026-08-03
+end: 2026-08-09
+date: 2026-08-03
+endDate: 2026-08-09
 allDay: true
 title: "W01"
 topic: "Orientation & Toolkit"

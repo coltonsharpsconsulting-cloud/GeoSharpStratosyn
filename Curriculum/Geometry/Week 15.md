@@ -8,10 +8,10 @@ tags:
 kind: week
 quarter: Q2
 unit: u02
-start: 2026-11-23
-end: 2026-11-29
-date: 2026-11-23
-endDate: 2026-11-29
+start: 2026-11-09
+end: 2026-11-15
+date: 2026-11-09
+endDate: 2026-11-15
 allDay: true
 title: "W15"
 topic: "Circles: Circumference & Area (π)"

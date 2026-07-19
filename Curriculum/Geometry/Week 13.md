@@ -8,10 +8,10 @@ tags:
 kind: week
 quarter: Q2
 unit: u02
-start: 2026-11-09
-end: 2026-11-15
-date: 2026-11-09
-endDate: 2026-11-15
+start: 2026-10-26
+end: 2026-11-01
+date: 2026-10-26
+endDate: 2026-11-01
 allDay: true
 title: "W13"
 topic: "Area of Rectangles & Parallelograms"

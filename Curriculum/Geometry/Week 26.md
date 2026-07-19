@@ -8,10 +8,10 @@ tags:
 kind: week
 quarter: Q3
 unit: u03
-start: 2027-02-08
-end: 2027-02-14
-date: 2027-02-08
-endDate: 2027-02-14
+start: 2027-01-25
+end: 2027-01-31
+date: 2027-01-25
+endDate: 2027-01-31
 allDay: true
 title: "W26"
 topic: "Angles of Elevation & Depression"

@@ -8,10 +8,10 @@ tags:
 kind: week
 quarter: Q4
 unit: u03
-start: 2027-05-03
-end: 2027-05-09
-date: 2027-05-03
-endDate: 2027-05-09
+start: 2027-04-19
+end: 2027-04-25
+date: 2027-04-19
+endDate: 2027-04-25
 allDay: true
 title: "W38"
 topic: "Year-End Final (review + MUS Final Exam)"
